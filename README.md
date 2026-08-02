@@ -47,6 +47,10 @@ cd backend
 uv run pytest tests/ -x -q                                 # test suite
 uv run python scripts/ablation_study.py                    # per-node
 uv run python scripts/ablation_hierarchy.py                # structural
+uv run python scripts/pure_mwa_ablation.py                 # Table 8 (pure-MWA ablation)
+uv run python scripts/m5_no_edmonds_ablation.py            # post-hoc ablation (voting+repair, no Edmonds)
+uv run python scripts/multi_seed_evaluate.py               # extraction stochasticity (multi-seed)
+uv run python scripts/bootstrap_ci.py                      # 95% CI on gold Overall (10k stratified bootstrap)
 uv run python scripts/zero_shot_baseline.py --novel xiyouji
 uv run python scripts/single_shot_cot_baseline.py --both
 uv run python scripts/graphrag_style_baseline.py           # aggregation baselines
@@ -70,8 +74,11 @@ Five Chinese classical novels, per-novel errata JSON under `backend/data/hierarc
 
 Each node annotated with entity validity, name accuracy, tier, parent, and structural-error categories.
 
+The gold annotations are released under **CC BY 4.0** (see `backend/data/hierarchy_validation/LICENSE`).
+
 ---
 
 ## License
 
-AGPL v3 (see `LICENSE`).
+- Code: **AGPL v3** (see `LICENSE`).
+- Gold annotations (`backend/data/hierarchy_validation/`): **CC BY 4.0**.
