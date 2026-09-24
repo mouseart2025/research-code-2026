@@ -1,0 +1,69 @@
+{
+  "novel": "诡秘之主 (Lord of the Mysteries, 爱潜水的乌贼, 起点精校版)",
+  "novel_id": "9acf853a1d8d51b9a9dc3dbd056ad69a",
+  "date": "2026-09-24",
+  "edition_note": "GBK/CRLF → UTF-8(/tmp/guimi/full.txt, GB18030 转码零错误);自适应切分 chapter_zh 模式 1395 章(含序章 139 字)",
+  "chapters_analyzed": 1395,
+  "extractor": {
+    "choice": "deepseek-chat (MiniMax DashScope 400 product not activated;Anthropic 403;按决策链降级)",
+    "pilot": "3 章(ch2-4)质量过检:音译地名层级正确(北大陆>鲁恩王国>阿霍瓦郡>廷根市),组织名/序列词未误入地点;单价 $0.008/章",
+    "cost_estimate_usd": 11.43,
+    "cost_actual_usd": 13.45,
+    "tokens": {
+      "input": 29002295,
+      "output": 5106700
+    },
+    "elapsed_s": 6340.1,
+    "failures": 0
+  },
+  "pipeline": "v0.78 full chain tier→votes→prior→edmonds→auditor→suffix→purify + apply (auditor 剔除 16 违规;purify 90ms)",
+  "metrics": {
+    "unique_locations": 853,
+    "total_parents": 852,
+    "avg_depth": 4.8,
+    "max_depth": 12,
+    "max_children": 118,
+    "max_children_node": "贝克兰德(首都,最大真实枢纽;次为 主世界 36/拜亚姆 34/廷根市 22/东区 22)",
+    "roots": 1,
+    "cycles": 0,
+    "determinism_edge_diff": 0,
+    "depth_distribution": {
+      "1": 1,
+      "2": 36,
+      "3": 121,
+      "4": 269,
+      "5": 196,
+      "6": 117,
+      "7": 56,
+      "8": 26,
+      "9": 15,
+      "10": 6,
+      "11": 8,
+      "12": 1
+    },
+    "shape": "多国度多城市,层级峰值在第 4 层(269/852),比安娜(峰值 3 层)更深;uber root 为 世界(region_division 声明)"
+  },
+  "location_density": {
+    "per_10k_chars": 1.8,
+    "text_chars": 4751464,
+    "note": "1.80/10K,为目前跨体裁 8 行中最低密度(网文大基数效应;凡修 5.75 按 ws 全集口径不可直接比,见 anna JSON 对照)"
+  },
+  "provenance_extractors": [
+    {
+      "claim": "论文 v071 冻结抽取 = Claude Sonnet 4(原始数据不可考)"
+    },
+    {
+      "current_db": "5 本金标书+6 本跨体裁 facts = MiniMax-M2.5/2.7(投稿前须统一口径)"
+    },
+    {
+      "anna": "Kimi 代理直抽(llm_model=kimi-agent)"
+    },
+    {
+      "guimi": "deepseek-chat 直抽 1395 章(llm_model=deepseek-chat;MiniMax/Anthropic 均不可用后的授权降级)"
+    }
+  ],
+  "known_issues": [
+    "TierClassifier 在无 ws 纯起点静默 no-op:诡秘(无先验)ws tiers 近空(1 条),HierarchyMetrics 的 depth 类指标不可用;本次 depth 全部按 parents 链长手工口径(与凡修/安娜一致)。立项:TierClassifier 应从 votes 快照分类",
+    "pilot 发现 1 例 suffix-rank 方向假象(廷根市 vs 阿霍瓦郡:rank 表 市(2)>郡(3),语义上 郡>市),下游 votes 仲裁;属已知边界"
+  ]
+}

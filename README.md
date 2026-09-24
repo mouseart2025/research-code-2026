@@ -106,12 +106,16 @@ The evaluation stack involves three extraction sources, kept distinct on purpose
    uses one frozen extraction set throughout (`paper/data/frozen_extractions.db`,
    `llm_model=MiniMax-M2.7`). The v0.78 refresh changed the *aggregation* pipeline only;
    extractions were not re-generated for the refresh.
-2. **Cross-genre novels.** The six contemporary/translated novels in the cross-genre table
+2. **Cross-genre novels.** The eight contemporary/translated novels in the cross-genre table
    (sci-fi, wuxia, LOTR, realism, xianxia web serial) were extracted with MiniMax-M2.5/2.7
    and are used for structural validation only (no gold).
 3. **Anna Karenina boundary case.** Extracted by an in-house direct-extraction agent
    (no external LLM API; `llm_model=kimi-agent`) and merged over the pre-existing
    MiniMax-extracted copy; originals are preserved in `fact_json_original`.
+4. **Lord of the Mysteries (steampunk-occult web serial).** Extracted with DeepSeek
+   (`deepseek-chat`, `llm_model=deepseek-chat`, 1,395 chapters) after the primary
+   vendor endpoints proved unavailable; per-chapter cost and quality logs in
+   `paper/evaluation/cross-genre-guimi-2026-09-24.json`.
 
 A cross-LLM check with a second vendor's model (DeepSeek V3, July 2026) confirmed the
 structural guarantees are extractor-independent (`evaluation/v071/cross-llm/`).
