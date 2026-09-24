@@ -1,0 +1,384 @@
+{
+  "characters": [
+    {
+      "name": "雨村",
+      "description": "贾雨村，曾任官职，因案革职，后复职任应天府"
+    },
+    {
+      "name": "张如圭",
+      "description": "当日同僚一案参革者，本系此地人"
+    },
+    {
+      "name": "冷子兴",
+      "description": "为雨村献计之人"
+    },
+    {
+      "name": "林如海",
+      "description": "黛玉之父，林家主人，年将半百"
+    },
+    {
+      "name": "贾政",
+      "description": "荣公之孙，字存周，现任工部员外郎，为人谦恭厚道"
+    },
+    {
+      "name": "贾赦",
+      "description": "荣公之孙，现袭一等将军，名赦，字恩侯"
+    },
+    {
+      "name": "黛玉",
+      "description": "女学生，林如海之女，身体多病，举止言谈不俗"
+    },
+    {
+      "name": "贾母",
+      "description": "史氏太君，贾赦贾政之母，鬓发如银的老母"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻，黛玉之二舅母"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻，黛玉之大舅母"
+    },
+    {
+      "name": "王熙凤",
+      "description": "贾琏之妻，王氏之内侄女，自幼假充男儿教养，彩绣辉煌"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾赦之子"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾政之子，衔玉而诞，顽劣异常，极恶读书，面若中秋之月"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府姊妹之一，肌肤微丰，合中身材，温柔沉默"
+    },
+    {
+      "name": "探春",
+      "description": "贾府姊妹之一，削肩细腰，长挑身材，文彩精华"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府姊妹之一，身量未足，形容尚小"
+    },
+    {
+      "name": "李氏",
+      "description": "贾珠之妻，珠大嫂子"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉之大丫鬟，本名珍珠，心地纯良"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉带来的十岁小丫头，自幼随身"
+    },
+    {
+      "name": "王嬷嬷",
+      "description": "黛玉自幼奶娘"
+    },
+    {
+      "name": "鹦哥",
+      "description": "贾母身边的二等丫头，后给了黛玉"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛家姨母之子，倚财仗势，打死人命"
+    },
+    {
+      "name": "王子腾",
+      "description": "王夫人之兄"
+    }
+  ],
+  "locations": [
+    {
+      "name": "都中",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "神京",
+      "type": "城市",
+      "parent": "都中"
+    },
+    {
+      "name": "宁国府",
+      "type": "府邸",
+      "parent": "神京"
+    },
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": "神京"
+    },
+    {
+      "name": "垂花门",
+      "type": "门",
+      "parent": "荣国府"
+    },
+    {
+      "name": "穿堂",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "正房大院",
+      "type": "院落",
+      "parent": "荣国府"
+    },
+    {
+      "name": "荣禧堂",
+      "type": "正厅",
+      "parent": "荣国府"
+    },
+    {
+      "name": "东廊三间小正房",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "碧纱橱",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "套间暖阁",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "西角门",
+      "type": "门",
+      "parent": "荣国府"
+    },
+    {
+      "name": "东角门",
+      "type": "门",
+      "parent": "荣国府"
+    },
+    {
+      "name": "仪门",
+      "type": "门",
+      "parent": "荣国府"
+    },
+    {
+      "name": "抄手游廊",
+      "type": "廊道",
+      "parent": "荣国府"
+    },
+    {
+      "name": "穿山游廊厢房",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "后院",
+      "type": "院落",
+      "parent": "荣国府"
+    },
+    {
+      "name": "书房",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "花园",
+      "type": "园林",
+      "parent": "荣国府"
+    },
+    {
+      "name": "金陵",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "应天府",
+      "type": "官府",
+      "parent": "金陵"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "林如海",
+      "person_b": "黛玉",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾政",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾赦",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "邢夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "王熙凤",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "贾琏",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "贾母",
+      "relation_type": "外祖母孙女"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "贾政",
+      "relation_type": "舅甥"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "贾赦",
+      "relation_type": "舅甥"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "宝玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "李氏",
+      "person_b": "贾珠",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "雪雁",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "王嬷嬷",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "王子腾",
+      "relation_type": "兄妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "神京",
+      "target": "都中",
+      "relation_type": "contains",
+      "value": "神京位于都中"
+    },
+    {
+      "source": "神京",
+      "target": "荣国府",
+      "relation_type": "contains",
+      "value": "荣国府位于神京"
+    },
+    {
+      "source": "神京",
+      "target": "宁国府",
+      "relation_type": "contains",
+      "value": "宁国府位于神京"
+    },
+    {
+      "source": "宁国府",
+      "target": "荣国府",
+      "relation_type": "adjacent",
+      "value": "宁国府在街北，荣国府在西边不远处"
+    },
+    {
+      "source": "荣国府",
+      "target": "垂花门",
+      "relation_type": "contains",
+      "value": "垂花门在荣国府内"
+    },
+    {
+      "source": "荣国府",
+      "target": "穿堂",
+      "relation_type": "contains",
+      "value": "穿堂在垂花门内"
+    },
+    {
+      "source": "荣国府",
+      "target": "正房大院",
+      "relation_type": "contains",
+      "value": "正房大院在穿堂后"
+    },
+    {
+      "source": "荣国府",
+      "target": "荣禧堂",
+      "relation_type": "contains",
+      "value": "荣禧堂为正经正内室"
+    },
+    {
+      "source": "荣禧堂",
+      "target": "东廊三间小正房",
+      "relation_type": "adjacent",
+      "value": "小正房在荣禧堂东边"
+    },
+    {
+      "source": "荣国府",
+      "target": "碧纱橱",
+      "relation_type": "contains",
+      "value": "碧纱橱在贾母房中"
+    },
+    {
+      "source": "荣国府",
+      "target": "西角门",
+      "relation_type": "contains",
+      "value": "西角门为荣国府入口之一"
+    },
+    {
+      "source": "荣国府",
+      "target": "东角门",
+      "relation_type": "contains",
+      "value": "东角门为荣国府入口之一"
+    },
+    {
+      "source": "荣国府",
+      "target": "后院",
+      "relation_type": "contains",
+      "value": "后院为贾母居住区域"
+    },
+    {
+      "source": "应天府",
+      "target": "金陵",
+      "relation_type": "contains",
+      "value": "应天府位于金陵"
+    }
+  ],
+  "_chapter": 3,
+  "_input_tokens": 10959,
+  "_output_tokens": 2656
+}

@@ -1,0 +1,286 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣",
+      "description": "又称孙悟空、行者，美猴王，齐天大圣，五百年前大闹天宫，现归依佛教保唐僧取经，毛脸雷公嘴，火眼金睛，使铁棒"
+    },
+    {
+      "name": "八戒",
+      "description": "又称猪八戒、悟能、呆子，天蓬临世界，使钉钯，水性好，半路出家"
+    },
+    {
+      "name": "沙僧",
+      "description": "又称沙和尚、悟净，上将降天涯，使降妖真宝杖，惯水之人"
+    },
+    {
+      "name": "唐僧",
+      "description": "又称三藏、师父，东土大唐圣僧，往西天拜佛求经，被妖怪关在石匣中"
+    },
+    {
+      "name": "陈老",
+      "description": "陈家庄的老人"
+    },
+    {
+      "name": "妖邪",
+      "description": "又称灵感大王、水怪，本是观音莲花池里的金鱼成精，使九瓣铜锤"
+    },
+    {
+      "name": "观音菩萨",
+      "description": "又称菩萨，普陀岩救苦尊，收服了金鱼精"
+    },
+    {
+      "name": "鳜婆",
+      "description": "斑衣鳜婆，坐于妖邪侧手，认识孙悟空"
+    },
+    {
+      "name": "虾婆",
+      "description": "大肚虾婆，妖邪手下"
+    },
+    {
+      "name": "陈清",
+      "description": "陈家庄人，有兄弟"
+    },
+    {
+      "name": "老鼋",
+      "description": "水鼋，修行一千三百余年，住在水鼋之第，送师徒过河"
+    },
+    {
+      "name": "善财童子",
+      "description": "又称红孩儿，现在菩萨莲台下侍奉"
+    },
+    {
+      "name": "捧珠龙女",
+      "description": "观音菩萨身边的龙女"
+    },
+    {
+      "name": "木叉行者",
+      "description": "观音菩萨身边的护法"
+    }
+  ],
+  "locations": [
+    {
+      "name": "通天河",
+      "type": "河流",
+      "parent": null
+    },
+    {
+      "name": "河边",
+      "type": "地点",
+      "parent": "通天河"
+    },
+    {
+      "name": "水鼋之第",
+      "type": "建筑",
+      "parent": "通天河"
+    },
+    {
+      "name": "陈家庄",
+      "type": "村庄",
+      "parent": null
+    },
+    {
+      "name": "普陀岩",
+      "type": "山岩",
+      "parent": "南海"
+    },
+    {
+      "name": "南海",
+      "type": "海域",
+      "parent": null
+    },
+    {
+      "name": "落伽山",
+      "type": "山",
+      "parent": "南海"
+    },
+    {
+      "name": "竹林",
+      "type": "树林",
+      "parent": "普陀岩"
+    },
+    {
+      "name": "莲花池",
+      "type": "池塘",
+      "parent": "普陀岩"
+    },
+    {
+      "name": "石匣",
+      "type": "容器",
+      "parent": "水鼋之第"
+    },
+    {
+      "name": "宫后",
+      "type": "地点",
+      "parent": "水鼋之第"
+    },
+    {
+      "name": "西廊",
+      "type": "建筑部分",
+      "parent": "水鼋之第"
+    },
+    {
+      "name": "东岸",
+      "type": "岸边",
+      "parent": "通天河"
+    },
+    {
+      "name": "河崖",
+      "type": "岸边",
+      "parent": "通天河"
+    },
+    {
+      "name": "翠岩",
+      "type": "岩石",
+      "parent": "普陀岩"
+    },
+    {
+      "name": "西天",
+      "type": "地点",
+      "parent": null
+    },
+    {
+      "name": "东土大唐",
+      "type": "国家",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙大圣",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "鳜婆",
+      "person_b": "妖邪",
+      "relation_type": "部下"
+    },
+    {
+      "person_a": "虾婆",
+      "person_b": "妖邪",
+      "relation_type": "部下"
+    },
+    {
+      "person_a": "妖邪",
+      "person_b": "观音菩萨",
+      "relation_type": "被收服者"
+    },
+    {
+      "person_a": "善财童子",
+      "person_b": "观音菩萨",
+      "relation_type": "侍从"
+    },
+    {
+      "person_a": "捧珠龙女",
+      "person_b": "观音菩萨",
+      "relation_type": "侍从"
+    },
+    {
+      "person_a": "陈清",
+      "person_b": "陈老",
+      "relation_type": "家人"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "水鼋之第",
+      "target": "通天河",
+      "relation_type": "contains",
+      "value": "位于河底"
+    },
+    {
+      "source": "石匣",
+      "target": "宫后",
+      "relation_type": "contains",
+      "value": "在宫后"
+    },
+    {
+      "source": "西廊",
+      "target": "水鼋之第",
+      "relation_type": "contains",
+      "value": "建筑的一部分"
+    },
+    {
+      "source": "东岸",
+      "target": "通天河",
+      "relation_type": "adjacent",
+      "value": "河的东边岸边"
+    },
+    {
+      "source": "竹林",
+      "target": "普陀岩",
+      "relation_type": "contains",
+      "value": "山中树林"
+    },
+    {
+      "source": "莲花池",
+      "target": "普陀岩",
+      "relation_type": "contains",
+      "value": "观音的莲花池"
+    },
+    {
+      "source": "翠岩",
+      "target": "普陀岩",
+      "relation_type": "contains",
+      "value": "山中岩石"
+    },
+    {
+      "source": "落伽山",
+      "target": "南海",
+      "relation_type": "contains",
+      "value": "海中山"
+    },
+    {
+      "source": "普陀岩",
+      "target": "落伽山",
+      "relation_type": "contains",
+      "value": "山中岩崖"
+    },
+    {
+      "source": "陈家庄",
+      "target": "通天河",
+      "relation_type": "adjacent",
+      "value": "河边村庄"
+    },
+    {
+      "source": "河崖",
+      "target": "通天河",
+      "relation_type": "adjacent",
+      "value": "河边高地"
+    },
+    {
+      "source": "南海",
+      "target": "通天河",
+      "relation_type": "direction",
+      "value": "南海在通天河南方"
+    }
+  ],
+  "_chapter": 49,
+  "_input_tokens": 9009,
+  "_output_tokens": 1976
+}

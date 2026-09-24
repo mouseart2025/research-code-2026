@@ -1,0 +1,332 @@
+{
+  "characters": [
+    {
+      "name": "封肃",
+      "description": "甄家的岳父，谨慎小心的普通百姓"
+    },
+    {
+      "name": "甄士隐",
+      "description": "封肃的女婿，已出家一二年"
+    },
+    {
+      "name": "贾化",
+      "description": "本府新升的太爷，本贯胡州人氏，曾与甄士隐相交"
+    },
+    {
+      "name": "娇杏",
+      "description": "甄家的丫鬟，后成为雨村的二房，最终扶正为正室夫人"
+    },
+    {
+      "name": "甄家娘子",
+      "description": "甄士隐的妻子"
+    },
+    {
+      "name": "雨村",
+      "description": "贾雨村，进士出身，曾任知府后被革职，现为林如海家西宾"
+    },
+    {
+      "name": "林如海",
+      "description": "前科探花，兰台寺大夫，巡盐御史，姑苏人氏"
+    },
+    {
+      "name": "贾氏",
+      "description": "林如海的嫡妻，荣府贾政之妹，已故"
+    },
+    {
+      "name": "黛玉",
+      "description": "林如海之女，年方五岁，聪明清秀"
+    },
+    {
+      "name": "冷子兴",
+      "description": "都中古董行中贸易的商人，雨村旧友"
+    },
+    {
+      "name": "贾宝玉",
+      "description": "贾政之子，衔玉而生，年七八岁，聪明乖觉但淘气异常"
+    },
+    {
+      "name": "贾政",
+      "description": "荣国府次子，员外郎，酷喜读书"
+    },
+    {
+      "name": "贾赦",
+      "description": "荣国府长子，袭官"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁国府当家，贾敬之子"
+    },
+    {
+      "name": "贾敬",
+      "description": "宁国府上代，一心求道"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子，年十六岁"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾赦长子，同知，娶王氏内侄女"
+    },
+    {
+      "name": "王氏",
+      "description": "贾政夫人"
+    },
+    {
+      "name": "贾珠",
+      "description": "贾政长子，早逝"
+    },
+    {
+      "name": "元春",
+      "description": "贾政长女，选入宫作女史"
+    },
+    {
+      "name": "迎春",
+      "description": "贾赦妾所出之女"
+    },
+    {
+      "name": "探春",
+      "description": "贾政庶出之女"
+    },
+    {
+      "name": "惜春",
+      "description": "宁府珍爷之胞妹"
+    },
+    {
+      "name": "贾敏",
+      "description": "贾赦、贾政之妹，林如海之妻，已故"
+    }
+  ],
+  "locations": [
+    {
+      "name": "胡州",
+      "type": "州府",
+      "parent": null
+    },
+    {
+      "name": "维扬",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "姑苏",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "智通寺",
+      "type": "寺庙",
+      "parent": "郭外"
+    },
+    {
+      "name": "郭外",
+      "type": "郊外",
+      "parent": "维扬"
+    },
+    {
+      "name": "村肆",
+      "type": "酒肆",
+      "parent": "村庄"
+    },
+    {
+      "name": "都中",
+      "type": "京城",
+      "parent": null
+    },
+    {
+      "name": "金陵",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "石头城",
+      "type": "古城",
+      "parent": "金陵"
+    },
+    {
+      "name": "宁国府",
+      "type": "府邸",
+      "parent": "金陵"
+    },
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": "金陵"
+    },
+    {
+      "name": "甄府",
+      "type": "府邸",
+      "parent": "金陵"
+    },
+    {
+      "name": "林府",
+      "type": "府邸",
+      "parent": "维扬"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "封肃",
+      "person_b": "甄士隐",
+      "relation_type": "岳父"
+    },
+    {
+      "person_a": "封肃",
+      "person_b": "甄家娘子",
+      "relation_type": "父亲"
+    },
+    {
+      "person_a": "甄士隐",
+      "person_b": "甄家娘子",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "娇杏",
+      "person_b": "雨村",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "林如海",
+      "person_b": "贾氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "林如海",
+      "person_b": "黛玉",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "贾氏",
+      "person_b": "黛玉",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾珠",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "元春",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "探春",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾赦",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "迎春",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "贾琏",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾敬",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "惜春",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾敏",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "贾敏",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "贾敏",
+      "person_b": "林如海",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "雨村",
+      "person_b": "冷子兴",
+      "relation_type": "朋友"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "宁国府",
+      "target": "荣国府",
+      "relation_type": "adjacent",
+      "value": "二宅相连"
+    },
+    {
+      "source": "宁国府",
+      "target": "金陵",
+      "relation_type": "contains",
+      "value": "街东"
+    },
+    {
+      "source": "荣国府",
+      "target": "金陵",
+      "relation_type": "contains",
+      "value": "街西"
+    },
+    {
+      "source": "智通寺",
+      "target": "郭外",
+      "relation_type": "contains",
+      "value": "山环水旋，茂林深竹之处"
+    },
+    {
+      "source": "村肆",
+      "target": "智通寺",
+      "relation_type": "adjacent",
+      "value": "附近"
+    },
+    {
+      "source": "石头城",
+      "target": "金陵",
+      "relation_type": "contains",
+      "value": "金陵地界"
+    },
+    {
+      "source": "甄府",
+      "target": "金陵",
+      "relation_type": "contains",
+      "value": "金陵城内"
+    },
+    {
+      "source": "林府",
+      "target": "维扬",
+      "relation_type": "contains",
+      "value": "维扬地面"
+    }
+  ],
+  "_chapter": 2,
+  "_input_tokens": 7516,
+  "_output_tokens": 2192
+}

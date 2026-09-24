@@ -1,0 +1,374 @@
+{
+  "characters": [
+    {
+      "name": "莺儿",
+      "description": "丫鬟，服侍宝钗"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府二爷，即将参加科举考试"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝玉的妻子，称为姐姐"
+    },
+    {
+      "name": "贾兰",
+      "description": "贾宝玉的侄子，与宝玉一同参加科举"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲"
+    },
+    {
+      "name": "李纨",
+      "description": "贾兰的母亲，称宝玉为叔叔"
+    },
+    {
+      "name": "素云",
+      "description": "丫鬟"
+    },
+    {
+      "name": "惜春",
+      "description": "四妹妹，道姑打扮"
+    },
+    {
+      "name": "紫鹃",
+      "description": "丫鬟"
+    },
+    {
+      "name": "贾环",
+      "description": "宝玉的弟弟，三爷"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾环口中的大太太"
+    },
+    {
+      "name": "巧姐儿",
+      "description": "贾琏的女儿，被安排亲事"
+    },
+    {
+      "name": "平儿",
+      "description": "巧姐儿的贴身丫鬟"
+    },
+    {
+      "name": "贾芸",
+      "description": "贾府子弟，芸哥"
+    },
+    {
+      "name": "王仁",
+      "description": "巧姐儿的舅舅"
+    },
+    {
+      "name": "贾琏",
+      "description": "巧姐儿的父亲，二爷"
+    },
+    {
+      "name": "刘姥姥",
+      "description": "巧姐儿的干妈，乡下人"
+    },
+    {
+      "name": "青儿",
+      "description": "刘姥姥的孙女"
+    },
+    {
+      "name": "探春",
+      "description": "三姑娘，从海疆回京"
+    },
+    {
+      "name": "焙茗",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "甄宝玉",
+      "description": "与贾宝玉同名的人"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾琏的父亲，大老爷"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁国府珍大爷"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝钗的母亲"
+    },
+    {
+      "name": "板儿",
+      "description": "刘姥姥的外孙"
+    },
+    {
+      "name": "秋纹",
+      "description": "丫鬟"
+    },
+    {
+      "name": "彩云",
+      "description": "丫鬟"
+    },
+    {
+      "name": "李贵",
+      "description": "贾府家人"
+    },
+    {
+      "name": "贾蔷",
+      "description": "贾府子弟，蔷大爷"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾府女眷"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "宁国府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "考场",
+      "type": "建筑",
+      "parent": ""
+    },
+    {
+      "name": "龙门口",
+      "type": "地点",
+      "parent": "考场"
+    },
+    {
+      "name": "刘姥姥家",
+      "type": "民居",
+      "parent": "庄上"
+    },
+    {
+      "name": "庄上",
+      "type": "村庄",
+      "parent": ""
+    },
+    {
+      "name": "城",
+      "type": "城市",
+      "parent": ""
+    },
+    {
+      "name": "海疆",
+      "type": "地区",
+      "parent": ""
+    },
+    {
+      "name": "金陵",
+      "type": "城市",
+      "parent": ""
+    },
+    {
+      "name": "宁荣街",
+      "type": "街道",
+      "parent": "城"
+    },
+    {
+      "name": "内府",
+      "type": "官府",
+      "parent": ""
+    },
+    {
+      "name": "配所",
+      "type": "流放地",
+      "parent": ""
+    },
+    {
+      "name": "前厅",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "后门",
+      "type": "出入口",
+      "parent": "贾府"
+    },
+    {
+      "name": "三门",
+      "type": "出入口",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "出入口",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾兰",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "莺儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾兰",
+      "person_b": "李纨",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾环",
+      "person_b": "宝玉",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "巧姐儿",
+      "person_b": "贾琏",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "巧姐儿",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "巧姐儿",
+      "person_b": "刘姥姥",
+      "relation_type": "干母女"
+    },
+    {
+      "person_a": "巧姐儿",
+      "person_b": "王仁",
+      "relation_type": "舅甥"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "贾赦",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "王夫人",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "刘姥姥",
+      "person_b": "板儿",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "刘姥姥",
+      "person_b": "青儿",
+      "relation_type": "祖孙"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "宁国府",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "考场",
+      "target": "龙门口",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "庄上",
+      "target": "刘姥姥家",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "城",
+      "target": "庄上",
+      "relation_type": "contains",
+      "value": "城外"
+    },
+    {
+      "source": "城",
+      "target": "宁荣街",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "前厅",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "后门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "三门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "宁荣街",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "宁荣街",
+      "target": "宁国府",
+      "relation_type": "contains",
+      "value": ""
+    }
+  ],
+  "_chapter": 121,
+  "_input_tokens": 11620,
+  "_output_tokens": 2224
+}

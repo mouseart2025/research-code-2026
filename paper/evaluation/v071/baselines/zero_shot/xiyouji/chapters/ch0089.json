@@ -1,0 +1,245 @@
+{
+  "characters": [
+    {
+      "name": "行者",
+      "description": "毛脸雷公嘴的和尚，使金箍棒，神通广大，五百年前曾大闹天宫"
+    },
+    {
+      "name": "八戒",
+      "description": "长嘴大耳朵的和尚，也称猪八戒，使九齿钉钯"
+    },
+    {
+      "name": "沙僧",
+      "description": "晦气色脸的和尚，也称沙和尚，使降妖杖"
+    },
+    {
+      "name": "唐僧",
+      "description": "东土大唐圣僧，师父，往西天取经"
+    },
+    {
+      "name": "老王子",
+      "description": "玉华州的国王，已在此城五代，颇有贤名"
+    },
+    {
+      "name": "小王子",
+      "description": "玉华州王子，拜行者等为师学习武艺"
+    },
+    {
+      "name": "黄狮",
+      "description": "金毛狮子成精，虎口洞妖王，使四明铲"
+    },
+    {
+      "name": "九灵元圣",
+      "description": "黄狮的祖翁，住在竹节山九曲盘桓洞"
+    },
+    {
+      "name": "刁钻古怪",
+      "description": "狼头精，负责买猪羊"
+    },
+    {
+      "name": "古怪刁钻",
+      "description": "狼头精，负责买猪羊"
+    },
+    {
+      "name": "青脸儿",
+      "description": "青脸红毛的小妖，负责送请书"
+    },
+    {
+      "name": "猱狮",
+      "description": "九灵元圣手下的狮子精"
+    },
+    {
+      "name": "雪狮",
+      "description": "九灵元圣手下的狮子精"
+    },
+    {
+      "name": "狻猊",
+      "description": "九灵元圣手下的狮子精"
+    },
+    {
+      "name": "白泽",
+      "description": "九灵元圣手下的妖怪"
+    },
+    {
+      "name": "伏狸",
+      "description": "九灵元圣手下的妖怪"
+    },
+    {
+      "name": "抟象",
+      "description": "九灵元圣手下的妖怪"
+    }
+  ],
+  "locations": [
+    {
+      "name": "玉华州",
+      "type": "州城",
+      "parent": null
+    },
+    {
+      "name": "王府",
+      "type": "宫殿",
+      "parent": "玉华州"
+    },
+    {
+      "name": "院中",
+      "type": "院落",
+      "parent": "王府"
+    },
+    {
+      "name": "暴纱亭",
+      "type": "亭子",
+      "parent": "王府"
+    },
+    {
+      "name": "豹头山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "虎口洞",
+      "type": "洞穴",
+      "parent": "豹头山"
+    },
+    {
+      "name": "竹节山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "九曲盘桓洞",
+      "type": "洞穴",
+      "parent": "竹节山"
+    },
+    {
+      "name": "乾方集",
+      "type": "集市",
+      "parent": null
+    },
+    {
+      "name": "城楼",
+      "type": "建筑",
+      "parent": "玉华州"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "行者",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "八戒",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "沙僧",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "小王子",
+      "person_b": "行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "小王子",
+      "person_b": "老王子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "黄狮",
+      "person_b": "九灵元圣",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "猱狮",
+      "person_b": "九灵元圣",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "雪狮",
+      "person_b": "九灵元圣",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "狻猊",
+      "person_b": "九灵元圣",
+      "relation_type": "祖孙"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "豹头山",
+      "target": "玉华州",
+      "relation_type": "direction",
+      "value": "北"
+    },
+    {
+      "source": "玉华州",
+      "target": "豹头山",
+      "relation_type": "direction",
+      "value": "七十里"
+    },
+    {
+      "source": "虎口洞",
+      "target": "豹头山",
+      "relation_type": "contains",
+      "value": "山中"
+    },
+    {
+      "source": "九曲盘桓洞",
+      "target": "竹节山",
+      "relation_type": "contains",
+      "value": "山中"
+    },
+    {
+      "source": "竹节山",
+      "target": "豹头山",
+      "relation_type": "direction",
+      "value": "东南"
+    },
+    {
+      "source": "王府",
+      "target": "玉华州",
+      "relation_type": "contains",
+      "value": "城中"
+    },
+    {
+      "source": "院中",
+      "target": "王府",
+      "relation_type": "contains",
+      "value": "府内"
+    },
+    {
+      "source": "暴纱亭",
+      "target": "王府",
+      "relation_type": "contains",
+      "value": "府内"
+    },
+    {
+      "source": "城楼",
+      "target": "玉华州",
+      "relation_type": "contains",
+      "value": "城墙上"
+    }
+  ],
+  "_chapter": 89,
+  "_input_tokens": 7561,
+  "_output_tokens": 1628
+}

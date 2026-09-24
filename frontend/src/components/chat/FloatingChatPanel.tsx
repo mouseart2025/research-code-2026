@@ -26,6 +26,8 @@ export function FloatingChatPanel() {
     messages,
     streaming,
     streamingContent,
+    streamingStatus,
+    streamingConversationId,
     loadConversations,
     newConversation,
     selectConversation,
@@ -45,6 +47,7 @@ export function FloatingChatPanel() {
   useEffect(() => {
     if (prevNovelIdRef.current !== novelId) {
       clearMessages()
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- 切换小说时需同步重置面板 UI 状态并清空消息，属"随 prop 重置"的 intentional 模式
       setShowQuickQuestions(true)
       prevNovelIdRef.current = novelId
     }
@@ -287,7 +290,7 @@ export function FloatingChatPanel() {
 
       {/* Messages */}
       <div className="flex-1 overflow-auto px-4 py-3 space-y-3">
-        {messages.length === 0 && !streaming && (
+        {messages.length === 0 && !(streaming && streamingConversationId === activeConversationId) && (
           <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
             {novelId ? "输入问题开始对话" : "输入问题，我来帮你解答"}
           </div>
@@ -330,12 +333,25 @@ export function FloatingChatPanel() {
           </div>
         ))}
 
-        {/* Streaming message */}
-        {streaming && streamingContent && (
+        {/* Streaming message — only on the conversation it belongs to (#55) */}
+        {streaming && streamingConversationId === activeConversationId && streamingContent && (
           <div className="max-w-[80%] mr-auto">
             <div className="rounded-lg px-3 py-2 bg-muted">
               <div className="prose prose-sm dark:prose-invert max-w-none break-words"><Markdown>{streamingContent}</Markdown></div>
               <span className="inline-block w-1.5 h-4 bg-foreground/50 animate-pulse ml-0.5" />
+            </div>
+          </div>
+        )}
+
+        {/* Thinking bubble — before the first token arrives; shows the latest
+            agent forensic step when available (issue #26 status frames) */}
+        {streaming && streamingConversationId === activeConversationId && !streamingContent && (
+          <div className="max-w-[80%] mr-auto">
+            <div className="rounded-lg px-3 py-2 bg-muted">
+              <span className="text-sm text-muted-foreground animate-pulse">正在思考...</span>
+              {streamingStatus && (
+                <div className="mt-1 text-xs text-muted-foreground/70">{streamingStatus}</div>
+              )}
             </div>
           </div>
         )}

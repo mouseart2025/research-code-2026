@@ -1,0 +1,65 @@
+{
+  "novel": "fengshen",
+  "novel_id": "53013970-effd-4f50-aef7-728ca13de69a",
+  "title": "封神演义",
+  "timestamp": "2026-04-14T19:47:45.347231",
+  "gold_based": {
+    "novel": "fengshen",
+    "total_nodes": 233,
+    "correct_count": 210,
+    "suspect_count": 6,
+    "error_count": 12,
+    "entity_precision": 0.9914163090128756,
+    "name_accuracy": 1.0,
+    "tier_accuracy": 0.9656652360515021,
+    "parent_precision": 0.9871244635193133,
+    "structural_health": 0.9957081545064378,
+    "overall": 0.9484978540772532,
+    "category_errors": {
+      "A": 2,
+      "B": 0,
+      "C": 8,
+      "D": 3,
+      "E": 1
+    },
+    "error_type_counts": {
+      "A-非地名": 2,
+      "E-原文无此名": 1,
+      "C-tier错误": 8,
+      "D-parent错误": 3
+    }
+  },
+  "rule_based": {
+    "novel": "fengshen",
+    "total_nodes": 679,
+    "correct_count": 400,
+    "suspect_count": 0,
+    "error_count": 279,
+    "entity_precision": 0.9867452135493373,
+    "name_accuracy": 1.0,
+    "tier_accuracy": 0.9646539027982327,
+    "parent_precision": 0.9617083946980854,
+    "structural_health": 0.6524300441826215,
+    "overall": 0.5891016200294551,
+    "category_errors": {
+      "A": 9,
+      "B": 0,
+      "C": 24,
+      "D": 26,
+      "E": 236
+    },
+    "error_type_counts": {
+      "E-mc零但原文存在": 124,
+      "E-原文无此名": 86,
+      "D-孤立顶层": 26,
+      "C-tier错误": 18,
+      "E-消歧重复": 26,
+      "A-描述性短语": 1,
+      "C-tier倒置": 7,
+      "E-零证据有子": 24,
+      "A-方位泛称": 7,
+      "E-幻觉父节点": 2,
+      "A-概念非地名": 1
+    }
+  }
+}

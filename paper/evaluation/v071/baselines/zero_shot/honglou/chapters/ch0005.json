@@ -1,0 +1,355 @@
+{
+  "characters": [
+    {
+      "name": "林黛玉",
+      "description": "贾母怜爱的外孙女，与宝玉亲密，性格孤高自许，目无下尘"
+    },
+    {
+      "name": "贾宝玉",
+      "description": "贾家嫡孙，禀性乖张，生性怪谲，聪明灵慧但视姊妹弟兄皆出一意"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "新来的女子，品格端方，容貌丰美，行为豁达，随分从时，得下人之心"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗，万般怜爱黛玉"
+    },
+    {
+      "name": "迎春",
+      "description": "贾家三个亲孙女之一"
+    },
+    {
+      "name": "探春",
+      "description": "贾家三个亲孙女之一"
+    },
+    {
+      "name": "惜春",
+      "description": "贾家三个亲孙女之一"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁府主人"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子"
+    },
+    {
+      "name": "秦氏",
+      "description": "贾蓉之妻，极妥当的人，生得袅娜纤巧，行事温柔和平"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾家夫人"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾家夫人"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "媚人",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "警幻仙姑",
+      "description": "太虚幻境仙姑，司人间之风情月债，掌尘世之女怨男痴"
+    },
+    {
+      "name": "痴梦仙姑",
+      "description": "太虚幻境中的仙姑"
+    },
+    {
+      "name": "钟情大士",
+      "description": "太虚幻境中的仙姑"
+    },
+    {
+      "name": "引愁金女",
+      "description": "太虚幻境中的仙姑"
+    },
+    {
+      "name": "度恨菩提",
+      "description": "太虚幻境中的仙姑"
+    },
+    {
+      "name": "可卿",
+      "description": "警幻仙姑之妹，乳名兼美字可卿"
+    },
+    {
+      "name": "宁公",
+      "description": "宁府祖先，已故"
+    },
+    {
+      "name": "荣公",
+      "description": "荣府祖先，已故"
+    }
+  ],
+  "locations": [
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "会芳园",
+      "type": "花园",
+      "parent": "宁府"
+    },
+    {
+      "name": "上房内间",
+      "type": "房间",
+      "parent": "宁府"
+    },
+    {
+      "name": "秦氏房",
+      "type": "卧室",
+      "parent": "宁府"
+    },
+    {
+      "name": "太虚幻境",
+      "type": "仙境",
+      "parent": null
+    },
+    {
+      "name": "离恨天",
+      "type": "仙境",
+      "parent": null
+    },
+    {
+      "name": "灌愁海",
+      "type": "仙境",
+      "parent": null
+    },
+    {
+      "name": "放春山遣香洞",
+      "type": "仙境",
+      "parent": "太虚幻境"
+    },
+    {
+      "name": "孽海情天",
+      "type": "宫门",
+      "parent": "太虚幻境"
+    },
+    {
+      "name": "痴情司",
+      "type": "配殿",
+      "parent": "太虚幻境"
+    },
+    {
+      "name": "结怨司",
+      "type": "配殿",
+      "parent": "太虚幻境"
+    },
+    {
+      "name": "朝啼司",
+      "type": "配殿",
+      "parent": "太虚幻境"
+    },
+    {
+      "name": "夜怨司",
+      "type": "配殿",
+      "parent": "太虚幻境"
+    },
+    {
+      "name": "春感司",
+      "type": "配殿",
+      "parent": "太虚幻境"
+    },
+    {
+      "name": "秋悲司",
+      "type": "配殿",
+      "parent": "太虚幻境"
+    },
+    {
+      "name": "薄命司",
+      "type": "配殿",
+      "parent": "太虚幻境"
+    },
+    {
+      "name": "香闺绣阁",
+      "type": "房间",
+      "parent": "太虚幻境"
+    },
+    {
+      "name": "迷津",
+      "type": "险境",
+      "parent": "太虚幻境"
+    },
+    {
+      "name": "金陵",
+      "type": "地名",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾母",
+      "person_b": "林黛玉",
+      "relation_type": "祖母-外孙女"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾宝玉",
+      "relation_type": "祖母-孙子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "迎春",
+      "relation_type": "祖母-孙女"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "探春",
+      "relation_type": "祖母-孙女"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "惜春",
+      "relation_type": "祖母-孙女"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "贾宝玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "秦氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "晴雯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "麝月",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "媚人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "警幻仙姑",
+      "person_b": "可卿",
+      "relation_type": "姐妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "宁府",
+      "target": "会芳园",
+      "relation_type": "contains",
+      "value": "花园在府内"
+    },
+    {
+      "source": "宁府",
+      "target": "上房内间",
+      "relation_type": "contains",
+      "value": "房间在府内"
+    },
+    {
+      "source": "宁府",
+      "target": "秦氏房",
+      "relation_type": "contains",
+      "value": "卧室在府内"
+    },
+    {
+      "source": "太虚幻境",
+      "target": "放春山遣香洞",
+      "relation_type": "contains",
+      "value": "洞在仙境内"
+    },
+    {
+      "source": "太虚幻境",
+      "target": "孽海情天",
+      "relation_type": "contains",
+      "value": "宫门在仙境内"
+    },
+    {
+      "source": "太虚幻境",
+      "target": "痴情司",
+      "relation_type": "contains",
+      "value": "配殿在仙境内"
+    },
+    {
+      "source": "太虚幻境",
+      "target": "薄命司",
+      "relation_type": "contains",
+      "value": "配殿在仙境内"
+    },
+    {
+      "source": "太虚幻境",
+      "target": "香闺绣阁",
+      "relation_type": "contains",
+      "value": "房间在仙境内"
+    },
+    {
+      "source": "太虚幻境",
+      "target": "迷津",
+      "relation_type": "contains",
+      "value": "险境在仙境内"
+    },
+    {
+      "source": "警幻仙姑",
+      "target": "离恨天",
+      "relation_type": "direction",
+      "value": "居于离恨天之上"
+    },
+    {
+      "source": "警幻仙姑",
+      "target": "灌愁海",
+      "relation_type": "direction",
+      "value": "居于灌愁海之中"
+    },
+    {
+      "source": "宁府",
+      "target": "荣府",
+      "relation_type": "adjacent",
+      "value": "相邻的两府"
+    }
+  ],
+  "_chapter": 5,
+  "_input_tokens": 9893,
+  "_output_tokens": 2417
+}

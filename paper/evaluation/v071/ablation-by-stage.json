@@ -1,0 +1,192 @@
+{
+  "xiyouji": {
+    "import": {
+      "depth": 2.07,
+      "max_ch": 155,
+      "roots": 1,
+      "nodes": 562
+    },
+    "tier": {
+      "depth": 2.9,
+      "max_ch": 65,
+      "roots": 1,
+      "nodes": 1042
+    },
+    "votes": {
+      "depth": 2.9,
+      "max_ch": 65,
+      "roots": 1,
+      "nodes": 1042
+    },
+    "prior": {
+      "depth": 2.9,
+      "max_ch": 65,
+      "roots": 1,
+      "nodes": 1042
+    },
+    "edmonds": {
+      "depth": 2.91,
+      "max_ch": 64,
+      "roots": 1,
+      "nodes": 1043
+    },
+    "suffix": {
+      "depth": 2.91,
+      "max_ch": 63,
+      "roots": 1,
+      "nodes": 1043
+    }
+  },
+  "honglou": {
+    "import": {
+      "depth": 2.76,
+      "max_ch": 122,
+      "roots": 3,
+      "nodes": 628
+    },
+    "tier": {
+      "depth": 3.23,
+      "max_ch": 77,
+      "roots": 1,
+      "nodes": 859
+    },
+    "votes": {
+      "depth": 3.23,
+      "max_ch": 77,
+      "roots": 1,
+      "nodes": 859
+    },
+    "prior": {
+      "depth": 3.23,
+      "max_ch": 77,
+      "roots": 1,
+      "nodes": 859
+    },
+    "edmonds": {
+      "depth": 3.69,
+      "max_ch": 77,
+      "roots": 1,
+      "nodes": 859
+    },
+    "suffix": {
+      "depth": 3.24,
+      "max_ch": 76,
+      "roots": 1,
+      "nodes": 859
+    }
+  },
+  "shuihu": {
+    "import": {
+      "depth": 3.06,
+      "max_ch": 78,
+      "roots": 1,
+      "nodes": 1222
+    },
+    "tier": {
+      "depth": 3.17,
+      "max_ch": 48,
+      "roots": 1,
+      "nodes": 1750
+    },
+    "votes": {
+      "depth": 3.17,
+      "max_ch": 48,
+      "roots": 1,
+      "nodes": 1750
+    },
+    "prior": {
+      "depth": 3.17,
+      "max_ch": 48,
+      "roots": 1,
+      "nodes": 1750
+    },
+    "edmonds": {
+      "depth": 3.18,
+      "max_ch": 49,
+      "roots": 1,
+      "nodes": 1750
+    },
+    "suffix": {
+      "depth": 3.17,
+      "max_ch": 49,
+      "roots": 1,
+      "nodes": 1750
+    }
+  },
+  "sanguo": {
+    "import": {
+      "depth": 2.68,
+      "max_ch": 177,
+      "roots": 1,
+      "nodes": 1106
+    },
+    "tier": {
+      "depth": 3.34,
+      "max_ch": 118,
+      "roots": 1,
+      "nodes": 1317
+    },
+    "votes": {
+      "depth": 3.34,
+      "max_ch": 118,
+      "roots": 1,
+      "nodes": 1317
+    },
+    "prior": {
+      "depth": 3.34,
+      "max_ch": 118,
+      "roots": 1,
+      "nodes": 1317
+    },
+    "edmonds": {
+      "depth": 3.38,
+      "max_ch": 93,
+      "roots": 1,
+      "nodes": 1321
+    },
+    "suffix": {
+      "depth": 3.37,
+      "max_ch": 93,
+      "roots": 1,
+      "nodes": 1321
+    }
+  },
+  "fengshen": {
+    "import": {
+      "depth": 3.55,
+      "max_ch": 30,
+      "roots": 3,
+      "nodes": 489
+    },
+    "tier": {
+      "depth": 3.52,
+      "max_ch": 31,
+      "roots": 3,
+      "nodes": 653
+    },
+    "votes": {
+      "depth": 3.52,
+      "max_ch": 31,
+      "roots": 3,
+      "nodes": 653
+    },
+    "prior": {
+      "depth": 3.52,
+      "max_ch": 31,
+      "roots": 3,
+      "nodes": 653
+    },
+    "edmonds": {
+      "depth": 3.52,
+      "max_ch": 30,
+      "roots": 3,
+      "nodes": 653
+    },
+    "suffix": {
+      "depth": 3.52,
+      "max_ch": 31,
+      "roots": 3,
+      "nodes": 653
+    }
+  }
+}

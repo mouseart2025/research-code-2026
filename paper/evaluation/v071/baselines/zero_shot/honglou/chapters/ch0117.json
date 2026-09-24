@@ -1,0 +1,322 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "主人公，因麝月失言而死去活来，魂魄出窍游历仙境"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉身边的丫鬟，因失言致祸，心想若宝玉死去便自尽跟随"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲，见宝玉昏迷哭叫不止，后催逼宝玉功课"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，为老太太灵柩回南安葬做准备，命宝玉赴考"
+    },
+    {
+      "name": "和尚",
+      "description": "送玉来的神秘僧人，能带宝玉游历仙境，后又来要一万银子"
+    },
+    {
+      "name": "尤三姐",
+      "description": "在荒野和仙境中出现，手提宝剑要斩断宝玉尘缘"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "在仙境中招手引导宝玉，但总是若即若离"
+    },
+    {
+      "name": "仙女",
+      "description": "看管绛珠草的仙女，告诉宝玉草的来历"
+    },
+    {
+      "name": "潇湘妃子",
+      "description": "仙女的主人，实为林黛玉在仙界的身份"
+    },
+    {
+      "name": "林黛玉",
+      "description": "宝玉的表妹，在仙境中以妃子身份出现，不肯见宝玉"
+    },
+    {
+      "name": "晴雯",
+      "description": "在仙境中奉妃子之命来请宝玉"
+    },
+    {
+      "name": "凤姐",
+      "description": "在宝玉幻觉中出现招手的人物"
+    },
+    {
+      "name": "秦氏",
+      "description": "贾蓉的前妻，在仙境中出现但不答话"
+    },
+    {
+      "name": "迎春",
+      "description": "在宝玉幻觉中出现的人物"
+    },
+    {
+      "name": "元春",
+      "description": "元春姐姐，在册子中有记载"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝玉的妻子，照顾宝玉并分析和尚来历"
+    },
+    {
+      "name": "贾琏",
+      "description": "与贾政商议扶柩回南安葬事宜"
+    },
+    {
+      "name": "贾蓉",
+      "description": "被安排跟随贾政一同回南"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉身边的丫鬟，提到测字的事"
+    },
+    {
+      "name": "惜春",
+      "description": "提到失玉时请妙玉请仙的事，已断荤"
+    },
+    {
+      "name": "尤氏",
+      "description": "询问惜春出家念头的人"
+    },
+    {
+      "name": "紫鹃",
+      "description": "林黛玉的丫鬟，为主人灵柩回去而痛哭"
+    },
+    {
+      "name": "五儿",
+      "description": "新来的丫鬟，抱怨宝玉待她冷淡"
+    },
+    {
+      "name": "林之孝",
+      "description": "跟随贾政南下的管事"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政的儿子，认真念书"
+    },
+    {
+      "name": "贾兰",
+      "description": "贾政的孙子，认真念书"
+    },
+    {
+      "name": "妙玉",
+      "description": "曾被请来请仙的尼姑"
+    }
+  ],
+  "locations": [
+    {
+      "name": "前厅",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "大门",
+      "type": "出入口",
+      "parent": "贾府"
+    },
+    {
+      "name": "荒野",
+      "type": "野外地带",
+      "parent": null
+    },
+    {
+      "name": "真如福地",
+      "type": "仙境牌楼",
+      "parent": "仙境"
+    },
+    {
+      "name": "福善祸淫宫门",
+      "type": "宫门",
+      "parent": "仙境"
+    },
+    {
+      "name": "引觉情痴配殿",
+      "type": "殿堂",
+      "parent": "仙境"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "灵河岸",
+      "type": "河岸",
+      "parent": "仙境"
+    },
+    {
+      "name": "潇湘妃子宫殿",
+      "type": "宫殿",
+      "parent": "仙境"
+    },
+    {
+      "name": "天仙福地",
+      "type": "仙境",
+      "parent": null
+    },
+    {
+      "name": "炕上",
+      "type": "卧具",
+      "parent": "宝玉房间"
+    },
+    {
+      "name": "贾府",
+      "type": "宅邸",
+      "parent": null
+    },
+    {
+      "name": "城外",
+      "type": "城外区域",
+      "parent": null
+    },
+    {
+      "name": "寺内",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "南方",
+      "type": "地区",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "麝月",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "潇湘妃子",
+      "person_b": "仙女",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾琏",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "秦氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "林黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾环",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾兰",
+      "relation_type": "祖孙"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "前厅",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "位于贾府内"
+    },
+    {
+      "source": "贾府",
+      "target": "大门",
+      "relation_type": "contains",
+      "value": "贾府有大门"
+    },
+    {
+      "source": "荒野",
+      "target": "真如福地",
+      "relation_type": "contains",
+      "value": "荒野中有牌楼"
+    },
+    {
+      "source": "真如福地",
+      "target": "福善祸淫宫门",
+      "relation_type": "direction",
+      "value": "转过牌坊便是宫门"
+    },
+    {
+      "source": "仙境",
+      "target": "引觉情痴配殿",
+      "relation_type": "contains",
+      "value": "仙境中有配殿"
+    },
+    {
+      "source": "引觉情痴配殿",
+      "target": "大橱",
+      "relation_type": "contains",
+      "value": "配殿内有十数个大橱"
+    },
+    {
+      "source": "仙境",
+      "target": "潇湘妃子宫殿",
+      "relation_type": "contains",
+      "value": "仙境中有宫殿"
+    },
+    {
+      "source": "灵河岸",
+      "target": "绛珠草",
+      "relation_type": "contains",
+      "value": "灵河岸上有绛珠草"
+    },
+    {
+      "source": "宝玉房间",
+      "target": "炕上",
+      "relation_type": "contains",
+      "value": "房间内有炕"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "贾府包含大观园"
+    },
+    {
+      "source": "城外",
+      "target": "寺内",
+      "relation_type": "contains",
+      "value": "城外有寺庙"
+    }
+  ],
+  "_chapter": 117,
+  "_input_tokens": 8451,
+  "_output_tokens": 2339
+}

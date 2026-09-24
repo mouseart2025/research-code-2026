@@ -1,0 +1,163 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾府公子，与史湘云、林黛玉、薛宝钗等关系密切"
+    },
+    {
+      "name": "史湘云",
+      "description": "大家闺秀，与宝玉青梅竹马，性格直爽，家中经济拮据"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，曾与史湘云关系很好"
+    },
+    {
+      "name": "林黛玉",
+      "description": "宝玉的表妹，体弱多病，父母早逝，与宝玉互为知己"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "宝玉的表姐，性格温和宽容，善解人意"
+    },
+    {
+      "name": "贾雨村",
+      "description": "兴隆街的大爷，官员身份"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲，贾府主要女性长辈"
+    },
+    {
+      "name": "金钏儿",
+      "description": "王夫人房中的丫鬟，因故被撵出后投井自尽"
+    },
+    {
+      "name": "缕儿",
+      "description": "史湘云的丫鬟"
+    },
+    {
+      "name": "凤丫头",
+      "description": "贾府管家，即王熙凤"
+    }
+  ],
+  "locations": [
+    {
+      "name": "西边暖阁",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "兴隆街",
+      "type": "街道",
+      "parent": null
+    },
+    {
+      "name": "贾府",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "宝玉房间",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "园里",
+      "type": "花园",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人处",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "东南角井",
+      "type": "水井",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "史湘云",
+      "relation_type": "青梅竹马"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "史湘云",
+      "person_b": "袭人",
+      "relation_type": "旧友"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "表兄妹/知己"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "薛宝钗",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "薛宝钗",
+      "person_b": "王夫人",
+      "relation_type": "外甥女"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "金钏儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "史湘云",
+      "person_b": "缕儿",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "西边暖阁",
+      "relation_type": "contains",
+      "value": "西边"
+    },
+    {
+      "source": "贾府",
+      "target": "宝玉房间",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "贾府",
+      "target": "园里",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "贾府",
+      "target": "王夫人处",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "贾府",
+      "target": "东南角井",
+      "relation_type": "contains",
+      "value": "东南角"
+    }
+  ],
+  "_chapter": 32,
+  "_input_tokens": 7148,
+  "_output_tokens": 1099
+}

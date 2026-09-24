@@ -1,0 +1,310 @@
+{
+  "characters": [
+    {
+      "name": "迎春",
+      "description": "已出嫁的二姐姐，性格懦弱，嫁到孙家受委屈"
+    },
+    {
+      "name": "邢夫人",
+      "description": "迎春归去后表现冷漠的长辈"
+    },
+    {
+      "name": "王夫人",
+      "description": "抚养了迎春，对其出嫁感到伤感的长辈"
+    },
+    {
+      "name": "宝玉",
+      "description": "关心姐妹，性格敏感，为迎春的遭遇而伤心的公子"
+    },
+    {
+      "name": "黛玉",
+      "description": "宝玉的知心人，住在潇湘馆，体弱多病"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的贴身丫鬟"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，关心宝玉的起居"
+    },
+    {
+      "name": "贾母",
+      "description": "府中最高长辈，疼爱宝玉"
+    },
+    {
+      "name": "探春",
+      "description": "三妹妹，聪慧能干，喜欢钓鱼"
+    },
+    {
+      "name": "李纹",
+      "description": "参与钓鱼活动的姑娘"
+    },
+    {
+      "name": "李绮",
+      "description": "参与钓鱼活动的姑娘"
+    },
+    {
+      "name": "邢岫烟",
+      "description": "参与钓鱼活动的姑娘"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "凤姐",
+      "description": "管家的二奶奶，曾患邪病"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，严厉的家长，重视儿子的学业"
+    },
+    {
+      "name": "代儒",
+      "description": "家塾先生，负责教授宝玉等子弟"
+    },
+    {
+      "name": "焙茗",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "李贵",
+      "description": "贾政身边的仆人"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "与巫婆有来往的姨娘"
+    },
+    {
+      "name": "秦钟",
+      "description": "宝玉怀念的已故同学"
+    },
+    {
+      "name": "金荣",
+      "description": "家塾中的学生"
+    }
+  ],
+  "locations": [
+    {
+      "name": "紫菱洲",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "沁芳亭",
+      "type": "亭子",
+      "parent": "大观园"
+    },
+    {
+      "name": "蘅芜院",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "藕香榭",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "蓼溆",
+      "type": "水边",
+      "parent": "大观园"
+    },
+    {
+      "name": "贾母房中",
+      "type": "居所",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人房中",
+      "type": "居所",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾政书房",
+      "type": "书房",
+      "parent": "贾府"
+    },
+    {
+      "name": "家塾",
+      "type": "学堂",
+      "parent": "贾府"
+    },
+    {
+      "name": "孙家",
+      "type": "外宅",
+      "parent": null
+    },
+    {
+      "name": "贾府",
+      "type": "宅邸",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "迎春",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "探春",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾母",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾政",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "代儒",
+      "relation_type": "师生"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "焙茗",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园林位于府邸内"
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "潇湘馆在园中"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "怡红院在园中"
+    },
+    {
+      "source": "大观园",
+      "target": "沁芳亭",
+      "relation_type": "contains",
+      "value": "亭子在园中"
+    },
+    {
+      "source": "大观园",
+      "target": "蘅芜院",
+      "relation_type": "contains",
+      "value": "蘅芜院在园中"
+    },
+    {
+      "source": "大观园",
+      "target": "藕香榭",
+      "relation_type": "contains",
+      "value": "藕香榭在园中"
+    },
+    {
+      "source": "大观园",
+      "target": "蓼溆",
+      "relation_type": "contains",
+      "value": "蓼溆在园中"
+    },
+    {
+      "source": "贾府",
+      "target": "贾母房中",
+      "relation_type": "contains",
+      "value": "贾母居所在府中"
+    },
+    {
+      "source": "贾府",
+      "target": "王夫人房中",
+      "relation_type": "contains",
+      "value": "王夫人居所在府中"
+    },
+    {
+      "source": "贾府",
+      "target": "贾政书房",
+      "relation_type": "contains",
+      "value": "书房在府中"
+    },
+    {
+      "source": "贾府",
+      "target": "家塾",
+      "relation_type": "contains",
+      "value": "家塾在府中"
+    },
+    {
+      "source": "藕香榭",
+      "target": "蓼溆",
+      "relation_type": "adjacent",
+      "value": "藕香榭转过来就是蓼溆"
+    },
+    {
+      "source": "蓼溆",
+      "target": "假山",
+      "relation_type": "adjacent",
+      "value": "假山背后可以听到蓼溆的声音"
+    }
+  ],
+  "_chapter": 82,
+  "_input_tokens": 8459,
+  "_output_tokens": 2087
+}

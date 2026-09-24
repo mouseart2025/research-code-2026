@@ -1,0 +1,292 @@
+{
+  "characters": [
+    {
+      "name": "八戒",
+      "description": "唐僧的徒弟，原天蓬元帅，生得长嘴獠牙、刚鬃扇耳、身粗肚大，会三十六般变化，使九齿钉钯"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧的徒弟，法名悟净，身长丈二、臂阔三停、脸如蓝靛、口似血盆，使宝杖"
+    },
+    {
+      "name": "唐僧",
+      "description": "取经人，唐朝圣僧，法师玄奘，承唐天子敕旨前往西方取经"
+    },
+    {
+      "name": "黄袍怪",
+      "description": "波月洞妖魔，金睛蓝面青魔王，使钢刀，霸占百花羞公主为妻"
+    },
+    {
+      "name": "百花羞",
+      "description": "宝象国三公主，约三十年纪，十三年前被黄袍怪摄去，与其生有两个妖儿"
+    },
+    {
+      "name": "宝象国王",
+      "description": "宝象国君主，百花羞的父亲，无子只有三个女儿"
+    },
+    {
+      "name": "翰林院大学士",
+      "description": "宝象国朝廷官员，负责朗读公主家书"
+    },
+    {
+      "name": "护法神祇",
+      "description": "暗中保护唐僧的神明"
+    },
+    {
+      "name": "六丁六甲",
+      "description": "护法神将"
+    },
+    {
+      "name": "五方揭谛",
+      "description": "护法神将"
+    },
+    {
+      "name": "四值功曹",
+      "description": "护法神将"
+    },
+    {
+      "name": "一十八位护教伽蓝",
+      "description": "护教神将"
+    }
+  ],
+  "locations": [
+    {
+      "name": "波月洞",
+      "type": "洞穴",
+      "parent": "碗子山"
+    },
+    {
+      "name": "碗子山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "宝象国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "太极殿",
+      "type": "殿宇",
+      "parent": "宝象国"
+    },
+    {
+      "name": "华盖殿",
+      "type": "殿宇",
+      "parent": "宝象国"
+    },
+    {
+      "name": "烧香殿",
+      "type": "殿宇",
+      "parent": "宝象国"
+    },
+    {
+      "name": "观文殿",
+      "type": "殿宇",
+      "parent": "宝象国"
+    },
+    {
+      "name": "宣政殿",
+      "type": "殿宇",
+      "parent": "宝象国"
+    },
+    {
+      "name": "延英殿",
+      "type": "殿宇",
+      "parent": "宝象国"
+    },
+    {
+      "name": "大明宫",
+      "type": "宫殿",
+      "parent": "宝象国"
+    },
+    {
+      "name": "昭阳宫",
+      "type": "宫殿",
+      "parent": "宝象国"
+    },
+    {
+      "name": "长乐宫",
+      "type": "宫殿",
+      "parent": "宝象国"
+    },
+    {
+      "name": "华清宫",
+      "type": "宫殿",
+      "parent": "宝象国"
+    },
+    {
+      "name": "建章宫",
+      "type": "宫殿",
+      "parent": "宝象国"
+    },
+    {
+      "name": "未央宫",
+      "type": "宫殿",
+      "parent": "宝象国"
+    },
+    {
+      "name": "龙凤殿",
+      "type": "殿宇",
+      "parent": "宝象国"
+    },
+    {
+      "name": "白玉阶",
+      "type": "建筑",
+      "parent": "宝象国"
+    },
+    {
+      "name": "朝门",
+      "type": "建筑",
+      "parent": "宝象国"
+    },
+    {
+      "name": "馆驿",
+      "type": "建筑",
+      "parent": "宝象国"
+    },
+    {
+      "name": "大唐国",
+      "type": "国家",
+      "parent": "南赡部洲"
+    },
+    {
+      "name": "南赡部洲",
+      "type": "洲",
+      "parent": null
+    },
+    {
+      "name": "松林",
+      "type": "森林",
+      "parent": null
+    },
+    {
+      "name": "荆棘丛",
+      "type": "植被",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "八戒",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟关系"
+    },
+    {
+      "person_a": "百花羞",
+      "person_b": "宝象国王",
+      "relation_type": "父女关系"
+    },
+    {
+      "person_a": "百花羞",
+      "person_b": "黄袍怪",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "护法神祇",
+      "person_b": "唐僧",
+      "relation_type": "保护关系"
+    },
+    {
+      "person_a": "六丁六甲",
+      "person_b": "八戒",
+      "relation_type": "协助关系"
+    },
+    {
+      "person_a": "五方揭谛",
+      "person_b": "八戒",
+      "relation_type": "协助关系"
+    },
+    {
+      "person_a": "四值功曹",
+      "person_b": "八戒",
+      "relation_type": "协助关系"
+    },
+    {
+      "person_a": "一十八位护教伽蓝",
+      "person_b": "八戒",
+      "relation_type": "协助关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "碗子山",
+      "target": "波月洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "宝象国",
+      "target": "波月洞",
+      "relation_type": "direction",
+      "value": "西下三百余里"
+    },
+    {
+      "source": "宝象国",
+      "target": "太极殿",
+      "relation_type": "contains",
+      "value": "国都内的殿宇"
+    },
+    {
+      "source": "宝象国",
+      "target": "华盖殿",
+      "relation_type": "contains",
+      "value": "国都内的殿宇"
+    },
+    {
+      "source": "宝象国",
+      "target": "大明宫",
+      "relation_type": "contains",
+      "value": "国都内的宫殿"
+    },
+    {
+      "source": "宝象国",
+      "target": "昭阳宫",
+      "relation_type": "contains",
+      "value": "国都内的宫殿"
+    },
+    {
+      "source": "宝象国",
+      "target": "朝门",
+      "relation_type": "contains",
+      "value": "国都建筑"
+    },
+    {
+      "source": "宝象国",
+      "target": "馆驿",
+      "relation_type": "contains",
+      "value": "国都建筑"
+    },
+    {
+      "source": "波月洞",
+      "target": "荆棘丛",
+      "relation_type": "adjacent",
+      "value": "洞后门外"
+    },
+    {
+      "source": "松林",
+      "target": "大路",
+      "relation_type": "adjacent",
+      "value": "松林外是大路"
+    },
+    {
+      "source": "大唐国",
+      "target": "南赡部洲",
+      "relation_type": "contains",
+      "value": "洲内国家"
+    }
+  ],
+  "_chapter": 29,
+  "_input_tokens": 7666,
+  "_output_tokens": 2002
+}

@@ -25,6 +25,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
 import { InlineLlmSetup } from "@/components/shared/InlineLlmSetup"
+import { PassPanel } from "@/components/passes/PassPanel"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -121,6 +122,8 @@ export default function AnalysisPage() {
     timingStats,
     qualitySummary,
     stageLabel,
+    mapPrebuildStatus,
+    mapPrebuildStage,
     llmModel: wsLlmModel,
     llmProvider: wsLlmProvider,
     failedChapters,
@@ -716,6 +719,12 @@ export default function AnalysisPage() {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
+            {mapPrebuildStatus === "running" && (
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <span className="inline-block size-2 animate-pulse rounded-full bg-blue-500" />
+                {mapPrebuildStage ?? "正在预建世界地图…"}
+              </div>
+            )}
             <div className="grid grid-cols-3 gap-4 text-center">
               <StatCard label="实体" value={stats.entities} />
               <StatCard label="关系" value={stats.relations} />
@@ -869,6 +878,15 @@ export default function AnalysisPage() {
             </ul>
           </CardContent>
         </Card>
+      )}
+
+      {/* 二审(独立重读):multi-pass MVP,Epic 4。opt-in,一审完成后可用 */}
+      {novelId && (
+        <PassPanel
+          novelId={novelId}
+          mainAnalysisCompleted={isCompleted}
+          mainAnalysisActive={isActive}
+        />
       )}
 
       {/* Start analysis panel (shown when no active task) */}

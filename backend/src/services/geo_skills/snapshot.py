@@ -34,6 +34,10 @@ class HierarchySnapshot:
     source: str = ""       # which skill produced this snapshot
     timestamp: float = 0.0
     novel_genre_hint: str = ""
+    # 硬编码知识先验注入的 (child, parent) 边——确定性知识,Edmonds 须将其
+    # 视为权威:裸边清除/票覆盖/幻父上提/度均衡都不得改动(2026-09-19:
+    # 三国 荆州→益州 因益州有机票>15 压过先验 荆州→天下, sibling 倒挂)
+    prior_edges: frozenset[tuple[str, str]] = frozenset()
 
     def apply(self, result: SkillResult) -> HierarchySnapshot:
         """Create a new snapshot by applying a SkillResult.
@@ -57,8 +61,17 @@ class HierarchySnapshot:
                 merged_parents[child] = parent
 
         # Merge tier updates
+        # 值为 None 表示删除该 tier 条目(与 parent_overrides 的 None 语义一致)。
+        # 实体净化需要它:仅删 parent 而不清 tier,会让该实体变成
+        # "在 tiers 里却没有 parent" 的孤儿,随后被
+        # orchestrator._inject_layer_roots 的 Phase 0 重新挂回 uber_root
+        # (2026-09-08: instance_东吴 / 官道 / 江岸 / 各寺院 就是这样复活的)。
         merged_tiers = dict(self.location_tiers)
-        merged_tiers.update(result.tier_updates)
+        for name, tier in result.tier_updates.items():
+            if tier is None:
+                merged_tiers.pop(name, None)
+            else:
+                merged_tiers[name] = tier
 
         return HierarchySnapshot(
             location_parents=merged_parents,
@@ -71,6 +84,9 @@ class HierarchySnapshot:
             source=result.skill_name,
             timestamp=time.time(),
             novel_genre_hint=self.novel_genre_hint,
+            prior_edges=self.prior_edges | frozenset(
+                (c, p) for c, p in result.prior_edges
+            ),
         )
 
 
@@ -84,6 +100,15 @@ class SkillResult:
     tier_updates: dict[str, str] = field(default_factory=dict)
     synonym_pairs: list[tuple[str, str]] = field(default_factory=list)
     direction_constraints: list[dict] = field(default_factory=list)
+    # 硬编码先验注入的确定性 (child, parent) 边(仅 KnowledgePrior 硬编码
+    # 路径发出;LLM 路径仍只发票)。经 snapshot.apply 累积进
+    # HierarchySnapshot.prior_edges,供 Edmonds 权威化。
+    prior_edges: list[tuple[str, str]] = field(default_factory=list)
+
+    # 离线分析元数据(不进快照状态;snapshot.apply 只消费上面的票数/覆盖/
+    # tier/同义词/先验边)。AuditorSkill 的 report_only 模式把 violations
+    # 写在这里供离线分析。
+    metadata: dict = field(default_factory=dict)
 
     # Execution metadata
     success: bool = True
@@ -153,7 +178,7 @@ class HierarchyMetrics:
 
         # Children count
         children_count: Counter = Counter()
-        for child, parent in parents.items():
+        for _child, parent in parents.items():
             children_count[parent] += 1
         top = children_count.most_common(1)
         max_ch = top[0][1] if top else 0

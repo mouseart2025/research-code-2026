@@ -1,0 +1,184 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "东土大唐差去西天大雷音求经的和尚，师父"
+    },
+    {
+      "name": "行者",
+      "description": "三藏的徒弟，齐天大圣，能变化神通"
+    },
+    {
+      "name": "八戒",
+      "description": "三藏的徒弟，天蓬元帅悟能八戒，能变化为鲇鱼精"
+    },
+    {
+      "name": "沙僧",
+      "description": "三藏的徒弟"
+    },
+    {
+      "name": "七个女妖",
+      "description": "盘丝洞中的女妖精，能吐丝绳，会武艺"
+    },
+    {
+      "name": "土地",
+      "description": "当地的土地神，知晓妖怪情况"
+    },
+    {
+      "name": "土地婆",
+      "description": "土地神的妻子"
+    },
+    {
+      "name": "蜜、蚂、蜍、班、蜢、蜡、蜻",
+      "description": "七仙姑的干儿子，分别是蜜蜂、蚂蜂、蜍蜂、班毛、牛蜢、抹蜡、蜻蜓"
+    }
+  ],
+  "locations": [
+    {
+      "name": "朱紫国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "盘丝岭",
+      "type": "山岭",
+      "parent": null
+    },
+    {
+      "name": "盘丝洞",
+      "type": "洞穴",
+      "parent": "盘丝岭"
+    },
+    {
+      "name": "庵林",
+      "type": "建筑群",
+      "parent": "盘丝岭"
+    },
+    {
+      "name": "石桥",
+      "type": "桥梁",
+      "parent": "庵林"
+    },
+    {
+      "name": "茅屋",
+      "type": "房屋",
+      "parent": "庵林"
+    },
+    {
+      "name": "木香亭子",
+      "type": "亭子",
+      "parent": "庵林"
+    },
+    {
+      "name": "濯垢泉",
+      "type": "温泉",
+      "parent": "盘丝岭"
+    },
+    {
+      "name": "石房",
+      "type": "房间",
+      "parent": "盘丝洞"
+    },
+    {
+      "name": "后园",
+      "type": "园林",
+      "parent": "盘丝洞"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "七个女妖",
+      "person_b": "蜜、蚂、蜍、班、蜢、蜡、蜻",
+      "relation_type": "干母子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "盘丝岭",
+      "target": "盘丝洞",
+      "relation_type": "contains",
+      "value": "山岭下有洞"
+    },
+    {
+      "source": "盘丝岭",
+      "target": "庵林",
+      "relation_type": "contains",
+      "value": "山岭上有庵林"
+    },
+    {
+      "source": "庵林",
+      "target": "石桥",
+      "relation_type": "contains",
+      "value": "庵林前有石桥"
+    },
+    {
+      "source": "庵林",
+      "target": "茅屋",
+      "relation_type": "contains",
+      "value": "桥那边有茅屋"
+    },
+    {
+      "source": "庵林",
+      "target": "木香亭子",
+      "relation_type": "contains",
+      "value": "茅屋里面有木香亭子"
+    },
+    {
+      "source": "濯垢泉",
+      "target": "盘丝岭",
+      "relation_type": "direction",
+      "value": "正南上离此有三里之遥"
+    },
+    {
+      "source": "盘丝洞",
+      "target": "石房",
+      "relation_type": "contains",
+      "value": "洞中有石房"
+    },
+    {
+      "source": "盘丝洞",
+      "target": "后园",
+      "relation_type": "contains",
+      "value": "洞后有园林"
+    },
+    {
+      "source": "濯垢泉",
+      "target": "三间亭子",
+      "relation_type": "contains",
+      "value": "浴池上有三间亭子"
+    }
+  ],
+  "_chapter": 72,
+  "_input_tokens": 9402,
+  "_output_tokens": 1301
+}

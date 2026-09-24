@@ -1,0 +1,354 @@
+{
+  "characters": [
+    {
+      "name": "凤姐",
+      "description": "家中主事之人，生病在身，负责处理盗窃案件"
+    },
+    {
+      "name": "惜春",
+      "description": "四姑娘，与凤姐一同看家，内心想要出家"
+    },
+    {
+      "name": "林之孝",
+      "description": "管家，负责看家和处理盗窃事务"
+    },
+    {
+      "name": "贾芸",
+      "description": "二爷，协助林之孝看家，向贾政报告盗窃情况"
+    },
+    {
+      "name": "包勇",
+      "description": "护卫，打死了盗贼何三"
+    },
+    {
+      "name": "何三",
+      "description": "盗贼头目，被包勇打死"
+    },
+    {
+      "name": "周瑞",
+      "description": "家奴，其干儿子参与盗窃"
+    },
+    {
+      "name": "妙玉",
+      "description": "栊翠庵的姑子，被盗贼劫走"
+    },
+    {
+      "name": "贾政",
+      "description": "老爷，在寺内守灵，处理家中事务"
+    },
+    {
+      "name": "贾琏",
+      "description": "琏二爷，负责家中财务和事务管理"
+    },
+    {
+      "name": "邢夫人",
+      "description": "夫人，与王夫人一同在寺内守灵"
+    },
+    {
+      "name": "王夫人",
+      "description": "夫人，与邢夫人一同在寺内守灵"
+    },
+    {
+      "name": "宝玉",
+      "description": "宝二爷，陪同家人处理丧事"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "姨娘，在寺内发病中邪"
+    },
+    {
+      "name": "贾环",
+      "description": "三爷，赵姨娘之子"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "琥珀",
+      "description": "老太太身边的丫鬟，负责清点失物"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "已死的老太太丫鬟，生前管理老太太物品"
+    },
+    {
+      "name": "彩屏",
+      "description": "惜春的丫鬟"
+    },
+    {
+      "name": "鲍二",
+      "description": "与周瑞干儿子有关联的人，被衙门抓获"
+    },
+    {
+      "name": "李纨",
+      "description": "大嫂子"
+    },
+    {
+      "name": "宝钗",
+      "description": "仁厚之人"
+    },
+    {
+      "name": "尤氏",
+      "description": "嫂子"
+    },
+    {
+      "name": "周姨娘",
+      "description": "好心的姨娘，照应赵姨娘"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "老太太上房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "西边院子",
+      "type": "院子",
+      "parent": "贾府"
+    },
+    {
+      "name": "四姑娘屋子",
+      "type": "房间",
+      "parent": "西边院子"
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "贾府"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "腰门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "三门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "后夹道",
+      "type": "通道",
+      "parent": "贾府"
+    },
+    {
+      "name": "铁槛寺",
+      "type": "寺院",
+      "parent": null
+    },
+    {
+      "name": "外厢房",
+      "type": "房间",
+      "parent": "铁槛寺"
+    },
+    {
+      "name": "甄府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "海洋",
+      "type": "地理位置",
+      "parent": null
+    },
+    {
+      "name": "关津",
+      "type": "关口",
+      "parent": null
+    },
+    {
+      "name": "二十里坡",
+      "type": "地点",
+      "parent": null
+    },
+    {
+      "name": "南海",
+      "type": "地理位置",
+      "parent": null
+    },
+    {
+      "name": "玄墓",
+      "type": "地点",
+      "parent": null
+    },
+    {
+      "name": "京城",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "城门",
+      "type": "门",
+      "parent": "京城"
+    },
+    {
+      "name": "市口",
+      "type": "街道",
+      "parent": "京城"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "惜春",
+      "person_b": "彩屏",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾琏",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾芸",
+      "relation_type": "长幼"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "贾环",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "邢夫人",
+      "person_b": "王夫人",
+      "relation_type": "妯娌"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "周瑞",
+      "person_b": "何三",
+      "relation_type": "干父子"
+    },
+    {
+      "person_a": "琥珀",
+      "person_b": "鸳鸯",
+      "relation_type": "同事"
+    },
+    {
+      "person_a": "惜春",
+      "person_b": "李纨",
+      "relation_type": "姑嫂"
+    },
+    {
+      "person_a": "周姨娘",
+      "person_b": "赵姨娘",
+      "relation_type": "姐妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "老太太上房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "西边院子",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "西边院子",
+      "target": "四姑娘屋子",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "栊翠庵",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "栊翠庵",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "腰门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "三门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "后夹道",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "铁槛寺",
+      "target": "外厢房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "铁槛寺",
+      "relation_type": "direction",
+      "value": "城外"
+    },
+    {
+      "source": "关津",
+      "target": "二十里坡",
+      "relation_type": "direction",
+      "value": "关外二十里"
+    },
+    {
+      "source": "二十里坡",
+      "target": "南海",
+      "relation_type": "direction",
+      "value": "南行"
+    },
+    {
+      "source": "京城",
+      "target": "城门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "京城",
+      "target": "市口",
+      "relation_type": "contains",
+      "value": ""
+    }
+  ],
+  "_chapter": 113,
+  "_input_tokens": 8724,
+  "_output_tokens": 2163
+}

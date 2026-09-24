@@ -7,7 +7,45 @@ v0.71.8: spatial_relationships[].value = None).
 """
 
 from src.extraction.chapter_fact_extractor import _normalize_field_names
-from src.models.chapter_fact import ChapterFact, SpatialRelationship
+from src.models.chapter_fact import ChapterFact, RelationshipFact, SpatialRelationship
+
+
+class TestRelationshipFactDimensions:
+    """FR-1.1: polarity / rel_subtype / closeness optional dimension fields."""
+
+    def test_legacy_payload_deserializes_with_none_defaults(self):
+        """Old JSON without dimension fields must deserialize unchanged."""
+        rel = RelationshipFact.model_validate(
+            {"person_a": "宋江", "person_b": "武松", "relation_type": "结拜兄弟"}
+        )
+        assert rel.polarity is None
+        assert rel.rel_subtype is None
+        assert rel.closeness is None
+
+    def test_dimension_fields_round_trip(self):
+        payload = {
+            "person_a": "宋江",
+            "person_b": "武松",
+            "relation_type": "结拜兄弟",
+            "polarity": "positive",
+            "rel_subtype": "结拜",
+            "closeness": "close",
+        }
+        rel = RelationshipFact.model_validate(payload)
+        assert (rel.polarity, rel.rel_subtype, rel.closeness) == ("positive", "结拜", "close")
+        # Round-trip: dump -> re-validate yields an identical model
+        rel2 = RelationshipFact.model_validate(rel.model_dump())
+        assert rel2 == rel
+        assert rel2.model_dump() == rel.model_dump()
+
+    def test_partial_dimensions_round_trip(self):
+        rel = RelationshipFact.model_validate(
+            {"person_a": "林冲", "person_b": "高俅", "relation_type": "仇人", "rel_subtype": "敌对"}
+        )
+        assert rel.rel_subtype == "敌对"
+        assert rel.polarity is None
+        rel2 = RelationshipFact.model_validate_json(rel.model_dump_json())
+        assert rel2 == rel
 
 
 class TestSpatialRelationshipNoneTolerance:
@@ -73,3 +111,25 @@ class TestChapterFactDoesNotFailOnNullSpatialValue:
         fact = ChapterFact.model_validate(payload)
         assert len(fact.spatial_relationships) == 2
         assert fact.spatial_relationships[0].relation_type == "contains"
+
+
+class TestConceptFactCategoryDefault:
+    """ConceptFact.category 缺省时落默认值,不应整章校验失败(Epic 6 实测:
+    封神第 62 章因 new_concepts.3.category 缺失连续两轮失败)。"""
+
+    def test_missing_category_defaults_and_chapter_survives(self):
+        from src.models.chapter_fact import ConceptFact
+
+        concept = ConceptFact.model_validate({"name": "金霞冠"})
+        assert concept.category == "其他"
+
+        payload = {
+            "chapter_id": 62,
+            "novel_id": "test",
+            "characters": [{"name": "姜子牙"}],
+            "locations": [],
+            "events": [{"summary": "三路分兵", "type": "战斗"}],
+            "new_concepts": [{"name": "金霞冠"}],
+        }
+        fact = ChapterFact.model_validate(payload)
+        assert fact.new_concepts[0].category == "其他"

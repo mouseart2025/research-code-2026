@@ -1,0 +1,215 @@
+{
+  "characters": [
+    {
+      "name": "孙悟空（孙行者）",
+      "description": "齐天大圣，东土唐僧徒弟，持铁棒，会七十二变，保护唐僧西天取经"
+    },
+    {
+      "name": "唐僧（唐三藏）",
+      "description": "东土大唐和尚，唐王御弟，前往西天取经"
+    },
+    {
+      "name": "八戒（猪八戒）",
+      "description": "唐僧二徒弟，使用钯作武器"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧三徒弟，负责护持师父"
+    },
+    {
+      "name": "先锋",
+      "description": "赛太岁部下，被孙悟空打败"
+    },
+    {
+      "name": "赛太岁",
+      "description": "麒麟山獬豸洞妖王，身长丈八，面似金光声如霹雳，腰间带三个金铃"
+    },
+    {
+      "name": "有来有去",
+      "description": "赛太岁心腹小校，五短身材，负责送战书，被孙悟空打死"
+    },
+    {
+      "name": "朱紫国王",
+      "description": "朱紫国君主，金圣宫的丈夫，因妻子被妖怪掳走而患相思病"
+    },
+    {
+      "name": "金圣娘娘（金圣宫）",
+      "description": "朱紫国皇后，被赛太岁强掳三年，身穿五彩仙衣，美貌娇嫩"
+    },
+    {
+      "name": "猩猩",
+      "description": "獬豸洞把门妖怪，能解人言"
+    },
+    {
+      "name": "虎将",
+      "description": "赛太岁部下妖将"
+    },
+    {
+      "name": "熊师",
+      "description": "赛太岁部下妖将"
+    }
+  ],
+  "locations": [
+    {
+      "name": "麒麟山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "獬豸洞",
+      "type": "洞府",
+      "parent": "麒麟山"
+    },
+    {
+      "name": "朱紫国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "避妖楼地穴",
+      "type": "建筑",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "金銮殿",
+      "type": "宫殿",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "剥皮亭",
+      "type": "亭子",
+      "parent": "獬豸洞"
+    },
+    {
+      "name": "后宫",
+      "type": "宫殿",
+      "parent": "獬豸洞"
+    },
+    {
+      "name": "昭阳宫",
+      "type": "宫殿",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "梳妆阁",
+      "type": "房间",
+      "parent": "昭阳宫"
+    },
+    {
+      "name": "西门",
+      "type": "城门",
+      "parent": "朱紫国"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐僧",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "先锋",
+      "person_b": "赛太岁",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "有来有去",
+      "person_b": "赛太岁",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "朱紫国王",
+      "person_b": "金圣娘娘",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "赛太岁",
+      "person_b": "金圣娘娘",
+      "relation_type": "强占关系"
+    },
+    {
+      "person_a": "猩猩",
+      "person_b": "赛太岁",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "虎将",
+      "person_b": "赛太岁",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "熊师",
+      "person_b": "赛太岁",
+      "relation_type": "主仆关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "麒麟山",
+      "target": "獬豸洞",
+      "relation_type": "contains",
+      "value": "獬豸洞位于麒麟山中"
+    },
+    {
+      "source": "朱紫国",
+      "target": "避妖楼地穴",
+      "relation_type": "contains",
+      "value": "避妖楼地穴在朱紫国内"
+    },
+    {
+      "source": "朱紫国",
+      "target": "金銮殿",
+      "relation_type": "contains",
+      "value": "金銮殿在朱紫国内"
+    },
+    {
+      "source": "獬豸洞",
+      "target": "剥皮亭",
+      "relation_type": "contains",
+      "value": "剥皮亭在獬豸洞内"
+    },
+    {
+      "source": "獬豸洞",
+      "target": "后宫",
+      "relation_type": "contains",
+      "value": "后宫在獬豸洞内部"
+    },
+    {
+      "source": "昭阳宫",
+      "target": "梳妆阁",
+      "relation_type": "contains",
+      "value": "梳妆阁在昭阳宫上"
+    },
+    {
+      "source": "朱紫国",
+      "target": "昭阳宫",
+      "relation_type": "contains",
+      "value": "昭阳宫在朱紫国内"
+    },
+    {
+      "source": "朱紫国",
+      "target": "麒麟山",
+      "relation_type": "direction",
+      "value": "麒麟山在朱紫国南方约三千余里"
+    },
+    {
+      "source": "朱紫国",
+      "target": "西门",
+      "relation_type": "contains",
+      "value": "西门是朱紫国的城门"
+    }
+  ],
+  "_chapter": 70,
+  "_input_tokens": 9157,
+  "_output_tokens": 1673
+}

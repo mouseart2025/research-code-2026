@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Markdown from "react-markdown"
-import { exportConversationUrl } from "@/api/client"
+import { exportConversationUrl, fetchNovel } from "@/api/client"
 import { useChatStore } from "@/stores/chatStore"
 import { novelPath } from "@/lib/novelPaths"
 import { useLlmInfoStore, formatLlmLabel } from "@/stores/llmInfoStore"
@@ -21,6 +21,8 @@ export default function ChatPage() {
     messages,
     streaming,
     streamingContent,
+    streamingStatus,
+    streamingConversationId,
     loadConversations,
     newConversation,
     selectConversation,
@@ -29,6 +31,9 @@ export default function ChatPage() {
     disconnectWs,
     sendQuestion,
   } = useChatStore()
+
+  // Only show the in-flight stream on the conversation it belongs to (#55)
+  const streamHere = streaming && streamingConversationId === activeConversationId
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -42,6 +47,38 @@ export default function ChatPage() {
     if (!novelId) return
     loadConversations(novelId)
   }, [novelId, loadConversations])
+
+  // Analysis progress badge (issue #56: users can't tell why QA draws a blank
+  // mid-analysis) — poll while analysis is incomplete
+  const [analysisInfo, setAnalysisInfo] = useState<{ analyzed: number; total: number } | null>(null)
+  useEffect(() => {
+    if (!novelId) return
+    let cancelled = false
+    const load = async () => {
+      try {
+        const n = await fetchNovel(novelId)
+        if (!cancelled) {
+          setAnalysisInfo({
+            analyzed: Math.round(n.analysis_progress * n.total_chapters),
+            total: n.total_chapters,
+          })
+        }
+        return n.analysis_progress < 1
+      } catch {
+        return false
+      }
+    }
+    let timer: ReturnType<typeof setTimeout> | undefined
+    const tick = async () => {
+      const incomplete = await load()
+      if (!cancelled && incomplete) timer = setTimeout(tick, 15000)
+    }
+    tick()
+    return () => {
+      cancelled = true
+      if (timer) clearTimeout(timer)
+    }
+  }, [novelId])
 
   // Connect WebSocket
   useEffect(() => {
@@ -146,6 +183,14 @@ export default function ChatPage() {
             {sidebarOpen ? "◁" : "▷"}
           </button>
           <span className="text-sm font-medium">智能问答</span>
+          {analysisInfo && (
+            <span
+              className="text-[11px] rounded-full border px-2 py-0.5 text-muted-foreground"
+              title="问答仅能基于已分析章节的知识库回答"
+            >
+              已分析 {analysisInfo.analyzed}/{analysisInfo.total} 章
+            </span>
+          )}
           {activeConversationId && (
             <span className="text-xs text-muted-foreground">
               {conversations.find((c) => c.id === activeConversationId)?.title}
@@ -169,7 +214,7 @@ export default function ChatPage() {
 
         {/* Messages */}
         <div className="flex-1 overflow-auto px-6 py-4 space-y-4">
-          {messages.length === 0 && !streaming && (
+          {messages.length === 0 && !streamHere && (
             <div className="flex flex-col items-center justify-center h-full text-muted-foreground gap-2">
               <p className="text-lg">向小说提问</p>
               <p className="text-sm">基于已分析的章节内容回答</p>
@@ -236,7 +281,7 @@ export default function ChatPage() {
           ))}
 
           {/* Streaming */}
-          {streaming && streamingContent && (
+          {streamHere && streamingContent && (
             <div className="max-w-[75%] mr-auto">
               <div className="flex items-start gap-2">
                 <div className="size-7 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -250,7 +295,7 @@ export default function ChatPage() {
             </div>
           )}
 
-          {streaming && !streamingContent && (
+          {streamHere && !streamingContent && (
             <div className="max-w-[75%] mr-auto">
               <div className="flex items-start gap-2">
                 <div className="size-7 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -260,6 +305,9 @@ export default function ChatPage() {
                   <span className="text-sm text-muted-foreground animate-pulse">
                     {llmLabel ? `${llmLabel} 思考中...` : "正在思考..."}
                   </span>
+                  {streamingStatus && (
+                    <div className="mt-1 text-xs text-muted-foreground/70">{streamingStatus}</div>
+                  )}
                 </div>
               </div>
             </div>

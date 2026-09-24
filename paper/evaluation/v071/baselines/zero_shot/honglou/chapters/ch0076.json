@@ -1,0 +1,355 @@
+{
+  "characters": [
+    {
+      "name": "尤氏",
+      "description": "贾珍的妻子，从惜春处赌气出来，前往探望李纨"
+    },
+    {
+      "name": "老嬷嬷",
+      "description": "尤氏的跟从仆人，告知甄家来人的消息"
+    },
+    {
+      "name": "李纨",
+      "description": "李氏，珠大奶奶，近日生病在床，略有好转"
+    },
+    {
+      "name": "素云",
+      "description": "李纨的丫鬟，负责照料日常起居"
+    },
+    {
+      "name": "银蝶",
+      "description": "尤氏的丫鬟，贴身伺候"
+    },
+    {
+      "name": "炒豆儿",
+      "description": "小丫鬟，负责端水等杂务"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，要回家照顾生病的母亲"
+    },
+    {
+      "name": "探春",
+      "description": "贾探春，三姑娘，性格直爽，昨夜打了王善保家的"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，史大妹妹"
+    },
+    {
+      "name": "惜春",
+      "description": "四丫头，性格孤介"
+    },
+    {
+      "name": "贾母",
+      "description": "老太太，贾府的最高长辈"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的贴身丫鬟"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛宝琴"
+    },
+    {
+      "name": "待书",
+      "description": "探春的丫鬟"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁国府当家人，居丧期间组织赌局"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍的儿子"
+    },
+    {
+      "name": "贾蓉之妻",
+      "description": "贾蓉的妻子"
+    },
+    {
+      "name": "佩凤",
+      "description": "贾珍的妾"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛家公子，好赌"
+    },
+    {
+      "name": "邢德全",
+      "description": "邢夫人的胞弟，外号傻大舅，好赌酒"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾母的长子"
+    },
+    {
+      "name": "贾政",
+      "description": "贾母的次子，宝玉的父亲"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾赦的儿子"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾政的儿子，贾府宝二爷"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政的庶子"
+    },
+    {
+      "name": "贾兰",
+      "description": "李纨的儿子"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦的妻子，邢德全的姐姐"
+    },
+    {
+      "name": "迎春",
+      "description": "二姑娘"
+    },
+    {
+      "name": "文花",
+      "description": "贾珍家的歌妓"
+    }
+  ],
+  "locations": [
+    {
+      "name": "惜春处",
+      "type": "居室",
+      "parent": null
+    },
+    {
+      "name": "王夫人处",
+      "type": "居室",
+      "parent": "荣府"
+    },
+    {
+      "name": "上房",
+      "type": "居室",
+      "parent": "荣府"
+    },
+    {
+      "name": "李氏这边",
+      "type": "居室",
+      "parent": "荣府"
+    },
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "贾母房内",
+      "type": "居室",
+      "parent": "荣府"
+    },
+    {
+      "name": "天香楼",
+      "type": "楼阁",
+      "parent": "宁府"
+    },
+    {
+      "name": "箭道",
+      "type": "练习场",
+      "parent": "天香楼下"
+    },
+    {
+      "name": "会芳园",
+      "type": "园林",
+      "parent": "宁府"
+    },
+    {
+      "name": "丛绿堂",
+      "type": "厅堂",
+      "parent": "会芳园"
+    },
+    {
+      "name": "祠堂",
+      "type": "祭祀场所",
+      "parent": "宁府"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "荣府"
+    },
+    {
+      "name": "嘉荫堂",
+      "type": "厅堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "凸碧山庄",
+      "type": "山庄",
+      "parent": "大观园"
+    },
+    {
+      "name": "山脊",
+      "type": "地形",
+      "parent": "大观园"
+    },
+    {
+      "name": "东西街口",
+      "type": "街道",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "尤氏",
+      "person_b": "贾珍",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "贾兰",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "素云",
+      "person_b": "李纨",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "银蝶",
+      "person_b": "尤氏",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "贾蓉之妻",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "佩凤",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "邢德全",
+      "person_b": "邢夫人",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "邢夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾环",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾赦",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾政",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "贾琏",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "琥珀",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "荣府",
+      "target": "宁府",
+      "relation_type": "adjacent",
+      "value": "相隔没有一箭之路"
+    },
+    {
+      "source": "天香楼",
+      "target": "箭道",
+      "relation_type": "contains",
+      "value": "天香楼下有箭道"
+    },
+    {
+      "source": "会芳园",
+      "target": "丛绿堂",
+      "relation_type": "contains",
+      "value": "丛绿堂位于会芳园中"
+    },
+    {
+      "source": "宁府",
+      "target": "祠堂",
+      "relation_type": "contains",
+      "value": "祠堂紧靠着会芳园墙边"
+    },
+    {
+      "source": "大观园",
+      "target": "嘉荫堂",
+      "relation_type": "contains",
+      "value": "嘉荫堂在大观园内"
+    },
+    {
+      "source": "大观园",
+      "target": "山脊",
+      "relation_type": "contains",
+      "value": "山脊在大观园内"
+    },
+    {
+      "source": "山脊",
+      "target": "凸碧山庄",
+      "relation_type": "contains",
+      "value": "凸碧山庄位于山之高脊上"
+    },
+    {
+      "source": "嘉荫堂",
+      "target": "凸碧山庄",
+      "relation_type": "direction",
+      "value": "从嘉荫堂上山可达凸碧山庄"
+    }
+  ],
+  "_chapter": 76,
+  "_input_tokens": 11920,
+  "_output_tokens": 2353
+}

@@ -1,0 +1,255 @@
+{
+  "characters": [
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，细心照料宝玉，深受王夫人信任"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府二公子，因违逆父亲被打伤，性格敏感多情"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家小姐，温柔贤淑，给宝玉送药治伤"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太君，宝玉的祖母"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲，既心疼儿子又担心其品行"
+    },
+    {
+      "name": "贾环",
+      "description": "贾府三公子，在老爷面前说了宝玉的坏话"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛宝钗的哥哥，被误认为是告发宝玉的人"
+    },
+    {
+      "name": "林黛玉",
+      "description": "林家小姐，宝玉的表妹，深爱宝玉，眼睛哭肿"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾府二奶奶，来探望宝玉"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛宝钗和薛蟠的母亲"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "蒋玉菡",
+      "description": "戏子，在宝玉梦中出现"
+    },
+    {
+      "name": "金钏儿",
+      "description": "已故丫鬟，在宝玉梦中出现哭诉投井之事"
+    },
+    {
+      "name": "焙茗",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "彩云",
+      "description": "王夫人房中的丫鬟"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "檀云",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "春纤",
+      "description": "林黛玉房中的丫鬟"
+    },
+    {
+      "name": "周瑞媳妇",
+      "description": "贾府管事媳妇"
+    },
+    {
+      "name": "吴新登媳妇",
+      "description": "贾府管事媳妇"
+    },
+    {
+      "name": "郑好时媳妇",
+      "description": "贾府管事媳妇"
+    }
+  ],
+  "locations": [
+    {
+      "name": "宝玉房间",
+      "type": "卧室",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "宅院",
+      "parent": ""
+    },
+    {
+      "name": "潇湘馆",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "上房",
+      "type": "正房",
+      "parent": "贾府"
+    },
+    {
+      "name": "薛姨妈房间",
+      "type": "居所",
+      "parent": "贾府"
+    },
+    {
+      "name": "宝钗房间",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "后院",
+      "type": "院落",
+      "parent": "大观园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "表兄妹/恋人"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛蟠",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛姨妈",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "王夫人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "春纤",
+      "person_b": "林黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "彩云",
+      "person_b": "王夫人",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "宝玉房间",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "宝钗房间",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "上房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "薛姨妈房间",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "宝玉房间",
+      "target": "后院",
+      "relation_type": "adjacent",
+      "value": "房后有后院"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "后院",
+      "relation_type": "adjacent",
+      "value": "可通过后院到达"
+    },
+    {
+      "source": "大观园",
+      "target": "上房",
+      "relation_type": "direction",
+      "value": "园外"
+    }
+  ],
+  "_chapter": 34,
+  "_input_tokens": 8968,
+  "_output_tokens": 1730
+}

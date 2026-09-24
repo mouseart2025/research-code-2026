@@ -1,0 +1,303 @@
+{
+  "characters": [
+    {
+      "name": "贾妃",
+      "description": "贾府女儿，已入宫为妃"
+    },
+    {
+      "name": "贾政",
+      "description": "贾府成员，贾妃之父"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾府管事，事多任重，本性要强"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，极无事最闲暇，性格异常淘气憨顽"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，原名不详"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老祖宗"
+    },
+    {
+      "name": "贾珍",
+      "description": "东府珍大爷"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府成员"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛家公子"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "た儿",
+      "description": "女孩子，大不过十六七岁"
+    },
+    {
+      "name": "花自芳",
+      "description": "袭人之兄"
+    },
+    {
+      "name": "李嬷嬷",
+      "description": "宝玉的奶母，已告老解事出去"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，贾府表小姐"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，薛家小姐"
+    }
+  ],
+  "locations": [
+    {
+      "name": "宫",
+      "type": "皇宫",
+      "parent": null
+    },
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": "荣宁二府"
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": "荣宁二府"
+    },
+    {
+      "name": "荣宁二府",
+      "type": "府邸群",
+      "parent": null
+    },
+    {
+      "name": "园",
+      "type": "园林",
+      "parent": "荣宁二府"
+    },
+    {
+      "name": "东府",
+      "type": "府邸",
+      "parent": "荣宁二府"
+    },
+    {
+      "name": "小书房",
+      "type": "房间",
+      "parent": "东府"
+    },
+    {
+      "name": "袭人家",
+      "type": "民居",
+      "parent": null
+    },
+    {
+      "name": "宝玉房",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "黛玉房",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "宁府街",
+      "type": "街道",
+      "parent": null
+    },
+    {
+      "name": "后门",
+      "type": "门",
+      "parent": "东府"
+    },
+    {
+      "name": "二门",
+      "type": "门",
+      "parent": "东府"
+    },
+    {
+      "name": "戏房",
+      "type": "房间",
+      "parent": "东府"
+    },
+    {
+      "name": "扬州",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "黛山",
+      "type": "山",
+      "parent": "扬州"
+    },
+    {
+      "name": "林子洞",
+      "type": "洞穴",
+      "parent": "黛山"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾妃",
+      "person_b": "贾政",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "茗烟",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "花自芳",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "李嬷嬷",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "晴雯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "秋纹",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "表兄妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "荣宁二府",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "荣宁二府",
+      "target": "宁府",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "荣宁二府",
+      "target": "园",
+      "relation_type": "contains",
+      "value": "园中"
+    },
+    {
+      "source": "东府",
+      "target": "小书房",
+      "relation_type": "contains",
+      "value": "内有"
+    },
+    {
+      "source": "东府",
+      "target": "戏房",
+      "relation_type": "contains",
+      "value": "内有"
+    },
+    {
+      "source": "东府",
+      "target": "后门",
+      "relation_type": "contains",
+      "value": "有后门"
+    },
+    {
+      "source": "东府",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": "有二门"
+    },
+    {
+      "source": "袭人家",
+      "target": "荣宁二府",
+      "relation_type": "direction",
+      "value": "不过一半里路程"
+    },
+    {
+      "source": "宁府街",
+      "target": "东府",
+      "relation_type": "adjacent",
+      "value": "街上"
+    },
+    {
+      "source": "荣府",
+      "target": "宝玉房",
+      "relation_type": "contains",
+      "value": "房中"
+    },
+    {
+      "source": "荣府",
+      "target": "黛玉房",
+      "relation_type": "contains",
+      "value": "房中"
+    },
+    {
+      "source": "扬州",
+      "target": "黛山",
+      "relation_type": "contains",
+      "value": "有一座黛山"
+    },
+    {
+      "source": "黛山",
+      "target": "林子洞",
+      "relation_type": "contains",
+      "value": "山上有个林子洞"
+    }
+  ],
+  "_chapter": 19,
+  "_input_tokens": 11305,
+  "_output_tokens": 1808
+}

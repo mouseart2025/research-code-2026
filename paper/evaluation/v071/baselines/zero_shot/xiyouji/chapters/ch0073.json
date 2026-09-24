@@ -1,0 +1,187 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣",
+      "description": "唐僧的大徒弟，又名孙悟空、行者，有七十二变等神通，使用金箍棒"
+    },
+    {
+      "name": "唐僧",
+      "description": "东土大唐钦差御弟，往西天取经的和尚，十世修行的真体"
+    },
+    {
+      "name": "八戒",
+      "description": "唐僧的徒弟，长嘴大耳朵，白胖身材，使用九齿钉钯"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧的徒弟，负责挑担"
+    },
+    {
+      "name": "道士",
+      "description": "黄花观观主，百眼魔君，多目怪，本相是七尺长短的大蜈蚣精"
+    },
+    {
+      "name": "七个女怪",
+      "description": "盘丝洞的蜘蛛精，与道士同堂学艺，称道士为师兄"
+    },
+    {
+      "name": "土地",
+      "description": "当地的土地神"
+    },
+    {
+      "name": "黎山老姆",
+      "description": "菩萨，化作孝妇指点孙悟空"
+    },
+    {
+      "name": "毗蓝婆",
+      "description": "千花洞的菩萨，昴日星官的母亲，能降蜈蚣精"
+    },
+    {
+      "name": "昴日星官",
+      "description": "毗蓝婆的儿子，本相是公鸡"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大路",
+      "type": "道路",
+      "parent": null
+    },
+    {
+      "name": "黄花观",
+      "type": "道观",
+      "parent": null
+    },
+    {
+      "name": "二门",
+      "type": "门",
+      "parent": "黄花观"
+    },
+    {
+      "name": "正殿",
+      "type": "殿堂",
+      "parent": "黄花观"
+    },
+    {
+      "name": "东廊",
+      "type": "廊道",
+      "parent": "黄花观"
+    },
+    {
+      "name": "客位",
+      "type": "房间",
+      "parent": "黄花观"
+    },
+    {
+      "name": "方丈",
+      "type": "房间",
+      "parent": "黄花观"
+    },
+    {
+      "name": "盘丝洞",
+      "type": "洞穴",
+      "parent": null
+    },
+    {
+      "name": "濯垢泉",
+      "type": "泉水",
+      "parent": "盘丝洞"
+    },
+    {
+      "name": "紫云山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "千花洞",
+      "type": "洞穴",
+      "parent": "紫云山"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙大圣",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "道士",
+      "person_b": "七个女怪",
+      "relation_type": "师兄妹"
+    },
+    {
+      "person_a": "毗蓝婆",
+      "person_b": "昴日星官",
+      "relation_type": "母子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "黄花观",
+      "target": "大路",
+      "relation_type": "adjacent",
+      "value": "路边"
+    },
+    {
+      "source": "黄花观",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "黄花观",
+      "target": "正殿",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "黄花观",
+      "target": "东廊",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "黄花观",
+      "target": "客位",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "黄花观",
+      "target": "方丈",
+      "relation_type": "contains",
+      "value": "后面"
+    },
+    {
+      "source": "盘丝洞",
+      "target": "濯垢泉",
+      "relation_type": "contains",
+      "value": "洞内"
+    },
+    {
+      "source": "紫云山",
+      "target": "千花洞",
+      "relation_type": "contains",
+      "value": "山中"
+    },
+    {
+      "source": "紫云山",
+      "target": "黄花观",
+      "relation_type": "direction",
+      "value": "千里之遥，直南上"
+    }
+  ],
+  "_chapter": 73,
+  "_input_tokens": 9566,
+  "_output_tokens": 1245
+}

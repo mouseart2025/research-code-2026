@@ -1,0 +1,235 @@
+{
+  "characters": [
+    {
+      "name": "国王",
+      "description": "车迟国国王，倚着龙床哭泣，后来醒悟感谢孙悟空除妖"
+    },
+    {
+      "name": "孙悟空/行者",
+      "description": "齐天大圣，会七十二变，火眼金睛，保护唐僧西行取经"
+    },
+    {
+      "name": "唐僧/三藏",
+      "description": "东土大唐取经僧人，慈悲为怀"
+    },
+    {
+      "name": "猪八戒/八戒",
+      "description": "唐僧徒弟，长嘴大耳，贪吃，会三十六般变化"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧徒弟，保护师父"
+    },
+    {
+      "name": "陈澄",
+      "description": "陈家庄老者，六十三岁，有女儿一秤金"
+    },
+    {
+      "name": "陈清",
+      "description": "陈澄的弟弟，五十八岁，有儿子陈关保"
+    },
+    {
+      "name": "一秤金",
+      "description": "陈澄的女儿，八岁，将被献祭给灵感大王"
+    },
+    {
+      "name": "陈关保",
+      "description": "陈清的儿子，七岁，将被献祭给灵感大王"
+    },
+    {
+      "name": "灵感大王",
+      "description": "通天河妖怪，要求每年献祭童男童女"
+    },
+    {
+      "name": "皇后",
+      "description": "车迟国王后"
+    },
+    {
+      "name": "太师",
+      "description": "车迟国官员"
+    },
+    {
+      "name": "和尚们",
+      "description": "五百名脱命僧人，被孙悟空救出"
+    }
+  ],
+  "locations": [
+    {
+      "name": "车迟国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "龙床",
+      "type": "宫殿设施",
+      "parent": "王宫"
+    },
+    {
+      "name": "王宫",
+      "type": "建筑",
+      "parent": "车迟国"
+    },
+    {
+      "name": "智渊寺",
+      "type": "寺庙",
+      "parent": "车迟国"
+    },
+    {
+      "name": "东阁",
+      "type": "建筑",
+      "parent": "王宫"
+    },
+    {
+      "name": "通天河",
+      "type": "河流",
+      "parent": null
+    },
+    {
+      "name": "陈家庄",
+      "type": "村庄",
+      "parent": "元会县"
+    },
+    {
+      "name": "元会县",
+      "type": "县",
+      "parent": "车迟国"
+    },
+    {
+      "name": "灵感大王庙",
+      "type": "庙宇",
+      "parent": "陈家庄"
+    },
+    {
+      "name": "厅堂",
+      "type": "房间",
+      "parent": "陈家"
+    },
+    {
+      "name": "沙滩",
+      "type": "地形",
+      "parent": "通天河边"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "陈澄",
+      "person_b": "陈清",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "陈澄",
+      "person_b": "一秤金",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "陈清",
+      "person_b": "陈关保",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "皇后",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "太师",
+      "relation_type": "君臣"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "车迟国",
+      "target": "智渊寺",
+      "relation_type": "contains",
+      "value": "寺庙位于国内"
+    },
+    {
+      "source": "王宫",
+      "target": "东阁",
+      "relation_type": "contains",
+      "value": "东阁位于王宫内"
+    },
+    {
+      "source": "王宫",
+      "target": "龙床",
+      "relation_type": "contains",
+      "value": "龙床位于王宫内"
+    },
+    {
+      "source": "通天河",
+      "target": "陈家庄",
+      "relation_type": "adjacent",
+      "value": "陈家庄位于通天河边"
+    },
+    {
+      "source": "通天河",
+      "target": "沙滩",
+      "relation_type": "contains",
+      "value": "沙滩位于河边"
+    },
+    {
+      "source": "陈家庄",
+      "target": "灵感大王庙",
+      "relation_type": "contains",
+      "value": "庙距离石碑约一里"
+    },
+    {
+      "source": "陈家庄",
+      "target": "元会县",
+      "relation_type": "contains",
+      "value": "陈家庄属元会县管辖"
+    },
+    {
+      "source": "元会县",
+      "target": "车迟国",
+      "relation_type": "contains",
+      "value": "元会县属车迟国"
+    },
+    {
+      "source": "陈家",
+      "target": "厅堂",
+      "relation_type": "contains",
+      "value": "厅堂位于陈家内"
+    },
+    {
+      "source": "通天河",
+      "target": "石碑",
+      "relation_type": "adjacent",
+      "value": "石碑立于河边"
+    }
+  ],
+  "_chapter": 47,
+  "_input_tokens": 9030,
+  "_output_tokens": 1623
+}

@@ -1,0 +1,254 @@
+{
+  "characters": [
+    {
+      "name": "唐三藏",
+      "description": "唐朝御弟，前往西天取经的僧人，误饮子母河水导致腹痛成胎"
+    },
+    {
+      "name": "孙悟空",
+      "description": "唐三藏的大徒弟，又称孙大圣、行者，会七十二变和筋斗云，使用金箍棒"
+    },
+    {
+      "name": "猪八戒",
+      "description": "唐三藏的徒弟，又称呆子，同样误饮子母河水成胎，性格贪吃"
+    },
+    {
+      "name": "沙和尚",
+      "description": "唐三藏的徒弟，又称沙僧，使用降妖宝杖"
+    },
+    {
+      "name": "如意真仙",
+      "description": "聚仙庵的主人，牛魔王的兄弟，圣婴大王的叔父，使用如意钩子"
+    },
+    {
+      "name": "山神土地",
+      "description": "金皘山的神仙，为唐僧送饭"
+    },
+    {
+      "name": "摆渡妇人",
+      "description": "河边摆渡的老妇人"
+    },
+    {
+      "name": "老婆婆",
+      "description": "西梁女国村舍中的老妇人，向取经团队解释子母河的秘密"
+    },
+    {
+      "name": "道人",
+      "description": "如意真仙的大徒弟，守护聚仙庵"
+    },
+    {
+      "name": "圣婴大王",
+      "description": "红孩儿，牛魔王之子，如意真仙的侄子，现为观音菩萨座下善财童子"
+    },
+    {
+      "name": "牛魔王",
+      "description": "如意真仙的兄弟，圣婴大王的父亲"
+    },
+    {
+      "name": "观音菩萨",
+      "description": "佛教菩萨，红孩儿现在跟随的主人"
+    },
+    {
+      "name": "如来",
+      "description": "佛祖，曾暗示罗汉告知妖怪根源"
+    },
+    {
+      "name": "老君",
+      "description": "太上老君，降伏了青牛妖怪"
+    }
+  ],
+  "locations": [
+    {
+      "name": "金皘山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "西梁女国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "子母河",
+      "type": "河流",
+      "parent": "西梁女国"
+    },
+    {
+      "name": "迎阳馆",
+      "type": "建筑",
+      "parent": "西梁女国"
+    },
+    {
+      "name": "照胎泉",
+      "type": "泉水",
+      "parent": "迎阳馆"
+    },
+    {
+      "name": "解阳山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "破儿洞",
+      "type": "洞穴",
+      "parent": "解阳山"
+    },
+    {
+      "name": "聚仙庵",
+      "type": "庵院",
+      "parent": "解阳山"
+    },
+    {
+      "name": "落胎泉",
+      "type": "泉水",
+      "parent": "破儿洞"
+    },
+    {
+      "name": "村舍",
+      "type": "住所",
+      "parent": "西梁女国"
+    },
+    {
+      "name": "茅屋",
+      "type": "建筑",
+      "parent": "河边"
+    },
+    {
+      "name": "草舍",
+      "type": "建筑",
+      "parent": "村庄"
+    },
+    {
+      "name": "火云洞",
+      "type": "洞穴",
+      "parent": "号山"
+    },
+    {
+      "name": "号山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "枯松涧",
+      "type": "山涧",
+      "parent": "号山"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐三藏",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "沙和尚",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "如意真仙",
+      "person_b": "牛魔王",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "如意真仙",
+      "person_b": "圣婴大王",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "圣婴大王",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "如意真仙",
+      "person_b": "道人",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "观音菩萨",
+      "person_b": "圣婴大王",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "牛魔王",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "如意真仙",
+      "relation_type": "仇敌"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "解阳山",
+      "target": "村舍",
+      "relation_type": "direction",
+      "value": "正南三十里"
+    },
+    {
+      "source": "破儿洞",
+      "target": "解阳山",
+      "relation_type": "contains",
+      "value": "山中"
+    },
+    {
+      "source": "落胎泉",
+      "target": "破儿洞",
+      "relation_type": "contains",
+      "value": "洞里"
+    },
+    {
+      "source": "聚仙庵",
+      "target": "解阳山",
+      "relation_type": "contains",
+      "value": "山上"
+    },
+    {
+      "source": "照胎泉",
+      "target": "迎阳馆",
+      "relation_type": "adjacent",
+      "value": "驿门外"
+    },
+    {
+      "source": "迎阳馆",
+      "target": "西梁女国",
+      "relation_type": "contains",
+      "value": "国王城外"
+    },
+    {
+      "source": "子母河",
+      "target": "村舍",
+      "relation_type": "direction",
+      "value": "此东边"
+    },
+    {
+      "source": "茅屋",
+      "target": "子母河",
+      "relation_type": "adjacent",
+      "value": "河那边"
+    },
+    {
+      "source": "火云洞",
+      "target": "号山",
+      "relation_type": "contains",
+      "value": "山中"
+    },
+    {
+      "source": "枯松涧",
+      "target": "号山",
+      "relation_type": "contains",
+      "value": "山中"
+    }
+  ],
+  "_chapter": 53,
+  "_input_tokens": 9427,
+  "_output_tokens": 1788
+}

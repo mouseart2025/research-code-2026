@@ -1,0 +1,1487 @@
+{
+  "_description": "M5 ablation: greedy voting + post-processing (phantom-parent lift + degree balancing K=30 + cycle repair), WITHOUT Edmonds MWA and WITHOUT knowledge priors. Tests whether the 279→63 fan-out reduction is attributable to Edmonds or to post-pass heuristics. Chain: TierClassifier→VoteBuilder→VoteResolver→M5NoEdmondsResolver; M5 base = VoteResolver output only (ws full-pipeline parents explicitly erased to avoid circular contamination); orphans→uber_root; repair redirects→uber_root; deployed Phase 4/5 code reused verbatim. Run on a scratch copy of the frozen DB (AI_READER_DATA_DIR override); frozen novels untouched.",
+  "_script": "backend/scripts/m5_no_edmonds_ablation.py",
+  "_date": "2026-07-22",
+  "per_novel": [
+    {
+      "novel": "xiyouji",
+      "title": "西游记",
+      "voting_merged_snapshot": {
+        "_note": "口径 sanity anchor = ablation_hierarchy.py config 3 (ws parents merged with VoteResolver overrides)",
+        "max_children": 279,
+        "max_children_node": "西牛贺洲"
+      },
+      "voting_clean": {
+        "nodes": 968,
+        "total_parents": 684,
+        "max_children": 266,
+        "max_children_node": "西牛贺洲",
+        "roots": 283,
+        "cycles": 0,
+        "has_cycles": false
+      },
+      "m5_no_edmonds": {
+        "max_children": 80,
+        "max_children_node": "西牛贺洲",
+        "roots": 1,
+        "cycles": 0,
+        "has_cycles": false,
+        "avg_depth": 2.12,
+        "total_parents": 967
+      },
+      "m5_internal_stats": {
+        "uber_root": "西牛贺洲",
+        "base_parents_from_voting": 684,
+        "orphans_attached_to_uber_root": 283,
+        "orphan_share_of_nodes": 0.2924,
+        "reattached_after_cycle_delete": 0,
+        "cycles_broken": 0,
+        "phantom_children_lifted": 32,
+        "final_nodes": 968,
+        "final_total_parents": 967,
+        "final_max_children": 80,
+        "final_max_children_node": "西牛贺洲",
+        "final_roots": 0,
+        "final_cycles": 0,
+        "final_has_cycles": false
+      }
+    },
+    {
+      "novel": "honglou",
+      "title": "红楼梦",
+      "voting_merged_snapshot": {
+        "_note": "口径 sanity anchor = ablation_hierarchy.py config 3 (ws parents merged with VoteResolver overrides)",
+        "max_children": 148,
+        "max_children_node": "荣国府"
+      },
+      "voting_clean": {
+        "nodes": 852,
+        "total_parents": 562,
+        "max_children": 143,
+        "max_children_node": "荣国府",
+        "roots": 289,
+        "cycles": 0,
+        "has_cycles": false
+      },
+      "m5_no_edmonds": {
+        "max_children": 48,
+        "max_children_node": "石头城",
+        "roots": 1,
+        "cycles": 0,
+        "has_cycles": false,
+        "avg_depth": 2.41,
+        "total_parents": 851
+      },
+      "m5_internal_stats": {
+        "uber_root": "石头城",
+        "base_parents_from_voting": 562,
+        "orphans_attached_to_uber_root": 289,
+        "orphan_share_of_nodes": 0.3392,
+        "reattached_after_cycle_delete": 0,
+        "cycles_broken": 0,
+        "phantom_children_lifted": 50,
+        "final_nodes": 852,
+        "final_total_parents": 851,
+        "final_max_children": 48,
+        "final_max_children_node": "石头城",
+        "final_roots": 0,
+        "final_cycles": 0,
+        "final_has_cycles": false
+      }
+    },
+    {
+      "novel": "shuihu",
+      "title": "水浒传",
+      "voting_merged_snapshot": {
+        "_note": "口径 sanity anchor = ablation_hierarchy.py config 3 (ws parents merged with VoteResolver overrides)",
+        "max_children": 175,
+        "max_children_node": "山东"
+      },
+      "voting_clean": {
+        "nodes": 1750,
+        "total_parents": 1288,
+        "max_children": 167,
+        "max_children_node": "山东",
+        "roots": 461,
+        "cycles": 0,
+        "has_cycles": false
+      },
+      "m5_no_edmonds": {
+        "max_children": 114,
+        "max_children_node": "山东",
+        "roots": 1,
+        "cycles": 0,
+        "has_cycles": false,
+        "avg_depth": 2.46,
+        "total_parents": 1749
+      },
+      "m5_internal_stats": {
+        "uber_root": "山东",
+        "base_parents_from_voting": 1288,
+        "orphans_attached_to_uber_root": 461,
+        "orphan_share_of_nodes": 0.2634,
+        "reattached_after_cycle_delete": 0,
+        "cycles_broken": 0,
+        "phantom_children_lifted": 151,
+        "final_nodes": 1750,
+        "final_total_parents": 1749,
+        "final_max_children": 114,
+        "final_max_children_node": "山东",
+        "final_roots": 0,
+        "final_cycles": 0,
+        "final_has_cycles": false
+      }
+    },
+    {
+      "novel": "sanguo",
+      "title": "三国演义",
+      "voting_merged_snapshot": {
+        "_note": "口径 sanity anchor = ablation_hierarchy.py config 3 (ws parents merged with VoteResolver overrides)",
+        "max_children": 120,
+        "max_children_node": "东汉"
+      },
+      "voting_clean": {
+        "nodes": 1319,
+        "total_parents": 840,
+        "max_children": 96,
+        "max_children_node": "东汉",
+        "roots": 478,
+        "cycles": 0,
+        "has_cycles": false
+      },
+      "m5_no_edmonds": {
+        "max_children": 84,
+        "max_children_node": "天下",
+        "roots": 1,
+        "cycles": 0,
+        "has_cycles": false,
+        "avg_depth": 2.69,
+        "total_parents": 1318
+      },
+      "m5_internal_stats": {
+        "uber_root": "天下",
+        "base_parents_from_voting": 840,
+        "orphans_attached_to_uber_root": 478,
+        "orphan_share_of_nodes": 0.3624,
+        "reattached_after_cycle_delete": 0,
+        "cycles_broken": 0,
+        "phantom_children_lifted": 39,
+        "final_nodes": 1319,
+        "final_total_parents": 1318,
+        "final_max_children": 84,
+        "final_max_children_node": "天下",
+        "final_roots": 0,
+        "final_cycles": 0,
+        "final_has_cycles": false
+      }
+    },
+    {
+      "novel": "fengshen",
+      "title": "封神演义",
+      "voting_merged_snapshot": {
+        "_note": "口径 sanity anchor = ablation_hierarchy.py config 3 (ws parents merged with VoteResolver overrides)",
+        "max_children": 142,
+        "max_children_node": "西岐"
+      },
+      "voting_clean": {
+        "nodes": 600,
+        "total_parents": 438,
+        "max_children": 135,
+        "max_children_node": "西岐",
+        "roots": 161,
+        "cycles": 0,
+        "has_cycles": false
+      },
+      "m5_no_edmonds": {
+        "max_children": 32,
+        "max_children_node": "朝歌",
+        "roots": 1,
+        "cycles": 0,
+        "has_cycles": false,
+        "avg_depth": 2.56,
+        "total_parents": 599
+      },
+      "m5_internal_stats": {
+        "uber_root": "天下",
+        "base_parents_from_voting": 438,
+        "orphans_attached_to_uber_root": 161,
+        "orphan_share_of_nodes": 0.2683,
+        "reattached_after_cycle_delete": 0,
+        "cycles_broken": 0,
+        "phantom_children_lifted": 29,
+        "final_nodes": 600,
+        "final_total_parents": 599,
+        "final_max_children": 32,
+        "final_max_children_node": "朝歌",
+        "final_roots": 0,
+        "final_cycles": 0,
+        "final_has_cycles": false
+      }
+    }
+  ],
+  "five_novel_average": {
+    "voting_clean": {
+      "max_children": 161.4,
+      "roots": 334.4,
+      "novels_with_cycles": 0
+    },
+    "m5_no_edmonds": {
+      "max_children": 71.6,
+      "roots": 1.0,
+      "novels_with_cycles": 0,
+      "orphans_attached_to_uber_root_total": 1672,
+      "cycles_broken_total": 0,
+      "phantom_children_lifted_total": 301
+    }
+  },
+  "frozen_anchors": {
+    "voting_only_frozen": {
+      "_source": "paper Table 5 (tab:ablation) + evaluation/v071/ablation-voting-structural.json",
+      "_note": "Paper Journey voting max_ch=279 (VoteResolver pipeline口径, reproduced exactly by this script's merged-snapshot anchor). ablation-voting-structural.json reports a simpler majority-vote aggregation (xiyouji max_ch=66); its 5-novel avg max_ch=90.8, roots=25, cycles on 2/5 (honglou, sanguo) are the paper's reported voting-row averages.",
+      "per_novel_structural_json": {
+        "xiyouji": {
+          "max_children": 66,
+          "roots": 35,
+          "cycles": 0
+        },
+        "honglou": {
+          "max_children": 137,
+          "roots": 27,
+          "cycles": 1
+        },
+        "shuihu": {
+          "max_children": 79,
+          "roots": 31,
+          "cycles": 0
+        },
+        "sanguo": {
+          "max_children": 58,
+          "roots": 22,
+          "cycles": 1
+        },
+        "fengshen": {
+          "max_children": 114,
+          "roots": 10,
+          "cycles": 0
+        }
+      },
+      "paper_journey_max_children": 279,
+      "five_novel_average": {
+        "max_children": 90.8,
+        "roots": 25.0
+      },
+      "novels_with_cycles": 2
+    },
+    "full_pipeline_frozen": {
+      "_source": "paper Table 5 + restored full-pipeline hierarchy_snapshots (tag=suffix)",
+      "per_novel": {
+        "xiyouji": {
+          "max_children": 63,
+          "roots": 1,
+          "cycles": 0
+        },
+        "honglou": {
+          "max_children": 76,
+          "roots": 1,
+          "cycles": 0
+        },
+        "shuihu": {
+          "max_children": 47,
+          "roots": 1,
+          "cycles": 0
+        },
+        "sanguo": {
+          "max_children": 64,
+          "roots": 1,
+          "cycles": 0
+        },
+        "fengshen": {
+          "max_children": 31,
+          "roots": 1,
+          "cycles": 0
+        }
+      },
+      "_note": "xiyouji=63 is the paper Table 5 value; other novels from the restored full-pipeline snapshots. Paper 5-novel avg max_ch=62.",
+      "five_novel_average": {
+        "max_children": 62
+      }
+    }
+  },
+  "comparison_table": [
+    {
+      "novel": "xiyouji",
+      "title": "西游记",
+      "voting_max_children": 266,
+      "m5_max_children": 80,
+      "full_max_children": 63,
+      "voting_roots": 283,
+      "m5_roots": 1,
+      "full_roots": 1,
+      "voting_cycles": 0,
+      "m5_cycles": 0,
+      "full_cycles": 0,
+      "m5_orphans_attached": 283,
+      "m5_cycles_broken": 0,
+      "m5_phantom_children_lifted": 32
+    },
+    {
+      "novel": "honglou",
+      "title": "红楼梦",
+      "voting_max_children": 143,
+      "m5_max_children": 48,
+      "full_max_children": 76,
+      "voting_roots": 289,
+      "m5_roots": 1,
+      "full_roots": 1,
+      "voting_cycles": 0,
+      "m5_cycles": 0,
+      "full_cycles": 0,
+      "m5_orphans_attached": 289,
+      "m5_cycles_broken": 0,
+      "m5_phantom_children_lifted": 50
+    },
+    {
+      "novel": "shuihu",
+      "title": "水浒传",
+      "voting_max_children": 167,
+      "m5_max_children": 114,
+      "full_max_children": 47,
+      "voting_roots": 461,
+      "m5_roots": 1,
+      "full_roots": 1,
+      "voting_cycles": 0,
+      "m5_cycles": 0,
+      "full_cycles": 0,
+      "m5_orphans_attached": 461,
+      "m5_cycles_broken": 0,
+      "m5_phantom_children_lifted": 151
+    },
+    {
+      "novel": "sanguo",
+      "title": "三国演义",
+      "voting_max_children": 96,
+      "m5_max_children": 84,
+      "full_max_children": 64,
+      "voting_roots": 478,
+      "m5_roots": 1,
+      "full_roots": 1,
+      "voting_cycles": 0,
+      "m5_cycles": 0,
+      "full_cycles": 0,
+      "m5_orphans_attached": 478,
+      "m5_cycles_broken": 0,
+      "m5_phantom_children_lifted": 39
+    },
+    {
+      "novel": "fengshen",
+      "title": "封神演义",
+      "voting_max_children": 135,
+      "m5_max_children": 32,
+      "full_max_children": 31,
+      "voting_roots": 161,
+      "m5_roots": 1,
+      "full_roots": 1,
+      "voting_cycles": 0,
+      "m5_cycles": 0,
+      "full_cycles": 0,
+      "m5_orphans_attached": 161,
+      "m5_cycles_broken": 0,
+      "m5_phantom_children_lifted": 29
+    }
+  ],
+  "accuracy": {
+    "_method": "Fair-intersection accuracy of M5 (voting+post-processing, no Edmonds, no priors) vs full pipeline. Gold = frozen errata annotations scored via hierarchy_validator.compute_metrics_from_gold (same function as frozen benchmarks). Intersection = M5 nodes ∩ full-pipeline nodes; both scored on the identical gold subset. Full-pipeline state = frozen world_structures (naive Overall reproduction against ablation-voting-baseline.json validated per novel, see validation_naive_full). Orphan subset = nodes with no VoteResolver assignment (M5 attached them to uber_root); expected parent from errata correction or gold-accepted parent. Computed by backend/scripts/m5_accuracy_eval.py on a scratch DB copy; frozen data untouched.",
+    "per_novel": [
+      {
+        "novel": "xiyouji",
+        "title": "西游记",
+        "validation_naive_full": {
+          "recomputed_overall": 0.9809128630705394,
+          "frozen_overall": 0.9809128630705394,
+          "match": true
+        },
+        "naive_m5_overall": 0.9809128630705394,
+        "fair_intersection": {
+          "nodes": {
+            "m5": 968,
+            "full": 1046,
+            "intersection": 968,
+            "gold_subset": 649
+          },
+          "m5": {
+            "overall": 0.9691833590138675,
+            "entity_precision": 0.9984591679506933,
+            "name_accuracy": 0.9984591679506933,
+            "tier_accuracy": 0.9799691833590138,
+            "parent_precision": 0.9969183359013868,
+            "structural_health": 0.987673343605547,
+            "error_count": 20,
+            "total_nodes": 649
+          },
+          "full": {
+            "overall": 0.9738058551617874,
+            "entity_precision": 0.9984591679506933,
+            "name_accuracy": 0.9984591679506933,
+            "tier_accuracy": 0.9830508474576272,
+            "parent_precision": 0.9969183359013868,
+            "structural_health": 0.9907550077041603,
+            "error_count": 17,
+            "total_nodes": 649
+          },
+          "voting": {
+            "overall": 0.975346687211094,
+            "entity_precision": 1.0,
+            "name_accuracy": 0.9984591679506933,
+            "tier_accuracy": 0.9799691833590138,
+            "parent_precision": 0.9969183359013868,
+            "structural_health": 0.9922958397534669,
+            "error_count": 16,
+            "total_nodes": 649
+          },
+          "frozen_fair_voting_intersection_for_context": {
+            "voting": 0.9671772428884027,
+            "full": 0.975929978118162
+          }
+        },
+        "orphan_subset": {
+          "orphans_total": 283,
+          "orphans_in_gold_scorable": 167,
+          "m5_parent_match": 1,
+          "full_parent_match": 32,
+          "full_absent_from_output": 0,
+          "m5_match_rate": 0.006,
+          "full_match_rate": 0.1916,
+          "m5_orphans_moved_off_uber_root": 142,
+          "sample": [
+            {
+              "node": "泰山",
+              "expected": "江州",
+              "m5_parent": "金平府",
+              "full_parent": "铜台府",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "河渎",
+              "expected": "麒麟山",
+              "m5_parent": "毒敌山",
+              "full_parent": "乌斯藏国",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "兜率院",
+              "expected": "平阳之地",
+              "m5_parent": "宝瓶",
+              "full_parent": "兜率",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "金阶",
+              "expected": "宝象国",
+              "m5_parent": "清华洞",
+              "full_parent": "宝象国",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "峨眉山清凉洞",
+              "expected": "峨眉山",
+              "m5_parent": "翠云山",
+              "full_parent": "寇家",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "兜率天宫",
+              "expected": "须弥山",
+              "m5_parent": "西梁国",
+              "full_parent": "兜率",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "西房",
+              "expected": "会同馆",
+              "m5_parent": "五台山",
+              "full_parent": "会同馆",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "均州",
+              "expected": "南膳部洲",
+              "m5_parent": "西牛贺洲",
+              "full_parent": "主世界",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            },
+            {
+              "node": "洞阳玉馆",
+              "expected": "地窖",
+              "m5_parent": "黄花观",
+              "full_parent": "傲来国",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "草梢",
+              "expected": "盘丝岭",
+              "m5_parent": "灵台方寸山",
+              "full_parent": "壁岩",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "市口",
+              "expected": "凤仙郡城池",
+              "m5_parent": "大西天天竺国",
+              "full_parent": "天竺国",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "相国寺",
+              "expected": "洪江",
+              "m5_parent": "浮屠山",
+              "full_parent": "花亭",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "西城",
+              "expected": "西牛贺洲",
+              "m5_parent": "灵山",
+              "full_parent": "毒敌山",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "寝宫",
+              "expected": "朱紫国皇宫",
+              "m5_parent": "西牛贺洲",
+              "full_parent": "狮驼洞",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            },
+            {
+              "node": "桃树林",
+              "expected": "黑风山",
+              "m5_parent": "比丘国",
+              "full_parent": "朱紫国",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            }
+          ]
+        }
+      },
+      {
+        "novel": "honglou",
+        "title": "红楼梦",
+        "validation_naive_full": {
+          "recomputed_overall": 0.972,
+          "frozen_overall": 0.972,
+          "match": true
+        },
+        "naive_m5_overall": 0.975,
+        "fair_intersection": {
+          "nodes": {
+            "m5": 852,
+            "full": 860,
+            "intersection": 852,
+            "gold_subset": 544
+          },
+          "m5": {
+            "overall": 0.9650735294117647,
+            "entity_precision": 0.9963235294117647,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.9742647058823529,
+            "parent_precision": 0.9908088235294118,
+            "structural_health": 0.9944852941176471,
+            "error_count": 19,
+            "total_nodes": 544
+          },
+          "full": {
+            "overall": 0.9632352941176471,
+            "entity_precision": 0.9963235294117647,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.9724264705882353,
+            "parent_precision": 0.9908088235294118,
+            "structural_health": 0.9944852941176471,
+            "error_count": 20,
+            "total_nodes": 544
+          },
+          "voting": {
+            "overall": 0.9650735294117647,
+            "entity_precision": 0.9981617647058824,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.9724264705882353,
+            "parent_precision": 0.9908088235294118,
+            "structural_health": 0.9944852941176471,
+            "error_count": 19,
+            "total_nodes": 544
+          },
+          "frozen_fair_voting_intersection_for_context": {
+            "voting": 0.9735449735449735,
+            "full": 0.9735449735449735
+          }
+        },
+        "orphan_subset": {
+          "orphans_total": 289,
+          "orphans_in_gold_scorable": 166,
+          "m5_parent_match": 2,
+          "full_parent_match": 13,
+          "full_absent_from_output": 0,
+          "m5_match_rate": 0.012,
+          "full_match_rate": 0.0783,
+          "m5_orphans_moved_off_uber_root": 144,
+          "sample": [
+            {
+              "node": "大如州",
+              "expected": "都中",
+              "m5_parent": "平安州",
+              "full_parent": "刘姥姥庄上",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "县衙",
+              "expected": "太平县",
+              "m5_parent": "石头城",
+              "full_parent": "都中",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            },
+            {
+              "node": "史家",
+              "expected": "知机县",
+              "m5_parent": "天齐庙",
+              "full_parent": "主世界",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "蒲团",
+              "expected": "本省",
+              "m5_parent": "南北宽夹道",
+              "full_parent": "栊翠庵",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "北府",
+              "expected": "宁荣街",
+              "m5_parent": "石头城",
+              "full_parent": "都中",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            },
+            {
+              "node": "熏笼",
+              "expected": "晴雯房",
+              "m5_parent": "假山",
+              "full_parent": "凸碧",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "里间门口",
+              "expected": "潇湘馆",
+              "m5_parent": "东郊",
+              "full_parent": "山石",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "花家",
+              "expected": "金陵",
+              "m5_parent": "东郊",
+              "full_parent": "急流津",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "天香楼下",
+              "expected": "宁国府",
+              "m5_parent": "度月",
+              "full_parent": "天香楼",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "东郊",
+              "expected": "紫檀堡",
+              "m5_parent": "石头城",
+              "full_parent": "都中",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            },
+            {
+              "node": "锦乡侯府",
+              "expected": "城外原乡",
+              "m5_parent": "宁国府",
+              "full_parent": "县衙",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "度月",
+              "expected": "大观园·夹道",
+              "m5_parent": "石头城",
+              "full_parent": "大观园",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            },
+            {
+              "node": "书坊",
+              "expected": "大荒山",
+              "m5_parent": "城外原乡",
+              "full_parent": "本省",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "粉垣",
+              "expected": "大观园",
+              "m5_parent": "东南一隅",
+              "full_parent": "凸碧",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "维扬",
+              "expected": "天下",
+              "m5_parent": "石头城",
+              "full_parent": "主世界",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            }
+          ]
+        }
+      },
+      {
+        "novel": "shuihu",
+        "title": "水浒传",
+        "validation_naive_full": {
+          "recomputed_overall": 0.8900939985538684,
+          "frozen_overall": 0.8900939985538684,
+          "match": true
+        },
+        "naive_m5_overall": 0.888647866955893,
+        "fair_intersection": {
+          "nodes": {
+            "m5": 1750,
+            "full": 1751,
+            "intersection": 1750,
+            "gold_subset": 959
+          },
+          "m5": {
+            "overall": 0.8571428571428572,
+            "entity_precision": 1.0,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.8581856100104275,
+            "parent_precision": 1.0,
+            "structural_health": 0.9989572471324296,
+            "error_count": 137,
+            "total_nodes": 959
+          },
+          "full": {
+            "overall": 0.859228362877998,
+            "entity_precision": 1.0,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.859228362877998,
+            "parent_precision": 1.0,
+            "structural_health": 1.0,
+            "error_count": 135,
+            "total_nodes": 959
+          },
+          "voting": {
+            "overall": 0.8581856100104275,
+            "entity_precision": 1.0,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.859228362877998,
+            "parent_precision": 1.0,
+            "structural_health": 0.9989572471324296,
+            "error_count": 136,
+            "total_nodes": 959
+          },
+          "frozen_fair_voting_intersection_for_context": {
+            "voting": 0.8282290279627164,
+            "full": 0.8348868175765646
+          }
+        },
+        "orphan_subset": {
+          "orphans_total": 461,
+          "orphans_in_gold_scorable": 198,
+          "m5_parent_match": 1,
+          "full_parent_match": 52,
+          "full_absent_from_output": 0,
+          "m5_match_rate": 0.0051,
+          "full_match_rate": 0.2626,
+          "m5_orphans_moved_off_uber_root": 148,
+          "sample": [
+            {
+              "node": "鼓楼",
+              "expected": "北京大名府",
+              "m5_parent": "秀州",
+              "full_parent": "北京大名府",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "郑州",
+              "expected": "京畿",
+              "m5_parent": "前山",
+              "full_parent": "河南",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "高平城南门外",
+              "expected": "高平",
+              "m5_parent": "怀州",
+              "full_parent": "高平城",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "云床",
+              "expected": "松鹤轩",
+              "m5_parent": "孔家村",
+              "full_parent": "松鹤轩",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "润州东门外",
+              "expected": "润州城",
+              "m5_parent": "芒砀山",
+              "full_parent": "润州",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "峪口",
+              "expected": "济州",
+              "m5_parent": "太原县城",
+              "full_parent": "青石峪",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "溪涧",
+              "expected": "沂岭",
+              "m5_parent": "恩州",
+              "full_parent": "江南",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "嘉定",
+              "expected": "江南",
+              "m5_parent": "陆虞候家楼上",
+              "full_parent": "两浙",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "陕州",
+              "expected": "天下",
+              "m5_parent": "山东",
+              "full_parent": "主世界",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            },
+            {
+              "node": "辉县",
+              "expected": "卫州",
+              "m5_parent": "寇州",
+              "full_parent": "卫州",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "方山",
+              "expected": "幽州",
+              "m5_parent": "山东",
+              "full_parent": "颍州",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            },
+            {
+              "node": "邓州",
+              "expected": "京畿",
+              "m5_parent": "蜈蚣岭",
+              "full_parent": "对影山",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "将台",
+              "expected": "演武厅",
+              "m5_parent": "打麦场",
+              "full_parent": "槐树坡",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "客房",
+              "expected": "太公庄院",
+              "m5_parent": "旧寨",
+              "full_parent": "晁盖庄上",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "水寨",
+              "expected": "梁山泊",
+              "m5_parent": "牛头山",
+              "full_parent": "东昌府",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            }
+          ]
+        }
+      },
+      {
+        "novel": "sanguo",
+        "title": "三国演义",
+        "validation_naive_full": {
+          "recomputed_overall": 0.8767857142857143,
+          "frozen_overall": 0.8767857142857143,
+          "match": true
+        },
+        "naive_m5_overall": 0.8767857142857143,
+        "fair_intersection": {
+          "nodes": {
+            "m5": 1319,
+            "full": 1322,
+            "intersection": 1319,
+            "gold_subset": 1099
+          },
+          "m5": {
+            "overall": 0.8744313011828935,
+            "entity_precision": 0.9963603275705186,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.8808007279344859,
+            "parent_precision": 0.9981801637852593,
+            "structural_health": 0.9990900818926297,
+            "error_count": 138,
+            "total_nodes": 1099
+          },
+          "full": {
+            "overall": 0.8744313011828935,
+            "entity_precision": 0.9963603275705186,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.8808007279344859,
+            "parent_precision": 0.9981801637852593,
+            "structural_health": 0.9981801637852593,
+            "error_count": 138,
+            "total_nodes": 1099
+          },
+          "voting": {
+            "overall": 0.8744313011828935,
+            "entity_precision": 0.9963603275705186,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.8808007279344859,
+            "parent_precision": 0.997270245677889,
+            "structural_health": 0.9990900818926297,
+            "error_count": 138,
+            "total_nodes": 1099
+          },
+          "frozen_fair_voting_intersection_for_context": {
+            "voting": 0.8571428571428572,
+            "full": 0.8571428571428572
+          }
+        },
+        "orphan_subset": {
+          "orphans_total": 478,
+          "orphans_in_gold_scorable": 414,
+          "m5_parent_match": 32,
+          "full_parent_match": 134,
+          "full_absent_from_output": 0,
+          "m5_match_rate": 0.0773,
+          "full_match_rate": 0.3237,
+          "m5_orphans_moved_off_uber_root": 344,
+          "sample": [
+            {
+              "node": "高陵",
+              "expected": "益州",
+              "m5_parent": "天下",
+              "full_parent": "益州",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            },
+            {
+              "node": "江边",
+              "expected": "益州",
+              "m5_parent": "麴山",
+              "full_parent": "穰山",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "建威",
+              "expected": "益州",
+              "m5_parent": "宜都",
+              "full_parent": "羌人谷",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "晋",
+              "expected": "益州",
+              "m5_parent": "平原",
+              "full_parent": "益州",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "两川",
+              "expected": "天下",
+              "m5_parent": "涿郡",
+              "full_parent": "新城",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "寨中",
+              "expected": "益州",
+              "m5_parent": "北海",
+              "full_parent": "青城山",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "秭归",
+              "expected": "益州",
+              "m5_parent": "金城",
+              "full_parent": "长城",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "私宅",
+              "expected": "益州",
+              "m5_parent": "滏水",
+              "full_parent": "渭口",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "龙舟",
+              "expected": "益州",
+              "m5_parent": "长江",
+              "full_parent": "青城山",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "安乡",
+              "expected": "徐州",
+              "m5_parent": "神亭岭",
+              "full_parent": "徐州",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "闻喜",
+              "expected": "益州",
+              "m5_parent": "北邙山",
+              "full_parent": "青城山",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "巫峡",
+              "expected": "益州",
+              "m5_parent": "幽州",
+              "full_parent": "益州",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "突门",
+              "expected": "益州",
+              "m5_parent": "德阳",
+              "full_parent": "汉阳",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "渑池",
+              "expected": "天下",
+              "m5_parent": "神亭岭",
+              "full_parent": "巴郡",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "白水",
+              "expected": "益州",
+              "m5_parent": "侯河",
+              "full_parent": "益州",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            }
+          ]
+        }
+      },
+      {
+        "novel": "fengshen",
+        "title": "封神演义",
+        "validation_naive_full": {
+          "recomputed_overall": 0.9484978540772532,
+          "frozen_overall": 0.9484978540772532,
+          "match": true
+        },
+        "naive_m5_overall": 0.9484978540772532,
+        "fair_intersection": {
+          "nodes": {
+            "m5": 600,
+            "full": 655,
+            "intersection": 600,
+            "gold_subset": 228
+          },
+          "m5": {
+            "overall": 0.9473684210526316,
+            "entity_precision": 0.9956140350877193,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.9649122807017544,
+            "parent_precision": 0.9780701754385965,
+            "structural_health": 1.0,
+            "error_count": 12,
+            "total_nodes": 228
+          },
+          "full": {
+            "overall": 0.9517543859649122,
+            "entity_precision": 0.9956140350877193,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.9649122807017544,
+            "parent_precision": 0.9868421052631579,
+            "structural_health": 1.0,
+            "error_count": 11,
+            "total_nodes": 228
+          },
+          "voting": {
+            "overall": 0.9473684210526316,
+            "entity_precision": 0.9956140350877193,
+            "name_accuracy": 1.0,
+            "tier_accuracy": 0.9649122807017544,
+            "parent_precision": 0.9780701754385965,
+            "structural_health": 1.0,
+            "error_count": 12,
+            "total_nodes": 228
+          },
+          "frozen_fair_voting_intersection_for_context": {
+            "voting": 0.930379746835443,
+            "full": 0.9367088607594937
+          }
+        },
+        "orphan_subset": {
+          "orphans_total": 161,
+          "orphans_in_gold_scorable": 49,
+          "m5_parent_match": 2,
+          "full_parent_match": 4,
+          "full_absent_from_output": 0,
+          "m5_match_rate": 0.0408,
+          "full_match_rate": 0.0816,
+          "m5_orphans_moved_off_uber_root": 42,
+          "sample": [
+            {
+              "node": "前堂",
+              "expected": "朝歌",
+              "m5_parent": "夹龙山",
+              "full_parent": "宋家庄",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "丹墀",
+              "expected": "朝歌",
+              "m5_parent": "玉泉山",
+              "full_parent": "青鸾",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "南郊山中",
+              "expected": "南郊",
+              "m5_parent": "冀州",
+              "full_parent": "南郊",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "滴水",
+              "expected": "朝歌",
+              "m5_parent": "天下",
+              "full_parent": "朝歌",
+              "m5_match": false,
+              "full_match": true,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            },
+            {
+              "node": "黄飞虎府",
+              "expected": "朝歌",
+              "m5_parent": "天下",
+              "full_parent": "太师府",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": false
+            },
+            {
+              "node": "宋异人庄上",
+              "expected": "朝歌",
+              "m5_parent": "五龙山",
+              "full_parent": "天地坛",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "绣房",
+              "expected": "朝歌",
+              "m5_parent": "玉泉山",
+              "full_parent": "鹿台",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "照墙",
+              "expected": "朝歌",
+              "m5_parent": "陈塘关帅府",
+              "full_parent": "司天台",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "内宫",
+              "expected": "朝歌",
+              "m5_parent": "蓬莱岛",
+              "full_parent": "青鸾",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "前村",
+              "expected": "朝歌",
+              "m5_parent": "前山",
+              "full_parent": "燕山",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "法司",
+              "expected": "朝歌",
+              "m5_parent": "骷髅山",
+              "full_parent": "天地坛",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "北疆",
+              "expected": "朝歌",
+              "m5_parent": "青峰山",
+              "full_parent": "北海",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "五岳",
+              "expected": "朝歌",
+              "m5_parent": "九宫山",
+              "full_parent": "青峰山",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "命馆",
+              "expected": "朝歌",
+              "m5_parent": "翠屏山",
+              "full_parent": "朝歌南门",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            },
+            {
+              "node": "驿亭",
+              "expected": "朝歌",
+              "m5_parent": "陕西",
+              "full_parent": "御园",
+              "m5_match": false,
+              "full_match": false,
+              "full_absent": false,
+              "m5_moved_off_uber_root": true
+            }
+          ]
+        }
+      }
+    ],
+    "five_novel_average": {
+      "fair_overall": {
+        "voting": 0.9241,
+        "m5": 0.9226,
+        "full": 0.9245
+      },
+      "fair_parent_precision": {
+        "voting": 0.9926,
+        "m5": 0.9928,
+        "full": 0.9945
+      },
+      "orphan_subset_pooled": {
+        "orphans_gold_scorable": 994,
+        "m5_parent_match": 38,
+        "full_parent_match": 235,
+        "full_absent_from_output": 0,
+        "m5_match_rate": 0.0382,
+        "full_match_rate": 0.2364
+      }
+    }
+  }
+}

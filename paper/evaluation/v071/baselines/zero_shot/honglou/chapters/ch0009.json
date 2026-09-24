@@ -1,0 +1,323 @@
+{
+  "characters": [
+    {
+      "name": "秦业",
+      "description": "秦钟的父亲"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，急于要和秦钟相遇，不安本分之人，天生成惯能作小服低"
+    },
+    {
+      "name": "秦钟",
+      "description": "秦业之子，腼腆温柔，未语面先红，怯怯羞羞，有女儿之风"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，负责照顾宝玉起居"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗，疼爱宝玉和秦钟"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，对宝玉读书很严厉"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲"
+    },
+    {
+      "name": "林妹妹",
+      "description": "黛玉，宝玉的表妹"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，宝玉的表妹，才在窗下对镜理妆"
+    },
+    {
+      "name": "李贵",
+      "description": "宝玉奶母之子，跟随宝玉上学"
+    },
+    {
+      "name": "贾代儒",
+      "description": "贾家义学的塾师"
+    },
+    {
+      "name": "贾瑞",
+      "description": "代儒不在时管理学中事务，图便宜没行止的人"
+    },
+    {
+      "name": "薛蟠",
+      "description": "住在王夫人处，偶动龙阳之兴，假来上学读书"
+    },
+    {
+      "name": "香怜",
+      "description": "学中小学生，生得妩媚风流，外号之一"
+    },
+    {
+      "name": "玉爱",
+      "description": "学中小学生，生得妩媚风流，外号之一"
+    },
+    {
+      "name": "金荣",
+      "description": "秦钟的窗友，东胡同子里璜大奶奶的侄儿"
+    },
+    {
+      "name": "贾蔷",
+      "description": "宁府中正派玄孙，十六岁，比贾蓉生得还风流俊俏"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁府当家人，贾蔷跟着他过活"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子，与贾蔷最相亲厚"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉第一个得用的书童，年轻不谙世事"
+    },
+    {
+      "name": "贾兰",
+      "description": "荣国府近派重孙，与贾菌同桌而坐"
+    },
+    {
+      "name": "贾菌",
+      "description": "荣国府近派重孙，年纪虽小志气最大，极是淘气不怕人"
+    },
+    {
+      "name": "锄药",
+      "description": "宝玉的小厮之一"
+    },
+    {
+      "name": "扫红",
+      "description": "宝玉的小厮之一"
+    },
+    {
+      "name": "墨雨",
+      "description": "宝玉的小厮之一"
+    },
+    {
+      "name": "璜大奶奶",
+      "description": "金荣的姑妈"
+    },
+    {
+      "name": "琏二奶奶",
+      "description": "贾府中人物"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾家",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "书房",
+      "type": "房间",
+      "parent": "贾家"
+    },
+    {
+      "name": "黛玉房中",
+      "type": "房间",
+      "parent": "贾家"
+    },
+    {
+      "name": "贾家义学",
+      "type": "学校",
+      "parent": null
+    },
+    {
+      "name": "学中",
+      "type": "教室",
+      "parent": "贾家义学"
+    },
+    {
+      "name": "后院",
+      "type": "院落",
+      "parent": "贾家义学"
+    },
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": "贾家"
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": "贾家"
+    },
+    {
+      "name": "东胡同",
+      "type": "街道",
+      "parent": null
+    },
+    {
+      "name": "屋里",
+      "type": "房间",
+      "parent": "贾家"
+    },
+    {
+      "name": "院外",
+      "type": "院落",
+      "parent": "贾家"
+    },
+    {
+      "name": "贾母这边",
+      "type": "区域",
+      "parent": "贾家"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "秦业",
+      "person_b": "秦钟",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "秦钟",
+      "relation_type": "同窗好友"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "宝玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "李贵",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蔷",
+      "relation_type": "长辈晚辈"
+    },
+    {
+      "person_a": "贾蔷",
+      "person_b": "贾蓉",
+      "relation_type": "弟兄"
+    },
+    {
+      "person_a": "茗烟",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "璜大奶奶",
+      "person_b": "金荣",
+      "relation_type": "姑侄"
+    },
+    {
+      "person_a": "贾兰",
+      "person_b": "贾菌",
+      "relation_type": "同族好友"
+    },
+    {
+      "person_a": "锄药",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "扫红",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "墨雨",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾家义学",
+      "target": "贾家",
+      "relation_type": "direction",
+      "value": "离此也不甚远，不过一里之遥"
+    },
+    {
+      "source": "书房",
+      "target": "贾家",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "黛玉房中",
+      "target": "贾家",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "后院",
+      "target": "贾家义学",
+      "relation_type": "contains",
+      "value": "学校后方院落"
+    },
+    {
+      "source": "学中",
+      "target": "贾家义学",
+      "relation_type": "contains",
+      "value": "主要教学区域"
+    },
+    {
+      "source": "荣府",
+      "target": "贾家",
+      "relation_type": "contains",
+      "value": "贾家的一部分"
+    },
+    {
+      "source": "宁府",
+      "target": "贾家",
+      "relation_type": "contains",
+      "value": "贾家的一部分"
+    },
+    {
+      "source": "院外",
+      "target": "贾家",
+      "relation_type": "adjacent",
+      "value": "宝玉独站在院外"
+    },
+    {
+      "source": "贾母这边",
+      "target": "贾家",
+      "relation_type": "contains",
+      "value": "贾母居住区域"
+    }
+  ],
+  "_chapter": 9,
+  "_input_tokens": 7169,
+  "_output_tokens": 2257
+}

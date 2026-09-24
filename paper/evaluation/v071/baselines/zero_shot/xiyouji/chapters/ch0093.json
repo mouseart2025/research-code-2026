@@ -1,0 +1,249 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "东土大唐取经僧人，唐僧，陈玄奘，被公主绣球打中招为驸马"
+    },
+    {
+      "name": "行者",
+      "description": "孙悟空，三藏的大徒弟，会变化神通"
+    },
+    {
+      "name": "八戒",
+      "description": "猪八戒，三藏的二徒弟，贪吃好色"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙悟净，三藏的三徒弟"
+    },
+    {
+      "name": "老和尚",
+      "description": "布金禅寺的老院主，年岁百余，手持竹杖"
+    },
+    {
+      "name": "公主",
+      "description": "天竺国公主，年登二十，抛绣球招驸马，实为妖邪变化的假公主"
+    },
+    {
+      "name": "真公主",
+      "description": "天竺国真公主，被妖邪摄去，被老僧锁在监房中"
+    },
+    {
+      "name": "天竺国王",
+      "description": "大天竺国皇帝，号怡宗皇帝，爱山水花卉"
+    },
+    {
+      "name": "驿丞",
+      "description": "会同馆驿的管事官员"
+    },
+    {
+      "name": "给孤独长者",
+      "description": "历史人物，曾以黄金布地买太子祇园请佛讲经"
+    },
+    {
+      "name": "乌巢禅师",
+      "description": "曾教授三藏《般若心经》的禅师"
+    }
+  ],
+  "locations": [
+    {
+      "name": "布金禅寺",
+      "type": "寺庙",
+      "parent": "百脚山"
+    },
+    {
+      "name": "百脚山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "鸡鸣关",
+      "type": "关隘",
+      "parent": "百脚山"
+    },
+    {
+      "name": "给孤园",
+      "type": "园林遗址",
+      "parent": "布金禅寺"
+    },
+    {
+      "name": "祇园",
+      "type": "园林遗址",
+      "parent": "给孤园"
+    },
+    {
+      "name": "天竺国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "舍卫国",
+      "type": "古国",
+      "parent": null
+    },
+    {
+      "name": "东市街",
+      "type": "街道",
+      "parent": "天竺国"
+    },
+    {
+      "name": "会同馆驿",
+      "type": "官方驿站",
+      "parent": "天竺国"
+    },
+    {
+      "name": "十字街",
+      "type": "街道",
+      "parent": "天竺国"
+    },
+    {
+      "name": "彩楼",
+      "type": "建筑",
+      "parent": "十字街"
+    },
+    {
+      "name": "金銮殿",
+      "type": "宫殿",
+      "parent": "皇宫"
+    },
+    {
+      "name": "皇宫",
+      "type": "宫殿建筑群",
+      "parent": "天竺国"
+    },
+    {
+      "name": "御花园",
+      "type": "园林",
+      "parent": "皇宫"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "天竺国王",
+      "person_b": "公主",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "天竺国王",
+      "person_b": "真公主",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "公主",
+      "relation_type": "被招为驸马"
+    },
+    {
+      "person_a": "老和尚",
+      "person_b": "真公主",
+      "relation_type": "看护者"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "百脚山",
+      "target": "布金禅寺",
+      "relation_type": "contains",
+      "value": "山中有寺"
+    },
+    {
+      "source": "布金禅寺",
+      "target": "给孤园",
+      "relation_type": "contains",
+      "value": "寺后有园址"
+    },
+    {
+      "source": "给孤园",
+      "target": "祇园",
+      "relation_type": "contains",
+      "value": "园中遗址"
+    },
+    {
+      "source": "百脚山",
+      "target": "鸡鸣关",
+      "relation_type": "contains",
+      "value": "山下有关"
+    },
+    {
+      "source": "天竺国",
+      "target": "东市街",
+      "relation_type": "contains",
+      "value": "国中街道"
+    },
+    {
+      "source": "天竺国",
+      "target": "会同馆驿",
+      "relation_type": "contains",
+      "value": "国中驿站"
+    },
+    {
+      "source": "天竺国",
+      "target": "十字街",
+      "relation_type": "contains",
+      "value": "国中街道"
+    },
+    {
+      "source": "十字街",
+      "target": "彩楼",
+      "relation_type": "contains",
+      "value": "街头建楼"
+    },
+    {
+      "source": "皇宫",
+      "target": "金銮殿",
+      "relation_type": "contains",
+      "value": "宫中大殿"
+    },
+    {
+      "source": "皇宫",
+      "target": "御花园",
+      "relation_type": "contains",
+      "value": "宫中花园"
+    },
+    {
+      "source": "天竺国",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "国都宫殿"
+    },
+    {
+      "source": "布金禅寺",
+      "target": "天竺国",
+      "relation_type": "direction",
+      "value": "寺在国外，距离二千里"
+    }
+  ],
+  "_chapter": 93,
+  "_input_tokens": 7733,
+  "_output_tokens": 1675
+}

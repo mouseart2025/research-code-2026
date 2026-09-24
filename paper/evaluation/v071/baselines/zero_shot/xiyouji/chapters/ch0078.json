@@ -1,0 +1,223 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣/孙悟空/行者",
+      "description": "师父唐僧的徒弟，神通广大，能变化，保护师父取经"
+    },
+    {
+      "name": "唐僧/三藏/长老",
+      "description": "东土大唐差往西天取经的和尚，慈悲为怀，十世修行的真体"
+    },
+    {
+      "name": "八戒",
+      "description": "唐僧的徒弟，性格直率"
+    },
+    {
+      "name": "沙僧/悟净",
+      "description": "唐僧的徒弟，忠诚稳重"
+    },
+    {
+      "name": "老军",
+      "description": "比丘国城门处的守卫"
+    },
+    {
+      "name": "驿丞",
+      "description": "金亭馆驿的官员"
+    },
+    {
+      "name": "国王",
+      "description": "比丘国的君主，昏庸无道，相貌尪羸精神倦怠"
+    },
+    {
+      "name": "国丈",
+      "description": "老道人装扮的妖精，进贡美后给国王，提供延寿药方"
+    },
+    {
+      "name": "美后",
+      "description": "年方一十六岁的女子，形容娇俊貌若观音"
+    },
+    {
+      "name": "黄门官",
+      "description": "朝廷官员"
+    },
+    {
+      "name": "锦衣官",
+      "description": "朝廷官员，负责抓捕唐僧"
+    },
+    {
+      "name": "五城兵马官",
+      "description": "朝廷官员，负责城防"
+    },
+    {
+      "name": "城隍、土地、社令、真官",
+      "description": "地方神祇"
+    },
+    {
+      "name": "五方揭谛、四值功曹、六丁六甲",
+      "description": "护法神将"
+    },
+    {
+      "name": "护教伽蓝",
+      "description": "佛教护法神"
+    }
+  ],
+  "locations": [
+    {
+      "name": "狮驼城",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "比丘国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "小子城",
+      "type": "城市",
+      "parent": "比丘国"
+    },
+    {
+      "name": "月城",
+      "type": "城区",
+      "parent": "小子城"
+    },
+    {
+      "name": "通衢大市",
+      "type": "街区",
+      "parent": "小子城"
+    },
+    {
+      "name": "金亭馆驿",
+      "type": "建筑",
+      "parent": "小子城"
+    },
+    {
+      "name": "朝廷/朝门",
+      "type": "建筑",
+      "parent": "小子城"
+    },
+    {
+      "name": "金銮殿",
+      "type": "建筑",
+      "parent": "朝廷"
+    },
+    {
+      "name": "翡翠屏",
+      "type": "建筑",
+      "parent": "金銮殿"
+    },
+    {
+      "name": "客房",
+      "type": "房间",
+      "parent": "金亭馆驿"
+    },
+    {
+      "name": "东土大唐",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "西天",
+      "type": "地区",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "国丈",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "美后",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "国丈",
+      "person_b": "美后",
+      "relation_type": "进贡关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "比丘国",
+      "target": "小子城",
+      "relation_type": "contains",
+      "value": "比丘国改名为小子城"
+    },
+    {
+      "source": "小子城",
+      "target": "月城",
+      "relation_type": "contains",
+      "value": "城门区域"
+    },
+    {
+      "source": "小子城",
+      "target": "通衢大市",
+      "relation_type": "contains",
+      "value": "主要街市区"
+    },
+    {
+      "source": "小子城",
+      "target": "金亭馆驿",
+      "relation_type": "contains",
+      "value": "驿站建筑"
+    },
+    {
+      "source": "小子城",
+      "target": "朝廷",
+      "relation_type": "contains",
+      "value": "王宫所在"
+    },
+    {
+      "source": "朝廷",
+      "target": "金銮殿",
+      "relation_type": "contains",
+      "value": "主殿"
+    },
+    {
+      "source": "金銮殿",
+      "target": "翡翠屏",
+      "relation_type": "contains",
+      "value": "殿内装饰"
+    },
+    {
+      "source": "金亭馆驿",
+      "target": "客房",
+      "relation_type": "contains",
+      "value": "住宿房间"
+    },
+    {
+      "source": "狮驼城",
+      "target": "比丘国",
+      "relation_type": "direction",
+      "value": "西行到达"
+    },
+    {
+      "source": "东土大唐",
+      "target": "西天",
+      "relation_type": "direction",
+      "value": "取经路线"
+    }
+  ],
+  "_chapter": 78,
+  "_input_tokens": 7762,
+  "_output_tokens": 1466
+}

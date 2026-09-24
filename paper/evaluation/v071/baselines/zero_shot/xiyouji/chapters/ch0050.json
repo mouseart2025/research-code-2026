@@ -1,0 +1,223 @@
+{
+  "characters": [
+    {
+      "name": "唐僧",
+      "description": "东土大唐钦差往西天拜佛求经的圣僧，忠良正直之僧"
+    },
+    {
+      "name": "孙悟空",
+      "description": "又名孙行者、齐天大圣，五百年前大闹天宫，唐僧的大徒弟，武艺高强"
+    },
+    {
+      "name": "猪八戒",
+      "description": "又名悟能，长嘴大耳，唐僧的二徒弟，贪小便宜"
+    },
+    {
+      "name": "沙僧",
+      "description": "又名沙和尚，晦气色脸，唐僧的三徒弟"
+    },
+    {
+      "name": "独角兕大王",
+      "description": "金皘洞洞主，独角参差，神通广大，威武高强的妖精"
+    },
+    {
+      "name": "老翁",
+      "description": "山神土地变化的形象，毡衣苫体，暖帽蒙头"
+    },
+    {
+      "name": "僮仆",
+      "description": "跟随老翁的年幼仆人，实为土地神"
+    },
+    {
+      "name": "山神",
+      "description": "金皘山的山神"
+    },
+    {
+      "name": "土地",
+      "description": "金皘山的土地神"
+    },
+    {
+      "name": "老者",
+      "description": "南庄村民，手拖藜杖，头顶羊裘，身穿破衲"
+    }
+  ],
+  "locations": [
+    {
+      "name": "通天河",
+      "type": "河流",
+      "parent": null
+    },
+    {
+      "name": "金皘山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "金皘洞",
+      "type": "洞穴",
+      "parent": "金皘山"
+    },
+    {
+      "name": "山凹",
+      "type": "地形",
+      "parent": "金皘山"
+    },
+    {
+      "name": "楼台房舍",
+      "type": "建筑",
+      "parent": "山凹"
+    },
+    {
+      "name": "村庄",
+      "type": "聚落",
+      "parent": null
+    },
+    {
+      "name": "南庄",
+      "type": "村落",
+      "parent": null
+    },
+    {
+      "name": "大厅",
+      "type": "房间",
+      "parent": "楼台房舍"
+    },
+    {
+      "name": "穿堂",
+      "type": "房间",
+      "parent": "楼台房舍"
+    },
+    {
+      "name": "大楼",
+      "type": "建筑",
+      "parent": "楼台房舍"
+    },
+    {
+      "name": "山坡平处",
+      "type": "地形",
+      "parent": "金皘山"
+    },
+    {
+      "name": "谷口",
+      "type": "地形",
+      "parent": "金皘山"
+    },
+    {
+      "name": "北坡",
+      "type": "地形",
+      "parent": "金皘山"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙悟空",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "老翁",
+      "person_b": "僮仆",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "山神",
+      "person_b": "土地",
+      "relation_type": "同僚"
+    },
+    {
+      "person_a": "独角兕大王",
+      "person_b": "孙悟空",
+      "relation_type": "敌对"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "金皘洞",
+      "target": "金皘山",
+      "relation_type": "contains",
+      "value": "洞穴位于山前"
+    },
+    {
+      "source": "山凹",
+      "target": "金皘山",
+      "relation_type": "contains",
+      "value": "山凹在山中"
+    },
+    {
+      "source": "楼台房舍",
+      "target": "山凹",
+      "relation_type": "contains",
+      "value": "建筑群位于山凹中"
+    },
+    {
+      "source": "大厅",
+      "target": "楼台房舍",
+      "relation_type": "contains",
+      "value": "前厅"
+    },
+    {
+      "source": "穿堂",
+      "target": "楼台房舍",
+      "relation_type": "contains",
+      "value": "中间"
+    },
+    {
+      "source": "大楼",
+      "target": "楼台房舍",
+      "relation_type": "contains",
+      "value": "后部"
+    },
+    {
+      "source": "南庄",
+      "target": "金皘山",
+      "relation_type": "direction",
+      "value": "南行千里之遥"
+    },
+    {
+      "source": "山坡平处",
+      "target": "金皘山",
+      "relation_type": "contains",
+      "value": "山中平地"
+    },
+    {
+      "source": "谷口",
+      "target": "金皘山",
+      "relation_type": "contains",
+      "value": "山谷入口"
+    },
+    {
+      "source": "北坡",
+      "target": "金皘山",
+      "relation_type": "contains",
+      "value": "山的北坡"
+    }
+  ],
+  "_chapter": 50,
+  "_input_tokens": 7954,
+  "_output_tokens": 1501
+}

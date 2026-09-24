@@ -1,0 +1,298 @@
+{
+  "characters": [
+    {
+      "name": "鸳鸯",
+      "description": "贾母身边的丫头，谨慎可靠，撞见司棋与其表兄私情后保守秘密"
+    },
+    {
+      "name": "司棋",
+      "description": "园中的丫头，与姑表兄弟青梅竹马，有私情被鸳鸯撞见后病倒"
+    },
+    {
+      "name": "司棋表兄弟",
+      "description": "司棋的姑表兄弟，与司棋有私情，被撞见后逃走"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐身边的大丫头，善解人意"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾琏之妻，精明能干但身体有恙，管理家务"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府二爷，凤姐之夫，需要借当银两周转"
+    },
+    {
+      "name": "朱嫂子",
+      "description": "官媒婆，为孙大人家求亲"
+    },
+    {
+      "name": "旺儿媳妇",
+      "description": "凤姐的陪房，为儿子求娶彩霞"
+    },
+    {
+      "name": "旺儿",
+      "description": "贾府家人，有个十七岁的儿子"
+    },
+    {
+      "name": "彩霞",
+      "description": "王夫人房里的丫头，被放出去择配，与贾环有旧情"
+    },
+    {
+      "name": "小霞",
+      "description": "彩霞的妹妹"
+    },
+    {
+      "name": "尤二姐",
+      "description": "已故，贾琏的侧室，周年将至"
+    },
+    {
+      "name": "夏太府",
+      "description": "宫中太监，派人来借银子"
+    },
+    {
+      "name": "小太监",
+      "description": "夏太府派来的内监"
+    },
+    {
+      "name": "林之孝",
+      "description": "贾府管事，建议精简人员"
+    },
+    {
+      "name": "雨村",
+      "description": "贾雨村，官员，据说被降职"
+    },
+    {
+      "name": "贾政",
+      "description": "贾府老爷，刚回家"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻，彩霞原来的主人"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾政侧室，与彩霞关系密切，欲撮合彩霞与贾环"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政之子，赵姨娘所生，与彩霞有旧情"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾政之子，贾政提到要给他配丫头"
+    }
+  ],
+  "locations": [
+    {
+      "name": "角门",
+      "type": "门",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "凤姐院",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "门",
+      "parent": "凤姐院"
+    },
+    {
+      "name": "堂屋",
+      "type": "房间",
+      "parent": "凤姐院"
+    },
+    {
+      "name": "东边房",
+      "type": "房间",
+      "parent": "凤姐院"
+    },
+    {
+      "name": "内套间",
+      "type": "房间",
+      "parent": "凤姐院"
+    },
+    {
+      "name": "外书房",
+      "type": "书房",
+      "parent": "贾府"
+    },
+    {
+      "name": "楼上",
+      "type": "楼层",
+      "parent": "凤姐院"
+    },
+    {
+      "name": "后楼",
+      "type": "建筑",
+      "parent": "贾府"
+    },
+    {
+      "name": "古董房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "大门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "府第",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "司棋",
+      "person_b": "司棋表兄弟",
+      "relation_type": "姑表兄妹"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "旺儿媳妇",
+      "person_b": "凤姐",
+      "relation_type": "陪房"
+    },
+    {
+      "person_a": "彩霞",
+      "person_b": "小霞",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "彩霞",
+      "person_b": "贾环",
+      "relation_type": "有旧情"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "贾政",
+      "relation_type": "侧室"
+    },
+    {
+      "person_a": "贾环",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾政",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "尤二姐",
+      "person_b": "贾琏",
+      "relation_type": "侧室"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "角门",
+      "relation_type": "contains",
+      "value": "园中有角门"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "府中有园"
+    },
+    {
+      "source": "凤姐院",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": "院中有二门"
+    },
+    {
+      "source": "凤姐院",
+      "target": "堂屋",
+      "relation_type": "contains",
+      "value": "院中有堂屋"
+    },
+    {
+      "source": "凤姐院",
+      "target": "东边房",
+      "relation_type": "contains",
+      "value": "院中有东边房"
+    },
+    {
+      "source": "凤姐院",
+      "target": "内套间",
+      "relation_type": "contains",
+      "value": "院中有内套间"
+    },
+    {
+      "source": "凤姐院",
+      "target": "楼上",
+      "relation_type": "contains",
+      "value": "院中有楼上"
+    },
+    {
+      "source": "贾府",
+      "target": "凤姐院",
+      "relation_type": "contains",
+      "value": "府中有凤姐院"
+    },
+    {
+      "source": "贾府",
+      "target": "外书房",
+      "relation_type": "contains",
+      "value": "府中有外书房"
+    },
+    {
+      "source": "贾府",
+      "target": "后楼",
+      "relation_type": "contains",
+      "value": "府中有后楼"
+    },
+    {
+      "source": "贾府",
+      "target": "古董房",
+      "relation_type": "contains",
+      "value": "府中有古董房"
+    },
+    {
+      "source": "贾府",
+      "target": "大门",
+      "relation_type": "contains",
+      "value": "府第有大门"
+    }
+  ],
+  "_chapter": 73,
+  "_input_tokens": 9084,
+  "_output_tokens": 2028
+}

@@ -1,0 +1,236 @@
+{
+  "characters": [
+    {
+      "name": "唐僧",
+      "description": "东土大唐取经僧，师父"
+    },
+    {
+      "name": "孙行者/行者/悟空",
+      "description": "唐僧大徒弟，使用金箍棒，法力通天"
+    },
+    {
+      "name": "八戒/猪八戒",
+      "description": "唐僧二徒弟，使用九齿钯，贪吃好睡"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧三徒弟，使用降妖宝杖"
+    },
+    {
+      "name": "玉华王",
+      "description": "天竺国下郡玉华县城主，天竺皇帝宗室，贤达敬僧"
+    },
+    {
+      "name": "大王子",
+      "description": "玉华王长子，使用齐眉棍，好武好强"
+    },
+    {
+      "name": "二王子",
+      "description": "玉华王次子，使用九齿钯，好武好强"
+    },
+    {
+      "name": "三王子",
+      "description": "玉华王三子，使用乌油黑棒，好武好强"
+    },
+    {
+      "name": "老者",
+      "description": "树丛中遇到的当地人，为唐僧指路"
+    },
+    {
+      "name": "引礼官",
+      "description": "玉华王府的官员"
+    },
+    {
+      "name": "典膳官",
+      "description": "负责膳食的官员"
+    },
+    {
+      "name": "妖精",
+      "description": "豹头山虎口洞的妖怪，盗取了三件神兵"
+    }
+  ],
+  "locations": [
+    {
+      "name": "凤仙郡",
+      "type": "郡",
+      "parent": null
+    },
+    {
+      "name": "天竺国",
+      "type": "国",
+      "parent": null
+    },
+    {
+      "name": "玉华县",
+      "type": "县",
+      "parent": "天竺国"
+    },
+    {
+      "name": "玉华王府",
+      "type": "府邸",
+      "parent": "玉华县"
+    },
+    {
+      "name": "长史府",
+      "type": "衙署",
+      "parent": "玉华王府"
+    },
+    {
+      "name": "审理厅",
+      "type": "衙署",
+      "parent": "玉华王府"
+    },
+    {
+      "name": "典膳所",
+      "type": "衙署",
+      "parent": "玉华王府"
+    },
+    {
+      "name": "待客馆",
+      "type": "馆舍",
+      "parent": "玉华王府"
+    },
+    {
+      "name": "暴纱亭",
+      "type": "亭子",
+      "parent": "玉华王府"
+    },
+    {
+      "name": "豹头山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "虎口洞",
+      "type": "洞穴",
+      "parent": "豹头山"
+    },
+    {
+      "name": "大唐",
+      "type": "国",
+      "parent": null
+    },
+    {
+      "name": "雷音",
+      "type": "寺庙",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙行者",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "八戒",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "玉华王",
+      "person_b": "大王子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "玉华王",
+      "person_b": "二王子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "玉华王",
+      "person_b": "三王子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "大王子",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "二王子",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "三王子",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "玉华王",
+      "person_b": "天竺皇帝",
+      "relation_type": "宗室"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "天竺国",
+      "target": "玉华县",
+      "relation_type": "contains",
+      "value": "下郡"
+    },
+    {
+      "source": "玉华县",
+      "target": "玉华王府",
+      "relation_type": "contains",
+      "value": "城中"
+    },
+    {
+      "source": "玉华王府",
+      "target": "长史府",
+      "relation_type": "contains",
+      "value": "府门左右"
+    },
+    {
+      "source": "玉华王府",
+      "target": "审理厅",
+      "relation_type": "contains",
+      "value": "府门左右"
+    },
+    {
+      "source": "玉华王府",
+      "target": "典膳所",
+      "relation_type": "contains",
+      "value": "府门左右"
+    },
+    {
+      "source": "玉华王府",
+      "target": "待客馆",
+      "relation_type": "contains",
+      "value": "府门左右"
+    },
+    {
+      "source": "玉华王府",
+      "target": "暴纱亭",
+      "relation_type": "contains",
+      "value": "府内"
+    },
+    {
+      "source": "豹头山",
+      "target": "虎口洞",
+      "relation_type": "contains",
+      "value": "山中"
+    },
+    {
+      "source": "豹头山",
+      "target": "玉华县",
+      "relation_type": "direction",
+      "value": "离城七十里"
+    },
+    {
+      "source": "凤仙郡",
+      "target": "玉华县",
+      "relation_type": "direction",
+      "value": "前往方向"
+    }
+  ],
+  "_chapter": 88,
+  "_input_tokens": 7824,
+  "_output_tokens": 1522
+}

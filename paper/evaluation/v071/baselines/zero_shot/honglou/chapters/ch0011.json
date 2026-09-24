@@ -1,0 +1,278 @@
+{
+  "characters": [
+    {
+      "name": "贾敬",
+      "description": "寿辰主角，好养静，已修炼成仙"
+    },
+    {
+      "name": "贾珍",
+      "description": "贾敬之子，宁府当家人"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子，秦氏的丈夫"
+    },
+    {
+      "name": "贾琏",
+      "description": "荣府二房，最先到达的客人之一"
+    },
+    {
+      "name": "贾蔷",
+      "description": "贾家子弟，与贾琏一同到来"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻，荣府大太太"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻，荣府二太太"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "王熙凤，贾琏之妻，荣府当家奶奶"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，荣府公子"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻，宁府当家奶奶"
+    },
+    {
+      "name": "尤氏的母亲",
+      "description": "尤氏之母，亲家太太"
+    },
+    {
+      "name": "秦氏",
+      "description": "贾蓉之妻，身患重病"
+    },
+    {
+      "name": "贾瑞",
+      "description": "贾家族人，对凤姐儿有不轨之心"
+    },
+    {
+      "name": "贾母",
+      "description": "老太太，贾家老祖宗"
+    },
+    {
+      "name": "冯紫英",
+      "description": "推荐医生给秦氏治病"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐儿的贴身丫鬟"
+    },
+    {
+      "name": "李贵",
+      "description": "宝玉的跟班"
+    }
+  ],
+  "locations": [
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "会芳园",
+      "type": "园林",
+      "parent": "宁府"
+    },
+    {
+      "name": "戏台",
+      "type": "建筑",
+      "parent": "会芳园"
+    },
+    {
+      "name": "天香楼",
+      "type": "楼阁",
+      "parent": "会芳园"
+    },
+    {
+      "name": "凝曦轩",
+      "type": "轩榭",
+      "parent": "会芳园"
+    },
+    {
+      "name": "厅",
+      "type": "房间",
+      "parent": "宁府"
+    },
+    {
+      "name": "上房",
+      "type": "房间",
+      "parent": "宁府"
+    },
+    {
+      "name": "秦氏房间",
+      "type": "卧室",
+      "parent": "宁府"
+    },
+    {
+      "name": "账房",
+      "type": "房间",
+      "parent": "宁府"
+    },
+    {
+      "name": "假山",
+      "type": "景观",
+      "parent": "会芳园"
+    },
+    {
+      "name": "小桥",
+      "type": "建筑",
+      "parent": "会芳园"
+    },
+    {
+      "name": "曲径",
+      "type": "道路",
+      "parent": "会芳园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾珍",
+      "person_b": "贾敬",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "贾珍",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "秦氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "尤氏",
+      "person_b": "尤氏的母亲",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "秦氏",
+      "relation_type": "婶嫂"
+    },
+    {
+      "person_a": "贾瑞",
+      "person_b": "凤姐儿",
+      "relation_type": "族人"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "李贵",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "王夫人",
+      "relation_type": "婆媳"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "宁府",
+      "target": "会芳园",
+      "relation_type": "contains",
+      "value": "宁府内包含会芳园"
+    },
+    {
+      "source": "会芳园",
+      "target": "戏台",
+      "relation_type": "contains",
+      "value": "园子里有戏台"
+    },
+    {
+      "source": "会芳园",
+      "target": "天香楼",
+      "relation_type": "contains",
+      "value": "园中建有天香楼"
+    },
+    {
+      "source": "会芳园",
+      "target": "凝曦轩",
+      "relation_type": "contains",
+      "value": "园中有凝曦轩"
+    },
+    {
+      "source": "会芳园",
+      "target": "假山",
+      "relation_type": "contains",
+      "value": "园中有假山石"
+    },
+    {
+      "source": "会芳园",
+      "target": "小桥",
+      "relation_type": "contains",
+      "value": "园中有小桥"
+    },
+    {
+      "source": "会芳园",
+      "target": "曲径",
+      "relation_type": "contains",
+      "value": "园中有曲径"
+    },
+    {
+      "source": "宁府",
+      "target": "厅",
+      "relation_type": "contains",
+      "value": "府中有厅"
+    },
+    {
+      "source": "宁府",
+      "target": "上房",
+      "relation_type": "contains",
+      "value": "府中有上房"
+    },
+    {
+      "source": "宁府",
+      "target": "秦氏房间",
+      "relation_type": "contains",
+      "value": "府中有秦氏居住的房间"
+    },
+    {
+      "source": "天香楼",
+      "target": "后门",
+      "relation_type": "contains",
+      "value": "楼有后门入口"
+    },
+    {
+      "source": "会芳园",
+      "target": "便门",
+      "relation_type": "contains",
+      "value": "园子有便门通道"
+    }
+  ],
+  "_chapter": 11,
+  "_input_tokens": 7434,
+  "_output_tokens": 1807
+}

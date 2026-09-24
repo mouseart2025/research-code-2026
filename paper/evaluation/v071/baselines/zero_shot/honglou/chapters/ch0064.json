@@ -1,0 +1,341 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾府公子，正在过生日，与众人饮酒作乐"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，负责照料宝玉起居"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中的丫鬟，性格直爽"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "芳官",
+      "description": "戏子出身，后被宝玉改名为耶律雄奴"
+    },
+    {
+      "name": "碧痕",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "小燕",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "四儿",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "柳嫂子",
+      "description": "负责备办酒食的管事"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的陪房丫头"
+    },
+    {
+      "name": "五儿",
+      "description": "曾在怡红院当差，后因故离开"
+    },
+    {
+      "name": "林之孝家的",
+      "description": "贾府管事媳妇，负责查夜"
+    },
+    {
+      "name": "黛玉",
+      "description": "林妹妹，宝玉的表妹"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家的姑娘，宝玉的表姐"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三姑娘"
+    },
+    {
+      "name": "李纨",
+      "description": "贾珠的遗孀，宝玉的嫂子"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛家姑娘"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，宝玉的表妹"
+    },
+    {
+      "name": "香菱",
+      "description": "薛蟠的妾"
+    },
+    {
+      "name": "妙玉",
+      "description": "栊翠庵的尼姑，自称槛外人"
+    },
+    {
+      "name": "岫烟",
+      "description": "邢夫人的侄女，与妙玉有旧交"
+    },
+    {
+      "name": "葵官",
+      "description": "戏子，被湘云改名为韦大英"
+    },
+    {
+      "name": "藕官",
+      "description": "戏子，被宝琴改名为藕童"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻，宁府当家奶奶"
+    },
+    {
+      "name": "佩凤",
+      "description": "尤氏的妾"
+    },
+    {
+      "name": "偕鸳",
+      "description": "尤氏的妾"
+    },
+    {
+      "name": "贾敬",
+      "description": "贾珍之父，在玄真观修道，已故"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁府当家，贾敬之子"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子"
+    },
+    {
+      "name": "尤老",
+      "description": "尤氏的继母"
+    },
+    {
+      "name": "尤二姐",
+      "description": "尤氏的妹妹"
+    },
+    {
+      "name": "尤三姐",
+      "description": "尤氏的妹妹"
+    }
+  ],
+  "locations": [
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "宝玉房中",
+      "type": "房间",
+      "parent": "怡红院"
+    },
+    {
+      "name": "沁芳亭",
+      "type": "亭子",
+      "parent": "大观园"
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "榆荫堂",
+      "type": "厅堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "红香圃",
+      "type": "园圃",
+      "parent": "大观园"
+    },
+    {
+      "name": "玄真观",
+      "type": "道观",
+      "parent": "城外"
+    },
+    {
+      "name": "铁槛寺",
+      "type": "寺庙",
+      "parent": "城外"
+    },
+    {
+      "name": "贾府",
+      "type": "宅第",
+      "parent": "京城"
+    },
+    {
+      "name": "宁府",
+      "type": "宅第",
+      "parent": "贾府"
+    },
+    {
+      "name": "荣府",
+      "type": "宅第",
+      "parent": "贾府"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "荣府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "晴雯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "探春",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "李纨",
+      "relation_type": "叔嫂"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "湘云",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "妙玉",
+      "person_b": "岫烟",
+      "relation_type": "师生"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾敬",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "贾珍",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "尤氏",
+      "person_b": "贾珍",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "尤二姐",
+      "person_b": "尤氏",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "尤三姐",
+      "person_b": "尤氏",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "尤老",
+      "person_b": "尤氏",
+      "relation_type": "母女"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "怡红院",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "位于贾府内"
+    },
+    {
+      "source": "宝玉房中",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "位于怡红院内"
+    },
+    {
+      "source": "大观园",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": "位于荣府内"
+    },
+    {
+      "source": "沁芳亭",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "位于大观园内"
+    },
+    {
+      "source": "栊翠庵",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "位于大观园内"
+    },
+    {
+      "source": "榆荫堂",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "位于大观园内"
+    },
+    {
+      "source": "怡红院",
+      "target": "沁芳亭",
+      "relation_type": "direction",
+      "value": "过了沁芳亭才到"
+    },
+    {
+      "source": "玄真观",
+      "target": "京城",
+      "relation_type": "direction",
+      "value": "位于城外"
+    },
+    {
+      "source": "铁槛寺",
+      "target": "京城",
+      "relation_type": "direction",
+      "value": "位于城外"
+    },
+    {
+      "source": "荣府",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "贾府的一部分"
+    },
+    {
+      "source": "宁府",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "贾府的一部分"
+    }
+  ],
+  "_chapter": 64,
+  "_input_tokens": 13970,
+  "_output_tokens": 2249
+}

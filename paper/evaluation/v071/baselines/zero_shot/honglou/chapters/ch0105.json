@@ -1,0 +1,328 @@
+{
+  "characters": [
+    {
+      "name": "贾雨村",
+      "description": "官员，刚过渡时遇到庙火，后进都门任职，管理地方的府尹"
+    },
+    {
+      "name": "甄士隐",
+      "description": "道士，在庙中修行，后在火中仙去"
+    },
+    {
+      "name": "醉金刚倪二",
+      "description": "酒徒，在街上醉酒撒赖被贾雨村抓捕，有些力气，常在赌场"
+    },
+    {
+      "name": "倪二女儿",
+      "description": "倪二的女儿，父亲被抓后到处寻找帮助"
+    },
+    {
+      "name": "倪二妻子",
+      "description": "倪二的妻子，劝阻丈夫不要闹事"
+    },
+    {
+      "name": "贾芸",
+      "description": "贾家本家，曾受倪二帮助，后来无法进入荣府"
+    },
+    {
+      "name": "贾政",
+      "description": "贾家二老爷，工部官员，从江西粮道被参回京"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老太太，贾政的母亲"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政的妻子"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾政之子，思念已故的林黛玉"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝玉的妻子，沉厚稳重"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫环"
+    },
+    {
+      "name": "紫鹃",
+      "description": "林黛玉的贴身丫环，对宝玉有怨气"
+    },
+    {
+      "name": "林黛玉",
+      "description": "已故，宝玉深爱的表妹，临死前烧掉诗稿"
+    },
+    {
+      "name": "贾珍",
+      "description": "贾家族人，负责家族事务"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾家族人，协助管理家事"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾琏之妻，管理贾家事务"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫环"
+    },
+    {
+      "name": "探春",
+      "description": "贾政之女，已远嫁他乡"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政之子，宝玉的弟弟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "庙",
+      "type": "建筑",
+      "parent": null
+    },
+    {
+      "name": "河",
+      "type": "自然地貌",
+      "parent": null
+    },
+    {
+      "name": "都门",
+      "type": "城市入口",
+      "parent": "京城"
+    },
+    {
+      "name": "街",
+      "type": "道路",
+      "parent": "都门"
+    },
+    {
+      "name": "衙门",
+      "type": "官府建筑",
+      "parent": "都门"
+    },
+    {
+      "name": "荣府",
+      "type": "宅邸",
+      "parent": null
+    },
+    {
+      "name": "西府",
+      "type": "宅邸",
+      "parent": null
+    },
+    {
+      "name": "赌场",
+      "type": "娱乐场所",
+      "parent": null
+    },
+    {
+      "name": "内廷",
+      "type": "皇宫",
+      "parent": null
+    },
+    {
+      "name": "内阁",
+      "type": "官府建筑",
+      "parent": "内廷"
+    },
+    {
+      "name": "荣禧堂",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "宗祠",
+      "type": "祭祀建筑",
+      "parent": "贾家"
+    },
+    {
+      "name": "书房",
+      "type": "房间",
+      "parent": "雨村家"
+    },
+    {
+      "name": "江西",
+      "type": "省份",
+      "parent": null
+    },
+    {
+      "name": "云南",
+      "type": "省份",
+      "parent": null
+    },
+    {
+      "name": "苏州",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "浙江",
+      "type": "省份",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾雨村",
+      "person_b": "甄士隐",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "倪二",
+      "person_b": "倪二女儿",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "倪二",
+      "person_b": "倪二妻子",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "倪二",
+      "person_b": "贾芸",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾母",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "探春",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾环",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "麝月",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾珍",
+      "relation_type": "族人"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾琏",
+      "relation_type": "族人"
+    },
+    {
+      "person_a": "贾芸",
+      "person_b": "贾政",
+      "relation_type": "族人"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "都门",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "城市入口"
+    },
+    {
+      "source": "街",
+      "target": "都门",
+      "relation_type": "contains",
+      "value": "位于城内"
+    },
+    {
+      "source": "衙门",
+      "target": "都门",
+      "relation_type": "contains",
+      "value": "官府所在"
+    },
+    {
+      "source": "内阁",
+      "target": "内廷",
+      "relation_type": "contains",
+      "value": "宫内机构"
+    },
+    {
+      "source": "荣禧堂",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": "主要厅堂"
+    },
+    {
+      "source": "书房",
+      "target": "雨村家",
+      "relation_type": "contains",
+      "value": "私人房间"
+    },
+    {
+      "source": "宗祠",
+      "target": "贾家",
+      "relation_type": "contains",
+      "value": "家族建筑"
+    },
+    {
+      "source": "庙",
+      "target": "河",
+      "relation_type": "adjacent",
+      "value": "河边"
+    },
+    {
+      "source": "荣府",
+      "target": "西府",
+      "relation_type": "adjacent",
+      "value": "同族府邸"
+    },
+    {
+      "source": "贾芸家",
+      "target": "荣府",
+      "relation_type": "adjacent",
+      "value": "间壁"
+    }
+  ],
+  "_chapter": 105,
+  "_input_tokens": 7513,
+  "_output_tokens": 2105
+}

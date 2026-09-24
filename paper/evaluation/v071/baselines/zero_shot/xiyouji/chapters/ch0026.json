@@ -1,0 +1,226 @@
+{
+  "characters": [
+    {
+      "name": "镇元大仙",
+      "description": "五庄观主人，地仙之祖，拥有人参果树，与孙悟空发生冲突后和解"
+    },
+    {
+      "name": "孙悟空/行者",
+      "description": "齐天大圣，唐僧的大弟子，因推倒人参果树与镇元大仙结怨，后求方医树"
+    },
+    {
+      "name": "唐僧/三藏",
+      "description": "西天取经的僧人，孙悟空等人的师父"
+    },
+    {
+      "name": "猪八戒",
+      "description": "唐僧的二弟子，性格幽默贪吃，在文中多次开玩笑"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧的三弟子"
+    },
+    {
+      "name": "福星",
+      "description": "海上三星之一，与寿星、禄星一同前往五庄观"
+    },
+    {
+      "name": "禄星",
+      "description": "海上三星之一"
+    },
+    {
+      "name": "寿星",
+      "description": "海上三星之一，被八戒戏弄"
+    },
+    {
+      "name": "观音菩萨",
+      "description": "慈悲救苦的菩萨，用甘露水救活了人参果树"
+    },
+    {
+      "name": "东华大帝君",
+      "description": "方丈仙山的神仙"
+    },
+    {
+      "name": "东方朔",
+      "description": "东华大帝君处的童子，道名曼倩"
+    },
+    {
+      "name": "九老",
+      "description": "瀛洲海岛的神仙"
+    },
+    {
+      "name": "清风",
+      "description": "五庄观的仙童之一"
+    },
+    {
+      "name": "明月",
+      "description": "五庄观的仙童之一"
+    },
+    {
+      "name": "黑熊大神",
+      "description": "普陀山的守山大神，原为黑风山妖怪"
+    }
+  ],
+  "locations": [
+    {
+      "name": "五庄观",
+      "type": "道观",
+      "parent": "万寿山"
+    },
+    {
+      "name": "万寿山",
+      "type": "仙山",
+      "parent": "西牛贺洲"
+    },
+    {
+      "name": "西牛贺洲",
+      "type": "洲",
+      "parent": null
+    },
+    {
+      "name": "东洋大海",
+      "type": "海域",
+      "parent": null
+    },
+    {
+      "name": "蓬莱仙境",
+      "type": "仙境",
+      "parent": "东洋大海"
+    },
+    {
+      "name": "白云洞",
+      "type": "洞府",
+      "parent": "蓬莱仙境"
+    },
+    {
+      "name": "方丈仙山",
+      "type": "仙山",
+      "parent": "东洋大海"
+    },
+    {
+      "name": "瀛洲海岛",
+      "type": "仙岛",
+      "parent": "东洋大海"
+    },
+    {
+      "name": "落伽山",
+      "type": "仙山",
+      "parent": "东洋大海"
+    },
+    {
+      "name": "普陀岩",
+      "type": "岩石",
+      "parent": "落伽山"
+    },
+    {
+      "name": "紫竹林",
+      "type": "竹林",
+      "parent": "普陀岩"
+    },
+    {
+      "name": "后园",
+      "type": "园林",
+      "parent": "五庄观"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "镇元大仙",
+      "person_b": "孙悟空",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "观音菩萨",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "清风",
+      "person_b": "镇元大仙",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "明月",
+      "person_b": "镇元大仙",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "东方朔",
+      "person_b": "东华大帝君",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "黑熊大神",
+      "person_b": "观音菩萨",
+      "relation_type": "侍从"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "万寿山",
+      "target": "五庄观",
+      "relation_type": "contains",
+      "value": "山中有观"
+    },
+    {
+      "source": "东洋大海",
+      "target": "蓬莱仙境",
+      "relation_type": "contains",
+      "value": "海上仙境"
+    },
+    {
+      "source": "东洋大海",
+      "target": "方丈仙山",
+      "relation_type": "contains",
+      "value": "海上仙山"
+    },
+    {
+      "source": "东洋大海",
+      "target": "瀛洲海岛",
+      "relation_type": "contains",
+      "value": "海上仙岛"
+    },
+    {
+      "source": "蓬莱仙境",
+      "target": "白云洞",
+      "relation_type": "contains",
+      "value": "境内有洞"
+    },
+    {
+      "source": "落伽山",
+      "target": "普陀岩",
+      "relation_type": "contains",
+      "value": "山上有岩"
+    },
+    {
+      "source": "普陀岩",
+      "target": "紫竹林",
+      "relation_type": "contains",
+      "value": "岩上有林"
+    },
+    {
+      "source": "五庄观",
+      "target": "后园",
+      "relation_type": "contains",
+      "value": "观内有园"
+    }
+  ],
+  "_chapter": 26,
+  "_input_tokens": 8134,
+  "_output_tokens": 1575
+}

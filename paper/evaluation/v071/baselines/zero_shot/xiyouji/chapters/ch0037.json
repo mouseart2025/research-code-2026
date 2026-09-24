@@ -1,0 +1,242 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "唐僧，东土唐僧上雷音寺拜佛求经的和尚，住在宝林寺禅堂中念经"
+    },
+    {
+      "name": "行者",
+      "description": "孙悟空，三藏的大徒弟，齐天大圣，擅长降妖除魔，神通广大"
+    },
+    {
+      "name": "八戒",
+      "description": "三藏的徒弟，曾经是吃人的好汉，现在跟随师父保护取经"
+    },
+    {
+      "name": "沙僧",
+      "description": "三藏的徒弟，谨慎小心的性格"
+    },
+    {
+      "name": "乌鸡国王",
+      "description": "乌鸡国的已故国王，被全真推入八角琉璃井害死，现为冤魂"
+    },
+    {
+      "name": "全真",
+      "description": "来自锺南山的道士，能呼风唤雨点石成金，实为妖怪，变作国王模样篡位"
+    },
+    {
+      "name": "太子",
+      "description": "乌鸡国王的亲生太子，年幼，被禁止入宫见母亲"
+    },
+    {
+      "name": "夜游神",
+      "description": "神仙，用神风送乌鸡国王冤魂进入禅堂"
+    },
+    {
+      "name": "皇后",
+      "description": "乌鸡国的正宫皇后，太子的母亲"
+    }
+  ],
+  "locations": [
+    {
+      "name": "宝林寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "禅堂",
+      "type": "房间",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "乌鸡国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "锺南山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "御花园",
+      "type": "园林",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "八角琉璃井",
+      "type": "水井",
+      "parent": "御花园"
+    },
+    {
+      "name": "金銮殿",
+      "type": "宫殿",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "五凤楼",
+      "type": "楼阁",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "皇宫",
+      "type": "宫殿",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "东门",
+      "type": "城门",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "东郊",
+      "type": "郊外",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "山门",
+      "type": "门",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "正殿",
+      "type": "殿堂",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "后宰门",
+      "type": "城门",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "正阳门",
+      "type": "城门",
+      "parent": "乌鸡国"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "乌鸡国王",
+      "person_b": "太子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "乌鸡国王",
+      "person_b": "皇后",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "乌鸡国王",
+      "person_b": "全真",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "太子",
+      "person_b": "皇后",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "全真",
+      "person_b": "乌鸡国王",
+      "relation_type": "仇敌"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "宝林寺",
+      "target": "乌鸡国",
+      "relation_type": "direction",
+      "value": "距离四十里"
+    },
+    {
+      "source": "禅堂",
+      "target": "宝林寺",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "御花园",
+      "target": "乌鸡国",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "八角琉璃井",
+      "target": "御花园",
+      "relation_type": "contains",
+      "value": "园中"
+    },
+    {
+      "source": "金銮殿",
+      "target": "乌鸡国",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "五凤楼",
+      "target": "乌鸡国",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "皇宫",
+      "target": "乌鸡国",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "东门",
+      "target": "乌鸡国",
+      "relation_type": "contains",
+      "value": "城门"
+    },
+    {
+      "source": "东郊",
+      "target": "乌鸡国",
+      "relation_type": "adjacent",
+      "value": "城外东侧"
+    },
+    {
+      "source": "山门",
+      "target": "宝林寺",
+      "relation_type": "contains",
+      "value": "入口"
+    },
+    {
+      "source": "正殿",
+      "target": "宝林寺",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "后宰门",
+      "target": "乌鸡国",
+      "relation_type": "contains",
+      "value": "城门"
+    },
+    {
+      "source": "正阳门",
+      "target": "乌鸡国",
+      "relation_type": "contains",
+      "value": "城门"
+    }
+  ],
+  "_chapter": 37,
+  "_input_tokens": 9272,
+  "_output_tokens": 1635
+}

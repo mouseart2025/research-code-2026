@@ -1,0 +1,203 @@
+{
+  "characters": [
+    {
+      "name": "唐三藏",
+      "description": "取经僧人，师父，四十年前出母胎，从小修行的有道之士"
+    },
+    {
+      "name": "孙悟空",
+      "description": "唐僧大徒弟，又称行者、大圣，会七十二变，使用铁棒"
+    },
+    {
+      "name": "猪八戒",
+      "description": "唐僧二徒弟，又称悟能，使用钉钯，能变化身躯"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧三徒弟，挑担行李"
+    },
+    {
+      "name": "祭赛国王",
+      "description": "国王，曾受唐僧师徒恩惠"
+    },
+    {
+      "name": "十八公",
+      "description": "荆棘岭土地，号劲节，实为松树精，千岁余"
+    },
+    {
+      "name": "孤直公",
+      "description": "老者，霜姿丰采，实为柏树精，千岁"
+    },
+    {
+      "name": "凌空子",
+      "description": "老者，绿鬓婆娑，实为桧树精，千载"
+    },
+    {
+      "name": "拂云叟",
+      "description": "老者，虚心黛色，实为竹竿精，千秋"
+    },
+    {
+      "name": "杏仙",
+      "description": "美貌女子，执杏花，实为杏树精，欲与唐僧配偶"
+    },
+    {
+      "name": "赤身鬼使",
+      "description": "红须赤身的鬼使，实为枫树精"
+    },
+    {
+      "name": "青衣女童",
+      "description": "两个女童，挑绛纱灯笼"
+    },
+    {
+      "name": "黄衣女童",
+      "description": "两个女童，捧茶具，实为丹桂、腊梅精"
+    }
+  ],
+  "locations": [
+    {
+      "name": "祭赛国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "伏龙寺",
+      "type": "寺庙",
+      "parent": "祭赛国"
+    },
+    {
+      "name": "荆棘岭",
+      "type": "山岭",
+      "parent": null
+    },
+    {
+      "name": "古庙",
+      "type": "庙宇",
+      "parent": "荆棘岭"
+    },
+    {
+      "name": "木仙庵",
+      "type": "庵堂",
+      "parent": "荆棘岭"
+    },
+    {
+      "name": "烟霞石屋",
+      "type": "建筑",
+      "parent": "荆棘岭"
+    },
+    {
+      "name": "石崖",
+      "type": "地形",
+      "parent": "荆棘岭"
+    },
+    {
+      "name": "西天",
+      "type": "目的地",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐三藏",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "杏仙",
+      "person_b": "唐三藏",
+      "relation_type": "求偶"
+    },
+    {
+      "person_a": "十八公",
+      "person_b": "孤直公",
+      "relation_type": "同伴"
+    },
+    {
+      "person_a": "十八公",
+      "person_b": "凌空子",
+      "relation_type": "同伴"
+    },
+    {
+      "person_a": "十八公",
+      "person_b": "拂云叟",
+      "relation_type": "同伴"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "祭赛国",
+      "target": "伏龙寺",
+      "relation_type": "contains",
+      "value": "寺庙位于国内"
+    },
+    {
+      "source": "祭赛国",
+      "target": "荆棘岭",
+      "relation_type": "direction",
+      "value": "西行二十里到达荆棘岭"
+    },
+    {
+      "source": "荆棘岭",
+      "target": "古庙",
+      "relation_type": "contains",
+      "value": "岭中有古庙"
+    },
+    {
+      "source": "荆棘岭",
+      "target": "木仙庵",
+      "relation_type": "contains",
+      "value": "岭中有木仙庵"
+    },
+    {
+      "source": "荆棘岭",
+      "target": "烟霞石屋",
+      "relation_type": "contains",
+      "value": "岭中有烟霞石屋"
+    },
+    {
+      "source": "木仙庵",
+      "target": "石崖",
+      "relation_type": "adjacent",
+      "value": "庵在石崖上"
+    },
+    {
+      "source": "荆棘岭",
+      "target": "西天",
+      "relation_type": "direction",
+      "value": "荆棘岭八百里，向西通往西天"
+    },
+    {
+      "source": "荆棘岭",
+      "target": null,
+      "relation_type": "contains",
+      "value": "荆棘蓬攀八百里"
+    }
+  ],
+  "_chapter": 64,
+  "_input_tokens": 8512,
+  "_output_tokens": 1499
+}

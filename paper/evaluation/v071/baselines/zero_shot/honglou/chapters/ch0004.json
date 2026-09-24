@@ -1,0 +1,304 @@
+{
+  "characters": [
+    {
+      "name": "黛玉",
+      "description": "客寄于贾宅的女子，与姊妹们相伴"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政的夫人，与兄嫂处理家务"
+    },
+    {
+      "name": "李氏",
+      "description": "贾珠之妻，已守寡，字宫裁，青春丧偶，以纺绩井臼为要"
+    },
+    {
+      "name": "贾珠",
+      "description": "已故，李氏的丈夫"
+    },
+    {
+      "name": "贾兰",
+      "description": "贾珠与李氏之子，今方五岁，已入学攻书"
+    },
+    {
+      "name": "李守中",
+      "description": "李氏之父，曾为国子监祭酒"
+    },
+    {
+      "name": "雨村",
+      "description": "补授了应天府的官员，处理人命官司"
+    },
+    {
+      "name": "门子",
+      "description": "原是葫芦庙内小沙弥，后充当门子，给雨村出谋划策"
+    },
+    {
+      "name": "冯渊",
+      "description": "本地小乡绅之子，被薛蟠打死，酷爱男风最厌女子"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛家公子，混名呆霸王，幼年丧父，性情奢侈言语傲慢"
+    },
+    {
+      "name": "英莲",
+      "description": "甄老爷的小姐，五岁被拐，眉心有胭脂记，被薛蟠买去"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛蟠之母，王子腾之妹，与王夫人是姊妹"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛蟠之妹，比薛蟠小两岁，生得肌骨莹润举止娴雅"
+    },
+    {
+      "name": "王子腾",
+      "description": "现任京营节度使，薛姨妈之兄，王夫人之兄"
+    },
+    {
+      "name": "贾政",
+      "description": "荣国府成员，王夫人之夫，训子有方治家有法"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府长辈"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府成员"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾府成员"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁府长孙，现袭职，现任族长"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府姊妹之一"
+    },
+    {
+      "name": "甄老爷",
+      "description": "英莲之父，住在葫芦庙旁"
+    }
+  ],
+  "locations": [
+    {
+      "name": "王夫人处",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "李氏房中",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "应天府",
+      "type": "官府",
+      "parent": ""
+    },
+    {
+      "name": "葫芦庙",
+      "type": "庙宇",
+      "parent": ""
+    },
+    {
+      "name": "密室",
+      "type": "房间",
+      "parent": "应天府"
+    },
+    {
+      "name": "金陵",
+      "type": "城市",
+      "parent": ""
+    },
+    {
+      "name": "都中",
+      "type": "城市",
+      "parent": ""
+    },
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": "都中"
+    },
+    {
+      "name": "宁国府",
+      "type": "府邸",
+      "parent": "都中"
+    },
+    {
+      "name": "梨香院",
+      "type": "院落",
+      "parent": "荣国府"
+    },
+    {
+      "name": "大厅",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "东北角",
+      "type": "方位",
+      "parent": "荣国府"
+    },
+    {
+      "name": "夹道",
+      "type": "通道",
+      "parent": "荣国府"
+    },
+    {
+      "name": "街门",
+      "type": "门",
+      "parent": "梨香院"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "李氏",
+      "person_b": "贾珠",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "李氏",
+      "person_b": "贾兰",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾珠",
+      "person_b": "贾兰",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "李氏",
+      "person_b": "李守中",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛姨妈",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "宝钗",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "王子腾",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "王夫人",
+      "relation_type": "姊妹"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "王子腾",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾政",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "英莲",
+      "person_b": "甄老爷",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "雨村",
+      "person_b": "门子",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "荣国府",
+      "target": "李氏房中",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣国府",
+      "target": "王夫人处",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "应天府",
+      "target": "密室",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣国府",
+      "target": "梨香院",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣国府",
+      "target": "东北角",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "东北角",
+      "target": "梨香院",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "梨香院",
+      "target": "街门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "梨香院",
+      "target": "夹道",
+      "relation_type": "adjacent",
+      "value": "西南有一角门通夹道"
+    },
+    {
+      "source": "夹道",
+      "target": "王夫人正房",
+      "relation_type": "direction",
+      "value": "出夹道便是王夫人正房的东边"
+    },
+    {
+      "source": "都中",
+      "target": "荣国府",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "都中",
+      "target": "宁国府",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "梨香院",
+      "target": "王夫人处",
+      "relation_type": "direction",
+      "value": "相隔两层房舍"
+    }
+  ],
+  "_chapter": 4,
+  "_input_tokens": 7436,
+  "_output_tokens": 2031
+}

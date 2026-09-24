@@ -1,0 +1,367 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "西天取经的和尚，唐僧"
+    },
+    {
+      "name": "沙和尚",
+      "description": "三藏的徒弟之一"
+    },
+    {
+      "name": "八戒",
+      "description": "三藏的徒弟之一，猪精"
+    },
+    {
+      "name": "行者",
+      "description": "三藏的徒弟之一，孙悟空，美猴王"
+    },
+    {
+      "name": "妖精",
+      "description": "女妖精，地涌夫人，金鼻白毛老鼠精"
+    },
+    {
+      "name": "李天王",
+      "description": "托塔李天王，天庭神将"
+    },
+    {
+      "name": "哪吒三太子",
+      "description": "李天王之子，三坛海会之神"
+    },
+    {
+      "name": "玉帝",
+      "description": "天庭至高统治者"
+    },
+    {
+      "name": "太白金星",
+      "description": "天庭神官"
+    },
+    {
+      "name": "金吒",
+      "description": "李天王长子，如来前部护法"
+    },
+    {
+      "name": "木叉",
+      "description": "李天王次子，观世音徒弟"
+    },
+    {
+      "name": "贞英",
+      "description": "李天王七岁女儿"
+    },
+    {
+      "name": "巨灵神",
+      "description": "李天王手下神将"
+    },
+    {
+      "name": "鱼肚将",
+      "description": "李天王手下神将"
+    },
+    {
+      "name": "药叉雄帅",
+      "description": "李天王手下神将"
+    },
+    {
+      "name": "大力天王",
+      "description": "把守南天门的神将"
+    },
+    {
+      "name": "护国天王",
+      "description": "把守南天门的神将"
+    },
+    {
+      "name": "张天师",
+      "description": "天庭四大天师之一"
+    },
+    {
+      "name": "葛天师",
+      "description": "天庭四大天师之一"
+    },
+    {
+      "name": "许天师",
+      "description": "天庭四大天师之一"
+    },
+    {
+      "name": "邱天师",
+      "description": "天庭四大天师之一"
+    }
+  ],
+  "locations": [
+    {
+      "name": "洞外",
+      "type": "地点",
+      "parent": "陷空山"
+    },
+    {
+      "name": "陷空山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "山头",
+      "type": "地形",
+      "parent": "陷空山"
+    },
+    {
+      "name": "洞门",
+      "type": "建筑",
+      "parent": "无底洞"
+    },
+    {
+      "name": "无底洞",
+      "type": "洞穴",
+      "parent": "陷空山"
+    },
+    {
+      "name": "牌楼",
+      "type": "建筑",
+      "parent": "无底洞"
+    },
+    {
+      "name": "东廊",
+      "type": "建筑",
+      "parent": "无底洞"
+    },
+    {
+      "name": "亭子",
+      "type": "建筑",
+      "parent": "无底洞"
+    },
+    {
+      "name": "三间倒坐儿",
+      "type": "建筑",
+      "parent": "无底洞"
+    },
+    {
+      "name": "南天门",
+      "type": "建筑",
+      "parent": "天庭"
+    },
+    {
+      "name": "通明殿",
+      "type": "建筑",
+      "parent": "天庭"
+    },
+    {
+      "name": "灵霄殿",
+      "type": "建筑",
+      "parent": "天庭"
+    },
+    {
+      "name": "云楼宫",
+      "type": "建筑",
+      "parent": "天庭"
+    },
+    {
+      "name": "天庭",
+      "type": "仙界",
+      "parent": null
+    },
+    {
+      "name": "西方极乐世界",
+      "type": "仙界",
+      "parent": null
+    },
+    {
+      "name": "灵山",
+      "type": "圣地",
+      "parent": null
+    },
+    {
+      "name": "花果山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "水晶宫",
+      "type": "建筑",
+      "parent": "海底"
+    },
+    {
+      "name": "南海",
+      "type": "海域",
+      "parent": null
+    },
+    {
+      "name": "东南黑角落",
+      "type": "地点",
+      "parent": "无底洞"
+    },
+    {
+      "name": "小洞",
+      "type": "洞穴",
+      "parent": "东南黑角落"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "沙和尚",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "行者",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "哪吒三太子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "金吒",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "木叉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "贞英",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "妖精",
+      "person_b": "李天王",
+      "relation_type": "拜父"
+    },
+    {
+      "person_a": "妖精",
+      "person_b": "哪吒三太子",
+      "relation_type": "拜兄"
+    },
+    {
+      "person_a": "沙和尚",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "沙和尚",
+      "person_b": "行者",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "行者",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "巨灵神",
+      "person_b": "李天王",
+      "relation_type": "上下级"
+    },
+    {
+      "person_a": "鱼肚将",
+      "person_b": "李天王",
+      "relation_type": "上下级"
+    },
+    {
+      "person_a": "药叉雄帅",
+      "person_b": "李天王",
+      "relation_type": "上下级"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "陷空山",
+      "target": "无底洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "无底洞",
+      "target": "洞门",
+      "relation_type": "contains",
+      "value": "洞内建筑"
+    },
+    {
+      "source": "无底洞",
+      "target": "牌楼",
+      "relation_type": "contains",
+      "value": "洞内建筑"
+    },
+    {
+      "source": "无底洞",
+      "target": "东廊",
+      "relation_type": "contains",
+      "value": "洞内建筑"
+    },
+    {
+      "source": "无底洞",
+      "target": "亭子",
+      "relation_type": "contains",
+      "value": "洞内建筑"
+    },
+    {
+      "source": "无底洞",
+      "target": "三间倒坐儿",
+      "relation_type": "contains",
+      "value": "洞内建筑"
+    },
+    {
+      "source": "天庭",
+      "target": "南天门",
+      "relation_type": "contains",
+      "value": "天庭门户"
+    },
+    {
+      "source": "天庭",
+      "target": "通明殿",
+      "relation_type": "contains",
+      "value": "天庭建筑"
+    },
+    {
+      "source": "天庭",
+      "target": "灵霄殿",
+      "relation_type": "contains",
+      "value": "天庭建筑"
+    },
+    {
+      "source": "天庭",
+      "target": "云楼宫",
+      "relation_type": "contains",
+      "value": "天庭建筑"
+    },
+    {
+      "source": "无底洞",
+      "target": "东南黑角落",
+      "relation_type": "contains",
+      "value": "洞内区域"
+    },
+    {
+      "source": "东南黑角落",
+      "target": "小洞",
+      "relation_type": "contains",
+      "value": "角落中的小洞"
+    },
+    {
+      "source": "三间倒坐儿",
+      "target": "后壁",
+      "relation_type": "contains",
+      "value": "建筑内部"
+    },
+    {
+      "source": "洞外",
+      "target": "山头",
+      "relation_type": "adjacent",
+      "value": "相邻地点"
+    },
+    {
+      "source": "牌楼",
+      "target": "洞门",
+      "relation_type": "adjacent",
+      "value": "门前建筑"
+    }
+  ],
+  "_chapter": 83,
+  "_input_tokens": 8047,
+  "_output_tokens": 2262
+}

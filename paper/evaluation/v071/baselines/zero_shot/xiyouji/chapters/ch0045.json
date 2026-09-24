@@ -1,0 +1,298 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣",
+      "description": "孙悟空，能够七十二变，手持金箍棒，保护唐僧西天取经"
+    },
+    {
+      "name": "沙和尚",
+      "description": "沙僧，唐僧的徒弟之一，跟随师父西天取经"
+    },
+    {
+      "name": "猪八戒",
+      "description": "猪悟能，唐僧的徒弟之一，性格憨厚贪吃"
+    },
+    {
+      "name": "虎力大仙",
+      "description": "车迟国的国师之一，道士，能够祈雨"
+    },
+    {
+      "name": "鹿力大仙",
+      "description": "车迟国的国师之一，道士"
+    },
+    {
+      "name": "羊力大仙",
+      "description": "车迟国的国师之一，道士"
+    },
+    {
+      "name": "唐三藏",
+      "description": "唐僧，东土大唐取经僧人，孙悟空等的师父"
+    },
+    {
+      "name": "国王",
+      "description": "车迟国国王，信奉道教，敬重三位国师"
+    },
+    {
+      "name": "太师",
+      "description": "车迟国当驾太师，朝廷重臣"
+    },
+    {
+      "name": "风婆婆",
+      "description": "掌管风的神仙"
+    },
+    {
+      "name": "巽二郎",
+      "description": "掌管风的神仙"
+    },
+    {
+      "name": "邓天君",
+      "description": "九天应元雷声普化天尊府下的天君"
+    },
+    {
+      "name": "雷公",
+      "description": "掌管雷电的神仙"
+    },
+    {
+      "name": "电母",
+      "description": "掌管闪电的神仙"
+    },
+    {
+      "name": "敖广",
+      "description": "东海龙王"
+    },
+    {
+      "name": "敖顺",
+      "description": "南海龙王"
+    },
+    {
+      "name": "敖钦",
+      "description": "西海龙王"
+    },
+    {
+      "name": "敖闰",
+      "description": "北海龙王"
+    },
+    {
+      "name": "推云童子",
+      "description": "掌管布云的神仙"
+    },
+    {
+      "name": "布雾郎君",
+      "description": "掌管布雾的神仙"
+    }
+  ],
+  "locations": [
+    {
+      "name": "车迟国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "智渊寺",
+      "type": "寺庙",
+      "parent": "车迟国"
+    },
+    {
+      "name": "五凤楼",
+      "type": "宫殿建筑",
+      "parent": "车迟国"
+    },
+    {
+      "name": "金銮殿",
+      "type": "宫殿",
+      "parent": "车迟国"
+    },
+    {
+      "name": "东门",
+      "type": "城门",
+      "parent": "车迟国"
+    },
+    {
+      "name": "三清观",
+      "type": "道观",
+      "parent": "车迟国"
+    },
+    {
+      "name": "祈雨坛",
+      "type": "祭坛",
+      "parent": "车迟国"
+    },
+    {
+      "name": "东土大唐",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "西天",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "蟠桃会",
+      "type": "仙界场所",
+      "parent": null
+    },
+    {
+      "name": "南天门",
+      "type": "天庭建筑",
+      "parent": null
+    },
+    {
+      "name": "九天应元雷声普化天尊府",
+      "type": "天庭府邸",
+      "parent": null
+    },
+    {
+      "name": "四海",
+      "type": "海域",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐三藏",
+      "person_b": "孙大圣",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "沙和尚",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "虎力大仙",
+      "person_b": "鹿力大仙",
+      "relation_type": "同门师兄弟"
+    },
+    {
+      "person_a": "虎力大仙",
+      "person_b": "羊力大仙",
+      "relation_type": "同门师兄弟"
+    },
+    {
+      "person_a": "鹿力大仙",
+      "person_b": "羊力大仙",
+      "relation_type": "同门师兄弟"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "虎力大仙",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "鹿力大仙",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "羊力大仙",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "太师",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "敖广",
+      "person_b": "敖顺",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "敖广",
+      "person_b": "敖钦",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "敖广",
+      "person_b": "敖闰",
+      "relation_type": "兄弟"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "车迟国",
+      "target": "智渊寺",
+      "relation_type": "contains",
+      "value": "智渊寺位于车迟国内"
+    },
+    {
+      "source": "车迟国",
+      "target": "五凤楼",
+      "relation_type": "contains",
+      "value": "五凤楼位于车迟国宫殿内"
+    },
+    {
+      "source": "车迟国",
+      "target": "金銮殿",
+      "relation_type": "contains",
+      "value": "金銮殿位于车迟国宫殿内"
+    },
+    {
+      "source": "车迟国",
+      "target": "三清观",
+      "relation_type": "contains",
+      "value": "三清观位于车迟国内"
+    },
+    {
+      "source": "车迟国",
+      "target": "东门",
+      "relation_type": "contains",
+      "value": "东门是车迟国的城门"
+    },
+    {
+      "source": "车迟国",
+      "target": "祈雨坛",
+      "relation_type": "contains",
+      "value": "祈雨坛设在车迟国内"
+    },
+    {
+      "source": "东土大唐",
+      "target": "车迟国",
+      "relation_type": "direction",
+      "value": "车迟国在东土大唐西行路上"
+    },
+    {
+      "source": "车迟国",
+      "target": "西天",
+      "relation_type": "direction",
+      "value": "西天在车迟国以西"
+    },
+    {
+      "source": "金銮殿",
+      "target": "五凤楼",
+      "relation_type": "adjacent",
+      "value": "五凤楼在金銮殿前"
+    },
+    {
+      "source": "南天门",
+      "target": "九天应元雷声普化天尊府",
+      "relation_type": "adjacent",
+      "value": "南天门内有九天应元雷声普化天尊府"
+    }
+  ],
+  "_chapter": 45,
+  "_input_tokens": 8524,
+  "_output_tokens": 2068
+}

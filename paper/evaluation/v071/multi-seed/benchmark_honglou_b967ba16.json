@@ -1,0 +1,63 @@
+{
+  "novel": "honglou",
+  "novel_id": "b967ba16-bc8b-4f21-a1d8-d380b4f3d368",
+  "title": "红楼梦 (multi-seed t0.7)",
+  "timestamp": "2026-07-21T13:47:10.871007",
+  "gold_based": {
+    "novel": "honglou",
+    "total_nodes": 1000,
+    "correct_count": 283,
+    "suspect_count": 5,
+    "error_count": 20,
+    "entity_precision": 0.998,
+    "name_accuracy": 1.0,
+    "tier_accuracy": 0.986,
+    "parent_precision": 0.995,
+    "structural_health": 1.0,
+    "overall": 0.98,
+    "category_errors": {
+      "A": 2,
+      "B": 0,
+      "C": 14,
+      "D": 5,
+      "E": 0
+    },
+    "error_type_counts": {
+      "D-parent错误": 5,
+      "C-tier错误": 14,
+      "A-描述性短语": 1,
+      "A-方位泛称": 1
+    }
+  },
+  "rule_based": {
+    "novel": "honglou",
+    "total_nodes": 445,
+    "correct_count": 337,
+    "suspect_count": 0,
+    "error_count": 108,
+    "entity_precision": 0.9977528089887641,
+    "name_accuracy": 1.0,
+    "tier_accuracy": 0.9146067415730337,
+    "parent_precision": 0.8696629213483146,
+    "structural_health": 0.9730337078651685,
+    "overall": 0.7573033707865169,
+    "category_errors": {
+      "A": 1,
+      "B": 0,
+      "C": 38,
+      "D": 58,
+      "E": 12
+    },
+    "error_type_counts": {
+      "C-tier错误": 33,
+      "E-消歧重复": 3,
+      "E-原文无此名": 9,
+      "D-孤立顶层": 58,
+      "E-mc零但原文存在": 2,
+      "C-tier倒置": 7,
+      "A-方位泛称": 1,
+      "E-零证据有子": 3,
+      "E-幻觉父节点": 1
+    }
+  }
+}

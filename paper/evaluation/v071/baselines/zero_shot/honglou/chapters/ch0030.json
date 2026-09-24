@@ -1,0 +1,254 @@
+{
+  "characters": [
+    {
+      "name": "林黛玉",
+      "description": "贾府中的女子，与宝玉关系亲密，性格敏感多疑，常因小事与宝玉闹别扭"
+    },
+    {
+      "name": "贾宝玉",
+      "description": "贾府公子，性格温和但有时言语造次，与林黛玉、薛宝钗关系密切"
+    },
+    {
+      "name": "紫鹃",
+      "description": "林黛玉的贴身丫鬟，善于劝解主人"
+    },
+    {
+      "name": "王熙凤",
+      "description": "贾府管事的凤姐，性格爽朗，善于调解矛盾"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "贾府中的女子，博学多才，怕热，与宝玉、黛玉都有复杂关系"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府的老太太，地位尊贵"
+    },
+    {
+      "name": "靛儿",
+      "description": "小丫头，丢了扇子"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府的太太，宝玉的母亲"
+    },
+    {
+      "name": "金钏儿",
+      "description": "王夫人房中的丫鬟，与宝玉调笑被发现"
+    },
+    {
+      "name": "玉钏儿",
+      "description": "金钏儿的妹妹"
+    },
+    {
+      "name": "白老媳妇",
+      "description": "金钏儿的母亲"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，被宝玉误踢受伤"
+    },
+    {
+      "name": "麝月",
+      "description": "怡红院的丫鬟"
+    },
+    {
+      "name": "晴雯",
+      "description": "怡红院的丫鬟"
+    },
+    {
+      "name": "宝官",
+      "description": "学戏的女孩子之一，小生"
+    },
+    {
+      "name": "玉官",
+      "description": "学戏的女孩子之一，正旦"
+    },
+    {
+      "name": "文官",
+      "description": "学戏的女孩子"
+    },
+    {
+      "name": "蔷薇花下女子",
+      "description": "在蔷薇花架下用簪子画字的女孩子，疑似学戏班中人，容貌似林黛玉"
+    }
+  ],
+  "locations": [
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾母处",
+      "type": "房屋",
+      "parent": "贾府"
+    },
+    {
+      "name": "凤姐院落",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人上房",
+      "type": "房屋",
+      "parent": "贾府"
+    },
+    {
+      "name": "东小院子",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "蔷薇花架",
+      "type": "景观",
+      "parent": "大观园"
+    },
+    {
+      "name": "穿堂",
+      "type": "通道",
+      "parent": "贾府"
+    },
+    {
+      "name": "角门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "园门",
+      "type": "门",
+      "parent": "大观园"
+    },
+    {
+      "name": "游廊",
+      "type": "建筑",
+      "parent": "怡红院"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "林黛玉",
+      "person_b": "贾宝玉",
+      "relation_type": "亲密关系"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "林黛玉",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "薛宝钗",
+      "person_b": "贾宝玉",
+      "relation_type": "亲戚关系"
+    },
+    {
+      "person_a": "王熙凤",
+      "person_b": "贾母",
+      "relation_type": "祖孙关系"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾宝玉",
+      "relation_type": "母子关系"
+    },
+    {
+      "person_a": "金钏儿",
+      "person_b": "王夫人",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "金钏儿",
+      "person_b": "玉钏儿",
+      "relation_type": "姐妹关系"
+    },
+    {
+      "person_a": "金钏儿",
+      "person_b": "白老媳妇",
+      "relation_type": "母女关系"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "贾宝玉",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "麝月",
+      "person_b": "贾宝玉",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "贾宝玉",
+      "relation_type": "主仆关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园林位于府邸内"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "院落位于园内"
+    },
+    {
+      "source": "怡红院",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "院落位于园内"
+    },
+    {
+      "source": "蔷薇花架",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "景观位于园内"
+    },
+    {
+      "source": "贾母处",
+      "target": "凤姐院落",
+      "relation_type": "direction",
+      "value": "往西走穿堂"
+    },
+    {
+      "source": "穿堂",
+      "target": "凤姐院落",
+      "relation_type": "direction",
+      "value": "穿过后到达"
+    },
+    {
+      "source": "角门",
+      "target": "王夫人上房",
+      "relation_type": "direction",
+      "value": "进入通向"
+    },
+    {
+      "source": "游廊",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "建筑位于院内"
+    },
+    {
+      "source": "园门",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "出入口"
+    }
+  ],
+  "_chapter": 30,
+  "_input_tokens": 7304,
+  "_output_tokens": 1795
+}

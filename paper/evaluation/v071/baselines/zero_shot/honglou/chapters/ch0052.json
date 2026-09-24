@@ -1,0 +1,271 @@
+{
+  "characters": [
+    {
+      "name": "宝琴",
+      "description": "作了十首怀古绝句的女子"
+    },
+    {
+      "name": "宝钗",
+      "description": "对诗词有见解，认为应该有史鉴依据"
+    },
+    {
+      "name": "黛玉",
+      "description": "为宝琴的诗作辩护，认为不必拘泥于史鉴"
+    },
+    {
+      "name": "探春",
+      "description": "同意黛玉的观点"
+    },
+    {
+      "name": "李纨",
+      "description": "支持宝琴的诗作，举例说明古迹多有穿凿附会"
+    },
+    {
+      "name": "王夫人",
+      "description": "允许袭人回家探望生病的母亲"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "管家，安排袭人回家事宜，关心下人"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，因母亲病重回家"
+    },
+    {
+      "name": "花自芳",
+      "description": "袭人的哥哥"
+    },
+    {
+      "name": "周瑞家的",
+      "description": "管事的仆妇，陪同袭人回家"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐儿的贴身丫鬟"
+    },
+    {
+      "name": "宝玉",
+      "description": "主要男性角色，住在怡红院"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中的大丫鬟，性格要强"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫鬟，细心照料宝玉"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "王太医",
+      "description": "给晴雯看病的大夫"
+    },
+    {
+      "name": "张太医",
+      "description": "府中常请的大夫"
+    },
+    {
+      "name": "贾母",
+      "description": "家中的老祖宗"
+    },
+    {
+      "name": "邢大姑娘",
+      "description": "被提及需要赠衣的姑娘"
+    }
+  ],
+  "locations": [
+    {
+      "name": "赤壁",
+      "type": "古迹",
+      "parent": null
+    },
+    {
+      "name": "交趾",
+      "type": "古迹",
+      "parent": null
+    },
+    {
+      "name": "钟山",
+      "type": "古迹",
+      "parent": null
+    },
+    {
+      "name": "淮阴",
+      "type": "古迹",
+      "parent": null
+    },
+    {
+      "name": "广陵",
+      "type": "古迹",
+      "parent": null
+    },
+    {
+      "name": "桃叶渡",
+      "type": "古迹",
+      "parent": null
+    },
+    {
+      "name": "青冢",
+      "type": "古迹",
+      "parent": null
+    },
+    {
+      "name": "马嵬",
+      "type": "古迹",
+      "parent": null
+    },
+    {
+      "name": "蒲东寺",
+      "type": "古迹",
+      "parent": null
+    },
+    {
+      "name": "梅花观",
+      "type": "古迹",
+      "parent": null
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": null
+    },
+    {
+      "name": "暖阁",
+      "type": "房间",
+      "parent": "怡红院"
+    },
+    {
+      "name": "外间",
+      "type": "房间",
+      "parent": "怡红院"
+    },
+    {
+      "name": "里间",
+      "type": "房间",
+      "parent": "怡红院"
+    },
+    {
+      "name": "茶房",
+      "type": "房间",
+      "parent": null
+    },
+    {
+      "name": "花自芳家",
+      "type": "住宅",
+      "parent": null
+    },
+    {
+      "name": "后园门里头的五间大房子",
+      "type": "房屋",
+      "parent": "大观园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "花自芳",
+      "person_b": "袭人",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "麝月",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "周瑞家的",
+      "person_b": "凤姐儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "茗烟",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "王夫人",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "园中院落"
+    },
+    {
+      "source": "怡红院",
+      "target": "暖阁",
+      "relation_type": "contains",
+      "value": "院中房间"
+    },
+    {
+      "source": "怡红院",
+      "target": "外间",
+      "relation_type": "contains",
+      "value": "院中房间"
+    },
+    {
+      "source": "怡红院",
+      "target": "里间",
+      "relation_type": "contains",
+      "value": "院中房间"
+    },
+    {
+      "source": "大观园",
+      "target": "后园门里头的五间大房子",
+      "relation_type": "contains",
+      "value": "园中建筑"
+    },
+    {
+      "source": "暖阁",
+      "target": "外间",
+      "relation_type": "adjacent",
+      "value": "相邻房间"
+    },
+    {
+      "source": "怡红院",
+      "target": "后门",
+      "relation_type": "contains",
+      "value": "院中出入口"
+    }
+  ],
+  "_chapter": 52,
+  "_input_tokens": 8729,
+  "_output_tokens": 1689
+}

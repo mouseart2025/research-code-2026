@@ -1,0 +1,156 @@
+{
+  "characters": [
+    {
+      "name": "伶俐虫",
+      "description": "小妖，与精细鬼一同奉命捉拿孙行者"
+    },
+    {
+      "name": "精细鬼",
+      "description": "小妖，与伶俐虫一同奉命捉拿孙行者"
+    },
+    {
+      "name": "孙行者",
+      "description": "孙大圣，神通广大，会七十二变，使用金箍棒"
+    },
+    {
+      "name": "巴山虎",
+      "description": "小妖，奉命去请老奶奶"
+    },
+    {
+      "name": "倚海龙",
+      "description": "小妖，与巴山虎一同去请老奶奶"
+    },
+    {
+      "name": "老魔",
+      "description": "平顶山莲花洞大王，拥有多件宝贝"
+    },
+    {
+      "name": "二魔",
+      "description": "平顶山莲花洞二大王，拥有七星剑和芭蕉扇"
+    },
+    {
+      "name": "老奶奶",
+      "description": "九尾狐狸精，二魔的母亲，住在压龙山压龙洞"
+    },
+    {
+      "name": "猪八戒",
+      "description": "被吊在梁上，能认出孙行者的变化"
+    },
+    {
+      "name": "沙僧",
+      "description": "被捉的师弟，与八戒一同被困"
+    },
+    {
+      "name": "唐僧",
+      "description": "取经的师父，被妖怪捉住"
+    }
+  ],
+  "locations": [
+    {
+      "name": "平顶山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "莲花洞",
+      "type": "洞穴",
+      "parent": "平顶山"
+    },
+    {
+      "name": "压龙山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "压龙洞",
+      "type": "洞穴",
+      "parent": "压龙山"
+    },
+    {
+      "name": "乌林子",
+      "type": "树林",
+      "parent": null
+    },
+    {
+      "name": "西方路",
+      "type": "道路",
+      "parent": null
+    },
+    {
+      "name": "蓬莱山",
+      "type": "山",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "老魔",
+      "person_b": "二魔",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "老奶奶",
+      "person_b": "二魔",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "老奶奶",
+      "person_b": "老魔",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "孙行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "精细鬼",
+      "person_b": "伶俐虫",
+      "relation_type": "同伴"
+    },
+    {
+      "person_a": "巴山虎",
+      "person_b": "倚海龙",
+      "relation_type": "同伴"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "平顶山",
+      "target": "莲花洞",
+      "relation_type": "contains",
+      "value": "莲花洞位于平顶山"
+    },
+    {
+      "source": "压龙山",
+      "target": "压龙洞",
+      "relation_type": "contains",
+      "value": "压龙洞位于压龙山"
+    },
+    {
+      "source": "莲花洞",
+      "target": "压龙洞",
+      "relation_type": "direction",
+      "value": "十五六里距离"
+    },
+    {
+      "source": "压龙洞",
+      "target": "乌林子",
+      "relation_type": "adjacent",
+      "value": "乌林子里就是压龙洞"
+    }
+  ],
+  "_chapter": 34,
+  "_input_tokens": 9600,
+  "_output_tokens": 1084
+}

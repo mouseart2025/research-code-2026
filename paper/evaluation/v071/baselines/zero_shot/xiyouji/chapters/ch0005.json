@@ -1,0 +1,301 @@
+{
+  "characters": [
+    {
+      "name": "齐天大圣",
+      "description": "妖猴，被封为齐天大圣，管理蟠桃园，偷吃仙桃仙酒和金丹，后逃回花果山"
+    },
+    {
+      "name": "玉帝",
+      "description": "天界最高统治者，封孙悟空为齐天大圣，后派兵围剿花果山"
+    },
+    {
+      "name": "许旌阳真人",
+      "description": "向玉帝建议给齐天大圣安排管理蟠桃园的差事"
+    },
+    {
+      "name": "王母娘娘",
+      "description": "举办蟠桃胜会的主办者，蟠桃园的主人"
+    },
+    {
+      "name": "太上老君",
+      "description": "居住在兜率宫，炼制九转金丹，被孙悟空偷吃了金丹"
+    },
+    {
+      "name": "赤脚大仙",
+      "description": "被孙悟空欺骗，误以为要先去通明殿演礼"
+    },
+    {
+      "name": "李天王",
+      "description": "托塔李天王，率领天兵围攻花果山的统帅"
+    },
+    {
+      "name": "哪吒太子",
+      "description": "李天王之子，参与围攻花果山的战斗"
+    },
+    {
+      "name": "四大天王",
+      "description": "天界的四位护法天王，参与围攻花果山"
+    },
+    {
+      "name": "九曜星",
+      "description": "九位星宿神将，最先出战对抗孙悟空"
+    },
+    {
+      "name": "二十八宿",
+      "description": "二十八个星宿神将，参与围攻花果山"
+    },
+    {
+      "name": "七衣仙女",
+      "description": "包括红衣、素衣、青衣、皂衣、紫衣、黄衣、绿衣仙女，奉命摘桃"
+    },
+    {
+      "name": "蟠桃园土地",
+      "description": "蟠桃园的守护神，负责看管蟠桃园"
+    },
+    {
+      "name": "独角鬼王",
+      "description": "花果山七十二洞妖王之一，被天兵捉拿"
+    },
+    {
+      "name": "四健将",
+      "description": "孙悟空的四个得力部下，协助守卫花果山"
+    },
+    {
+      "name": "崩、巴二将",
+      "description": "四健将中的两位，与孙悟空对话椰酒不好喝的事"
+    },
+    {
+      "name": "七十二洞妖王",
+      "description": "花果山的妖怪头目们，大部分被天兵捉拿"
+    }
+  ],
+  "locations": [
+    {
+      "name": "齐天府",
+      "type": "宫殿",
+      "parent": "天界"
+    },
+    {
+      "name": "蟠桃园",
+      "type": "园林",
+      "parent": "天界"
+    },
+    {
+      "name": "瑶池",
+      "type": "宫殿",
+      "parent": "天界"
+    },
+    {
+      "name": "兜率宫",
+      "type": "宫殿",
+      "parent": "三十三天"
+    },
+    {
+      "name": "三十三天",
+      "type": "天界区域",
+      "parent": "天界"
+    },
+    {
+      "name": "离恨天",
+      "type": "天界区域",
+      "parent": "天界"
+    },
+    {
+      "name": "通明殿",
+      "type": "宫殿",
+      "parent": "天界"
+    },
+    {
+      "name": "西天门",
+      "type": "门户",
+      "parent": "天界"
+    },
+    {
+      "name": "花果山",
+      "type": "山脉",
+      "parent": "下界"
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞穴",
+      "parent": "花果山"
+    },
+    {
+      "name": "铁板桥",
+      "type": "桥梁",
+      "parent": "花果山"
+    },
+    {
+      "name": "天界",
+      "type": "世界",
+      "parent": null
+    },
+    {
+      "name": "下界",
+      "type": "世界",
+      "parent": null
+    },
+    {
+      "name": "宝阁",
+      "type": "建筑",
+      "parent": "瑶池"
+    },
+    {
+      "name": "丹房",
+      "type": "房间",
+      "parent": "兜率宫"
+    },
+    {
+      "name": "长廊",
+      "type": "建筑",
+      "parent": "瑶池"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "玉帝",
+      "person_b": "齐天大圣",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "玉帝",
+      "person_b": "王母娘娘",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "哪吒太子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "齐天大圣",
+      "person_b": "四健将",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "齐天大圣",
+      "person_b": "七十二洞妖王",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "齐天大圣",
+      "person_b": "独角鬼王",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "王母娘娘",
+      "person_b": "七衣仙女",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "玉帝",
+      "person_b": "许旌阳真人",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "玉帝",
+      "person_b": "李天王",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "齐天大圣",
+      "person_b": "蟠桃园土地",
+      "relation_type": "上下级"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "天界",
+      "target": "齐天府",
+      "relation_type": "contains",
+      "value": "齐天府位于天界中"
+    },
+    {
+      "source": "天界",
+      "target": "蟠桃园",
+      "relation_type": "contains",
+      "value": "蟠桃园位于天界中"
+    },
+    {
+      "source": "天界",
+      "target": "瑶池",
+      "relation_type": "contains",
+      "value": "瑶池位于天界中"
+    },
+    {
+      "source": "三十三天",
+      "target": "兜率宫",
+      "relation_type": "contains",
+      "value": "兜率宫在三十三天之上"
+    },
+    {
+      "source": "天界",
+      "target": "三十三天",
+      "relation_type": "contains",
+      "value": "三十三天是天界的一部分"
+    },
+    {
+      "source": "离恨天",
+      "target": "兜率宫",
+      "relation_type": "contains",
+      "value": "兜率宫位于离恨天太上老君之处"
+    },
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "水帘洞在花果山深处"
+    },
+    {
+      "source": "花果山",
+      "target": "铁板桥",
+      "relation_type": "contains",
+      "value": "铁板桥位于花果山"
+    },
+    {
+      "source": "瑶池",
+      "target": "宝阁",
+      "relation_type": "contains",
+      "value": "宝阁在瑶池中"
+    },
+    {
+      "source": "瑶池",
+      "target": "长廊",
+      "relation_type": "contains",
+      "value": "长廊在瑶池右壁厢"
+    },
+    {
+      "source": "兜率宫",
+      "target": "丹房",
+      "relation_type": "contains",
+      "value": "丹房在兜率宫里面"
+    },
+    {
+      "source": "天界",
+      "target": "西天门",
+      "relation_type": "contains",
+      "value": "西天门是天界的出入口"
+    },
+    {
+      "source": "蟠桃园",
+      "target": "前面一千二百株",
+      "relation_type": "contains",
+      "value": "前面区域有一千二百株桃树"
+    },
+    {
+      "source": "蟠桃园",
+      "target": "中间一千二百株",
+      "relation_type": "contains",
+      "value": "中间区域有一千二百株桃树"
+    },
+    {
+      "source": "蟠桃园",
+      "target": "后面一千二百株",
+      "relation_type": "contains",
+      "value": "后面区域有一千二百株桃树"
+    }
+  ],
+  "_chapter": 5,
+  "_input_tokens": 7861,
+  "_output_tokens": 2250
+}

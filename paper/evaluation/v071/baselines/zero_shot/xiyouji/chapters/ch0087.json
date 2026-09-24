@@ -1,0 +1,226 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "东土大唐驾下拜天竺国大雷音寺佛祖求经的僧人，师父"
+    },
+    {
+      "name": "悟空",
+      "description": "行者，孙大圣，三藏的徒弟，会翻江搅海、呼风唤雨等神通"
+    },
+    {
+      "name": "八戒",
+      "description": "猪八戒，三藏的徒弟，长嘴模样，贪吃"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙和尚，三藏的徒弟"
+    },
+    {
+      "name": "上官",
+      "description": "凤仙郡郡侯，姓上官氏，为人清正贤良爱民，曾冒犯天地"
+    },
+    {
+      "name": "敖广",
+      "description": "东海老龙王，能行雨但需上天遣用"
+    },
+    {
+      "name": "护国天王",
+      "description": "西天门的天王，引天丁力士"
+    },
+    {
+      "name": "四大天师",
+      "description": "包括葛仙翁、许旌阳、邱洪济、张道陵"
+    },
+    {
+      "name": "玉帝",
+      "description": "玉皇大天尊，天庭最高统治者"
+    },
+    {
+      "name": "天尊",
+      "description": "九天应元府的天尊，掌管雷部"
+    },
+    {
+      "name": "邓辛张陶",
+      "description": "雷部四将"
+    },
+    {
+      "name": "闪电娘子",
+      "description": "雷部神将"
+    }
+  ],
+  "locations": [
+    {
+      "name": "隐雾山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "天竺国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "灵山",
+      "type": "山",
+      "parent": "天竺国"
+    },
+    {
+      "name": "大雷音寺",
+      "type": "寺庙",
+      "parent": "灵山"
+    },
+    {
+      "name": "凤仙郡",
+      "type": "郡县",
+      "parent": "天竺国"
+    },
+    {
+      "name": "西天门",
+      "type": "天门",
+      "parent": "天庭"
+    },
+    {
+      "name": "通明殿",
+      "type": "殿堂",
+      "parent": "天庭"
+    },
+    {
+      "name": "灵霄殿",
+      "type": "殿堂",
+      "parent": "天庭"
+    },
+    {
+      "name": "披香殿",
+      "type": "殿堂",
+      "parent": "天庭"
+    },
+    {
+      "name": "九天应元府",
+      "type": "府邸",
+      "parent": "天庭"
+    },
+    {
+      "name": "东海",
+      "type": "海域",
+      "parent": null
+    },
+    {
+      "name": "甘霖普济寺",
+      "type": "寺庙",
+      "parent": "凤仙郡"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "悟空",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "悟空",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "悟空",
+      "person_b": "敖广",
+      "relation_type": "上下级"
+    },
+    {
+      "person_a": "玉帝",
+      "person_b": "四大天师",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "天尊",
+      "person_b": "邓辛张陶",
+      "relation_type": "上下级"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "天竺国",
+      "target": "凤仙郡",
+      "relation_type": "contains",
+      "value": "外郡"
+    },
+    {
+      "source": "灵山",
+      "target": "大雷音寺",
+      "relation_type": "contains",
+      "value": "山中有楼台殿阁"
+    },
+    {
+      "source": "天庭",
+      "target": "西天门",
+      "relation_type": "contains",
+      "value": "天庭入口"
+    },
+    {
+      "source": "天庭",
+      "target": "通明殿",
+      "relation_type": "contains",
+      "value": "殿堂"
+    },
+    {
+      "source": "天庭",
+      "target": "灵霄殿",
+      "relation_type": "contains",
+      "value": "殿堂"
+    },
+    {
+      "source": "天庭",
+      "target": "披香殿",
+      "relation_type": "contains",
+      "value": "殿堂"
+    },
+    {
+      "source": "天庭",
+      "target": "九天应元府",
+      "relation_type": "contains",
+      "value": "府邸"
+    },
+    {
+      "source": "凤仙郡",
+      "target": "甘霖普济寺",
+      "relation_type": "contains",
+      "value": "新建寺院"
+    },
+    {
+      "source": "隐雾山",
+      "target": "凤仙郡",
+      "relation_type": "direction",
+      "value": "下山后到达"
+    },
+    {
+      "source": "凤仙郡",
+      "target": "灵山",
+      "relation_type": "direction",
+      "value": "前往西方"
+    }
+  ],
+  "_chapter": 87,
+  "_input_tokens": 7892,
+  "_output_tokens": 1500
+}

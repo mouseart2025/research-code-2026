@@ -1,0 +1,291 @@
+{
+  "characters": [
+    {
+      "name": "王夫人",
+      "description": "贾家女主人之一"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻，贾琏之母"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗，地位最高的长辈"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "贾琏之妻，精明能干的管家奶奶"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的贴身丫鬟，深得信任"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "王夫人的妹妹，薛蟠和薛宝钗之母"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三小姐"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾赦之子，凤姐的丈夫"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的贴身丫鬟"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾母长子，邢夫人的丈夫"
+    },
+    {
+      "name": "嫣红",
+      "description": "被贾赦买来的十七岁女孩"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子"
+    },
+    {
+      "name": "赖大",
+      "description": "贾府管事"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛姨妈之子，性格粗鲁"
+    },
+    {
+      "name": "贾珍",
+      "description": "贾府族人"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子"
+    },
+    {
+      "name": "柳湘莲",
+      "description": "世家子弟，性格爽侠，善于武艺"
+    },
+    {
+      "name": "赖尚荣",
+      "description": "赖大之子"
+    },
+    {
+      "name": "秦钟",
+      "description": "已故人物，宝玉的朋友"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "杏奴",
+      "description": "柳湘莲的小厮"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛姨妈之女"
+    },
+    {
+      "name": "香菱",
+      "description": "薛家丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "院门",
+      "type": "建筑入口",
+      "parent": "贾母院"
+    },
+    {
+      "name": "贾母屋",
+      "type": "居所",
+      "parent": "贾母院"
+    },
+    {
+      "name": "鸳鸯房",
+      "type": "居所",
+      "parent": "贾母院"
+    },
+    {
+      "name": "赖大花园",
+      "type": "园林",
+      "parent": "赖大家"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "厅侧小书房",
+      "type": "书房",
+      "parent": "赖大家"
+    },
+    {
+      "name": "北门外",
+      "type": "城外地区",
+      "parent": "城外"
+    },
+    {
+      "name": "桥上",
+      "type": "桥梁",
+      "parent": "北门外"
+    },
+    {
+      "name": "苇塘",
+      "type": "自然地形",
+      "parent": "北门外"
+    },
+    {
+      "name": "关厢",
+      "type": "城郊区域",
+      "parent": "城外"
+    },
+    {
+      "name": "薛蟠卧房",
+      "type": "居所",
+      "parent": "薛家"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "邢夫人",
+      "person_b": "贾琏",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "薛姨妈",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐儿",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "邢夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛蟠",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "赖大",
+      "person_b": "赖尚荣",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "柳湘莲",
+      "person_b": "赖尚荣",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "茗烟",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "柳湘莲",
+      "person_b": "杏奴",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾母院",
+      "target": "院门",
+      "relation_type": "contains",
+      "value": "院门在贾母院内"
+    },
+    {
+      "source": "贾母院",
+      "target": "贾母屋",
+      "relation_type": "contains",
+      "value": "贾母屋在院内"
+    },
+    {
+      "source": "贾母院",
+      "target": "鸳鸯房",
+      "relation_type": "contains",
+      "value": "鸳鸯房在院内"
+    },
+    {
+      "source": "赖大家",
+      "target": "赖大花园",
+      "relation_type": "contains",
+      "value": "花园在赖大家中"
+    },
+    {
+      "source": "赖大家",
+      "target": "厅侧小书房",
+      "relation_type": "contains",
+      "value": "书房在厅侧"
+    },
+    {
+      "source": "城外",
+      "target": "北门外",
+      "relation_type": "contains",
+      "value": "北门外属于城外"
+    },
+    {
+      "source": "北门外",
+      "target": "桥上",
+      "relation_type": "contains",
+      "value": "桥在北门外"
+    },
+    {
+      "source": "北门外",
+      "target": "苇塘",
+      "relation_type": "contains",
+      "value": "苇塘在北门外"
+    },
+    {
+      "source": "城外",
+      "target": "关厢",
+      "relation_type": "contains",
+      "value": "关厢在城外"
+    },
+    {
+      "source": "薛家",
+      "target": "薛蟠卧房",
+      "relation_type": "contains",
+      "value": "卧房在薛家"
+    },
+    {
+      "source": "苇塘",
+      "target": "桥上",
+      "relation_type": "adjacent",
+      "value": "苇塘距离桥上二里多路"
+    }
+  ],
+  "_chapter": 48,
+  "_input_tokens": 9138,
+  "_output_tokens": 1915
+}

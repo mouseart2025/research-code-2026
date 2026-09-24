@@ -1,0 +1,217 @@
+{
+  "characters": [
+    {
+      "name": "孙悟空",
+      "description": "大圣、行者、美猴王，被唐僧逐赶，思念感叹，回到花果山"
+    },
+    {
+      "name": "唐僧",
+      "description": "三藏、长老，不识贤愚，将孙悟空逐赶，后被黄袍怪捉住"
+    },
+    {
+      "name": "二郎神",
+      "description": "显圣二郎神，率领梅山七弟兄放火烧坏花果山"
+    },
+    {
+      "name": "马流二元帅",
+      "description": "花果山洞中执事，管理群妖"
+    },
+    {
+      "name": "奔芭二将军",
+      "description": "花果山洞中执事，管理群妖"
+    },
+    {
+      "name": "猪八戒",
+      "description": "悟能，唐僧徒弟，出松林化斋，贪睡"
+    },
+    {
+      "name": "沙和尚",
+      "description": "沙僧，唐僧徒弟，挑着行李"
+    },
+    {
+      "name": "黄袍怪",
+      "description": "黄袍老妖，住在波月洞，青脸红须，持钢刀"
+    },
+    {
+      "name": "小猴",
+      "description": "花果山群猴，受猎人欺负，数量约千把"
+    },
+    {
+      "name": "猎户",
+      "description": "打猎的人，千余人马，被孙悟空用狂风乱石杀死"
+    },
+    {
+      "name": "小妖",
+      "description": "黄袍怪手下，把门、报信"
+    }
+  ],
+  "locations": [
+    {
+      "name": "东洋大海",
+      "type": "海洋",
+      "parent": null
+    },
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞穴",
+      "parent": "花果山"
+    },
+    {
+      "name": "芳草坡",
+      "type": "坡地",
+      "parent": "花果山"
+    },
+    {
+      "name": "曼荆凹",
+      "type": "凹地",
+      "parent": "花果山"
+    },
+    {
+      "name": "白虎岭",
+      "type": "山岭",
+      "parent": null
+    },
+    {
+      "name": "松林",
+      "type": "森林",
+      "parent": null
+    },
+    {
+      "name": "碗子山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "波月洞",
+      "type": "洞穴",
+      "parent": "碗子山"
+    },
+    {
+      "name": "宝塔",
+      "type": "建筑",
+      "parent": "碗子山"
+    },
+    {
+      "name": "万丈深潭",
+      "type": "深潭",
+      "parent": "花果山"
+    },
+    {
+      "name": "铁板桥",
+      "type": "桥",
+      "parent": "花果山"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙和尚",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "马流二元帅",
+      "person_b": "孙悟空",
+      "relation_type": "下属"
+    },
+    {
+      "person_a": "奔芭二将军",
+      "person_b": "孙悟空",
+      "relation_type": "下属"
+    },
+    {
+      "person_a": "小猴",
+      "person_b": "孙悟空",
+      "relation_type": "下属"
+    },
+    {
+      "person_a": "小妖",
+      "person_b": "黄袍怪",
+      "relation_type": "下属"
+    },
+    {
+      "person_a": "二郎神",
+      "person_b": "孙悟空",
+      "relation_type": "敌对"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "花果山",
+      "target": "东洋大海",
+      "relation_type": "adjacent",
+      "value": "隔海相望"
+    },
+    {
+      "source": "碗子山",
+      "target": "花果山",
+      "relation_type": "direction",
+      "value": "位置不同"
+    },
+    {
+      "source": "水帘洞",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "波月洞",
+      "target": "碗子山",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "芳草坡",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "山中地形"
+    },
+    {
+      "source": "曼荆凹",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "山中地形"
+    },
+    {
+      "source": "宝塔",
+      "target": "碗子山",
+      "relation_type": "contains",
+      "value": "山上建筑"
+    },
+    {
+      "source": "松林",
+      "target": "白虎岭",
+      "relation_type": "direction",
+      "value": "过了白虎岭见松林"
+    },
+    {
+      "source": "万丈深潭",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "山中深潭"
+    },
+    {
+      "source": "铁板桥",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "山中桥梁"
+    }
+  ],
+  "_chapter": 28,
+  "_input_tokens": 7801,
+  "_output_tokens": 1462
+}

@@ -1,0 +1,47 @@
+{
+  "xiyouji": {
+    "title": "Journey to the West",
+    "n_total": 1205,
+    "n_errors": 23,
+    "overall": 0.9809128630705394,
+    "ci_95_lower": 0.9726141078838174,
+    "ci_95_upper": 0.9883817427385893,
+    "ci_half_width_pp": 0.788381742738592
+  },
+  "honglou": {
+    "title": "Dream of the Red Chamber",
+    "n_total": 1000,
+    "n_errors": 28,
+    "overall": 0.972,
+    "ci_95_lower": 0.961,
+    "ci_95_upper": 0.982,
+    "ci_half_width_pp": 1.050000000000001
+  },
+  "shuihu": {
+    "title": "Water Margin",
+    "n_total": 1383,
+    "n_errors": 152,
+    "overall": 0.8900939985538684,
+    "ci_95_lower": 0.8727404193781634,
+    "ci_95_upper": 0.9067245119305857,
+    "ci_half_width_pp": 1.6992046276211148
+  },
+  "sanguo": {
+    "title": "Three Kingdoms",
+    "n_total": 1120,
+    "n_errors": 138,
+    "overall": 0.8767857142857143,
+    "ci_95_lower": 0.8571428571428571,
+    "ci_95_upper": 0.8955357142857143,
+    "ci_half_width_pp": 1.9196428571428614
+  },
+  "fengshen": {
+    "title": "Investiture of the Gods",
+    "n_total": 233,
+    "n_errors": 12,
+    "overall": 0.9484978540772532,
+    "ci_95_lower": 0.9184549356223176,
+    "ci_95_upper": 0.9742489270386266,
+    "ci_half_width_pp": 2.7896995708154515
+  }
+}

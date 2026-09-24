@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from pydantic import BaseModel, computed_field
 
-
 # ── Person ────────────────────────────────────────
 
 
@@ -114,7 +113,7 @@ class LocationProfile(BaseModel):
 class ItemFlowEntry(BaseModel):
     chapter: int
     action: str
-    actor: str
+    actor: str | None = None  # 抽取层 actor 可空(出现/遗失类动作无行为者)
     recipient: str | None = None
     description: str = ""
 

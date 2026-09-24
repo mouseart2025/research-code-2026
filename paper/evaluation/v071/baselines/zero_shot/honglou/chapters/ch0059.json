@@ -1,0 +1,417 @@
+{
+  "characters": [
+    {
+      "name": "探春",
+      "description": "贾府小姐，负责家务管理"
+    },
+    {
+      "name": "老太妃",
+      "description": "已故的太妃，引发朝廷守制"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老祖宗，每日入朝随祭"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾府夫人，每日入朝随祭"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府夫人，每日入朝随祭"
+    },
+    {
+      "name": "尤氏",
+      "description": "宁府当家奶奶，协理荣宁两处事体"
+    },
+    {
+      "name": "许氏",
+      "description": "贾府媳妇，每日入朝随祭"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁府当家，需入朝守制"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家主母，照管园中姊妹"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家小姐，与湘云、香菱同处"
+    },
+    {
+      "name": "湘云",
+      "description": "史家小姐，与宝钗同处"
+    },
+    {
+      "name": "香菱",
+      "description": "薛蟠妾室，与宝钗、湘云同处"
+    },
+    {
+      "name": "李纨",
+      "description": "贾珠遗孀，负责照管宝琴"
+    },
+    {
+      "name": "李婶",
+      "description": "李纨的婶母"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛家亲戚，由李纨照管"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府小姐，与岫烟同处"
+    },
+    {
+      "name": "岫烟",
+      "description": "邢夫人侄女，与迎春同处，已择夫婿"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾政妾室，贾环生母"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政庶子，赵姨娘之子"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四小姐，房屋狭小"
+    },
+    {
+      "name": "黛玉",
+      "description": "林家小姐，身体虚弱，与薛姨妈同房"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾琏妻子，管家奶奶"
+    },
+    {
+      "name": "赖大",
+      "description": "荣府管事，负责外务"
+    },
+    {
+      "name": "文官",
+      "description": "原梨香院女孩，被贾母留下自用"
+    },
+    {
+      "name": "芳官",
+      "description": "原梨香院女孩，指给宝玉使用"
+    },
+    {
+      "name": "蕊官",
+      "description": "原梨香院女孩，送给宝钗"
+    },
+    {
+      "name": "藕官",
+      "description": "原梨香院女孩，指给黛玉，暗中祭奠菂官"
+    },
+    {
+      "name": "葵官",
+      "description": "原梨香院女孩，送给湘云"
+    },
+    {
+      "name": "豆官",
+      "description": "原梨香院女孩，送给宝琴"
+    },
+    {
+      "name": "艾官",
+      "description": "原梨香院女孩，送给探春"
+    },
+    {
+      "name": "茄官",
+      "description": "原梨香院女孩，被尤氏讨去"
+    },
+    {
+      "name": "菂官",
+      "description": "已故的梨香院女孩，藕官祭奠对象"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，身体未愈，与芳官等人交往"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府二爷，负责祭祀事务"
+    },
+    {
+      "name": "贾琮",
+      "description": "贾府子弟，随贾琏祭祀"
+    },
+    {
+      "name": "贾兰",
+      "description": "李纨之子，随贾琏祭祀"
+    },
+    {
+      "name": "贾蓉",
+      "description": "宁府少爷，负责族中祭祀"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉贴身丫鬟"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "芳官干娘",
+      "description": "芳官的干娘，荣府三等人物"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "梨香院",
+      "type": "戏班住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "沁芳桥",
+      "type": "桥梁",
+      "parent": "大观园"
+    },
+    {
+      "name": "铁槛寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "孝慈县",
+      "type": "陵墓所在地",
+      "parent": null
+    },
+    {
+      "name": "先陵",
+      "type": "陵墓",
+      "parent": "孝慈县"
+    },
+    {
+      "name": "大内偏宫",
+      "type": "宫殿",
+      "parent": null
+    },
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "东院",
+      "type": "院落",
+      "parent": "下处"
+    },
+    {
+      "name": "西院",
+      "type": "院落",
+      "parent": "下处"
+    },
+    {
+      "name": "下处",
+      "type": "临时住所",
+      "parent": null
+    },
+    {
+      "name": "北静王府",
+      "type": "王府",
+      "parent": null
+    },
+    {
+      "name": "宝玉房",
+      "type": "居室",
+      "parent": "大观园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "黛玉",
+      "relation_type": "照管"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "宝钗",
+      "relation_type": "如姐妹"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "宝琴",
+      "relation_type": "如姐妹"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "贾环",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "贾兰",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "贾珍",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "芳官",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "蕊官",
+      "person_b": "宝钗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "藕官",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "葵官",
+      "person_b": "湘云",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "豆官",
+      "person_b": "宝琴",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "艾官",
+      "person_b": "探春",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "茄官",
+      "person_b": "尤氏",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "文官",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "藕官",
+      "person_b": "菂官",
+      "relation_type": "恋人"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "麝月",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "芳官干娘",
+      "person_b": "芳官",
+      "relation_type": "干母女"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园林位于府内"
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "居所位于园中"
+    },
+    {
+      "source": "大观园",
+      "target": "梨香院",
+      "relation_type": "contains",
+      "value": "戏班住所位于园中"
+    },
+    {
+      "source": "大观园",
+      "target": "沁芳桥",
+      "relation_type": "contains",
+      "value": "桥梁位于园中"
+    },
+    {
+      "source": "下处",
+      "target": "东院",
+      "relation_type": "contains",
+      "value": "荣府所租院落"
+    },
+    {
+      "source": "下处",
+      "target": "西院",
+      "relation_type": "contains",
+      "value": "北静王府所租院落"
+    },
+    {
+      "source": "东院",
+      "target": "西院",
+      "relation_type": "adjacent",
+      "value": "相邻院落"
+    },
+    {
+      "source": "孝慈县",
+      "target": "先陵",
+      "relation_type": "contains",
+      "value": "陵墓位于县内"
+    },
+    {
+      "source": "沁芳桥",
+      "target": "潇湘馆",
+      "relation_type": "direction",
+      "value": "桥梁通往潇湘馆的路径"
+    },
+    {
+      "source": "山石",
+      "target": "杏树",
+      "relation_type": "adjacent",
+      "value": "山石之后有杏树"
+    }
+  ],
+  "_chapter": 59,
+  "_input_tokens": 8715,
+  "_output_tokens": 2819
+}

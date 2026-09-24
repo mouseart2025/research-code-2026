@@ -1,0 +1,372 @@
+{
+  "characters": [
+    {
+      "name": "尤三姐",
+      "description": "已自尽身亡的女子，原与柳湘莲定亲"
+    },
+    {
+      "name": "尤老娘",
+      "description": "尤三姐的母亲"
+    },
+    {
+      "name": "尤二姐",
+      "description": "尤三姐的姐姐，被贾琏暗娶为妾"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁国府当家人"
+    },
+    {
+      "name": "贾琏",
+      "description": "荣国府二爷，已往平安州"
+    },
+    {
+      "name": "柳湘莲",
+      "description": "原与尤三姐定亲，后出家为道士"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家母亲"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛姨妈的女儿，住在大观园"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛姨妈的儿子，宝钗的哥哥，刚从江南贩货回来"
+    },
+    {
+      "name": "黛玉",
+      "description": "林家女儿，寄居贾府，体弱多病"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府宝二爷"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的贴身丫环"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的贴身丫环"
+    },
+    {
+      "name": "贾环",
+      "description": "贾府三爷"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾环的母亲，贾政的妾"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府当家太太"
+    },
+    {
+      "name": "凤姐",
+      "description": "琏二奶奶，管理荣国府事务"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的贴身丫环"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫环"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中丫环"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中丫环"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中丫环"
+    },
+    {
+      "name": "旺儿",
+      "description": "贾琏手下管事"
+    },
+    {
+      "name": "兴儿",
+      "description": "贾琏的跟班小厮"
+    },
+    {
+      "name": "张华",
+      "description": "原与尤二姐有婚约的穷人"
+    }
+  ],
+  "locations": [
+    {
+      "name": "城外",
+      "type": "区域",
+      "parent": ""
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "宝钗房",
+      "type": "房间",
+      "parent": "大观园"
+    },
+    {
+      "name": "薛姨妈房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "凤姐院",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "宝玉房",
+      "type": "房间",
+      "parent": "大观园"
+    },
+    {
+      "name": "沁芳桥",
+      "type": "桥梁",
+      "parent": "大观园"
+    },
+    {
+      "name": "葡萄架",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "江南",
+      "type": "地区",
+      "parent": ""
+    },
+    {
+      "name": "平安州",
+      "type": "地名",
+      "parent": ""
+    },
+    {
+      "name": "府后头",
+      "type": "区域",
+      "parent": "贾府"
+    },
+    {
+      "name": "帐房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "东府",
+      "type": "府第",
+      "parent": ""
+    },
+    {
+      "name": "赵姨娘房",
+      "type": "房间",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "尤三姐",
+      "person_b": "尤老娘",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "尤三姐",
+      "person_b": "尤二姐",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "尤三姐",
+      "person_b": "柳湘莲",
+      "relation_type": "定亲"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛姨妈",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "宝钗",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "柳湘莲",
+      "relation_type": "义兄弟"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "王夫人",
+      "relation_type": "亲戚"
+    },
+    {
+      "person_a": "贾环",
+      "person_b": "赵姨娘",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "尤二姐",
+      "relation_type": "暗娶为妾"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "莺儿",
+      "person_b": "宝钗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "旺儿",
+      "person_b": "贾琏",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "兴儿",
+      "person_b": "贾琏",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "张华",
+      "person_b": "尤二姐",
+      "relation_type": "原有婚约"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "宝钗房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "宝玉房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "沁芳桥",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "葡萄架",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "薛姨妈房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "王夫人房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "凤姐院",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "赵姨娘房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "帐房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "府后头",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "沁芳桥",
+      "target": "葡萄架",
+      "relation_type": "adjacent",
+      "value": "附近"
+    }
+  ],
+  "_chapter": 68,
+  "_input_tokens": 11553,
+  "_output_tokens": 2307
+}

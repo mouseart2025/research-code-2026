@@ -1,0 +1,243 @@
+{
+  "characters": [
+    {
+      "name": "唐僧",
+      "description": "东土大唐取经的圣僧，俗名陈玄奘，法号三藏，在金山寺为僧，后任长安洪福寺僧官"
+    },
+    {
+      "name": "孙悟空",
+      "description": "唐僧大徒弟，别名行者，齐天大圣，五百年前大闹天宫"
+    },
+    {
+      "name": "猪八戒",
+      "description": "唐僧二徒弟，法名悟能，天蓬大元帅转世"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧三徒弟，法名悟净，卷帘大将临凡"
+    },
+    {
+      "name": "慈云寺和尚",
+      "description": "慈云寺中的僧人，接待唐僧师徒"
+    },
+    {
+      "name": "辟寒大王",
+      "description": "青龙山玄英洞妖精之一，牛头鬼怪形象，使钺斧"
+    },
+    {
+      "name": "辟暑大王",
+      "description": "青龙山玄英洞妖精之二，牛头鬼怪形象，使大刀"
+    },
+    {
+      "name": "辟尘大王",
+      "description": "青龙山玄英洞妖精之三，牛头鬼怪形象，使藤棍"
+    },
+    {
+      "name": "年功曹",
+      "description": "四值功曹使者之一，变化为赶羊人传报信息"
+    },
+    {
+      "name": "月功曹",
+      "description": "四值功曹使者之一，变化为赶羊人传报信息"
+    },
+    {
+      "name": "日功曹",
+      "description": "四值功曹使者之一，变化为赶羊人传报信息"
+    },
+    {
+      "name": "时功曹",
+      "description": "四值功曹使者之一，变化为赶羊人传报信息"
+    }
+  ],
+  "locations": [
+    {
+      "name": "玉华城",
+      "type": "城池",
+      "parent": null
+    },
+    {
+      "name": "天竺国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "金平府",
+      "type": "府城",
+      "parent": "天竺国"
+    },
+    {
+      "name": "旻天县",
+      "type": "县城",
+      "parent": "金平府"
+    },
+    {
+      "name": "慈云寺",
+      "type": "寺庙",
+      "parent": "金平府"
+    },
+    {
+      "name": "金灯桥",
+      "type": "桥梁",
+      "parent": "金平府"
+    },
+    {
+      "name": "青龙山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "玄英洞",
+      "type": "洞穴",
+      "parent": "青龙山"
+    },
+    {
+      "name": "大雄殿",
+      "type": "建筑",
+      "parent": "慈云寺"
+    },
+    {
+      "name": "方丈",
+      "type": "建筑",
+      "parent": "慈云寺"
+    },
+    {
+      "name": "后园",
+      "type": "园林",
+      "parent": "慈云寺"
+    },
+    {
+      "name": "塔",
+      "type": "建筑",
+      "parent": "慈云寺"
+    },
+    {
+      "name": "东门厢",
+      "type": "街区",
+      "parent": "金平府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "辟寒大王",
+      "person_b": "辟暑大王",
+      "relation_type": "同伙"
+    },
+    {
+      "person_a": "辟寒大王",
+      "person_b": "辟尘大王",
+      "relation_type": "同伙"
+    },
+    {
+      "person_a": "辟暑大王",
+      "person_b": "辟尘大王",
+      "relation_type": "同伙"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "天竺国",
+      "target": "金平府",
+      "relation_type": "contains",
+      "value": "外郡"
+    },
+    {
+      "source": "金平府",
+      "target": "旻天县",
+      "relation_type": "contains",
+      "value": "二百四十里"
+    },
+    {
+      "source": "金平府",
+      "target": "慈云寺",
+      "relation_type": "contains",
+      "value": "城内"
+    },
+    {
+      "source": "金平府",
+      "target": "金灯桥",
+      "relation_type": "contains",
+      "value": "城内"
+    },
+    {
+      "source": "慈云寺",
+      "target": "大雄殿",
+      "relation_type": "contains",
+      "value": "殿堂"
+    },
+    {
+      "source": "慈云寺",
+      "target": "方丈",
+      "relation_type": "contains",
+      "value": "居所"
+    },
+    {
+      "source": "慈云寺",
+      "target": "后园",
+      "relation_type": "contains",
+      "value": "园林"
+    },
+    {
+      "source": "慈云寺",
+      "target": "塔",
+      "relation_type": "contains",
+      "value": "建筑"
+    },
+    {
+      "source": "青龙山",
+      "target": "玄英洞",
+      "relation_type": "contains",
+      "value": "山中洞穴"
+    },
+    {
+      "source": "玉华城",
+      "target": "金平府",
+      "relation_type": "direction",
+      "value": "五六日程途"
+    },
+    {
+      "source": "金平府",
+      "target": "都下",
+      "relation_type": "direction",
+      "value": "二千里"
+    },
+    {
+      "source": "青龙山",
+      "target": "金平府",
+      "relation_type": "direction",
+      "value": "东北"
+    }
+  ],
+  "_chapter": 91,
+  "_input_tokens": 8465,
+  "_output_tokens": 1692
+}

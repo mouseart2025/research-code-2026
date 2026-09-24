@@ -1,0 +1,282 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾府公子，佩戴通灵玉，外貌言谈像已故国公爷"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，用手帕碰到宝玉眼睛，有丫头紫鹃、雪雁、春纤"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，有丫头莺儿、文杏，起初不想去看戏"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，组织清虚观看戏活动，有丫头平儿、丰儿、小红"
+    },
+    {
+      "name": "贾母",
+      "description": "老祖宗，乘八人大轿，有丫头鸳鸯、鹦鹉、琥珀、珍珠"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝钗母亲，被贾母邀请一同前往，有丫头同喜、同贵"
+    },
+    {
+      "name": "王夫人",
+      "description": "身体不适，预备元春事宜，不参与此次出行"
+    },
+    {
+      "name": "李宫裁",
+      "description": "李氏，乘四人轿，有丫头素云、碧月"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府小姐，有丫头司棋、绣桔"
+    },
+    {
+      "name": "探春",
+      "description": "贾府小姐，有丫头待书、翠墨"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府小姐，有丫头入画、彩屏"
+    },
+    {
+      "name": "贾珍",
+      "description": "负责接待和安排事务，贾蓉之父"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子，被父亲训斥后骑马回家"
+    },
+    {
+      "name": "张道士",
+      "description": "张法官，掌道录司印，被封为终了真人，与贾府关系密切"
+    },
+    {
+      "name": "林之孝",
+      "description": "管家，负责人员安排"
+    },
+    {
+      "name": "小道士",
+      "description": "十二三岁的孩子，剪灯花时撞到凤姐"
+    },
+    {
+      "name": "香菱",
+      "description": "有丫头臻儿"
+    },
+    {
+      "name": "大姐儿",
+      "description": "凤姐的女儿，有奶子照看"
+    },
+    {
+      "name": "巧姐儿",
+      "description": "凤姐的女儿"
+    },
+    {
+      "name": "周瑞家的",
+      "description": "维持秩序的管事人"
+    },
+    {
+      "name": "贾芸",
+      "description": "贾府子弟"
+    },
+    {
+      "name": "贾萍",
+      "description": "贾府子弟"
+    },
+    {
+      "name": "贾芹",
+      "description": "贾府子弟"
+    },
+    {
+      "name": "贾璜",
+      "description": "贾府子弟"
+    },
+    {
+      "name": "贾е",
+      "description": "贾府子弟"
+    },
+    {
+      "name": "贾琼",
+      "description": "贾府子弟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "清虚观",
+      "type": "道观",
+      "parent": null
+    },
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "山门",
+      "type": "门",
+      "parent": "清虚观"
+    },
+    {
+      "name": "二层山门",
+      "type": "门",
+      "parent": "清虚观"
+    },
+    {
+      "name": "大殿",
+      "type": "建筑",
+      "parent": "清虚观"
+    },
+    {
+      "name": "钟楼",
+      "type": "建筑",
+      "parent": "清虚观"
+    },
+    {
+      "name": "正面楼",
+      "type": "楼",
+      "parent": "清虚观"
+    },
+    {
+      "name": "旁边楼",
+      "type": "楼",
+      "parent": "清虚观"
+    },
+    {
+      "name": "街",
+      "type": "道路",
+      "parent": null
+    },
+    {
+      "name": "园",
+      "type": "园林",
+      "parent": "荣国府"
+    },
+    {
+      "name": "角门",
+      "type": "门",
+      "parent": "清虚观"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "大姐儿",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "巧姐儿",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "张道士",
+      "person_b": "贾母",
+      "relation_type": "友人"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "林之孝",
+      "person_b": "贾珍",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "清虚观",
+      "target": "山门",
+      "relation_type": "contains",
+      "value": "观内包含山门"
+    },
+    {
+      "source": "清虚观",
+      "target": "二层山门",
+      "relation_type": "contains",
+      "value": "观内包含二层山门"
+    },
+    {
+      "source": "清虚观",
+      "target": "大殿",
+      "relation_type": "contains",
+      "value": "观内包含大殿"
+    },
+    {
+      "source": "清虚观",
+      "target": "钟楼",
+      "relation_type": "contains",
+      "value": "观内包含钟楼"
+    },
+    {
+      "source": "清虚观",
+      "target": "正面楼",
+      "relation_type": "contains",
+      "value": "观内包含正面楼"
+    },
+    {
+      "source": "清虚观",
+      "target": "旁边楼",
+      "relation_type": "contains",
+      "value": "观内包含旁边楼"
+    },
+    {
+      "source": "正面楼",
+      "target": "旁边楼",
+      "relation_type": "adjacent",
+      "value": "两楼相邻"
+    },
+    {
+      "source": "荣国府",
+      "target": "街",
+      "relation_type": "adjacent",
+      "value": "府邸临街"
+    },
+    {
+      "source": "二层山门",
+      "target": "角门",
+      "relation_type": "adjacent",
+      "value": "门两边有角门"
+    },
+    {
+      "source": "山门",
+      "target": "二层山门",
+      "relation_type": "direction",
+      "value": "山门在前，二层山门在后"
+    }
+  ],
+  "_chapter": 29,
+  "_input_tokens": 5754,
+  "_output_tokens": 1944
+}

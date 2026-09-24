@@ -4,6 +4,7 @@ import json
 import logging
 import re
 from collections.abc import AsyncIterator
+
 from src.db import chapter_fact_store, chapter_store, conversation_store
 from src.infra.llm_client import get_llm_client
 from src.services import embedding_service, entity_aggregator
@@ -20,6 +21,7 @@ _QA_SYSTEM_PROMPT = """你是一个专业的小说分析助手。你的任务是
 4. 回答要简洁明了，重点突出
 5. 在回答中提到人物、地点、物品等实体时，用其原名
 6. 优先使用「人物档案」中的聚合关系数据，它比逐章碎片更准确完整
+7. 如果「知识库信息」与问题无关或不足以回答，只允许说明暂未找到相关信息，禁止输出任何具体人物、情节或章节内容
 
 ## 知识库信息
 {context}
@@ -28,6 +30,34 @@ _QA_SYSTEM_PROMPT = """你是一个专业的小说分析助手。你的任务是
 {history}
 
 请严格基于以上知识库信息回答用户的问题。不要添加知识库中未提及的内容。"""
+
+# Greeting / small-talk patterns — short-circuited before retrieval so that
+# casual messages never trigger context injection (issue #56 symptom 3:
+# "你好" LIKE-matched raw text from unanalyzed chapters).
+_GREETING_RE = re.compile(
+    r"^(你好|您好|hi|hello|嗨|喂|在吗|在么|早|早上好|上午好|下午好|晚上好|"
+    r"谢谢|谢了|感谢|多谢|辛苦了|好的| ok |okay)[!！~～。.\s]*$",
+    re.IGNORECASE,
+)
+
+
+def _is_greeting(question: str) -> bool:
+    q = question.strip()
+    return len(q) <= 12 and bool(_GREETING_RE.match(q))
+
+
+# 通用称谓/代词停用词表。这些词在问题中多为泛指（如"西游记的主人公是谁"），
+# 若作为别名参与子串匹配会误命中无关实体（"主人公"误中别名"公主"）。
+# 取舍：命中停用词表的一律跳过，宁可漏匹配也不错匹配——即使"陛下""菩萨"
+# 等偶尔是真实角色名，该角色通常还有更长的本名可被匹配。
+_ENTITY_STOPWORDS: frozenset[str] = frozenset({
+    "公主", "先生", "老婆", "师父", "主人公", "主角", "老公", "老婆婆",
+    "大王", "将军", "夫人", "小姐", "公子", "老爷", "太太", "姑娘",
+    "和尚", "道人", "师傅", "徒弟", "女儿", "儿子", "父亲", "母亲",
+    "哥哥", "姐姐", "弟弟", "妹妹", "孩子", "老人", "女人", "男人",
+    "少年", "少女", "奴婢", "丫鬟", "奴才", "陛下", "皇上", "圣人",
+    "真人", "菩萨",
+})
 
 
 def _resolve_question_entities(
@@ -40,6 +70,9 @@ def _resolve_question_entities(
     seen_canonical: set[str] = set()
     # Check longest names first to avoid partial matches
     for name in sorted(all_entities, key=len, reverse=True):
+        # 停用词不参与匹配：泛指称谓子串误命中的代价远大于漏匹配
+        if name in _ENTITY_STOPWORDS:
+            continue
         if name in question:
             canonical = alias_map.get(name, name)
             if canonical not in seen_canonical:
@@ -365,6 +398,75 @@ def _extract_source_chapters(answer: str) -> list[int]:
     return sorted(set(int(m) for m in matches))
 
 
+async def _stream_final_answer(
+    novel_id: str,
+    question: str,
+    conversation_id: str | None,
+    context: str,
+    all_source_chapters: set[int],
+    analyzed_count: int,
+) -> AsyncIterator[dict]:
+    """Final answer generation shared by the RAG pipeline and agent QA.
+
+    Streams tokens via _QA_SYSTEM_PROMPT, extracts source chapters from the
+    answer, and persists the exchange to the conversation store.
+    """
+    llm = get_llm_client()
+
+    # Build conversation history
+    history_text = "（无历史对话）"
+    if conversation_id:
+        recent = await conversation_store.get_recent_messages(conversation_id, limit=6)
+        history_text = _build_history_text(recent)
+
+    # Build final prompt
+    system_prompt = _QA_SYSTEM_PROMPT.format(
+        context=context,
+        history=history_text,
+    )
+
+    user_prompt = f"{question}\n\n（注：当前已分析 {analyzed_count} 章内容）"
+
+    # Stream LLM response
+    full_answer = ""
+    try:
+        async for token in llm.generate_stream(
+            system=system_prompt,
+            prompt=user_prompt,
+            timeout=180,
+        ):
+            full_answer += token
+            yield {"type": "token", "content": token}
+    except Exception as e:
+        logger.error(f"LLM streaming error: {e}")
+        error_msg = "抱歉，生成回答时出现错误，请稍后重试。"
+        yield {"type": "token", "content": error_msg}
+        full_answer = error_msg
+
+    # Extract source chapters from answer
+    answer_sources = _extract_source_chapters(full_answer)
+    # Merge with retrieval sources
+    final_sources = sorted(set(answer_sources) | all_source_chapters)
+
+    yield {"type": "sources", "chapters": final_sources}
+    yield {"type": "done"}
+
+    # Save messages to DB if conversation exists
+    if conversation_id:
+        try:
+            await conversation_store.add_message(
+                conversation_id, "user", question
+            )
+            await conversation_store.add_message(
+                conversation_id,
+                "assistant",
+                full_answer,
+                sources_json=json.dumps(final_sources),
+            )
+        except Exception as e:
+            logger.error(f"Failed to save messages: {e}")
+
+
 async def query_stream(
     novel_id: str,
     question: str,
@@ -374,16 +476,49 @@ async def query_stream(
     Stream QA response.
 
     Yields dicts:
+      {"type": "status", "content": str}    — agent forensic step (agent mode only)
       {"type": "token", "content": str}     — streamed answer tokens
       {"type": "sources", "chapters": [...]} — source chapters when done
       {"type": "done"}                       — signal completion
     """
-    llm = get_llm_client()
+    # Agentic mode: tool-use forensics loop. Falls back to the RAG pipeline
+    # below on any failure (unsupported provider, tool-calling error, etc.).
+    from src.infra import config as _cfg  # dynamic read (runtime mode switches)
+
+    if _cfg.QA_MODE == "agent" and _cfg.LLM_PROVIDER != "ollama":
+        from src.services import agent_qa_service
+
+        try:
+            async for chunk in agent_qa_service.agent_query_stream(
+                novel_id=novel_id,
+                question=question,
+                conversation_id=conversation_id,
+            ):
+                yield chunk
+            return
+        except Exception as e:
+            logger.warning("Agent QA failed, falling back to RAG pipeline: %s", e)
 
     # 1. Load all chapter facts for the novel
     all_facts = await chapter_fact_store.get_all_chapter_facts(novel_id)
     if not all_facts:
         yield {"type": "token", "content": "该小说尚未进行分析，请先分析后再提问。"}
+        yield {"type": "sources", "chapters": []}
+        yield {"type": "done"}
+        return
+
+    analyzed_count = len(all_facts)
+
+    # Small talk: reply with a fixed guide, never touch retrieval/LLM
+    if _is_greeting(question):
+        yield {
+            "type": "token",
+            "content": (
+                f"你好！我是这本小说的知识库助手，当前已分析 {analyzed_count} 章。"
+                "你可以问我已分析内容里的人物、地点、事件等问题，"
+                "比如「孙悟空和唐僧是什么关系」「第 5 章发生了什么」。"
+            ),
+        }
         yield {"type": "sources", "chapters": []}
         yield {"type": "done"}
         return
@@ -448,7 +583,9 @@ async def query_stream(
             if sem_chunks:
                 context_parts.append("### 语义相关段落\n" + "\n".join(sem_chunks))
     except Exception as e:
-        logger.debug("Semantic search unavailable: %s", e)
+        # Must stay visible: a silent embedding failure degrades QA to
+        # "暂无相关知识库信息" with no trace (issue #56 symptom 1)
+        logger.warning("Semantic search unavailable: %s", e)
 
     # Full-text search in chapter content
     text_ctx, text_chs = await _build_text_context(novel_id, keywords)
@@ -456,58 +593,30 @@ async def query_stream(
         context_parts.append("### 原文片段\n" + text_ctx)
         all_source_chapters.update(text_chs)
 
-    context = "\n\n".join(context_parts) if context_parts else "（暂无相关知识库信息）"
+    # Retrieval found nothing: reply with a fixed message instead of calling
+    # the LLM on an empty context (empty context invites hallucination,
+    # issue #56 symptom 1/3)
+    if not context_parts:
+        yield {
+            "type": "token",
+            "content": (
+                f"当前已分析 {analyzed_count} 章，但未从已分析内容中检索到与你问题相关的信息。"
+                "相关内容可能在尚未分析的章节，也可以换种问法（提及具体人物/地点名）再试。"
+            ),
+        }
+        yield {"type": "sources", "chapters": []}
+        yield {"type": "done"}
+        return
 
-    # 4. Build conversation history
-    history_text = "（无历史对话）"
-    if conversation_id:
-        recent = await conversation_store.get_recent_messages(conversation_id, limit=6)
-        history_text = _build_history_text(recent)
+    context = "\n\n".join(context_parts)
 
-    # 5. Build final prompt
-    system_prompt = _QA_SYSTEM_PROMPT.format(
+    # 4. Final generation (shared with agent QA mode)
+    async for chunk in _stream_final_answer(
+        novel_id=novel_id,
+        question=question,
+        conversation_id=conversation_id,
         context=context,
-        history=history_text,
-    )
-
-    analyzed_count = len(all_facts)
-    user_prompt = f"{question}\n\n（注：当前已分析 {analyzed_count} 章内容）"
-
-    # 6. Stream LLM response
-    full_answer = ""
-    try:
-        async for token in llm.generate_stream(
-            system=system_prompt,
-            prompt=user_prompt,
-            timeout=180,
-        ):
-            full_answer += token
-            yield {"type": "token", "content": token}
-    except Exception as e:
-        logger.error(f"LLM streaming error: {e}")
-        error_msg = "抱歉，生成回答时出现错误，请稍后重试。"
-        yield {"type": "token", "content": error_msg}
-        full_answer = error_msg
-
-    # 7. Extract source chapters from answer
-    answer_sources = _extract_source_chapters(full_answer)
-    # Merge with retrieval sources
-    final_sources = sorted(set(answer_sources) | all_source_chapters)
-
-    yield {"type": "sources", "chapters": final_sources}
-    yield {"type": "done"}
-
-    # 8. Save messages to DB if conversation exists
-    if conversation_id:
-        try:
-            await conversation_store.add_message(
-                conversation_id, "user", question
-            )
-            await conversation_store.add_message(
-                conversation_id,
-                "assistant",
-                full_answer,
-                sources_json=json.dumps(final_sources),
-            )
-        except Exception as e:
-            logger.error(f"Failed to save messages: {e}")
+        all_source_chapters=all_source_chapters,
+        analyzed_count=analyzed_count,
+    ):
+        yield chunk

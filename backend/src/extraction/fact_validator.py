@@ -5,19 +5,21 @@ Location filtering uses a 3-layer approach based on Chinese place name morpholog
 """
 
 import logging
+from pathlib import Path
+from typing import ClassVar
 
-from src.utils.location_names import is_homonym_prone
-
+from src.extraction.name_resolver import write_audit_records
 from src.models.chapter_fact import (
     ChapterFact,
     CharacterFact,
     EventFact,
     ItemEventFact,
     OrgEventFact,
-    RelationshipFact,
     SpatialRelationship,
     WorldDeclaration,
+    classify_spatial_relation,
 )
+from src.utils.location_names import is_homonym_prone, is_special_space
 
 logger = logging.getLogger(__name__)
 
@@ -26,8 +28,8 @@ _VALID_ORG_ACTIONS = {"加入", "离开", "晋升", "阵亡", "叛出", "逐出"
 _VALID_EVENT_TYPES = {"战斗", "成长", "社交", "旅行", "其他"}
 _VALID_IMPORTANCE = {"high", "medium", "low"}
 _VALID_SPATIAL_RELATION_TYPES = {
-    "direction", "distance", "contains", "adjacent", "separated_by", "terrain",
-    "in_between", "travel_path", "relative_scale", "cluster",
+    "direction", "distance", "contains", "located_in", "adjacent", "separated_by",
+    "terrain", "in_between", "travel_path", "relative_scale", "cluster",
 }
 _VALID_CONFIDENCE = {"high", "medium", "low"}
 _VALID_DISTANCE_CLASS = {"near", "medium", "far", "very_far"}
@@ -97,8 +99,13 @@ def _get_contains_rank(name: str) -> int | None:
 
     Returns rank (0=world, 6=building) or None if no suffix matches.
     Used to fix inverted contains relationships.
+
+    Story 5.3 (AC2): special spaces are exempt from suffix-rank direction
+    validation — return None so the contains-direction fix skips them.
     """
     if len(name) < 2:
+        return None
+    if is_special_space(name):
         return None
     for suffix, rank in _CONTAINS_SUFFIX_RANK:
         if name.endswith(suffix):
@@ -149,6 +156,16 @@ _GENERIC_MODIFIERS = frozenset({
     "某条", "某个", "某座", "某处", "某片",
 })
 
+# Real place names whose morphology trips Rule 8 (generic modifier + suffix)
+# or Rule 9 (two-char generic compound) but which are attested proper nouns.
+# Evidence: shuihu pilot re-extraction (2026-09-20) — 镇江(ch111/ch120,
+# also in _CITY_NAME_EXCEPTIONS for type-family), 州桥(ch7, golden target),
+# 房山(ch95, county), 大谷/大谷县(ch100/ch101, county).
+# Exempts ONLY Rules 8/9; every other filter rule still applies.
+_RULE89_SPECIFIC_NAME_EXEMPTIONS = frozenset({
+    "镇江", "州桥", "房山", "大谷", "大谷县",
+})
+
 # Abstract/conceptual spatial terms — never physical locations
 _CONCEPTUAL_GEO_WORDS = frozenset({
     "江湖", "天下", "世界", "人间", "凡间", "尘世", "世间",
@@ -175,14 +192,19 @@ _VEHICLE_WORDS = frozenset({
 
     # auto-improve 2026-03-28 — vehicles
     "翠幄青紬车", "黄吉普车",
+})
+
+# v0.72 Phase 1 (Story 1.4): non-vehicle entries formerly lumped into
+# _VEHICLE_WORDS, moved to correctly-named lists. Filtering decisions are
+# unchanged — _is_generic_location() checks all of these lists.
+# Note: 东边/南边/西边/北边/九霄 were dropped here as duplicates of
+# _DIRECTIONAL_RELATIVE_PHRASES; 地狱/恶鬼/畜生/阿修罗 moved to _BUDDHIST_CONCEPTS.
+_GENERIC_NON_LOCATION_TERMS = frozenset({
     # auto-improve 2026-03-28 — equipment/objects (not locations)
-    "抛物面天线", "青石", "青石棋局",
+    "抛物面天线", "青石", "青石棋局", "青石岩",
     # auto-improve 2026-03-28 — generic non-locations
-    "九霄", "半空", "夕阳", "天", "人", "区域",
-    "无数仙域", "坎宫之地",
-    "东边", "北边", "南边", "西边",
-    "地狱", "恶鬼", "畜生", "阿修罗",
-    "青石岩", "孙玉厚家",
+    "半空", "夕阳", "天", "人", "区域",
+    "无数仙域", "坎宫之地", "孙玉厚家",
 })
 
 # Furniture / object names — these are never locations
@@ -346,6 +368,8 @@ _BUDDHIST_CONCEPTS = frozenset({
     "人道", "仙道", "贵道", "神道", "鬼道", "畜生道",
     "饿鬼道", "地狱道", "天道", "修罗道",
     "六道", "三界",
+    # v0.72 Phase 1 (Story 1.4) — moved from _VEHICLE_WORDS (六道轮回概念)
+    "地狱", "恶鬼", "畜生", "阿修罗",
     "五仙", "五虫",
 })
 
@@ -400,321 +424,8 @@ _FALLBACK_GEO_BLOCKLIST = frozenset({
 })
 
 # ── Person generic references ─────────────────────────────────────────
-
-# Generic person references that should never be extracted as character names
-_GENERIC_PERSON_WORDS = frozenset({
-    "众人", "其他人", "旁人", "来人", "对方", "大家", "所有人",
-    "那人", "此人", "其人", "何人", "某人", "外人", "路人",
-    "他们", "她们", "我们", "诸位", "各位", "在场众人",
-    # Classical Chinese generics — refer to different people per chapter
-    "妇人", "女子", "汉子", "大汉", "壮汉", "好汉",
-    "老儿", "老者", "老翁", "少女", "丫头",
-    "军士", "军汉", "兵丁", "喽啰", "小喽啰",
-    "差人", "差役", "官差", "公差", "衙役",
-    "和尚", "僧人", "道士", "先生", "秀才",
-    "店家", "店主", "小二", "店小二", "酒保",
-    "庄客", "农夫", "猎户", "渔夫", "樵夫",
-    "使者", "信使", "探子", "细作",
-    "客人", "客官", "过客", "行人",
-    # Mythological/xianxia generic creatures — different individuals per chapter
-    "小妖", "小鬼", "众妖", "老妖", "妖精", "妖怪",
-    "妖兵", "山贼", "小卒", "士兵",
-    "巡山小妖", "把门小妖", "巡山的小妖", "把门的小妖",
-    "众猴", "众仙", "众神", "众鬼",
-    "众僧", "老僧", "小僧", "众道", "众将", "众官",
-    # Age-based generics
-    "后生", "後生", "后生小辈", "小辈", "晚辈",
-    # Mythological generic roles — celestial/court titles
-    "玉女", "天将", "仙卿", "天妃", "仙童", "仙女",
-    "天兵", "天卒", "天丁", "神将", "神兵",
-
-    # auto-improve 2026-03-28
-    "义兄弟",
-    "二将",
-    "五百灵官",
-    "八菩萨",
-    "力士",
-    "十万天兵",
-    "四天王",
-    "四金刚",
-    "大众",
-    "架火",
-    "校尉",
-    "洪福寺僧人",
-    "美女",
-    "美姬",
-    "针工",
-    "铁匠人等",
-
-    # auto-improve 2026-03-28
-    "三藏旧徒",
-    "二十八宿",
-    "五方揭谛",
-    "五龙",
-    "六丁六甲",
-    "四将",
-    "寿星",
-    "屠子",
-    "广晋龙王之子",
-    "护教伽蓝",
-    "蛇将",
-    "龟将",
-
-    # auto-improve 2026-03-28
-    "两大元婴长老",
-    "千寰山使者",
-    "华天宗使者",
-    "卫云城使者",
-    "垢土化身",
-    "年轻人",
-    "蒙面修士",
-    "金色小人",
-    "陇家新任大长老",
-    "青年",
-    "黑凤族合体长老",
-
-    # auto-improve 2026-03-28
-    "丑陋大汉",
-    "二爷",
-
-    # auto-improve 2026-03-28
-    "中年男子",
-    "艳女",
-
-    # auto-improve 2026-03-28
-    "仙姬",
-
-    # auto-improve 2026-03-28
-    "三小姐",
-    "二小姐",
-    "同昌公主",
-    "唐伯虎",
-    "四小姐",
-    "大小姐",
-    "女婿",
-    "女学生",
-    "奶娘",
-    "孩子们",
-    "安禄山",
-    "寿昌公主",
-    "小丫头",
-    "小丫鬟",
-    "政老爹",
-    "杨太真",
-    "歌姬",
-    "武则天",
-    "珍爷",
-    "琏爷",
-    "秦太虚",
-    "穆莳",
-    "红娘",
-    "老年人",
-    "舞女",
-    "西施",
-    "赦老爹",
-    "赵飞燕",
-    "龙钟老僧",
-
-    # auto-improve 2026-03-28
-    "婆子",
-
-    # auto-improve 2026-03-28
-    "小乡绅之子",
-
-    # auto-improve 2026-03-28
-    "三体战士",
-    "主任",
-    "值班技术员",
-    "医生",
-    "取信人",
-    "司机",
-    "年轻工程师",
-    "护士",
-    "纳米研究中心主任",
-    "美军空军上校",
-    "美国中央情报局官员",
-    "英军上校",
-    "那位警官",
-    "那名工程师",
-    "那名战士",
-    "那名男警察",
-
-    # auto-improve 2026-03-28
-    "哨兵",
-    "少校军官",
-    "年轻警官",
-    "爆炸物专家",
-    "英国陆军上校",
-    "警卫排排长",
-    "镇中学老师",
-    "齐家屯老两口",
-
-    # auto-improve 2026-03-28
-    "七八人",
-    "丐帮帮众",
-    "丐帮群豪",
-    "两个采燕客",
-    "两名大汉",
-    "两名家将",
-    "两名岛主",
-    "中原群豪",
-    "中年僧人",
-    "中年汉子",
-    "前辈",
-    "大师",
-    "大理国臣民",
-    "契丹武士",
-    "她老人家",
-    "姥姥",
-    "小和尚",
-    "小师父",
-    "少林寺僧人",
-    "少林群僧",
-    "执法僧",
-    "无名老僧",
-    "星宿派门人",
-    "梁上少女",
-    "梅兰竹菊",
-    "梅兰竹菊四剑",
-    "梦郎",
-    "灵鹫宫部属",
-    "玄天部群女",
-    "玄字班僧侣",
-    "神僧",
-    "神农帮帮众",
-    "童姥",
-    "老婆子",
-    "虚字辈僧侣",
-    "褚姓少年",
-    "辽兵",
-    "辽军",
-    "那大汉",
-
-    # auto-improve 2026-03-28
-    "乔氏夫妇",
-    "好妹子",
-    "妹子",
-    "姑娘",
-    "恶和尚",
-    "钟灵之母",
-    "钟灵之父",
-    "高老者",
-
-    # auto-improve 2026-03-28
-    "中年妇人",
-    "京官",
-    "京官小姐",
-    "她师妹",
-    "师姊",
-    "老汉",
-    "蒙面大汉",
-    "贱人",
-    "这贱人",
-    "那妇人",
-    "那少女",
-    "那少年",
-    "那年轻女子",
-    "那年轻男子",
-    "那贱人",
-
-    # auto-improve 2026-03-28
-    "二流子",
-    "公社负责人",
-    "县社干部",
-    "双水村村民",
-    "司机朋友们",
-    "女售货员",
-    "妹妹",
-    "姐夫",
-    "姐姐",
-    "孙玉厚家",
-    "少安他奶",
-    "新娘",
-    "村民",
-    "润生妈",
-    "父亲",
-    "班主任",
-    "秀莲她爸",
-    "老人家",
-    "老祖母",
-    "跛女子",
-
-    # auto-improve 2026-03-28
-    "售票员",
-
-    # auto-improve 2026-03-28
-    "死女子",
-    "老将",
-
-    # v0.70 review 2026-04-08 — 西游记人工审核发现
-    "黄门官", "当驾官", "光禄寺官", "阁门大使",
-    "文武多官", "四值功曹", "八大金刚", "四大天师",
-    "龙子龙孙", "山神土地", "诸天", "多官", "四健将",
-    "巡海夜叉", "比丘僧", "雷公",
-    "金甲诸天", "七十二洞妖王", "庞刘苟毕四大元帅",
-    "嫔妃", "后妃", "东宫", "西宫",
-    "两个女怪", "公主娘娘", "护国天王",
-
-    # v0.71.1 cross-novel audit 2026-04-11
-    # — 红楼梦称谓(场景性,多人共用)
-    "太太", "大太太", "二太太", "三太太", "老太太",
-    "奶奶", "大奶奶", "二奶奶", "三奶奶", "四奶奶",
-    "夫人", "大夫人", "二夫人", "三夫人",
-    "姑娘", "大姑娘", "二姑娘", "三姑娘", "四姑娘", "五姑娘",
-    "嬷嬷", "老嬷嬷", "奶妈", "老奶妈",
-    "太爷", "老太爷", "大太爷", "二太爷",
-    "老祖宗", "老寿星",  # 指代贾母的泛称
-    # — 西游记戏称/代称(那X 结构 + 取经路人称号)
-    "那呆子", "那猴子", "那怪物", "那泼猴", "那老儿",
-    "这呆子", "这猴子", "这泼猴",
-    "取经人", "取经僧",
-    "毛脸雷公嘴", "雷公爷爷", "孙外公",
-    # — 集合名/泛称(xiyouji audit)
-    "群猴", "五百阿罗", "土地神祗", "夜叉", "太监", "樵子",
-})
-
-# Pure title words — when used alone (no surname prefix), not a valid character name
-_PURE_TITLE_WORDS = frozenset({
-    "堂主", "长老", "弟子", "护法", "掌门", "帮主", "教主",
-    "师父", "师兄", "师弟", "师姐", "师妹", "师傅",
-    "大哥", "二哥", "三哥", "大姐", "二姐",
-    "侍卫", "仆人", "丫鬟", "小厮",
-    # Official ranks used as address
-    "太尉", "知府", "知县", "提辖", "都监", "教头", "都头",
-    "将军", "元帅", "丞相", "太师",
-    "头领", "寨主", "大王", "员外",
-    "恩相", "大人", "老爷", "相公",
-
-    # auto-improve 2026-03-28
-    "长史",
-
-    # auto-improve 2026-03-28
-    "师伯",
-    "师叔",
-
-    # auto-improve 2026-03-28
-    "贾化",
-
-    # auto-improve 2026-03-28
-    "紫薇舍人",
-
-    # auto-improve 2026-03-28
-    "国师",
-    "御营都指挥使",
-    "管带",
-
-    # auto-improve 2026-03-28
-    "张将军",
-
-    # auto-improve 2026-03-28
-    "三把手",
-    "副总指挥",
-
-    # auto-improve 2026-03-28
-    "书记",
-    "二队长",
-    "副书记",
-})
+# v0.72 Phase 1: person generic lists moved to name_authority.py (single
+# source of truth). _is_generic_person() below delegates there.
 
 
 # Fantasy/xianxia: these conceptual terms are valid world-layer locations
@@ -764,6 +475,10 @@ def _is_generic_location(name: str, genre: str | None = None) -> str | None:
     # Rule 3: Vehicle/object words
     if name in _VEHICLE_WORDS:
         return "vehicle/object"
+
+    # Rule 3b: Generic non-location terms (equipment/abstract; Story 1.4)
+    if name in _GENERIC_NON_LOCATION_TERMS:
+        return "generic non-location term"
 
     # Rule 17: Furniture / object names — never locations
     if name in _FURNITURE_OBJECT_NAMES:
@@ -829,7 +544,7 @@ def _is_generic_location(name: str, genre: str | None = None) -> str | None:
 
     # Rule 8: Generic modifier + generic suffix — no specific name part
     # E.g., 小城, 大山, 一个村子, 小路, 石屋
-    if n >= 2:
+    if n >= 2 and name not in _RULE89_SPECIFIC_NAME_EXEMPTIONS:
         for mod in _GENERIC_MODIFIERS:
             if name.startswith(mod):
                 rest = name[len(mod):]
@@ -842,7 +557,7 @@ def _is_generic_location(name: str, genre: str | None = None) -> str | None:
     # Rule 9: 2-char with both chars being generic — e.g., 村落, 山林, 水面
     # These lack a specific name part. BUT exclude X+州/城/镇/县/国 combos
     # because they are often real place names (江州, 海州, 青州, 沧州, etc.)
-    if n == 2:
+    if n == 2 and name not in _RULE89_SPECIFIC_NAME_EXEMPTIONS:
         # Don't filter X+administrative_suffix — these are typically real place names
         if name[1] not in "州城镇县国省郡府":
             if name[0] in _GEO_GENERIC_SUFFIXES | frozenset("水天地场石土半荒深远近") and name[1] in _GEO_GENERIC_SUFFIXES | frozenset("面子落处口边旁"):
@@ -1008,6 +723,103 @@ def _infer_type_from_name(name: str) -> str:
     return "区域"
 
 
+# ── Location type consistency soft-check (issue #70, D2) ─────────────
+# LocationFact.type 是 LLM 自由文本,实测出现形态漂移(海洋→"大陆"、街道→"国")。
+# 这里把 type 与名字后缀各自映射到「形态族」,两侧都已知且不同族时判定明显
+# 矛盾 → 软降级为「区域」+ logger.info(不删条目、不抛错)。任一侧未知 → 不动。
+_LOCATION_TYPE_FAMILY: dict[str, str] = {
+    # 水域
+    "海": "water", "海洋": "water", "洋": "water",
+    "江": "water", "河": "water", "河流": "water",
+    "湖": "water", "湖泊": "water", "溪": "water", "溪流": "water",
+    "泉": "water", "潭": "water", "湾": "water", "泊": "water", "池": "water",
+    # 山体
+    "山": "mountain", "山脉": "mountain", "山岭": "mountain", "岭": "mountain",
+    "山峰": "mountain", "峰": "mountain", "山谷": "mountain", "谷": "mountain",
+    "山崖": "mountain", "崖": "mountain",
+    # 宏观地理(大洲/世界层)
+    "大陆": "macro", "大洲": "macro", "洲": "macro",
+    "界": "macro", "界域": "macro", "域": "macro", "世界": "macro",
+    # 行政区划
+    "国": "admin", "王国": "admin", "帝国": "admin", "国家": "admin",
+    "省": "admin", "州": "admin", "郡": "admin", "县": "admin", "地区": "admin",
+    # 聚落
+    "城市": "settlement", "城": "settlement", "城镇": "settlement",
+    "镇": "settlement", "乡": "settlement", "京": "settlement",
+    "都": "settlement", "市": "settlement",
+    "村庄": "settlement", "村": "settlement", "庄园": "settlement",
+    "庄": "settlement", "寨": "settlement",
+    "街道": "settlement", "街": "settlement", "巷": "settlement",
+    # 建筑/人造场所
+    "宫殿": "building", "宫": "building", "殿": "building",
+    "阁楼": "building", "阁": "building", "楼阁": "building",
+    "楼": "building", "塔": "building",
+    "寺庙": "building", "寺": "building", "庙": "building",
+    "道观": "building", "观": "building", "庵": "building",
+    "建筑": "building", "府邸": "building", "宅邸": "building",
+    "园林": "building", "园": "building",
+    "洞府": "building", "门派": "building", "宗门": "building",
+    "关隘": "building", "桥梁": "building", "桥": "building",
+    # 地貌
+    "平原": "terrain", "原": "terrain", "沙漠": "terrain", "漠": "terrain",
+    "林地": "terrain", "林": "terrain", "森林": "terrain",
+    "岛屿": "terrain", "岛": "terrain",
+}
+
+# 名字以江/海/原等结尾但实为城市的已知例外(与 _CONTAINS_SUFFIX_RANK 同口径),
+# 这些名字不参与形态族判断,避免把"上海(type=城市)"误降级。
+_CITY_NAME_EXCEPTIONS = frozenset({
+    "上海", "珠海", "威海", "北海", "青海",
+    "浙江", "镇江", "九江", "湛江", "丽江", "阳江", "内江", "吴江",
+    "太原",
+})
+
+# 名字侧补充后缀:_SUFFIX_TO_TYPE 未覆盖但形态明确的常见通名
+_EXTRA_SUFFIX_FAMILY: list[tuple[str, str]] = [
+    ("街道", "settlement"), ("街", "settlement"),
+    ("巷", "settlement"), ("弄", "settlement"),
+    ("桥", "building"), ("潭", "water"), ("湾", "water"),
+]
+
+
+def _name_suffix_family(name: str) -> str | None:
+    """Infer the morphological family of a location name from its suffix."""
+    if name in _CITY_NAME_EXCEPTIONS:
+        return None
+    inferred = _infer_type_from_name(name)
+    # "府" 双义(行政府 vs 宅邸),不作为矛盾判断依据
+    if inferred not in ("区域", "府"):
+        return _LOCATION_TYPE_FAMILY.get(inferred)
+    for suffix, family in _EXTRA_SUFFIX_FAMILY:
+        if name.endswith(suffix) and len(name) > len(suffix):
+            return family
+    return None
+
+
+def _downgrade_inconsistent_location_type(name: str, loc_type: str) -> str:
+    """Soft-downgrade location type to 区域 when it clearly contradicts the
+    name's morphological family (issue #70 subtype drift, e.g. 海洋→"大陆").
+
+    Never raises and never drops the entry; returns the original type when
+    either side is unknown or both families agree (默认路径行为不变).
+    """
+    if not loc_type or loc_type == "区域":
+        return loc_type
+    type_family = _LOCATION_TYPE_FAMILY.get(loc_type)
+    if type_family is None:
+        return loc_type  # 词表外的 type 不做判断
+    name_family = _name_suffix_family(name)
+    if name_family is None:
+        return loc_type
+    if type_family != name_family:
+        logger.info(
+            "Location type downgrade: '%s' type '%s' → '区域' (suffix family=%s)",
+            name, loc_type, name_family,
+        )
+        return "区域"
+    return loc_type
+
+
 # ── Generic person candidates for disambiguation ─────────────────────
 # These are valid unnamed characters that should be disambiguated with
 # their chapter's primary setting location, not filtered out.
@@ -1026,123 +838,17 @@ _GENERIC_PERSON_CANDIDATES = frozenset({
 
 # ── Genre-aware person filtering ──────────────────────────────────────
 
-# Fantasy/xianxia: these are valid character names (具体角色, not 泛称)
-_FANTASY_PERSON_WHITELIST = frozenset({
-    "仙人", "仙子", "仙翁", "道人", "散修", "真人",
-    "魔尊", "魔君", "魔头", "妖王", "妖帝",
-    "灵兽", "仙童", "精怪", "妖仙",
-})
 
-# Realistic/urban: these are almost always titles, not names (无姓氏时过滤)
-_REALISTIC_TITLE_ADDITIONS = frozenset({
-    "队长", "书记", "主任", "科长", "处长", "局长", "厂长",
-    "村长", "社长", "组长", "班长",
-})
 
 
 def _is_generic_person(name: str, genre: str | None = None) -> str | None:
     """Check if a person name is generic/invalid.
 
-    Genre-aware: fantasy allows 仙人/妖兽 etc.; realistic adds title filtering.
-    Returns a reason string if filtered, or None if kept.
+    Delegates to name_authority.is_generic_person() — single source of truth.
+    This thin wrapper is kept for backward compatibility (callers & tests).
     """
-    # Fantasy whitelist: skip generic check for xianxia character types
-    if genre in ("fantasy", "wuxia") and name in _FANTASY_PERSON_WHITELIST:
-        return None
-
-    if name in _GENERIC_PERSON_WORDS:
-        return "generic person reference"
-
-    # Pure title without surname: "堂主", "长老" alone (not "岳堂主", "张长老")
-    if name in _PURE_TITLE_WORDS:
-        return "pure title without surname"
-
-    # Realistic/urban: additional title filtering (无姓氏时)
-    if genre in ("realistic", "urban") and name in _REALISTIC_TITLE_ADDITIONS:
-        return "realistic title without surname"
-
-    # Descriptive person references: "墨大夫女儿", "韩家二弟", "村长的妻子"
-    # These describe a relationship to another character, not a standalone name.
-    _DESCRIPTIVE_SUFFIXES = ("女儿", "儿子", "妻子", "丈夫", "夫人",
-                             "老婆", "媳妇", "母亲", "父亲", "弟子")
-    if len(name) >= 4 and any(name.endswith(s) for s in _DESCRIPTIVE_SUFFIXES):
-        return f"descriptive person reference (ends with {name[-2:]})"
-
-    # ── Pattern-based rules (cover open-ended variations) ──
-
-    # P1: "众X" / "群X" prefix — group references (众灵官, 群妖, 群魔, 群怪, etc.)
-    if name.startswith(("众", "群")) and len(name) >= 2:
-        return "group reference (众/群+)"
-
-    # P1b: vague large-quantity collective prefix — "百十群妖", "数十小妖",
-    # "无数妖兵", "一群小妖", "成群结队的..." (no measure word, just a crowd)
-    if name.startswith((
-        "百十", "数十", "数百", "数千", "无数", "许多", "成群",
-        "一群", "一伙", "一干", "一众", "几十", "几百", "众多",
-    )) and len(name) >= 3:
-        return "vague collective reference"
-
-    # P2: Numeric quantifier + group — "三十六员雷将", "十万天兵", "五百灵官"
-    import re as _re
-    if _re.match(r"^[一二三四五六七八九十百千万几数]+.{0,3}[员个名位只匹头条]", name):
-        return f"quantified group reference"
-    # Also: pure numeric prefix + group suffix
-    _GROUP_SUFFIXES = ("天兵", "灵官", "雷将", "雷神", "金刚", "菩萨",
-                       "天王", "天将", "小妖", "妖精", "鬼卒", "阴兵")
-    if any(name.endswith(s) for s in _GROUP_SUFFIXES) and len(name) > len(name.rstrip("天灵雷金菩王将小妖精鬼卒阴兵")):
-        pass  # Already handled by exact match or prefix rule above
-
-    # P3: "X部众神" / "X部众X" — department/division group
-    if "部众" in name:
-        return "department group reference"
-
-    # P4: Single Chinese surname alone — "张", "刘", "庞" (1 char, common surname)
-    _COMMON_SURNAMES = frozenset(
-        "赵钱孙李周吴郑王冯陈褚卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜"
-        "戚谢邹喻柏水窦章云苏潘葛奚范彭郎鲁韦昌马苗凤花方俞任袁柳酆鲍史唐"
-        "费廉岑薛雷贺倪汤滕殷罗毕郝邬安常乐于时傅皮卞齐康伍余元卜顾孟平黄"
-        "和穆萧尹姚邵湛汪祁毛禹狄米贝明臧计伏成戴谈宋茅庞熊纪舒屈项祝董梁"
-        "杜阮蓝闵席季麻强贾路娄危江童颜郭梅盛林刁钟徐邱骆高夏蔡田樊胡凌霍"
-        "虞万支柯昝管卢莫经房裘缪干解应宗丁宣贲邓郁单杭洪包诸左石崔吉钮龚"
-    )
-    if len(name) == 1 and name in _COMMON_SURNAMES:
-        return "bare surname (not a character name)"
-
-    # P5: "X的Y" pattern — descriptive, not a proper name
-    if "的" in name and len(name) >= 4:
-        return "descriptive reference (contains 的)"
-
-    # P6: Pure official title ending in 官/使/监/尉 without personal name prefix
-    # Catches: 黄门官, 当驾官, 阁门大使, 监丞, 监副, 典簿
-    _OFFICIAL_SUFFIXES = ("官", "使", "监", "尉", "丞", "副", "簿")
-    if len(name) >= 2 and name[-1] in _OFFICIAL_SUFFIXES:
-        # Allow if has a known surname prefix (e.g., 魏征, 张天师)
-        if not (name[0] in _COMMON_SURNAMES and len(name) <= 4):
-            # Check if it's a pure title (no personal identifier)
-            if all(c not in name for c in _COMMON_SURNAMES) or len(name) >= 4:
-                pass  # Don't over-filter — many are valid (太白金星, etc.)
-
-    # P7: Group number pattern — "四大X", "五X", "八X", "十X" where X is role
-    _GROUP_ROLES = ("天王", "金刚", "天师", "菩萨", "元帅", "功曹",
-                    "揭谛", "健将", "天丁", "星君", "罗汉")
-    import re as _re2
-    if _re2.match(r"^[二三四五六七八九十]+[大]?", name):
-        for role in _GROUP_ROLES:
-            if name.endswith(role):
-                return f"numbered group reference ({role})"
-
-    # P8 (v0.71.1): 姓+氏 pattern — 红楼梦多人共用的称谓 (李氏/王氏/甄氏)
-    # Delegates to name_authority single source of truth.
-    from src.services.name_authority import is_surname_plus_shi
-    if is_surname_plus_shi(name):
-        return "surname+氏 (generic title for married women)"
-
-    # P9 (v0.71.1): Descriptive long names (n >= 10) — 通常是 LLM 把描述当角色名
-    # 例:"飞东洋游普世感恩行孝黄毛红嘴白鹦哥" (15字)
-    if len(name) >= 10:
-        return f"descriptive long name ({len(name)} chars)"
-
-    return None
+    from src.services.name_authority import is_generic_person
+    return is_generic_person(name, genre)
 
 
 # CJK character variant normalization — map uncommon/archaic forms to standard forms.
@@ -1229,16 +935,109 @@ def _clamp_name(name: str) -> str:
     return name
 
 
+def _name_in_text(name: str, chapter_text: str) -> bool:
+    """人名原文锚定:复用证据锚定的 span 定位口径(归一化空白后子串匹配)。
+
+    "X·樵夫" 类消歧名按 "·" 后基本名再查一次(与幻觉判定层同口径)。
+    """
+    from src.extraction.chapter_fact_extractor import span_located
+    if span_located(name, chapter_text):
+        return True
+    base = name.split("·")[-1]
+    return base != name and span_located(base, chapter_text)
+
+
+# ── Alias 语境指称软校验 (issue #70, E3 验证层闸) ─────────────────────
+# 实测(约会大作战 22 卷)发现系统把「当前语境可指向此人」的临时指称错误
+# 升级为「此人的稳定别名」:代词自称(吾/汝等)、假想名(假如她其实叫 X)、
+# 外观状态短语(身穿某装备)、泛类身份(某组织成员)、临时指称(某某少年)。
+# 命中以下高精确度特征的 alias 不入 new_aliases,记 logger.info +
+# name_resolution 审计。原则:宁可漏拦不可误杀,拿不准的一律放行。
+
+# 代词与自称(语料级小词表,精确匹配)
+_CONTEXTUAL_ALIAS_PRONOUNS = frozenset({
+    "吾", "我", "汝", "尔", "你", "您", "他", "她",
+    "吾等", "我等", "汝等", "尔等", "我们", "你们", "他们", "她们",
+    "在下", "鄙人", "小可", "某家", "俺", "咱", "咱家", "洒家",
+    "老夫", "老朽", "老身", "老奴", "奴家", "妾身", "小女子",
+    "贫道", "贫僧", "贫尼", "老衲",
+    "本座", "本尊", "本王", "本宫", "本将", "本仙", "本神",
+    "朕", "孤", "寡人", "卑职", "微臣", "末将",
+    "诸位", "各位", "众位", "大家",
+})
+
+# 假想/反事实身份特征词(「假如她其实叫 X」「假装叫 Y」类)
+_CONTEXTUAL_ALIAS_HYPOTHETICAL = (
+    "假如", "如果", "要是", "假设", "若是", "倘若",
+    "假装", "冒充", "假扮",
+)
+
+# 外观/状态描述特征词(「身穿某装备」「受伤的 X」类)
+_CONTEXTUAL_ALIAS_APPEARANCE = (
+    "身穿", "身着", "身披", "头戴", "手持", "手执", "手拿", "手握",
+    "腰佩", "背负", "受伤", "带伤", "昏迷",
+)
+
+# 泛类身份后缀(「某组织成员」「一个士兵」类)
+_CONTEXTUAL_ALIAS_ROLE_SUFFIXES = ("成员", "队员", "士兵", "手下", "一员")
+
+# 临时指称前缀(「某某少年」「那个少女」类)
+_CONTEXTUAL_ALIAS_TEMP_PREFIXES = (
+    "某某", "某个", "某名", "某位", "某",
+    "一个", "一名", "一位", "那个", "这个", "那名", "这名",
+)
+
+
+def _is_contextual_alias(alias: str) -> str | None:
+    """判断 alias 是否为语境指称而非稳定别名(issue #70, E3)。
+
+    命中返回原因字符串,未命中返回 None(放行)。
+    只用高精确度特征:代词精确匹配、假想/外观关键词、泛类后缀、
+    临时指称前缀;拿不准的一律放行。
+    """
+    if not alias:
+        return None
+    # 代词与自称(精确匹配,不做子串匹配,避免误伤含这些字的人名)
+    if alias in _CONTEXTUAL_ALIAS_PRONOUNS:
+        return "pronoun/self-address"
+    # 假想/反事实身份
+    for marker in _CONTEXTUAL_ALIAS_HYPOTHETICAL:
+        if marker in alias:
+            return f"hypothetical identity ({marker})"
+    # 外观与状态描述
+    for marker in _CONTEXTUAL_ALIAS_APPEARANCE:
+        if marker in alias:
+            return f"appearance/state phrase ({marker})"
+    # 描述性短语(与 name_authority.alias_safety_level level-0 同口径)
+    if "的" in alias:
+        return "descriptive phrase (contains 的)"
+    # 泛类角色身份
+    for suffix in _CONTEXTUAL_ALIAS_ROLE_SUFFIXES:
+        if len(alias) > len(suffix) and alias.endswith(suffix):
+            return f"generic role ({suffix})"
+    # 临时指称
+    for prefix in _CONTEXTUAL_ALIAS_TEMP_PREFIXES:
+        if len(alias) > len(prefix) and alias.startswith(prefix):
+            return f"temporary reference ({prefix}…)"
+    return None
+
+
 class FactValidator:
     """Validate and clean a ChapterFact instance."""
 
-    def __init__(self, genre: str | None = None, *, skip_validation: bool = False) -> None:
+    def __init__(self, genre: str | None = None, *, skip_validation: bool = False,
+                 audit_log_path: Path | None = None) -> None:
         self._genre = genre
         self._skip_validation = skip_validation  # For ablation experiments
         # name_corrections: short_name → full_name mapping built from
         # entity dictionary.  E.g., {"愣子": "二愣子"} when the dictionary
         # contains "二愣子" with a numeric prefix that jieba/LLM truncated.
         self._name_corrections: dict[str, str] = {}
+        # 决策审计(issue #70 provenance):validate() 内的改名/吞并决策,
+        # 与 NameResolver 改写共用 name_resolution_log.jsonl 通道;
+        # audit_log_path 仅供测试重定向,None = 默认审计路径。
+        self._audit_log_path = audit_log_path
+        self._audit_records: list[dict] = []
 
     def set_name_corrections(self, corrections: dict[str, str]) -> None:
         """Set name correction mapping (truncated_name → full_name).
@@ -1249,17 +1048,28 @@ class FactValidator:
         """
         self._name_corrections = corrections
 
-    def validate(self, fact: ChapterFact) -> ChapterFact:
-        """Return a cleaned copy of the ChapterFact."""
+    def validate(self, fact: ChapterFact, chapter_text: str | None = None) -> ChapterFact:
+        """Return a cleaned copy of the ChapterFact.
+
+        chapter_text(可选):本章原文。传入后,自动补 character 的交叉检查会做
+        原文锚定(canonical 污染防线)——原文不可定位的名字不凭空造实体条目;
+        默认 None 时跳过该校验,保持旧行为。
+        """
         if self._skip_validation:
             return fact  # Ablation: bypass all validation
+        self._audit_records = []
         characters = self._validate_characters(fact.characters)
         relationships = self._validate_relationships(fact.relationships, characters)
         locations = self._validate_locations(fact.locations, characters)
         spatial_relationships = self._validate_spatial_relationships(
             fact.spatial_relationships, locations
         )
-        item_events = self._validate_item_events(fact.item_events)
+        item_events = self._validate_item_events(
+            fact.item_events,
+            non_item_names=self._collect_non_item_names(
+                characters, locations, fact.org_events, fact.new_concepts,
+            ),
+        )
         org_events = self._validate_org_events(fact.org_events)
         events = self._validate_events(fact.events)
         new_concepts = self._validate_concepts(fact.new_concepts)
@@ -1276,11 +1086,13 @@ class FactValidator:
         events = self._fill_event_locations(locations, events)
 
         # Cross-check: ensure event participants exist in characters
-        characters = self._ensure_participants_in_characters(characters, events)
+        characters = self._ensure_participants_in_characters(
+            characters, events, chapter_text,
+        )
 
         # Cross-check: ensure relationship persons exist in characters
         characters = self._ensure_relation_persons_in_characters(
-            characters, relationships
+            characters, relationships, chapter_text,
         )
 
         # Post-processing: disambiguate homonymous location names (N29.3)
@@ -1298,6 +1110,15 @@ class FactValidator:
         # the rename_map to sync across relationships and events.
         person_rename_map = self._build_generic_person_rename_map(characters, locations)
         if person_rename_map:
+            # 审计:泛称改名(「地点·泛称」消歧),可追溯每个消歧名的出处
+            for old, new in person_rename_map.items():
+                self._audit_records.append({
+                    "field": "characters",
+                    "from": old,
+                    "to": new,
+                    "source": "correction",
+                    "rule": "generic_person_rename",
+                })
             characters = [
                 ch.model_copy(update={"name": person_rename_map[ch.name]})
                 if ch.name in person_rename_map else ch
@@ -1315,6 +1136,12 @@ class FactValidator:
                 if any(p in person_rename_map for p in evt.participants) else evt
                 for evt in events
             ]
+
+        if self._audit_records:
+            for rec in self._audit_records:
+                rec["novel_id"] = fact.novel_id
+                rec["chapter_id"] = fact.chapter_id
+            write_audit_records(self._audit_records, self._audit_log_path)
 
         return ChapterFact(
             chapter_id=fact.chapter_id,
@@ -1372,6 +1199,7 @@ class FactValidator:
                     appearance=existing.appearance or ch.appearance,
                     abilities_gained=merged_abilities,
                     locations_in_chapter=merged_locations,
+                    source=existing.source,  # FR-4.1: 保留来源标记(recall_pass 可追溯)
                 )
             else:
                 seen[name] = ch.model_copy(update={"name": name})
@@ -1407,7 +1235,16 @@ class FactValidator:
                 appearance=keeper_ch.appearance or target_ch.appearance,
                 abilities_gained=merged_abilities,
                 locations_in_chapter=merged_locations,
+                source=keeper_ch.source,  # FR-4.1: 保留来源标记
             )
+            # 审计:alias-merge 吞并角色(issue #70 provenance)
+            self._audit_records.append({
+                "field": "characters",
+                "from": target,
+                "to": keeper,
+                "source": "correction",
+                "rule": "alias_merge",
+            })
             logger.debug(
                 "Merged character '%s' into '%s' via explicit alias link",
                 target, keeper,
@@ -1422,6 +1259,25 @@ class FactValidator:
             if len(cleaned) != len(ch.new_aliases):
                 seen[name] = ch.model_copy(update={"new_aliases": cleaned})
 
+        # ── Composite character.name defense (canonical 污染防线) ──
+        # _clean_aliases Rule 3 的同款思路应用到 character.name 本身:
+        # name 同时包含同章 ≥2 个其他 character 的完整名字(如"八戒沙僧"),
+        # 是 LLM 把多个人名拼接成了一个伪名,按 Rule 3 的处置方式剔除。
+        # 只含 1 个他人全名不算(如"孙悟空"含"悟空"是合法长名),避免误伤。
+        composite_names = [
+            name for name in seen
+            if sum(
+                1 for other in seen
+                if other != name and len(other) >= 2 and other in name
+            ) >= 2
+        ]
+        for name in composite_names:
+            logger.info(
+                "Dropping composite character name '%s' (含同章多个他人全名)",
+                name,
+            )
+            del seen[name]
+
         return list(seen.values())
 
     def _clean_aliases(
@@ -1430,11 +1286,15 @@ class FactValidator:
         owner_name: str,
         all_char_names: set[str],
     ) -> list[str]:
-        """Clean new_aliases by removing three classes of erroneous aliases.
+        """Clean new_aliases by removing four classes of erroneous aliases.
 
         1. Alias is another independent character in this chapter
         2. Alias is too long (>6 chars) — likely a descriptive phrase
         3. Alias contains another character's full name (e.g., "水军头领李俊")
+        4. Alias is a contextual reference, not a stable alias (issue #70, E3):
+           pronouns/self-address, hypothetical names, appearance/state phrases,
+           generic roles, temporary references. Decisions go to logger.info +
+           the name_resolution audit channel.
         """
         cleaned = []
         for alias in aliases:
@@ -1448,7 +1308,9 @@ class FactValidator:
                 )
                 continue
             # Rule 2: alias too long — descriptive phrases, not names
-            if len(alias) > 6:
+            # 豁免(2026-09-24,翻译文学):含间隔号"·"的音译名(如斯捷潘·
+            # 阿尔卡季奇)长度天然 >6,不是描述性短语。
+            if len(alias) > 6 and "·" not in alias:
                 logger.debug(
                     "Alias too long (%d): '%s' for %s",
                     len(alias), alias, owner_name,
@@ -1470,6 +1332,24 @@ class FactValidator:
                     contaminated = True
                     break
             if contaminated:
+                continue
+            # Rule 4 (issue #70, E3): 语境指称不是稳定别名
+            # 宁可漏拦不可误杀:仅高精确度特征命中才剔除,拿不准的一律放行
+            ctx_reason = _is_contextual_alias(alias)
+            if ctx_reason:
+                logger.info(
+                    "Alias '%s' dropped from '%s': 语境指称非稳定别名 (%s)",
+                    alias, owner_name, ctx_reason,
+                )
+                self._audit_records.append({
+                    "field": "characters.new_aliases",
+                    "from": alias,
+                    "to": "",
+                    "source": "correction",
+                    "rule": "contextual_alias_drop",
+                    "owner": owner_name,
+                    "reason": ctx_reason,
+                })
                 continue
             cleaned.append(alias)
         return cleaned
@@ -1503,7 +1383,6 @@ class FactValidator:
         """
         # Pre-processing: split compound location names joined by conjunctions
         # E.g., "新房与西院" → "新房" + "西院" as separate entries
-        from src.models.chapter_fact import LocationFact
         expanded_locs = []
         for loc in locs:
             split_parts = None
@@ -1577,8 +1456,12 @@ class FactValidator:
                 normalized_parent = _LOCATION_NAME_NORMALIZE.get(
                     normalized_parent, normalized_parent
                 )
+            # D2 (issue #70): type 与名字后缀形态明显矛盾时软降级为「区域」
+            checked_type = _downgrade_inconsistent_location_type(name, loc.type)
             valid.append(
-                loc.model_copy(update={"name": name, "parent": normalized_parent})
+                loc.model_copy(update={
+                    "name": name, "parent": normalized_parent, "type": checked_type,
+                })
             )
 
         # Validate peers field
@@ -1621,7 +1504,7 @@ class FactValidator:
                 )
                 continue
             # ── Contains direction fix: ensure source is larger than target ──
-            if relation_type == "contains":
+            if classify_spatial_relation(relation_type) == "hierarchy":
                 swapped = False
                 src_rank = _get_contains_rank(source)
                 tgt_rank = _get_contains_rank(target)
@@ -1631,11 +1514,7 @@ class FactValidator:
                     swapped = True
                 elif src_rank == tgt_rank or (src_rank is None and tgt_rank is None):
                     # Same rank or both unknown: use name length (longer = more specific = smaller)
-                    if len(source) > len(target) + 2:
-                        source, target = target, source
-                        swapped = True
-                    # Name containment tiebreak: "石圪节公社" starts with "石圪节"
-                    elif source.startswith(target) and len(source) > len(target):
+                    if len(source) > len(target) + 2 or (source.startswith(target) and len(source) > len(target)):
                         source, target = target, source
                         swapped = True
                 if swapped:
@@ -1677,9 +1556,43 @@ class FactValidator:
             ))
         return valid
 
+    @staticmethod
+    def _collect_non_item_names(
+        characters: list[CharacterFact],
+        locations: list,
+        org_events: list[OrgEventFact],
+        concepts: list,
+    ) -> set[str]:
+        """收集本章非物品实体名(人物+别名/地点/组织/概念),供 related item
+        的 target-type 校验使用(issue #70:领域/能力机制类实体不得进入关联物品)。"""
+        names: set[str] = set()
+        for ch in characters:
+            if ch.name:
+                names.add(ch.name)
+            names.update(a for a in ch.new_aliases if a)
+        for loc in locations:
+            if loc.name:
+                names.add(loc.name)
+        for oe in org_events:
+            if oe.org_name:
+                names.add(oe.org_name)
+        for nc in concepts:
+            if nc.name:
+                names.add(nc.name)
+        return names
+
     def _validate_item_events(
-        self, items: list[ItemEventFact]
+        self,
+        items: list[ItemEventFact],
+        non_item_names: set[str] | None = None,
     ) -> list[ItemEventFact]:
+        # 第一遍:本章有效物品名集合,作为 related「两端必须都是物品」的判据
+        chapter_item_names: set[str] = set()
+        for item in items:
+            n = _clamp_name(item.item_name)
+            if len(n) >= _NAME_MIN_LEN_OTHER:
+                chapter_item_names.add(n)
+
         valid = []
         for item in items:
             name = _clamp_name(item.item_name)
@@ -1688,8 +1601,63 @@ class FactValidator:
             action = item.action
             if action not in _VALID_ITEM_ACTIONS:
                 action = "出现"
+            related = self._validate_related_items(
+                item.related, name, chapter_item_names, non_item_names or set(),
+            )
             valid.append(
-                item.model_copy(update={"item_name": name, "action": action})
+                item.model_copy(update={
+                    "item_name": name, "action": action, "related": related,
+                })
+            )
+        return valid
+
+    @staticmethod
+    def _validate_related_items(
+        related: list,
+        owner_name: str,
+        chapter_item_names: set[str],
+        non_item_names: set[str],
+    ) -> list:
+        """related item 软校验(issue #70):logger.info + 剔除,不抛错。
+
+        - 空名/过短名、自引用:剔除
+        - 无 evidence:剔除(related 是证据门控关系,prompt 要求逐字引用原文;
+          口径与 org_event evidence 的「无依据不记录」一致,这里在验证层执行)
+        - 目标不在本章物品列表中:剔除(两端必须都是 item 类型实体;
+          目标是人物/地点/组织/概念时即 issue #70 的 target-type 泄漏)
+        拿不准的一律放行(名字同时是物品与其他实体时不判)。
+        """
+        valid = []
+        seen: set[str] = set()
+        for rel in related:
+            rname = _clamp_name(rel.name)
+            if len(rname) < _NAME_MIN_LEN_OTHER or rname == owner_name:
+                continue
+            if rname in seen:
+                continue
+            if not rel.evidence or not rel.evidence.strip():
+                logger.info(
+                    "Dropping related item '%s' on '%s': 无原文证据(evidence 为空)",
+                    rname, owner_name,
+                )
+                continue
+            if rname not in chapter_item_names:
+                if rname in non_item_names:
+                    logger.info(
+                        "Dropping related item '%s' on '%s': 目标是人物/地点/组织/概念,"
+                        "非物品实体(target-type 泄漏)",
+                        rname, owner_name,
+                    )
+                else:
+                    logger.info(
+                        "Dropping related item '%s' on '%s': 不在本章物品列表中",
+                        rname, owner_name,
+                    )
+                continue
+            seen.add(rname)
+            relation = rel.relation.strip() if rel.relation else ""
+            valid.append(
+                rel.model_copy(update={"name": rname, "relation": relation})
             )
         return valid
 
@@ -1756,7 +1724,7 @@ class FactValidator:
         return cleaned
 
     # Suffixes that indicate a name match is part of a place/org, not a person
-    _NAME_BOUNDARY_BLOCKLIST = set("国省市县镇村区域界地洲岛山河湖海洋城池寺庙观殿阁楼台塔")
+    _NAME_BOUNDARY_BLOCKLIST: ClassVar = set("国省市县镇村区域界地洲岛山河湖海洋城池寺庙观殿阁楼台塔")
 
     def _fill_event_participants(
         self, characters: list[CharacterFact], events: list[EventFact]
@@ -1816,9 +1784,15 @@ class FactValidator:
         return updated
 
     def _ensure_participants_in_characters(
-        self, characters: list[CharacterFact], events: list[EventFact]
+        self, characters: list[CharacterFact], events: list[EventFact],
+        chapter_text: str | None = None,
     ) -> list[CharacterFact]:
-        """Add missing event participants as character entries."""
+        """Add missing event participants as character entries.
+
+        canonical 污染防线:传入 chapter_text 时,名字在本章原文中不可定位
+        (span 定位口径)则不补成 character——事件记录本身保留,只是不凭空
+        造实体条目(LLM 编造名由此进入结构化结果的通道)。
+        """
         char_names = {ch.name for ch in characters}
         # Also check aliases
         for ch in characters:
@@ -1828,15 +1802,25 @@ class FactValidator:
             for p in ev.participants:
                 p = p.strip()
                 if p and p not in char_names and len(p) >= _NAME_MIN_LEN and not _is_generic_person(p, self._genre):
+                    if chapter_text is not None and not _name_in_text(p, chapter_text):
+                        logger.info(
+                            "事件参与者 %r 原文不可定位,不自动补为 character", p,
+                        )
+                        continue
                     characters.append(CharacterFact(name=p))
                     char_names.add(p)
                     logger.debug("Auto-added character from event participant: %s", p)
         return characters
 
     def _ensure_relation_persons_in_characters(
-        self, characters: list[CharacterFact], relationships
+        self, characters: list[CharacterFact], relationships,
+        chapter_text: str | None = None,
     ) -> list[CharacterFact]:
-        """Add missing relationship persons as character entries."""
+        """Add missing relationship persons as character entries.
+
+        canonical 污染防线:传入 chapter_text 时,名字在本章原文中不可定位
+        则不补成 character(关系记录本身保留)。
+        """
         char_names = {ch.name for ch in characters}
         for ch in characters:
             char_names.update(ch.new_aliases)
@@ -1845,6 +1829,11 @@ class FactValidator:
             for name in (rel.person_a, rel.person_b):
                 name = name.strip()
                 if name and name not in char_names and len(name) >= _NAME_MIN_LEN and not _is_generic_person(name, self._genre):
+                    if chapter_text is not None and not _name_in_text(name, chapter_text):
+                        logger.info(
+                            "关系人名 %r 原文不可定位,不自动补为 character", name,
+                        )
+                        continue
                     characters.append(CharacterFact(name=name))
                     char_names.add(name)
                     logger.debug("Auto-added character from relationship: %s", name)

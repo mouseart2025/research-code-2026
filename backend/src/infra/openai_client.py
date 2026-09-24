@@ -9,7 +9,13 @@ from collections.abc import AsyncIterator
 
 import httpx
 
-from src.infra.llm_client import LLMError, LLMTimeoutError, LlmUsage, _extract_json
+from src.infra.llm_client import (
+    LLMError,
+    LLMTimeoutError,
+    LlmUsage,
+    ToolCall,
+    _extract_json,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -150,9 +156,8 @@ def _repair_truncated_json(text: str) -> str:
         elif ch == "}":
             if stack and stack[-1] == "{":
                 stack.pop()
-        elif ch == "]":
-            if stack and stack[-1] == "[":
-                stack.pop()
+        elif ch == "]" and stack and stack[-1] == "[":
+            stack.pop()
 
     closers = ""
     for opener in reversed(stack):
@@ -291,6 +296,11 @@ class OpenAICompatibleClient:
                     "attempting to repair JSON (%d chars)", len(content),
                 )
                 content = _repair_truncated_json(content)
+                # Propagate the signal instead of swallowing it. The repaired
+                # JSON parses fine but is missing its trailing fields (for the
+                # extraction schema that means locations / spatial_relationships
+                # come back empty), so callers must be able to detect this.
+                usage.truncated = True
 
             # Strip <think> blocks that some models emit despite not being requested
             from src.infra.llm_client import _strip_thinking
@@ -302,6 +312,82 @@ class OpenAICompatibleClient:
                 return _extract_json(content), usage
 
         return content, usage
+
+    async def generate_with_tools(
+        self,
+        messages: list[dict],
+        tools: list[dict],
+        timeout: int = 120,
+    ) -> tuple[str | None, list[ToolCall]]:
+        """Non-streaming tool-use call for the agent QA loop.
+
+        `tools` is a list of {"name", "description", "parameters"} dicts
+        (provider-neutral); they are wrapped into OpenAI function format here.
+        Returns (assistant text or None, list of ToolCall).
+        """
+        if self._is_local_server():
+            timeout = max(timeout, 600)
+        payload: dict = {
+            "model": self.model,
+            "messages": messages,
+            "stream": False,
+            "tools": [
+                {
+                    "type": "function",
+                    "function": {
+                        "name": t["name"],
+                        "description": t.get("description", ""),
+                        "parameters": t.get("parameters", {"type": "object", "properties": {}}),
+                    },
+                }
+                for t in tools
+            ],
+        }
+
+        sem = _get_cloud_semaphore()
+        async with sem:
+            try:
+                async with self._make_client(
+                    httpx.Timeout(timeout, connect=10.0)
+                ) as client:
+                    resp = await client.post(
+                        f"{self.base_url}/chat/completions",
+                        json=payload,
+                        headers=self._headers(),
+                    )
+                    resp.raise_for_status()
+            except httpx.TimeoutException as exc:
+                raise LLMTimeoutError(
+                    f"Cloud API request timed out after {timeout}s"
+                ) from exc
+            except httpx.HTTPStatusError as exc:
+                raise LLMError(
+                    f"Cloud API HTTP error {exc.response.status_code}: "
+                    f"{exc.response.text[:300]}"
+                ) from exc
+
+        data = resp.json()
+        choices = data.get("choices", [])
+        if not choices:
+            raise LLMError("Empty choices in cloud API response")
+
+        message = choices[0].get("message", {})
+        content: str | None = message.get("content") or None
+
+        tool_calls: list[ToolCall] = []
+        for tc in message.get("tool_calls") or []:
+            fn = tc.get("function", {})
+            try:
+                args = json.loads(fn.get("arguments") or "{}")
+                if not isinstance(args, dict):
+                    args = {}
+            except json.JSONDecodeError:
+                args = {}
+            name = fn.get("name", "")
+            if name:
+                tool_calls.append(ToolCall(name=name, arguments=args))
+
+        return content, tool_calls
 
     async def generate_stream(
         self,
@@ -329,27 +415,26 @@ class OpenAICompatibleClient:
         logger.debug("generate_stream() sending request to cloud API (no semaphore)")
         async with self._make_client(
             httpx.Timeout(timeout, connect=10.0)
-        ) as client:
-            async with client.stream(
-                "POST",
-                f"{self.base_url}/chat/completions",
-                json=payload,
-                headers=self._headers(),
-            ) as resp:
-                resp.raise_for_status()
-                async for line in resp.aiter_lines():
-                    if not line:
-                        continue
-                    # SSE format: "data: {json}" or "data: [DONE]"
-                    if line.startswith("data: "):
-                        line = line[6:]
-                    if line.strip() == "[DONE]":
-                        break
-                    try:
-                        chunk = json.loads(line)
-                    except json.JSONDecodeError:
-                        continue
-                    delta = chunk.get("choices", [{}])[0].get("delta", {})
-                    token = delta.get("content", "")
-                    if token:
-                        yield token
+        ) as client, client.stream(
+            "POST",
+            f"{self.base_url}/chat/completions",
+            json=payload,
+            headers=self._headers(),
+        ) as resp:
+            resp.raise_for_status()
+            async for line in resp.aiter_lines():
+                if not line:
+                    continue
+                # SSE format: "data: {json}" or "data: [DONE]"
+                if line.startswith("data: "):
+                    line = line[6:]
+                if line.strip() == "[DONE]":
+                    break
+                try:
+                    chunk = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                delta = chunk.get("choices", [{}])[0].get("delta", {})
+                token = delta.get("content", "")
+                if token:
+                    yield token

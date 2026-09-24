@@ -1,0 +1,270 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣",
+      "description": "孙悟空，会七十二般变化，能变火焰虫儿，使铁棒"
+    },
+    {
+      "name": "唐僧",
+      "description": "东土大唐取经僧人，师父，被妖怪捉住"
+    },
+    {
+      "name": "八戒",
+      "description": "猪八戒，使钯，天蓬元帅"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙和尚，使宝杖，卷帘大将"
+    },
+    {
+      "name": "辟寒大王",
+      "description": "犀牛精，三个妖王之一"
+    },
+    {
+      "name": "辟暑大王",
+      "description": "犀牛精，三个妖王之一"
+    },
+    {
+      "name": "辟尘大王",
+      "description": "犀牛精，三个妖王之一"
+    },
+    {
+      "name": "太白金星",
+      "description": "天庭神仙，长庚星"
+    },
+    {
+      "name": "增长天王",
+      "description": "四大天王之一"
+    },
+    {
+      "name": "玉帝",
+      "description": "天庭最高统治者"
+    },
+    {
+      "name": "角木蛟",
+      "description": "二十八宿中的四木禽星之一"
+    },
+    {
+      "name": "斗木獬",
+      "description": "二十八宿中的四木禽星之一"
+    },
+    {
+      "name": "奎木狼",
+      "description": "二十八宿中的四木禽星之一"
+    },
+    {
+      "name": "井木犴",
+      "description": "二十八宿中的四木禽星之一"
+    },
+    {
+      "name": "敖顺",
+      "description": "西海龙王"
+    },
+    {
+      "name": "摩昂",
+      "description": "西海龙王太子"
+    },
+    {
+      "name": "四值功曹",
+      "description": "暗中护佑唐僧的神仙"
+    },
+    {
+      "name": "许天师",
+      "description": "四大天师之一"
+    },
+    {
+      "name": "慈云寺僧",
+      "description": "慈云寺的和尚们"
+    }
+  ],
+  "locations": [
+    {
+      "name": "青龙山",
+      "type": "山",
+      "parent": "天竺国东界金平府旻天县"
+    },
+    {
+      "name": "玄英洞",
+      "type": "洞穴",
+      "parent": "青龙山"
+    },
+    {
+      "name": "金平府",
+      "type": "府城",
+      "parent": "天竺国东界"
+    },
+    {
+      "name": "慈云寺",
+      "type": "寺庙",
+      "parent": "金平府"
+    },
+    {
+      "name": "西天门",
+      "type": "天宫入口",
+      "parent": "天宫"
+    },
+    {
+      "name": "通明殿",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "灵霄宝殿",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "斗牛宫",
+      "type": "星宫",
+      "parent": "天宫"
+    },
+    {
+      "name": "西洋大海",
+      "type": "海洋",
+      "parent": null
+    },
+    {
+      "name": "水晶宫",
+      "type": "龙宫",
+      "parent": "西洋大海"
+    },
+    {
+      "name": "金灯桥",
+      "type": "桥梁",
+      "parent": "金平府"
+    },
+    {
+      "name": "东北艮地",
+      "type": "方位",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙大圣",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "辟寒大王",
+      "person_b": "辟暑大王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "辟寒大王",
+      "person_b": "辟尘大王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "辟暑大王",
+      "person_b": "辟尘大王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "敖顺",
+      "person_b": "摩昂",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "玉帝",
+      "relation_type": "君臣"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "青龙山",
+      "target": "玄英洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "金平府旻天县",
+      "target": "青龙山",
+      "relation_type": "contains",
+      "value": "县境内的山"
+    },
+    {
+      "source": "金平府",
+      "target": "慈云寺",
+      "relation_type": "contains",
+      "value": "府城内的寺庙"
+    },
+    {
+      "source": "金平府",
+      "target": "金灯桥",
+      "relation_type": "contains",
+      "value": "府城内的桥梁"
+    },
+    {
+      "source": "天宫",
+      "target": "西天门",
+      "relation_type": "contains",
+      "value": "天宫的入口"
+    },
+    {
+      "source": "天宫",
+      "target": "通明殿",
+      "relation_type": "contains",
+      "value": "天宫内的宫殿"
+    },
+    {
+      "source": "天宫",
+      "target": "灵霄宝殿",
+      "relation_type": "contains",
+      "value": "天宫内的主殿"
+    },
+    {
+      "source": "天宫",
+      "target": "斗牛宫",
+      "relation_type": "contains",
+      "value": "天宫内的星宫"
+    },
+    {
+      "source": "西洋大海",
+      "target": "水晶宫",
+      "relation_type": "contains",
+      "value": "海中的龙宫"
+    },
+    {
+      "source": "金平府旻天县",
+      "target": "东北艮地",
+      "relation_type": "direction",
+      "value": "县城东北方向"
+    },
+    {
+      "source": "东北艮地",
+      "target": "青龙山",
+      "relation_type": "contains",
+      "value": "艮地上的山"
+    }
+  ],
+  "_chapter": 92,
+  "_input_tokens": 8700,
+  "_output_tokens": 1816
+}

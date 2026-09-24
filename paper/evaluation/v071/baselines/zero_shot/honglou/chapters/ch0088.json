@@ -1,0 +1,273 @@
+{
+  "characters": [
+    {
+      "name": "黛玉",
+      "description": "林黛玉，贾母的外孙女，南边人，体弱多病，才情出众，会抚琴作诗"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，黛玉的姐妹，已搬出大观园，需照料家中事务"
+    },
+    {
+      "name": "探春",
+      "description": "贾探春，贾府三姑娘，性格开朗"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，性格活泼，善于言谈"
+    },
+    {
+      "name": "李纹",
+      "description": "李家姐妹之一"
+    },
+    {
+      "name": "李绮",
+      "description": "李家姐妹之一"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的贴身丫鬟，细心照料黛玉"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉的丫鬟"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，贾府二少爷，与黛玉关系密切"
+    },
+    {
+      "name": "惜春",
+      "description": "贾惜春，贾府四姑娘，会下棋，有出家念头"
+    },
+    {
+      "name": "妙玉",
+      "description": "栊翠庵的尼姑，洁净高雅，会下棋听琴，后来走火入魔"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "贾环",
+      "description": "贾府三爷"
+    },
+    {
+      "name": "贾兰",
+      "description": "贾府兰哥儿"
+    },
+    {
+      "name": "焙茗",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "墨雨",
+      "description": "贾府小厮"
+    },
+    {
+      "name": "彩屏",
+      "description": "惜春的丫鬟"
+    },
+    {
+      "name": "五儿",
+      "description": "厨房女孩，曾与芳官在一处"
+    },
+    {
+      "name": "柳嫂儿",
+      "description": "厨房管事"
+    },
+    {
+      "name": "女尼",
+      "description": "从南边跟随妙玉来的女尼"
+    }
+  ],
+  "locations": [
+    {
+      "name": "潇湘馆",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": null
+    },
+    {
+      "name": "怡红院",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "蓼风轩",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "书房",
+      "type": "学习场所",
+      "parent": null
+    },
+    {
+      "name": "厨房",
+      "type": "功能区",
+      "parent": null
+    },
+    {
+      "name": "南边",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "北边",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "禅房",
+      "type": "房间",
+      "parent": "栊翠庵"
+    },
+    {
+      "name": "禅床",
+      "type": "家具",
+      "parent": "禅房"
+    },
+    {
+      "name": "前轩",
+      "type": "房间",
+      "parent": "栊翠庵"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "黛玉",
+      "person_b": "宝钗",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "雪雁",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "宝玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "焙茗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "惜春",
+      "person_b": "彩屏",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "惜春",
+      "person_b": "妙玉",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "妙玉",
+      "person_b": "女尼",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "湘云",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "李纹",
+      "person_b": "李绮",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "贾环",
+      "person_b": "贾兰",
+      "relation_type": "兄弟"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "大观园",
+      "target": "蓼风轩",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "大观园",
+      "target": "栊翠庵",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "栊翠庵",
+      "target": "禅房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "栊翠庵",
+      "target": "前轩",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "禅房",
+      "target": "禅床",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "蓼风轩",
+      "target": "潇湘馆",
+      "relation_type": "adjacent",
+      "value": "相邻"
+    },
+    {
+      "source": "大观园",
+      "target": "栊翠庵",
+      "relation_type": "direction",
+      "value": "西南角"
+    },
+    {
+      "source": "园内",
+      "target": "东边",
+      "relation_type": "direction",
+      "value": "西边直透到东边"
+    }
+  ],
+  "_chapter": 88,
+  "_input_tokens": 8370,
+  "_output_tokens": 1754
+}

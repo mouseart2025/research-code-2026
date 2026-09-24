@@ -1,0 +1,67 @@
+{
+  "novel": "sanguo",
+  "novel_id": "b1287ef6-c215-4bd2-842c-cb04aec5eb70",
+  "title": "三国演义",
+  "timestamp": "2026-04-14T19:47:45.048016",
+  "gold_based": {
+    "novel": "sanguo",
+    "total_nodes": 1120,
+    "correct_count": 958,
+    "suspect_count": 3,
+    "error_count": 138,
+    "entity_precision": 0.9964285714285714,
+    "name_accuracy": 1.0,
+    "tier_accuracy": 0.8830357142857143,
+    "parent_precision": 0.9982142857142857,
+    "structural_health": 0.9982142857142857,
+    "overall": 0.8767857142857143,
+    "category_errors": {
+      "A": 4,
+      "B": 0,
+      "C": 131,
+      "D": 2,
+      "E": 2
+    },
+    "error_type_counts": {
+      "C-tier错误": 130,
+      "A-描述性短语": 3,
+      "A-非地名": 1,
+      "E-零证据有子": 1,
+      "D-parent错误": 2,
+      "E-消歧重复": 1,
+      "C-tier倒置": 1
+    }
+  },
+  "rule_based": {
+    "novel": "sanguo",
+    "total_nodes": 1360,
+    "correct_count": 777,
+    "suspect_count": 0,
+    "error_count": 583,
+    "entity_precision": 0.9985294117647059,
+    "name_accuracy": 1.0,
+    "tier_accuracy": 0.8566176470588236,
+    "parent_precision": 0.9720588235294118,
+    "structural_health": 0.7036764705882352,
+    "overall": 0.5713235294117647,
+    "category_errors": {
+      "A": 2,
+      "B": 0,
+      "C": 195,
+      "D": 38,
+      "E": 403
+    },
+    "error_type_counts": {
+      "C-tier错误": 140,
+      "E-mc零但原文存在": 304,
+      "E-幻觉父节点": 6,
+      "E-原文无此名": 76,
+      "E-消歧重复": 18,
+      "E-零证据有子": 44,
+      "C-tier倒置": 60,
+      "D-孤立顶层": 38,
+      "A-描述性短语": 1,
+      "A-方位泛称": 1
+    }
+  }
+}

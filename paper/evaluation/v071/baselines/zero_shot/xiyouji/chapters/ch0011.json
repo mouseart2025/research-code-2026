@@ -1,0 +1,287 @@
+{
+  "characters": [
+    {
+      "name": "唐太宗",
+      "description": "大唐皇帝，曾死去三日后还魂复生，在阴司经历了一番奇遇"
+    },
+    {
+      "name": "崔判官",
+      "description": "阴司判官，黑帽皂袍，帮助唐王在阴司中脱困"
+    },
+    {
+      "name": "朱太尉",
+      "description": "阴司太尉，负责护送唐王回阳间"
+    },
+    {
+      "name": "徐茂功",
+      "description": "唐朝文臣，正直有胆量"
+    },
+    {
+      "name": "魏征",
+      "description": "唐朝丞相，精通仙术推算，理烈有胆量"
+    },
+    {
+      "name": "秦叔宝",
+      "description": "唐朝武将，有胆量"
+    },
+    {
+      "name": "胡敬德",
+      "description": "唐朝武将，鄂国公，猛撞有胆量"
+    },
+    {
+      "name": "程咬金",
+      "description": "唐朝武将"
+    },
+    {
+      "name": "房玄龄",
+      "description": "唐朝文臣"
+    },
+    {
+      "name": "杜如晦",
+      "description": "唐朝文臣"
+    },
+    {
+      "name": "萧瑀",
+      "description": "唐朝宰相，支持佛法"
+    },
+    {
+      "name": "傅奕",
+      "description": "唐朝太史丞，反对佛法"
+    },
+    {
+      "name": "许敬宗",
+      "description": "唐朝文臣"
+    },
+    {
+      "name": "刘全",
+      "description": "均州人，家有万贯之资，为进瓜果给阴司而舍命"
+    },
+    {
+      "name": "李翠莲",
+      "description": "刘全之妻，因与丈夫争执而自缢，后借李玉英尸体还魂"
+    },
+    {
+      "name": "李玉英",
+      "description": "唐王御妹，被李翠莲借尸还魂"
+    },
+    {
+      "name": "相良",
+      "description": "河南开封府卖水人，善良长者，常斋僧布施"
+    },
+    {
+      "name": "张氏",
+      "description": "相良之妻"
+    },
+    {
+      "name": "陈玄奘",
+      "description": "高僧，被选为水陆大会坛主，外公殷开山，父亲陈光蕊"
+    },
+    {
+      "name": "殷开山",
+      "description": "陈玄奘外公，当朝一路总管"
+    },
+    {
+      "name": "陈光蕊",
+      "description": "陈玄奘父亲，中状元，官拜文渊殿大学士"
+    },
+    {
+      "name": "十代阎王",
+      "description": "阴司统治者，与唐王在森罗殿相见"
+    }
+  ],
+  "locations": [
+    {
+      "name": "六道轮回",
+      "type": "阴司地点",
+      "parent": "阴司"
+    },
+    {
+      "name": "生贵道",
+      "type": "轮回道路",
+      "parent": "六道轮回"
+    },
+    {
+      "name": "渭水河",
+      "type": "河流",
+      "parent": null
+    },
+    {
+      "name": "白虎殿",
+      "type": "宫殿",
+      "parent": "皇宫"
+    },
+    {
+      "name": "金銮宝殿",
+      "type": "宫殿",
+      "parent": "皇宫"
+    },
+    {
+      "name": "森罗殿",
+      "type": "阴司宫殿",
+      "parent": "阴司"
+    },
+    {
+      "name": "枉死城",
+      "type": "阴司地点",
+      "parent": "阴司"
+    },
+    {
+      "name": "鬼门关",
+      "type": "阴司关卡",
+      "parent": "阴司"
+    },
+    {
+      "name": "均州",
+      "type": "州府",
+      "parent": null
+    },
+    {
+      "name": "河南开封府",
+      "type": "府治",
+      "parent": null
+    },
+    {
+      "name": "长安",
+      "type": "都城",
+      "parent": null
+    },
+    {
+      "name": "化生寺",
+      "type": "寺院",
+      "parent": "长安"
+    },
+    {
+      "name": "相国寺",
+      "type": "寺院",
+      "parent": "河南开封府"
+    },
+    {
+      "name": "金亭馆",
+      "type": "馆舍",
+      "parent": "长安"
+    },
+    {
+      "name": "山川坛",
+      "type": "坛场",
+      "parent": "长安"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐太宗",
+      "person_b": "李玉英",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "刘全",
+      "person_b": "李翠莲",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "相良",
+      "person_b": "张氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "陈玄奘",
+      "person_b": "殷开山",
+      "relation_type": "外公外孙"
+    },
+    {
+      "person_a": "陈玄奘",
+      "person_b": "陈光蕊",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "唐太宗",
+      "person_b": "魏征",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "唐太宗",
+      "person_b": "徐茂功",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "崔判官",
+      "person_b": "朱太尉",
+      "relation_type": "同僚"
+    },
+    {
+      "person_a": "萧瑀",
+      "person_b": "傅奕",
+      "relation_type": "政敌"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "六道轮回",
+      "target": "阴司",
+      "relation_type": "contains",
+      "value": "位于阴司内部"
+    },
+    {
+      "source": "生贵道",
+      "target": "六道轮回",
+      "relation_type": "contains",
+      "value": "六道之一"
+    },
+    {
+      "source": "白虎殿",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "宫内大殿"
+    },
+    {
+      "source": "金銮宝殿",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "主要朝殿"
+    },
+    {
+      "source": "森罗殿",
+      "target": "阴司",
+      "relation_type": "contains",
+      "value": "阴司主殿"
+    },
+    {
+      "source": "枉死城",
+      "target": "阴司",
+      "relation_type": "contains",
+      "value": "阴司城池"
+    },
+    {
+      "source": "鬼门关",
+      "target": "阴司",
+      "relation_type": "contains",
+      "value": "阴司关口"
+    },
+    {
+      "source": "化生寺",
+      "target": "长安",
+      "relation_type": "contains",
+      "value": "城内寺院"
+    },
+    {
+      "source": "相国寺",
+      "target": "河南开封府",
+      "relation_type": "contains",
+      "value": "府内新建寺院"
+    },
+    {
+      "source": "金亭馆",
+      "target": "长安",
+      "relation_type": "contains",
+      "value": "城内馆舍"
+    },
+    {
+      "source": "山川坛",
+      "target": "长安",
+      "relation_type": "contains",
+      "value": "城内坛场"
+    }
+  ],
+  "_chapter": 11,
+  "_input_tokens": 8436,
+  "_output_tokens": 1968
+}

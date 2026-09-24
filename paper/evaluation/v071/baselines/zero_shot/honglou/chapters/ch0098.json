@@ -1,0 +1,300 @@
+{
+  "characters": [
+    {
+      "name": "黛玉",
+      "description": "潇湘馆的主人，因听到宝玉宝钗的婚事而病重吐血"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的贴身丫鬟，对黛玉极为忠心"
+    },
+    {
+      "name": "秋纹",
+      "description": "丫鬟，扶黛玉回屋并向贾母报告情况"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉从南边带来的丫鬟，后被调去侍候宝玉成亲"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太，决定宝玉宝钗的婚事"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲，配合贾母安排婚事"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，策划偷梁换柱的婚事安排"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，因丢玉而昏愦，被安排与宝钗成亲"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，被安排嫁给宝玉"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛宝钗的母亲，同意女儿的婚事"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "贾琏",
+      "description": "负责安排过礼等婚事事宜"
+    },
+    {
+      "name": "王大夫",
+      "description": "为黛玉诊病的医生"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛宝钗的哥哥，因误杀案在外"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛家侄子，传达薛蟠的消息"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，即将赴任外地"
+    },
+    {
+      "name": "李纨",
+      "description": "贾珠的遗孀，来照看病重的黛玉"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "林之孝家的",
+      "description": "管事妈妈"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的贴身丫鬟"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的丫鬟"
+    },
+    {
+      "name": "尤氏",
+      "description": "参与婚礼安排"
+    },
+    {
+      "name": "王奶奶",
+      "description": "黛玉的奶妈"
+    }
+  ],
+  "locations": [
+    {
+      "name": "潇湘馆",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "宅院",
+      "parent": ""
+    },
+    {
+      "name": "贾母上房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人屋里",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "怡红院",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "薛姨妈处",
+      "type": "居所",
+      "parent": ""
+    },
+    {
+      "name": "新房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "洞房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "宗祠",
+      "type": "祠堂",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "十里长亭",
+      "type": "驿站",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "雪雁",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "莺儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛姨妈",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "宝钗",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "薛姨妈",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "贾母上房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "王夫人屋里",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "新房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "宗祠",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "便门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "潇湘馆",
+      "target": "便门",
+      "relation_type": "direction",
+      "value": "远离"
+    }
+  ],
+  "_chapter": 98,
+  "_input_tokens": 12533,
+  "_output_tokens": 1971
+}

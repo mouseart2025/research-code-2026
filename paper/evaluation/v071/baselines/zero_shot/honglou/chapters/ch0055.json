@@ -1,0 +1,336 @@
+{
+  "characters": [
+    {
+      "name": "贾珍",
+      "description": "贾家族人，负责组织活动和斟酒"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾家族人，与贾珍一起斟酒服务"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗，地位最高的长辈"
+    },
+    {
+      "name": "李婶",
+      "description": "贾家亲戚，客人"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "贾家亲戚，客人"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾家夫人"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾家夫人"
+    },
+    {
+      "name": "贾环",
+      "description": "贾家子弟"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，贾母疼爱的孙子"
+    },
+    {
+      "name": "史湘云",
+      "description": "贾家姊妹"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "贾家媳妇，善于言辞，管理家务"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟，因母亲去世守孝"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的丫鬟，与袭人是朋友"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "黛玉",
+      "description": "贾家姊妹"
+    },
+    {
+      "name": "宝琴",
+      "description": "贾家姊妹"
+    },
+    {
+      "name": "宝钗",
+      "description": "贾家姊妹"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍的儿子"
+    },
+    {
+      "name": "贾兰",
+      "description": "贾家子弟"
+    },
+    {
+      "name": "贾菌",
+      "description": "贾家子弟"
+    },
+    {
+      "name": "娄氏",
+      "description": "贾家媳妇"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾家媳妇"
+    },
+    {
+      "name": "李纨",
+      "description": "贾家媳妇"
+    },
+    {
+      "name": "贾琮",
+      "description": "贾家子弟"
+    },
+    {
+      "name": "贾璜",
+      "description": "贾家子弟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "台",
+      "type": "戏台",
+      "parent": ""
+    },
+    {
+      "name": "里面",
+      "type": "内室",
+      "parent": ""
+    },
+    {
+      "name": "席",
+      "type": "座位",
+      "parent": "里面"
+    },
+    {
+      "name": "榻",
+      "type": "卧具",
+      "parent": "里面"
+    },
+    {
+      "name": "园中",
+      "type": "园林",
+      "parent": ""
+    },
+    {
+      "name": "园门",
+      "type": "门",
+      "parent": "园中"
+    },
+    {
+      "name": "茶房",
+      "type": "房间",
+      "parent": "园门"
+    },
+    {
+      "name": "院中",
+      "type": "院落",
+      "parent": "园中"
+    },
+    {
+      "name": "镜壁",
+      "type": "屏风",
+      "parent": "院中"
+    },
+    {
+      "name": "地炕",
+      "type": "床铺",
+      "parent": "院中"
+    },
+    {
+      "name": "山石",
+      "type": "假山",
+      "parent": "园中"
+    },
+    {
+      "name": "花厅",
+      "type": "厅堂",
+      "parent": ""
+    },
+    {
+      "name": "后廊",
+      "type": "走廊",
+      "parent": "花厅"
+    },
+    {
+      "name": "暖阁",
+      "type": "暖室",
+      "parent": "里面"
+    },
+    {
+      "name": "地炕",
+      "type": "床铺",
+      "parent": "暖阁"
+    },
+    {
+      "name": "戏房",
+      "type": "房间",
+      "parent": ""
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": ""
+    },
+    {
+      "name": "二门口",
+      "type": "门",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾珍",
+      "person_b": "贾琏",
+      "relation_type": "族兄弟"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "王夫人",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "麝月",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "秋纹",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "鸳鸯",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "凤姐儿",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "贾母",
+      "relation_type": "亲戚"
+    },
+    {
+      "person_a": "李婶",
+      "person_b": "贾母",
+      "relation_type": "亲戚"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "里面",
+      "target": "台",
+      "relation_type": "adjacent",
+      "value": "相邻"
+    },
+    {
+      "source": "园门",
+      "target": "园中",
+      "relation_type": "contains",
+      "value": "园门在园中"
+    },
+    {
+      "source": "茶房",
+      "target": "园门",
+      "relation_type": "adjacent",
+      "value": "茶房在园门里"
+    },
+    {
+      "source": "院中",
+      "target": "园中",
+      "relation_type": "contains",
+      "value": "院中在园中"
+    },
+    {
+      "source": "镜壁",
+      "target": "院中",
+      "relation_type": "contains",
+      "value": "镜壁在院中"
+    },
+    {
+      "source": "地炕",
+      "target": "镜壁",
+      "relation_type": "adjacent",
+      "value": "地炕在镜壁后"
+    },
+    {
+      "source": "山石",
+      "target": "园中",
+      "relation_type": "contains",
+      "value": "山石在园中"
+    },
+    {
+      "source": "后廊",
+      "target": "花厅",
+      "relation_type": "contains",
+      "value": "后廊属于花厅"
+    },
+    {
+      "source": "暖阁",
+      "target": "里面",
+      "relation_type": "contains",
+      "value": "暖阁在里面"
+    },
+    {
+      "source": "地炕",
+      "target": "暖阁",
+      "relation_type": "contains",
+      "value": "地炕在暖阁里"
+    }
+  ],
+  "_chapter": 55,
+  "_input_tokens": 6769,
+  "_output_tokens": 1994
+}

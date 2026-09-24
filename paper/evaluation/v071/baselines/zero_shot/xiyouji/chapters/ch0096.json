@@ -1,0 +1,293 @@
+{
+  "characters": [
+    {
+      "name": "唐僧",
+      "description": "东土大唐钦差诣灵山见佛祖求真经的僧人，相貌轩昂，丰姿英伟"
+    },
+    {
+      "name": "行者",
+      "description": "唐僧的大徒弟，会法力，能驾云而行"
+    },
+    {
+      "name": "八戒",
+      "description": "唐僧的二徒弟，贪吃，形容丑陋，声音如深山虎啸"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧的三徒弟，负责照料马匹"
+    },
+    {
+      "name": "寇洪",
+      "description": "寇员外，字大宽，虚度六十四岁，自四十岁上许斋万僧，已斋过九千九百九十六员"
+    },
+    {
+      "name": "寇员外妈妈",
+      "description": "寇洪的妻子，老妪，也要斋僧"
+    },
+    {
+      "name": "寇梁",
+      "description": "寇洪的儿子，少年秀才，在书房读书"
+    },
+    {
+      "name": "寇栋",
+      "description": "寇洪的儿子，少年秀才，在书房读书"
+    },
+    {
+      "name": "苍头",
+      "description": "寇家的仆人，提着秤和篮子"
+    },
+    {
+      "name": "华光菩萨",
+      "description": "火焰五光佛的徒弟，因剿除毒火鬼王降了职化做五显灵官"
+    }
+  ],
+  "locations": [
+    {
+      "name": "布金寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "铜台府",
+      "type": "府",
+      "parent": null
+    },
+    {
+      "name": "地灵县",
+      "type": "县",
+      "parent": "铜台府"
+    },
+    {
+      "name": "长街",
+      "type": "街道",
+      "parent": "地灵县"
+    },
+    {
+      "name": "南北街",
+      "type": "街道",
+      "parent": "地灵县"
+    },
+    {
+      "name": "寇员外家",
+      "type": "宅第",
+      "parent": "地灵县"
+    },
+    {
+      "name": "虎坐门楼",
+      "type": "建筑",
+      "parent": "寇员外家"
+    },
+    {
+      "name": "佛堂",
+      "type": "房间",
+      "parent": "寇员外家"
+    },
+    {
+      "name": "经堂",
+      "type": "房间",
+      "parent": "寇员外家"
+    },
+    {
+      "name": "斋堂",
+      "type": "房间",
+      "parent": "寇员外家"
+    },
+    {
+      "name": "书房",
+      "type": "房间",
+      "parent": "寇员外家"
+    },
+    {
+      "name": "天井",
+      "type": "庭院",
+      "parent": "寇员外家"
+    },
+    {
+      "name": "厂厅",
+      "type": "房间",
+      "parent": "寇员外家"
+    },
+    {
+      "name": "十里长亭",
+      "type": "建筑",
+      "parent": null
+    },
+    {
+      "name": "华光行院",
+      "type": "庙宇",
+      "parent": null
+    },
+    {
+      "name": "南来寺",
+      "type": "寺庙",
+      "parent": "地灵县"
+    },
+    {
+      "name": "东岳观",
+      "type": "道观",
+      "parent": "地灵县"
+    },
+    {
+      "name": "灵山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "东土大唐",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "南赡部洲",
+      "type": "大洲",
+      "parent": null
+    },
+    {
+      "name": "西牛贺洲",
+      "type": "大洲",
+      "parent": null
+    },
+    {
+      "name": "东胜神洲",
+      "type": "大洲",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "寇洪",
+      "person_b": "寇员外妈妈",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "寇洪",
+      "person_b": "寇梁",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "寇洪",
+      "person_b": "寇栋",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "寇梁",
+      "person_b": "寇栋",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "华光菩萨",
+      "person_b": "火焰五光佛",
+      "relation_type": "师徒"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "铜台府",
+      "target": "地灵县",
+      "relation_type": "contains",
+      "value": "府后有一县"
+    },
+    {
+      "source": "地灵县",
+      "target": "长街",
+      "relation_type": "contains",
+      "value": "县内街道"
+    },
+    {
+      "source": "地灵县",
+      "target": "南北街",
+      "relation_type": "contains",
+      "value": "过牌坊可达"
+    },
+    {
+      "source": "寇员外家",
+      "target": "南北街",
+      "relation_type": "adjacent",
+      "value": "坐西向东"
+    },
+    {
+      "source": "寇员外家",
+      "target": "虎坐门楼",
+      "relation_type": "contains",
+      "value": "门楼在前"
+    },
+    {
+      "source": "寇员外家",
+      "target": "佛堂",
+      "relation_type": "contains",
+      "value": "上手房宇"
+    },
+    {
+      "source": "寇员外家",
+      "target": "经堂",
+      "relation_type": "contains",
+      "value": "上手房宇"
+    },
+    {
+      "source": "寇员外家",
+      "target": "斋堂",
+      "relation_type": "contains",
+      "value": "上手房宇"
+    },
+    {
+      "source": "寇员外家",
+      "target": "书房",
+      "relation_type": "contains",
+      "value": "内宅"
+    },
+    {
+      "source": "寇员外家",
+      "target": "天井",
+      "relation_type": "contains",
+      "value": "院内"
+    },
+    {
+      "source": "铜台府",
+      "target": "灵山",
+      "relation_type": "direction",
+      "value": "距离八百里路"
+    },
+    {
+      "source": "十里长亭",
+      "target": "铜台府",
+      "relation_type": "direction",
+      "value": "府城之外十里"
+    },
+    {
+      "source": "华光行院",
+      "target": "铜台府",
+      "relation_type": "direction",
+      "value": "西行四五十里"
+    },
+    {
+      "source": "地灵县",
+      "target": "南来寺",
+      "relation_type": "contains",
+      "value": "县内寺庙"
+    },
+    {
+      "source": "地灵县",
+      "target": "东岳观",
+      "relation_type": "contains",
+      "value": "县内道观"
+    }
+  ],
+  "_chapter": 96,
+  "_input_tokens": 7302,
+  "_output_tokens": 1903
+}

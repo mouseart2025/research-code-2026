@@ -1,0 +1,230 @@
+{
+  "characters": [
+    {
+      "name": "凤姐",
+      "description": "贾琏之妻，聪明狡猾，善于设计捉弄贾瑞"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "贾瑞",
+      "description": "代儒之孙，年约二十，未娶亲，因迷恋凤姐而死"
+    },
+    {
+      "name": "贾蓉",
+      "description": "宁国府的人，与贾蔷合谋敲诈贾瑞"
+    },
+    {
+      "name": "贾蔷",
+      "description": "与贾蓉合谋敲诈贾瑞"
+    },
+    {
+      "name": "代儒",
+      "description": "贾瑞的祖父，教书先生，教训严格"
+    },
+    {
+      "name": "王夫人",
+      "description": "荣国府主母之一"
+    },
+    {
+      "name": "跛足道人",
+      "description": "拥有风月宝鉴的道士"
+    },
+    {
+      "name": "贾母",
+      "description": "荣国府老太太"
+    },
+    {
+      "name": "林黛玉",
+      "description": "林如海之女，住在荣国府"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐的丈夫"
+    },
+    {
+      "name": "林如海",
+      "description": "林黛玉的父亲，身染重疾"
+    },
+    {
+      "name": "宝玉",
+      "description": "与黛玉关系亲密"
+    },
+    {
+      "name": "贾赦",
+      "description": "荣国府长房"
+    },
+    {
+      "name": "贾政",
+      "description": "荣国府二房"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁国府当家"
+    }
+  ],
+  "locations": [
+    {
+      "name": "荣府",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "西边穿堂",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "房后小过道子",
+      "type": "通道",
+      "parent": "荣府"
+    },
+    {
+      "name": "空屋",
+      "type": "房间",
+      "parent": "房后小过道子"
+    },
+    {
+      "name": "夹道中屋子",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "大台矶",
+      "type": "建筑",
+      "parent": "荣府"
+    },
+    {
+      "name": "后门",
+      "type": "门",
+      "parent": "荣府"
+    },
+    {
+      "name": "铁槛寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "扬州",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "宁国府",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "太虚幻境",
+      "type": "仙境",
+      "parent": null
+    },
+    {
+      "name": "空灵殿",
+      "type": "殿堂",
+      "parent": "太虚幻境"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾瑞",
+      "person_b": "代儒",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "贾蔷",
+      "relation_type": "同谋"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "林如海",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "贾母",
+      "relation_type": "外祖母孙女"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "宝玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "王夫人",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "贾政",
+      "relation_type": "兄弟"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "荣府",
+      "target": "西边穿堂",
+      "relation_type": "contains",
+      "value": "西边"
+    },
+    {
+      "source": "荣府",
+      "target": "房后小过道子",
+      "relation_type": "contains",
+      "value": "房后"
+    },
+    {
+      "source": "房后小过道子",
+      "target": "空屋",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "荣府",
+      "target": "大台矶",
+      "relation_type": "contains",
+      "value": "院内"
+    },
+    {
+      "source": "荣府",
+      "target": "后门",
+      "relation_type": "contains",
+      "value": "后部"
+    },
+    {
+      "source": "太虚幻境",
+      "target": "空灵殿",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "荣府",
+      "target": "贾母房间",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "西边穿堂",
+      "target": "东边门",
+      "relation_type": "adjacent",
+      "value": "东侧"
+    }
+  ],
+  "_chapter": 12,
+  "_input_tokens": 5495,
+  "_output_tokens": 1444
+}

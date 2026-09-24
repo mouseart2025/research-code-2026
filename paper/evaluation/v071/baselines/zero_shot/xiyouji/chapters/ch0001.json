@@ -1,0 +1,246 @@
+{
+  "characters": [
+    {
+      "name": "盘古",
+      "description": "开天辟地的神话人物，破鸿蒙开辟天地"
+    },
+    {
+      "name": "邵康节",
+      "description": "古代智者，提出关于天地运行的理论"
+    },
+    {
+      "name": "玉皇大天尊",
+      "description": "天庭最高统治者，又称玉皇大帝，驾座金阙云宫灵霄宝店"
+    },
+    {
+      "name": "千里眼",
+      "description": "天庭将领，奉玉帝之命观察金光来源"
+    },
+    {
+      "name": "顺风耳",
+      "description": "天庭将领，奉玉帝之命观察金光来源"
+    },
+    {
+      "name": "石猴",
+      "description": "仙石所生的猴子，后成为美猴王，五官俱备四肢皆全，目运金光"
+    },
+    {
+      "name": "美猴王",
+      "description": "石猴称王后的名号，统领花果山群猴，享乐三五百载后开始寻仙访道"
+    },
+    {
+      "name": "通背猿猴",
+      "description": "美猴王手下的猴子，告知其佛仙神三者可躲过轮回"
+    },
+    {
+      "name": "樵夫",
+      "description": "在灵台方寸山砍柴的樵子，家有老母需要奉养，认识须菩提祖师"
+    },
+    {
+      "name": "须菩提祖师",
+      "description": "灵台方寸山斜月三星洞的神仙，美猴王的师父，赐名孙悟空"
+    },
+    {
+      "name": "仙童",
+      "description": "须菩提祖师的童子弟子，负责接待访道者"
+    },
+    {
+      "name": "孙悟空",
+      "description": "须菩提祖师为石猴所赐法名，意为打破顽空须悟空"
+    }
+  ],
+  "locations": [
+    {
+      "name": "四大部洲",
+      "type": "世界区域",
+      "parent": "世界"
+    },
+    {
+      "name": "东胜神洲",
+      "type": "大洲",
+      "parent": "四大部洲"
+    },
+    {
+      "name": "西牛贺洲",
+      "type": "大洲",
+      "parent": "四大部洲"
+    },
+    {
+      "name": "南赡部洲",
+      "type": "大洲",
+      "parent": "四大部洲"
+    },
+    {
+      "name": "北俱芦洲",
+      "type": "大洲",
+      "parent": "四大部洲"
+    },
+    {
+      "name": "傲来国",
+      "type": "国家",
+      "parent": "东胜神洲"
+    },
+    {
+      "name": "花果山",
+      "type": "山脉",
+      "parent": "傲来国"
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞府",
+      "parent": "花果山"
+    },
+    {
+      "name": "大海",
+      "type": "海域",
+      "parent": ""
+    },
+    {
+      "name": "金阙云宫",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "灵霄宝店",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "南天门",
+      "type": "天门",
+      "parent": "天庭"
+    },
+    {
+      "name": "斗府",
+      "type": "星宿",
+      "parent": "天庭"
+    },
+    {
+      "name": "西洋大海",
+      "type": "海域",
+      "parent": ""
+    },
+    {
+      "name": "灵台方寸山",
+      "type": "山脉",
+      "parent": "西牛贺洲"
+    },
+    {
+      "name": "斜月三星洞",
+      "type": "洞府",
+      "parent": "灵台方寸山"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "石猴",
+      "person_b": "美猴王",
+      "relation_type": "同一人"
+    },
+    {
+      "person_a": "美猴王",
+      "person_b": "孙悟空",
+      "relation_type": "同一人"
+    },
+    {
+      "person_a": "美猴王",
+      "person_b": "群猴",
+      "relation_type": "君主"
+    },
+    {
+      "person_a": "通背猿猴",
+      "person_b": "美猴王",
+      "relation_type": "部下"
+    },
+    {
+      "person_a": "千里眼",
+      "person_b": "玉皇大天尊",
+      "relation_type": "臣属"
+    },
+    {
+      "person_a": "顺风耳",
+      "person_b": "玉皇大天尊",
+      "relation_type": "臣属"
+    },
+    {
+      "person_a": "樵夫",
+      "person_b": "须菩提祖师",
+      "relation_type": "邻居"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "须菩提祖师",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "仙童",
+      "person_b": "须菩提祖师",
+      "relation_type": "师徒"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "东胜神洲",
+      "target": "四大部洲",
+      "relation_type": "contains",
+      "value": "部分"
+    },
+    {
+      "source": "傲来国",
+      "target": "东胜神洲",
+      "relation_type": "contains",
+      "value": "靠近大海"
+    },
+    {
+      "source": "花果山",
+      "target": "傲来国",
+      "relation_type": "contains",
+      "value": "海中"
+    },
+    {
+      "source": "水帘洞",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "山中洞府"
+    },
+    {
+      "source": "南赡部洲",
+      "target": "东胜神洲",
+      "relation_type": "direction",
+      "value": "隔两重大海"
+    },
+    {
+      "source": "西牛贺洲",
+      "target": "南赡部洲",
+      "relation_type": "direction",
+      "value": "西海相隔"
+    },
+    {
+      "source": "灵台方寸山",
+      "target": "西牛贺洲",
+      "relation_type": "contains",
+      "value": "山中"
+    },
+    {
+      "source": "斜月三星洞",
+      "target": "灵台方寸山",
+      "relation_type": "contains",
+      "value": "山中洞府"
+    },
+    {
+      "source": "金阙云宫",
+      "target": "天庭",
+      "relation_type": "contains",
+      "value": "中央"
+    },
+    {
+      "source": "南天门",
+      "target": "天庭",
+      "relation_type": "contains",
+      "value": "入口"
+    }
+  ],
+  "_chapter": 1,
+  "_input_tokens": 8503,
+  "_output_tokens": 1756
+}

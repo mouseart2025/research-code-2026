@@ -1,0 +1,320 @@
+{
+  "characters": [
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲，贾政的妻子，金钏儿的主人"
+    },
+    {
+      "name": "金钏儿",
+      "description": "王夫人房里的丫鬟，跳井自尽"
+    },
+    {
+      "name": "金钏儿母亲",
+      "description": "金钏儿的母亲，接受王夫人赏赐"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，衔玉而生，与琪官相交"
+    },
+    {
+      "name": "雨村",
+      "description": "来访贾府的客人"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家女儿，在贾府居住"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，贾府当家人"
+    },
+    {
+      "name": "长史官",
+      "description": "忠顺王府的官员，来寻琪官"
+    },
+    {
+      "name": "琪官",
+      "description": "忠顺王府的小旦戏子，与宝玉相交"
+    },
+    {
+      "name": "忠顺王爷",
+      "description": "忠顺王府的主人"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政的儿子，宝玉的弟弟"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府族人"
+    },
+    {
+      "name": "赖大",
+      "description": "贾府管事"
+    },
+    {
+      "name": "来兴",
+      "description": "贾府管事"
+    },
+    {
+      "name": "焙茗",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "贾母",
+      "description": "贾政的母亲，宝玉的祖母"
+    },
+    {
+      "name": "李宫裁",
+      "description": "贾珠的遗孀"
+    },
+    {
+      "name": "王熙凤",
+      "description": "贾府管家奶奶，贾琏之妻"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府小姐"
+    },
+    {
+      "name": "贾珠",
+      "description": "已故的贾政长子，李宫裁的丈夫"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝钗的母亲，王夫人的妹妹"
+    },
+    {
+      "name": "香菱",
+      "description": "薛府的丫鬟"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房里的大丫鬟"
+    },
+    {
+      "name": "史湘云",
+      "description": "史家小姐，贾府亲戚"
+    }
+  ],
+  "locations": [
+    {
+      "name": "厅上",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "屏门",
+      "type": "建筑结构",
+      "parent": "厅上"
+    },
+    {
+      "name": "忠顺王府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "书房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "紫檀堡",
+      "type": "村落",
+      "parent": "东郊"
+    },
+    {
+      "name": "东郊",
+      "type": "郊区",
+      "parent": null
+    },
+    {
+      "name": "井边",
+      "type": "地点",
+      "parent": "贾府"
+    },
+    {
+      "name": "太太屋里",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "建筑结构",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾母房中",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "南京",
+      "type": "城市",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "金钏儿",
+      "person_b": "王夫人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "琪官",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾环",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾环",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾政",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "李宫裁",
+      "person_b": "贾珠",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾珠",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "王熙凤",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "王夫人",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "焙茗",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "厅上",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "厅上",
+      "target": "屏门",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "书房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "东郊",
+      "target": "城",
+      "relation_type": "direction",
+      "value": "距离二十里"
+    },
+    {
+      "source": "东郊",
+      "target": "紫檀堡",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "井边",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "太太屋里",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "贾母房中",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "怡红院",
+      "target": "宝玉床",
+      "relation_type": "contains",
+      "value": "包含"
+    }
+  ],
+  "_chapter": 33,
+  "_input_tokens": 5935,
+  "_output_tokens": 2000
+}

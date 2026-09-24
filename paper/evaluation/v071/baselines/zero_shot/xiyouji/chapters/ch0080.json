@@ -1,0 +1,283 @@
+{
+  "characters": [
+    {
+      "name": "唐僧/三藏",
+      "description": "来自东土大唐的取经僧人，金蝉长老转世，十世修行的好人，眉清目秀，额阔顶平，耳垂肩手过膝，好似罗汉临凡"
+    },
+    {
+      "name": "孙悟空/行者/大圣",
+      "description": "唐僧的大徒弟，神通广大，手执金箍棒，雷公嘴，能识破妖怪，曾大闹天宫自称齐天大圣"
+    },
+    {
+      "name": "猪八戒/八戒/呆子",
+      "description": "唐僧的二徒弟，碓挺嘴，贪色重利，性格憨厚但容易被诱惑"
+    },
+    {
+      "name": "沙悟净/沙僧",
+      "description": "唐僧的三徒弟，青脸獠牙，负责挑担和牵马"
+    },
+    {
+      "name": "女妖精",
+      "description": "伪装成被绑在树上的女子，有沉鱼落雁之容，闭月羞花之貌，实为妖怪，想要拿唐僧配合成太乙金仙"
+    },
+    {
+      "name": "比丘国君臣黎庶",
+      "description": "送别唐僧师徒的比丘国官民"
+    },
+    {
+      "name": "侍奉香火的道人",
+      "description": "镇海禅林寺里看管香火的道人，模样丑黑"
+    },
+    {
+      "name": "喇嘛和尚",
+      "description": "镇海禅林寺的和尚，头戴左笄绒锦帽，身着颇罗毛线服，手摇播郎鼓"
+    },
+    {
+      "name": "小喇嘛",
+      "description": "镇海禅林寺的小和尚，有七八十个"
+    }
+  ],
+  "locations": [
+    {
+      "name": "比丘国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "高山峻岭",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "山脚",
+      "type": "地形",
+      "parent": "高山峻岭"
+    },
+    {
+      "name": "山崖",
+      "type": "地形",
+      "parent": "高山峻岭"
+    },
+    {
+      "name": "大路",
+      "type": "道路",
+      "parent": "山崖"
+    },
+    {
+      "name": "黑松大林/松林",
+      "type": "森林",
+      "parent": "高山峻岭"
+    },
+    {
+      "name": "松阴",
+      "type": "树荫",
+      "parent": "黑松大林"
+    },
+    {
+      "name": "贫婆国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "荒郊野外",
+      "type": "野外",
+      "parent": "贫婆国"
+    },
+    {
+      "name": "先茔",
+      "type": "墓地",
+      "parent": "荒郊野外"
+    },
+    {
+      "name": "镇海禅林寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "山门",
+      "type": "建筑",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "长廊",
+      "type": "建筑",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "殿宇",
+      "type": "建筑",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "钟楼",
+      "type": "建筑",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "大雄殿",
+      "type": "建筑",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "毗罗阁",
+      "type": "建筑",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "文殊殿",
+      "type": "建筑",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "轮藏堂",
+      "type": "建筑",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "碧云宫",
+      "type": "建筑",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "方丈",
+      "type": "建筑",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "东土大唐",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "西方天竺国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "大雷音寺",
+      "type": "寺庙",
+      "parent": "西方天竺国"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙悟净",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙悟净",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙悟净",
+      "relation_type": "师兄弟"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "比丘国",
+      "target": "高山峻岭",
+      "relation_type": "direction",
+      "value": "二十里之远"
+    },
+    {
+      "source": "山脚",
+      "target": "高山峻岭",
+      "relation_type": "contains",
+      "value": "位于山下"
+    },
+    {
+      "source": "山崖",
+      "target": "高山峻岭",
+      "relation_type": "contains",
+      "value": "山上部分"
+    },
+    {
+      "source": "大路",
+      "target": "山崖",
+      "relation_type": "contains",
+      "value": "转山的路"
+    },
+    {
+      "source": "黑松大林",
+      "target": "高山峻岭",
+      "relation_type": "contains",
+      "value": "位于山中"
+    },
+    {
+      "source": "贫婆国",
+      "target": "黑松大林",
+      "relation_type": "direction",
+      "value": "二百余里"
+    },
+    {
+      "source": "荒郊野外",
+      "target": "贫婆国",
+      "relation_type": "contains",
+      "value": "城外区域"
+    },
+    {
+      "source": "先茔",
+      "target": "荒郊野外",
+      "relation_type": "contains",
+      "value": "位于野外"
+    },
+    {
+      "source": "镇海禅林寺",
+      "target": "黑松大林",
+      "relation_type": "direction",
+      "value": "二三十里"
+    },
+    {
+      "source": "山门",
+      "target": "镇海禅林寺",
+      "relation_type": "contains",
+      "value": "寺庙入口"
+    },
+    {
+      "source": "长廊",
+      "target": "镇海禅林寺",
+      "relation_type": "contains",
+      "value": "寺庙建筑"
+    },
+    {
+      "source": "殿宇",
+      "target": "镇海禅林寺",
+      "relation_type": "contains",
+      "value": "寺庙主体建筑"
+    },
+    {
+      "source": "方丈",
+      "target": "镇海禅林寺",
+      "relation_type": "contains",
+      "value": "三层门里"
+    },
+    {
+      "source": "大雷音寺",
+      "target": "西方天竺国",
+      "relation_type": "contains",
+      "value": "位于天竺国"
+    }
+  ],
+  "_chapter": 80,
+  "_input_tokens": 8243,
+  "_output_tokens": 2077
+}

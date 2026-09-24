@@ -1,0 +1,277 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣/孙悟空/行者",
+      "description": "齐天大圣，手持金箍棒，神通广大，保护唐僧取经"
+    },
+    {
+      "name": "李天王",
+      "description": "天上的神将，受玉帝差遣助孙悟空降妖"
+    },
+    {
+      "name": "兕大王",
+      "description": "金皘洞妖魔，拥有金刚琢，能套取各种兵器"
+    },
+    {
+      "name": "哪吒太子",
+      "description": "李天王之子，拥有六件神兵"
+    },
+    {
+      "name": "火德星君",
+      "description": "掌管火部的神仙，拥有火龙火马等火具"
+    },
+    {
+      "name": "唐僧/唐长老",
+      "description": "金蝉长老转世，东土大唐取经僧人"
+    },
+    {
+      "name": "八戒",
+      "description": "唐僧弟子，被妖怪捆住"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧弟子，被妖怪捆住"
+    },
+    {
+      "name": "白龙马",
+      "description": "唐僧的坐骑"
+    },
+    {
+      "name": "如来",
+      "description": "西天佛祖，法力无边"
+    },
+    {
+      "name": "太上老君",
+      "description": "兜率宫主人，青牛的主人，拥有芭蕉扇和金刚琢"
+    },
+    {
+      "name": "比丘尼尊者",
+      "description": "灵山的尊者"
+    },
+    {
+      "name": "十八罗汉",
+      "description": "佛门弟子，奉如来之命用金丹砂助孙悟空"
+    },
+    {
+      "name": "降龙罗汉",
+      "description": "十八罗汉之一"
+    },
+    {
+      "name": "伏虎罗汉",
+      "description": "十八罗汉之一"
+    },
+    {
+      "name": "雷公",
+      "description": "掌管雷电的神仙"
+    },
+    {
+      "name": "水伯",
+      "description": "掌管水的神仙"
+    },
+    {
+      "name": "青牛",
+      "description": "太上老君的坐骑，兕大王的真身"
+    }
+  ],
+  "locations": [
+    {
+      "name": "金皘山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "金皘洞",
+      "type": "洞府",
+      "parent": "金皘山"
+    },
+    {
+      "name": "高峰",
+      "type": "山峰",
+      "parent": "金皘山"
+    },
+    {
+      "name": "山坡",
+      "type": "地形",
+      "parent": "金皘山"
+    },
+    {
+      "name": "灵山",
+      "type": "佛教圣地",
+      "parent": null
+    },
+    {
+      "name": "雷音寺",
+      "type": "寺庙",
+      "parent": "灵山"
+    },
+    {
+      "name": "离恨天",
+      "type": "天界",
+      "parent": null
+    },
+    {
+      "name": "兜率宫",
+      "type": "宫殿",
+      "parent": "离恨天"
+    },
+    {
+      "name": "南天门",
+      "type": "天门",
+      "parent": "天界"
+    },
+    {
+      "name": "西天",
+      "type": "方位",
+      "parent": null
+    },
+    {
+      "name": "洞口",
+      "type": "入口",
+      "parent": "金皘洞"
+    },
+    {
+      "name": "后面房里",
+      "type": "房间",
+      "parent": "金皘洞"
+    },
+    {
+      "name": "石床",
+      "type": "家具",
+      "parent": "后面房里"
+    },
+    {
+      "name": "藏兵之处",
+      "type": "储藏室",
+      "parent": "金皘洞"
+    },
+    {
+      "name": "牛栏",
+      "type": "畜栏",
+      "parent": "兜率宫"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "哪吒太子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "太上老君",
+      "person_b": "青牛",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "兕大王",
+      "person_b": "青牛",
+      "relation_type": "本体"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "兕大王",
+      "relation_type": "敌对"
+    },
+    {
+      "person_a": "如来",
+      "person_b": "十八罗汉",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "降龙罗汉",
+      "person_b": "伏虎罗汉",
+      "relation_type": "同门"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "金皘山",
+      "target": "金皘洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "金皘山",
+      "target": "高峰",
+      "relation_type": "contains",
+      "value": "山中有峰"
+    },
+    {
+      "source": "金皘山",
+      "target": "山坡",
+      "relation_type": "contains",
+      "value": "山的组成部分"
+    },
+    {
+      "source": "金皘洞",
+      "target": "洞口",
+      "relation_type": "contains",
+      "value": "洞的入口"
+    },
+    {
+      "source": "金皘洞",
+      "target": "后面房里",
+      "relation_type": "contains",
+      "value": "洞内房间"
+    },
+    {
+      "source": "金皘洞",
+      "target": "藏兵之处",
+      "relation_type": "contains",
+      "value": "洞内储藏室"
+    },
+    {
+      "source": "后面房里",
+      "target": "石床",
+      "relation_type": "contains",
+      "value": "房间内家具"
+    },
+    {
+      "source": "灵山",
+      "target": "雷音寺",
+      "relation_type": "contains",
+      "value": "山中有寺"
+    },
+    {
+      "source": "离恨天",
+      "target": "兜率宫",
+      "relation_type": "contains",
+      "value": "天界中的宫殿"
+    },
+    {
+      "source": "兜率宫",
+      "target": "牛栏",
+      "relation_type": "contains",
+      "value": "宫中畜栏"
+    },
+    {
+      "source": "高峰",
+      "target": "洞口",
+      "relation_type": "direction",
+      "value": "峰上俯视洞口"
+    },
+    {
+      "source": "洞口",
+      "target": "后面房里",
+      "relation_type": "direction",
+      "value": "从前往后"
+    }
+  ],
+  "_chapter": 52,
+  "_input_tokens": 9080,
+  "_output_tokens": 1842
+}

@@ -1,0 +1,253 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾家公子，因见贾政后头昏脑闷，病重不起，心系黛玉"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老太太，八十多岁，疼爱宝玉"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲，贾母的儿媳"
+    },
+    {
+      "name": "凤姐",
+      "description": "管家的媳妇，善于言辞劝慰"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝玉的新媳妇，薛家女儿，性情温和"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，宝玉的表妹，已病逝"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝钗的母亲，王夫人的妹妹"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟，贴身伺候"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的丫鬟"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的丫鬟"
+    },
+    {
+      "name": "李纨",
+      "description": "寡居的嫂子，住在稻香村"
+    },
+    {
+      "name": "探春",
+      "description": "贾家三姑娘"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉的丫鬟"
+    },
+    {
+      "name": "毕知庵",
+      "description": "城外破寺中的穷医生，诊治宝玉"
+    },
+    {
+      "name": "林之孝家的",
+      "description": "管事的仆人"
+    },
+    {
+      "name": "彩云",
+      "description": "丫鬟，帮助照应宝玉"
+    },
+    {
+      "name": "珍珠儿",
+      "description": "贾母身边的丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "房中",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "园里",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "薛家",
+      "type": "宅邸",
+      "parent": null
+    },
+    {
+      "name": "城外破寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "阴司泉路",
+      "type": "阴间",
+      "parent": null
+    },
+    {
+      "name": "太虚幻境",
+      "type": "仙境",
+      "parent": null
+    },
+    {
+      "name": "外书房",
+      "type": "书房",
+      "parent": "贾府"
+    },
+    {
+      "name": "稻香村",
+      "type": "住所",
+      "parent": "贾府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "住所",
+      "parent": "贾府"
+    },
+    {
+      "name": "新房子",
+      "type": "房间",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "莺儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "雪雁",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "薛姨妈",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "王夫人",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "珍珠儿",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "房中",
+      "relation_type": "contains",
+      "value": "宝玉居住的房间"
+    },
+    {
+      "source": "贾府",
+      "target": "园里",
+      "relation_type": "contains",
+      "value": "府内花园"
+    },
+    {
+      "source": "贾府",
+      "target": "外书房",
+      "relation_type": "contains",
+      "value": "书房位置"
+    },
+    {
+      "source": "贾府",
+      "target": "稻香村",
+      "relation_type": "contains",
+      "value": "李纨住所"
+    },
+    {
+      "source": "贾府",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "黛玉住所"
+    },
+    {
+      "source": "贾府",
+      "target": "新房子",
+      "relation_type": "contains",
+      "value": "宝玉宝钗新房"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "新房子",
+      "relation_type": "direction",
+      "value": "甚远"
+    },
+    {
+      "source": "城外破寺",
+      "target": "贾府",
+      "relation_type": "direction",
+      "value": "城外"
+    }
+  ],
+  "_chapter": 99,
+  "_input_tokens": 7467,
+  "_output_tokens": 1634
+}

@@ -1,0 +1,235 @@
+{
+  "characters": [
+    {
+      "name": "刘姥姥",
+      "description": "年迈的乡村老妇，初次进入大观园，言行质朴幽默"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "王熙凤，贾府当家少奶奶，善于安排招待"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老祖宗，地位尊贵，慈祥宽厚"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家母亲，贾母的客人"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻，宝玉母亲"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的贴身大丫鬟"
+    },
+    {
+      "name": "丰儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，贾府公子"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，贾府亲戚小姐"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，薛姨妈之女"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，贾母外孙女"
+    },
+    {
+      "name": "妙玉",
+      "description": "栊翠庵的修行女子，性格高洁怪僻"
+    },
+    {
+      "name": "板儿",
+      "description": "刘姥姥的外孙，小孩"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府二小姐"
+    },
+    {
+      "name": "李纨",
+      "description": "贾珠之妻，寡居"
+    },
+    {
+      "name": "大姐儿",
+      "description": "凤姐的女儿，幼童"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "藕香榭",
+      "type": "亭榭",
+      "parent": "大观园"
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "东禅堂",
+      "type": "佛堂",
+      "parent": "栊翠庵"
+    },
+    {
+      "name": "耳房",
+      "type": "房间",
+      "parent": "栊翠庵"
+    },
+    {
+      "name": "稻香村",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "省亲别墅",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "前面里间屋",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "山门",
+      "type": "门",
+      "parent": "栊翠庵"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "刘姥姥",
+      "person_b": "板儿",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "丰儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "大姐儿",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "表兄妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "藕香榭",
+      "relation_type": "contains",
+      "value": "园中亭榭"
+    },
+    {
+      "source": "大观园",
+      "target": "栊翠庵",
+      "relation_type": "contains",
+      "value": "园中庵堂"
+    },
+    {
+      "source": "栊翠庵",
+      "target": "东禅堂",
+      "relation_type": "contains",
+      "value": "庵中佛堂"
+    },
+    {
+      "source": "栊翠庵",
+      "target": "耳房",
+      "relation_type": "contains",
+      "value": "庵中房间"
+    },
+    {
+      "source": "大观园",
+      "target": "稻香村",
+      "relation_type": "contains",
+      "value": "园中院落"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "园中院落"
+    },
+    {
+      "source": "怡红院",
+      "target": "稻香村",
+      "relation_type": "direction",
+      "value": "后院子"
+    },
+    {
+      "source": "栊翠庵",
+      "target": "山门",
+      "relation_type": "contains",
+      "value": "庵堂入口"
+    },
+    {
+      "source": "大观园",
+      "target": "省亲别墅",
+      "relation_type": "contains",
+      "value": "园中建筑"
+    }
+  ],
+  "_chapter": 42,
+  "_input_tokens": 8423,
+  "_output_tokens": 1557
+}

@@ -1,0 +1,347 @@
+{
+  "characters": [
+    {
+      "name": "贾政",
+      "description": "去见节度的官员，薛蟠案件相关人物"
+    },
+    {
+      "name": "李十儿",
+      "description": "贾政的随从，在外打听消息"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛蟠的母亲，为儿子的人命官司忧心如焚"
+    },
+    {
+      "name": "薛蟠",
+      "description": "涉及人命官司的当事人，被定死罪"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛蟠的妹妹，经常劝解薛姨妈"
+    },
+    {
+      "name": "香菱",
+      "description": "薛家的丫鬟，受到金桂的嫉恨"
+    },
+    {
+      "name": "金桂",
+      "description": "薛蟠的妻子，性格泼辣，对薛蝌有不当想法"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛家的二爷，被金桂纠缠"
+    },
+    {
+      "name": "宝蟾",
+      "description": "金桂的丫鬟，帮助金桂设计"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛家的姑娘，害怕金桂"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家的老太太，对探春远嫁有不舍"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾家的夫人，与贾母商议探春婚事"
+    },
+    {
+      "name": "探春",
+      "description": "贾家三姑娘，即将远嫁"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "探春的生母，对女儿远嫁反而高兴"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，因姐妹们离散而伤心"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟，劝慰宝玉"
+    },
+    {
+      "name": "紫鹃",
+      "description": "原黛玉的丫鬟，现在宝玉处但心有不愿"
+    },
+    {
+      "name": "雪雁",
+      "description": "原黛玉的丫鬟，被配给小厮"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾家管事的奶奶，负责料理探春出嫁事宜"
+    },
+    {
+      "name": "迎春",
+      "description": "贾家二姑娘，嫁后受虐"
+    },
+    {
+      "name": "黛玉",
+      "description": "已故的林姑娘，宝玉思念的人"
+    },
+    {
+      "name": "王奶妈",
+      "description": "照看雪雁的奶妈"
+    }
+  ],
+  "locations": [
+    {
+      "name": "节度府",
+      "type": "官府",
+      "parent": null
+    },
+    {
+      "name": "太平县",
+      "type": "县衙",
+      "parent": null
+    },
+    {
+      "name": "京城",
+      "type": "都城",
+      "parent": null
+    },
+    {
+      "name": "吏部",
+      "type": "官署",
+      "parent": "京城"
+    },
+    {
+      "name": "刑部",
+      "type": "官署",
+      "parent": "京城"
+    },
+    {
+      "name": "当铺",
+      "type": "商铺",
+      "parent": null
+    },
+    {
+      "name": "南边",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "贾府",
+      "type": "宅院",
+      "parent": "京城"
+    },
+    {
+      "name": "贾母屋",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "薛家",
+      "type": "宅院",
+      "parent": "京城"
+    },
+    {
+      "name": "宝玉房中",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "探春房中",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "院门口",
+      "type": "门口",
+      "parent": "薛家"
+    },
+    {
+      "name": "腰门",
+      "type": "门",
+      "parent": "薛家"
+    },
+    {
+      "name": "耳房",
+      "type": "房间",
+      "parent": null
+    },
+    {
+      "name": "法场",
+      "type": "刑场",
+      "parent": "京城"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛蟠",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛蟠",
+      "relation_type": "姐弟"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "金桂",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "金桂",
+      "person_b": "宝钗",
+      "relation_type": "嫂姑"
+    },
+    {
+      "person_a": "薛蝌",
+      "person_b": "宝琴",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "金桂",
+      "person_b": "宝蟾",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "王夫人",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "探春",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "探春",
+      "relation_type": "继母女"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "探春",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "探春",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "探春",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "李十儿",
+      "person_b": "贾政",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "吏部",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "位于京城内"
+    },
+    {
+      "source": "刑部",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "位于京城内"
+    },
+    {
+      "source": "贾府",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "位于京城内"
+    },
+    {
+      "source": "薛家",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "位于京城内"
+    },
+    {
+      "source": "贾母屋",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "贾府内的房间"
+    },
+    {
+      "source": "宝玉房中",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "贾府内的房间"
+    },
+    {
+      "source": "探春房中",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "贾府内的房间"
+    },
+    {
+      "source": "院门口",
+      "target": "薛家",
+      "relation_type": "contains",
+      "value": "薛家的入口"
+    },
+    {
+      "source": "腰门",
+      "target": "薛家",
+      "relation_type": "contains",
+      "value": "薛家内部的门"
+    },
+    {
+      "source": "法场",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "位于京城内"
+    },
+    {
+      "source": "太平县",
+      "target": "京城",
+      "relation_type": "direction",
+      "value": "距离京城较远"
+    },
+    {
+      "source": "南边",
+      "target": "京城",
+      "relation_type": "direction",
+      "value": "位于京城南方"
+    }
+  ],
+  "_chapter": 101,
+  "_input_tokens": 7011,
+  "_output_tokens": 2279
+}

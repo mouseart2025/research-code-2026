@@ -1,0 +1,352 @@
+{
+  "characters": [
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子，负责处理丧事事务"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁府主人，贾敬之子，正在为父亲办丧事"
+    },
+    {
+      "name": "邢大舅",
+      "description": "邢夫人的兄弟，近亲"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，每日在宁府穿孝，关心黛玉"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，身体未愈，协助料理丧事"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻"
+    },
+    {
+      "name": "四儿",
+      "description": "怡红院丫鬟"
+    },
+    {
+      "name": "芳官",
+      "description": "怡红院丫鬟，与晴雯游戏"
+    },
+    {
+      "name": "晴雯",
+      "description": "怡红院丫鬟，性格直爽"
+    },
+    {
+      "name": "麝月",
+      "description": "怡红院丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "怡红院丫鬟"
+    },
+    {
+      "name": "碧痕",
+      "description": "怡红院丫鬟"
+    },
+    {
+      "name": "紫绡",
+      "description": "怡红院丫鬟"
+    },
+    {
+      "name": "袭人",
+      "description": "怡红院主要丫鬟，细心体贴"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，体弱多病，有才华，写诗"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉的丫鬟"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的丫鬟"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，有见识，点评诗词"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾赦之子，凤姐丈夫，远行归来"
+    },
+    {
+      "name": "李纨",
+      "description": "贾珠之妻"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府二小姐"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三小姐，协助管理家务"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四小姐"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老祖宗，年迈"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻，宝玉之母"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾母长子，贾琏之父"
+    },
+    {
+      "name": "尤二姐",
+      "description": "尤氏继母带来的女儿，容貌美丽"
+    },
+    {
+      "name": "尤三姐",
+      "description": "尤氏继母带来的女儿，性格泼辣"
+    },
+    {
+      "name": "尤老娘",
+      "description": "尤氏的继母，尤二姐三姐的母亲"
+    },
+    {
+      "name": "俞禄",
+      "description": "宁府小管家"
+    },
+    {
+      "name": "鲍二",
+      "description": "贾珍给尤二姐安排的家人"
+    },
+    {
+      "name": "张华",
+      "description": "与尤二姐有指腹为婚关系的庄头之子"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉的小厮"
+    }
+  ],
+  "locations": [
+    {
+      "name": "铁槛寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "荣府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "荣府"
+    },
+    {
+      "name": "沁芳桥",
+      "type": "桥梁",
+      "parent": "荣府"
+    },
+    {
+      "name": "正堂",
+      "type": "房间",
+      "parent": "宁府"
+    },
+    {
+      "name": "灵堂",
+      "type": "房间",
+      "parent": "宁府"
+    },
+    {
+      "name": "小花枝巷",
+      "type": "街巷",
+      "parent": null
+    },
+    {
+      "name": "宁荣街",
+      "type": "街道",
+      "parent": null
+    },
+    {
+      "name": "中堂",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "上房",
+      "type": "房间",
+      "parent": "宁府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "贾赦",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "雪雁",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "尤老娘",
+      "person_b": "尤二姐",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "尤老娘",
+      "person_b": "尤三姐",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "尤氏",
+      "person_b": "尤二姐",
+      "relation_type": "继姐妹"
+    },
+    {
+      "person_a": "尤氏",
+      "person_b": "尤三姐",
+      "relation_type": "继姐妹"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾赦",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾琏",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "贾琏",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "张华",
+      "person_b": "尤二姐",
+      "relation_type": "指腹为婚"
+    },
+    {
+      "person_a": "鲍二",
+      "person_b": "贾琏",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "铁槛寺",
+      "target": "宁府",
+      "relation_type": "direction",
+      "value": "至宁府的路上"
+    },
+    {
+      "source": "沁芳桥",
+      "target": "潇湘馆",
+      "relation_type": "direction",
+      "value": "过桥后到达"
+    },
+    {
+      "source": "怡红院",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": "院落在府内"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": "院落在府内"
+    },
+    {
+      "source": "正堂",
+      "target": "宁府",
+      "relation_type": "contains",
+      "value": "房间在府内"
+    },
+    {
+      "source": "小花枝巷",
+      "target": "宁荣街",
+      "relation_type": "direction",
+      "value": "后二里远近"
+    },
+    {
+      "source": "上房",
+      "target": "宁府",
+      "relation_type": "contains",
+      "value": "房间在府内"
+    },
+    {
+      "source": "中堂",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": "房间在府内"
+    }
+  ],
+  "_chapter": 65,
+  "_input_tokens": 12051,
+  "_output_tokens": 2322
+}

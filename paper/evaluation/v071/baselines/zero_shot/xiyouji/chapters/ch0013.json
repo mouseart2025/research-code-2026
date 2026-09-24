@@ -1,0 +1,223 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "大唐钦差往西天取经的和尚，法师，俗名陈玄奘"
+    },
+    {
+      "name": "唐王",
+      "description": "大唐皇帝，送三藏西行取经"
+    },
+    {
+      "name": "长老",
+      "description": "法门寺住持上房长老，带领众僧接待三藏"
+    },
+    {
+      "name": "二从者",
+      "description": "三藏的两个随从，后被妖怪吃掉"
+    },
+    {
+      "name": "寅将军",
+      "description": "老虎精，魔王"
+    },
+    {
+      "name": "熊山君",
+      "description": "熊罴精，黑汉"
+    },
+    {
+      "name": "特处士",
+      "description": "野牛精，胖汉"
+    },
+    {
+      "name": "太白金星",
+      "description": "西天太白星，化作老叟救助三藏"
+    },
+    {
+      "name": "刘伯钦",
+      "description": "镇山太保，猎户，后来送三藏上路"
+    },
+    {
+      "name": "老妪",
+      "description": "刘伯钦的母亲"
+    },
+    {
+      "name": "媳妇",
+      "description": "刘伯钦的妻子"
+    },
+    {
+      "name": "刘伯钦父亲",
+      "description": "已故，在阴司受苦，后被三藏念经超度"
+    }
+  ],
+  "locations": [
+    {
+      "name": "长安",
+      "type": "城市",
+      "parent": "大唐"
+    },
+    {
+      "name": "长安关",
+      "type": "关口",
+      "parent": "长安"
+    },
+    {
+      "name": "法门寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "化生寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "巩州城",
+      "type": "城市",
+      "parent": "大唐"
+    },
+    {
+      "name": "河州卫",
+      "type": "卫所",
+      "parent": "大唐"
+    },
+    {
+      "name": "福原寺",
+      "type": "寺庙",
+      "parent": "河州卫"
+    },
+    {
+      "name": "双叉岭",
+      "type": "山岭",
+      "parent": null
+    },
+    {
+      "name": "两界山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "山庄",
+      "type": "庄园",
+      "parent": "双叉岭"
+    },
+    {
+      "name": "大唐",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "鞑靼",
+      "type": "国家",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐王",
+      "person_b": "三藏",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "二从者",
+      "relation_type": "师从"
+    },
+    {
+      "person_a": "刘伯钦",
+      "person_b": "老妪",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "刘伯钦",
+      "person_b": "媳妇",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "刘伯钦",
+      "relation_type": "同乡"
+    },
+    {
+      "person_a": "刘伯钦",
+      "person_b": "刘伯钦父亲",
+      "relation_type": "父子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大唐",
+      "target": "长安",
+      "relation_type": "contains",
+      "value": "都城"
+    },
+    {
+      "source": "长安",
+      "target": "长安关",
+      "relation_type": "contains",
+      "value": "城外关口"
+    },
+    {
+      "source": "大唐",
+      "target": "巩州城",
+      "relation_type": "contains",
+      "value": "属地"
+    },
+    {
+      "source": "大唐",
+      "target": "河州卫",
+      "relation_type": "contains",
+      "value": "边界"
+    },
+    {
+      "source": "河州卫",
+      "target": "福原寺",
+      "relation_type": "contains",
+      "value": "境内寺庙"
+    },
+    {
+      "source": "河州卫",
+      "target": "双叉岭",
+      "relation_type": "adjacent",
+      "value": "境外相邻"
+    },
+    {
+      "source": "双叉岭",
+      "target": "山庄",
+      "relation_type": "contains",
+      "value": "岭上庄园"
+    },
+    {
+      "source": "两界山",
+      "target": "大唐",
+      "relation_type": "adjacent",
+      "value": "东半边属大唐"
+    },
+    {
+      "source": "两界山",
+      "target": "鞑靼",
+      "relation_type": "adjacent",
+      "value": "西半边属鞑靼"
+    },
+    {
+      "source": "长安",
+      "target": "法门寺",
+      "relation_type": "direction",
+      "value": "关外西行"
+    },
+    {
+      "source": "法门寺",
+      "target": "巩州城",
+      "relation_type": "direction",
+      "value": "西行数日"
+    },
+    {
+      "source": "巩州城",
+      "target": "河州卫",
+      "relation_type": "direction",
+      "value": "西行两三日"
+    }
+  ],
+  "_chapter": 13,
+  "_input_tokens": 7778,
+  "_output_tokens": 1376
+}

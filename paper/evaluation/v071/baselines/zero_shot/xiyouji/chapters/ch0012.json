@@ -1,0 +1,184 @@
+{
+  "characters": [
+    {
+      "name": "陈玄奘",
+      "description": "大阐法师，法名玄奘，后被唐王称为御弟圣僧，自愿前往西天取经"
+    },
+    {
+      "name": "唐太宗",
+      "description": "大唐皇帝，年号贞观，十分敬佛，支持开建水陆大会"
+    },
+    {
+      "name": "观世音菩萨",
+      "description": "南海普陀山菩萨，奉如来佛旨寻找取经人，化身疥癞僧人售卖袈裟锡杖"
+    },
+    {
+      "name": "木叉",
+      "description": "观世音菩萨的随从，又名惠岸"
+    },
+    {
+      "name": "萧瑀",
+      "description": "大唐宰相，遇到菩萨后引荐给皇帝"
+    },
+    {
+      "name": "魏征",
+      "description": "大唐官员，奉旨宣玄奘入朝"
+    },
+    {
+      "name": "吴道子",
+      "description": "画师，善于图神写圣，描绘菩萨真象"
+    },
+    {
+      "name": "如来佛",
+      "description": "西天大雷音寺的佛祖，拥有大乘佛法三藏"
+    }
+  ],
+  "locations": [
+    {
+      "name": "长安城",
+      "type": "城市",
+      "parent": "大唐"
+    },
+    {
+      "name": "化生寺",
+      "type": "寺庙",
+      "parent": "长安城"
+    },
+    {
+      "name": "洪福寺",
+      "type": "寺庙",
+      "parent": "长安城"
+    },
+    {
+      "name": "金銮宝殿",
+      "type": "宫殿",
+      "parent": "皇宫"
+    },
+    {
+      "name": "东华门",
+      "type": "宫门",
+      "parent": "皇宫"
+    },
+    {
+      "name": "宝殿",
+      "type": "宫殿",
+      "parent": "皇宫"
+    },
+    {
+      "name": "南海普陀山",
+      "type": "山峰",
+      "parent": "南海"
+    },
+    {
+      "name": "西天天竺国",
+      "type": "国家",
+      "parent": "西方"
+    },
+    {
+      "name": "大雷音寺",
+      "type": "寺庙",
+      "parent": "西天天竺国"
+    },
+    {
+      "name": "都土地庙",
+      "type": "庙宇",
+      "parent": "长安城"
+    },
+    {
+      "name": "多宝台",
+      "type": "讲台",
+      "parent": "化生寺"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐太宗",
+      "person_b": "陈玄奘",
+      "relation_type": "拜为兄弟"
+    },
+    {
+      "person_a": "观世音菩萨",
+      "person_b": "木叉",
+      "relation_type": "主从关系"
+    },
+    {
+      "person_a": "萧瑀",
+      "person_b": "唐太宗",
+      "relation_type": "君臣关系"
+    },
+    {
+      "person_a": "魏征",
+      "person_b": "唐太宗",
+      "relation_type": "君臣关系"
+    },
+    {
+      "person_a": "观世音菩萨",
+      "person_b": "如来佛",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "陈玄奘",
+      "person_b": "众徒弟",
+      "relation_type": "师徒关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "长安城",
+      "target": "化生寺",
+      "relation_type": "contains",
+      "value": "化生寺位于长安城内"
+    },
+    {
+      "source": "长安城",
+      "target": "洪福寺",
+      "relation_type": "contains",
+      "value": "洪福寺位于长安城内"
+    },
+    {
+      "source": "皇宫",
+      "target": "金銮宝殿",
+      "relation_type": "contains",
+      "value": "金銮宝殿在皇宫内"
+    },
+    {
+      "source": "皇宫",
+      "target": "东华门",
+      "relation_type": "contains",
+      "value": "东华门是皇宫的门"
+    },
+    {
+      "source": "西天天竺国",
+      "target": "大雷音寺",
+      "relation_type": "contains",
+      "value": "大雷音寺在西天天竺国"
+    },
+    {
+      "source": "南海",
+      "target": "普陀山",
+      "relation_type": "contains",
+      "value": "普陀山在南海"
+    },
+    {
+      "source": "化生寺",
+      "target": "多宝台",
+      "relation_type": "contains",
+      "value": "多宝台在化生寺内"
+    },
+    {
+      "source": "长安城",
+      "target": "都土地庙",
+      "relation_type": "contains",
+      "value": "都土地庙在长安城内"
+    },
+    {
+      "source": "大唐",
+      "target": "西天",
+      "relation_type": "direction",
+      "value": "西天在大唐以西，相距十万八千里"
+    }
+  ],
+  "_chapter": 12,
+  "_input_tokens": 7643,
+  "_output_tokens": 1342
+}

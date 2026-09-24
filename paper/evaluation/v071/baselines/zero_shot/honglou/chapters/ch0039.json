@@ -1,0 +1,271 @@
+{
+  "characters": [
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，细致周到，帮助湘云准备赏桂花宴，会作诗，号蘅芜君"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，主办赏桂花宴，活泼好客，会作诗，号枕霞旧友"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗，地位尊贵，喜欢热闹，小时曾在枕霞阁失足落水"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾家夫人，关心贾母身体"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，善于讨好贾母，负责张罗宴席，口才极好"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛宝钗之母，参加赏桂花宴"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，身体娇弱不敢多吃，会钓鱼作诗，号潇湘妃子"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，喜欢作诗，号怡红公子"
+    },
+    {
+      "name": "迎春",
+      "description": "贾迎春，喜欢穿花，负责誊录诗作"
+    },
+    {
+      "name": "探春",
+      "description": "贾探春，会作诗，号蕉下客"
+    },
+    {
+      "name": "惜春",
+      "description": "贾惜春，与探春一起看鸥鹭"
+    },
+    {
+      "name": "李纨",
+      "description": "李纨，负责评判诗作"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟，受邀参加下人席"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的丫鬟，参加下人席"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的大丫鬟，与凤姐关系融洽"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾母的丫鬟，参加下人席"
+    },
+    {
+      "name": "彩霞",
+      "description": "丫鬟，参加下人席"
+    },
+    {
+      "name": "彩云",
+      "description": "丫鬟，参加下人席"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟，参加下人席"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾家姨娘，湘云令人送螃蟹给她"
+    },
+    {
+      "name": "周姨娘",
+      "description": "贾家姨娘，湘云令人送螃蟹给她"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": null
+    },
+    {
+      "name": "藕香榭",
+      "type": "水榭",
+      "parent": "大观园"
+    },
+    {
+      "name": "池中",
+      "type": "水域",
+      "parent": "大观园"
+    },
+    {
+      "name": "竹桥",
+      "type": "桥梁",
+      "parent": "大观园"
+    },
+    {
+      "name": "山坡",
+      "type": "地形",
+      "parent": "大观园"
+    },
+    {
+      "name": "河",
+      "type": "水域",
+      "parent": "大观园"
+    },
+    {
+      "name": "曲廊",
+      "type": "建筑",
+      "parent": "藕香榭"
+    },
+    {
+      "name": "廊上",
+      "type": "建筑位置",
+      "parent": "曲廊"
+    },
+    {
+      "name": "垂柳阴",
+      "type": "植物区域",
+      "parent": "大观园"
+    },
+    {
+      "name": "花阴",
+      "type": "植物区域",
+      "parent": "大观园"
+    },
+    {
+      "name": "枕霞阁",
+      "type": "阁楼",
+      "parent": "史家旧宅"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝钗",
+      "person_b": "湘云",
+      "relation_type": "朋友/合作伙伴"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "王夫人",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "凤姐",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "薛姨妈",
+      "relation_type": "亲戚"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "凤姐",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹/恋人"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "迎春",
+      "person_b": "探春",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "惜春",
+      "relation_type": "姐妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "藕香榭",
+      "target": "池中",
+      "relation_type": "contains",
+      "value": "水榭建在池中央"
+    },
+    {
+      "source": "竹桥",
+      "target": "藕香榭",
+      "relation_type": "adjacent",
+      "value": "竹桥连接到水榭"
+    },
+    {
+      "source": "曲廊",
+      "target": "藕香榭",
+      "relation_type": "contains",
+      "value": "左右有曲廊相通"
+    },
+    {
+      "source": "山坡",
+      "target": "藕香榭",
+      "relation_type": "direction",
+      "value": "山坡下有桂花树，可看到水榭"
+    },
+    {
+      "source": "河",
+      "target": "山坡",
+      "relation_type": "adjacent",
+      "value": "山坡下有河流"
+    },
+    {
+      "source": "廊上",
+      "target": "曲廊",
+      "relation_type": "contains",
+      "value": "廊上设有下人用餐的桌子"
+    },
+    {
+      "source": "垂柳阴",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园中垂柳下可看鸥鹭"
+    },
+    {
+      "source": "花阴",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园中花阴下迎春穿花"
+    },
+    {
+      "source": "藕香榭",
+      "target": "河",
+      "relation_type": "direction",
+      "value": "从水榭可看到河中清水"
+    }
+  ],
+  "_chapter": 39,
+  "_input_tokens": 7519,
+  "_output_tokens": 1977
+}

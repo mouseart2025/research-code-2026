@@ -1,0 +1,244 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾政的第二个儿子，衔玉而生，正在为贾母守孝"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝玉的妻子，薛家女儿，现住在贾府"
+    },
+    {
+      "name": "凤姐",
+      "description": "琏二奶奶，病重去世，生前管理贾府家务多年"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲，贾政的妻子"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫头"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐的丈夫，琏二爷，贾赦之子"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的陪房丫头，后来协助贾琏处理事务"
+    },
+    {
+      "name": "巧姐",
+      "description": "凤姐和贾琏的女儿"
+    },
+    {
+      "name": "王仁",
+      "description": "凤姐的大舅子，王子腾死后的王家代表"
+    },
+    {
+      "name": "秋桐",
+      "description": "贾赦给贾琏的妾室"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，正在为贾母守孝"
+    },
+    {
+      "name": "程日兴",
+      "description": "贾府的清客相公，陪伴贾政"
+    },
+    {
+      "name": "甄应嘉",
+      "description": "甄宝玉之父，表字友忠，金陵人氏，功勋之后，被起复进京"
+    },
+    {
+      "name": "甄宝玉",
+      "description": "甄应嘉之子，与贾宝玉同名且相貌相似"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦的妻子，贾琏的继母"
+    },
+    {
+      "name": "赖大",
+      "description": "贾府管事，负责办理凤姐丧事"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "宝玉院子",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "凤姐房间",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "外书房",
+      "type": "书房",
+      "parent": "贾府"
+    },
+    {
+      "name": "金陵",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "江南",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "江西",
+      "type": "省份",
+      "parent": null
+    },
+    {
+      "name": "海疆",
+      "type": "边疆地区",
+      "parent": null
+    },
+    {
+      "name": "园子",
+      "type": "庭园",
+      "parent": "贾府"
+    },
+    {
+      "name": "城外",
+      "type": "城外区域",
+      "parent": null
+    },
+    {
+      "name": "薛家",
+      "type": "住宅",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "巧姐",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "巧姐",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "王仁",
+      "relation_type": "姐弟"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "秋桐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "贾政",
+      "relation_type": "侄子叔叔"
+    },
+    {
+      "person_a": "甄应嘉",
+      "person_b": "甄宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "邢夫人",
+      "relation_type": "继母子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "程日兴",
+      "relation_type": "主客"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "宝玉院子",
+      "relation_type": "contains",
+      "value": "院落位于府内"
+    },
+    {
+      "source": "贾府",
+      "target": "凤姐房间",
+      "relation_type": "contains",
+      "value": "房间位于府内"
+    },
+    {
+      "source": "贾府",
+      "target": "外书房",
+      "relation_type": "contains",
+      "value": "书房位于府外围"
+    },
+    {
+      "source": "贾府",
+      "target": "园子",
+      "relation_type": "contains",
+      "value": "大园子位于府内"
+    },
+    {
+      "source": "薛家",
+      "target": "贾府",
+      "relation_type": "adjacent",
+      "value": "薛家暂住贾府附近"
+    },
+    {
+      "source": "江南",
+      "target": "金陵",
+      "relation_type": "contains",
+      "value": "金陵位于江南地区"
+    },
+    {
+      "source": "外书房",
+      "target": "外书房门口",
+      "relation_type": "contains",
+      "value": "门口在书房外"
+    }
+  ],
+  "_chapter": 115,
+  "_input_tokens": 6097,
+  "_output_tokens": 1637
+}

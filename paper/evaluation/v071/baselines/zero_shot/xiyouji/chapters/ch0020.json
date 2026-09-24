@@ -1,0 +1,172 @@
+{
+  "characters": [
+    {
+      "name": "玄奘法师",
+      "description": "又称三藏，东土大唐和尚，奉圣旨上雷音寺拜佛求经"
+    },
+    {
+      "name": "孙悟空",
+      "description": "又称行者、悟空，火眼金睛，使金箍铁棒，原为齐天大圣，现保护唐僧取经"
+    },
+    {
+      "name": "猪八戒",
+      "description": "又称悟能、八戒、呆子，嘴长耳大，使九齿钉钯，挑行李"
+    },
+    {
+      "name": "老者",
+      "description": "姓王，六十一岁，有两个儿子三个孙子，住在路旁人家"
+    },
+    {
+      "name": "老妈妈",
+      "description": "老者的妻子"
+    },
+    {
+      "name": "两个少年人",
+      "description": "老者的儿子"
+    },
+    {
+      "name": "虎先锋",
+      "description": "黄风大王部下的前路先锋，原为斑斓猛虎，使两口赤铜刀"
+    },
+    {
+      "name": "黄风大王",
+      "description": "黄风洞洞主，统领众妖"
+    }
+  ],
+  "locations": [
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": "东胜神洲"
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞穴",
+      "parent": "花果山"
+    },
+    {
+      "name": "东胜神洲",
+      "type": "洲",
+      "parent": null
+    },
+    {
+      "name": "海东傲来国",
+      "type": "国家",
+      "parent": "东胜神洲"
+    },
+    {
+      "name": "路旁人家",
+      "type": "村舍",
+      "parent": null
+    },
+    {
+      "name": "高老庄",
+      "type": "庄园",
+      "parent": null
+    },
+    {
+      "name": "黄风岭",
+      "type": "山岭",
+      "parent": null
+    },
+    {
+      "name": "黄风洞",
+      "type": "洞府",
+      "parent": "黄风岭"
+    },
+    {
+      "name": "藏风山凹",
+      "type": "山凹",
+      "parent": "黄风岭"
+    },
+    {
+      "name": "山坡",
+      "type": "地形",
+      "parent": "黄风岭"
+    },
+    {
+      "name": "石崖",
+      "type": "地形",
+      "parent": "黄风岭"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "玄奘法师",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "玄奘法师",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "虎先锋",
+      "person_b": "黄风大王",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "老者",
+      "person_b": "老妈妈",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "老者",
+      "person_b": "两个少年人",
+      "relation_type": "父子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "东胜神洲",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "海东傲来国境内"
+    },
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "山中洞穴"
+    },
+    {
+      "source": "黄风岭",
+      "target": "黄风洞",
+      "relation_type": "contains",
+      "value": "石崖之下"
+    },
+    {
+      "source": "黄风岭",
+      "target": "藏风山凹",
+      "relation_type": "contains",
+      "value": "山中凹地"
+    },
+    {
+      "source": "路旁人家",
+      "target": "黄风岭",
+      "relation_type": "direction",
+      "value": "向西三十里"
+    },
+    {
+      "source": "黄风洞",
+      "target": "山坡",
+      "relation_type": "adjacent",
+      "value": "洞口附近"
+    },
+    {
+      "source": "石崖",
+      "target": "黄风洞",
+      "relation_type": "contains",
+      "value": "崖下有洞府"
+    }
+  ],
+  "_chapter": 20,
+  "_input_tokens": 8482,
+  "_output_tokens": 1177
+}

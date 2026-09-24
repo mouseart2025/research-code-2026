@@ -1,0 +1,342 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "东土大唐御弟法师，前往西天取经的主要人物"
+    },
+    {
+      "name": "孙行者/孙悟空",
+      "description": "三藏的大徒弟，会变化术法，胆大机智"
+    },
+    {
+      "name": "猪八戒",
+      "description": "三藏的二徒弟，相貌丑陋，性格憨厚贪吃"
+    },
+    {
+      "name": "沙和尚/沙僧",
+      "description": "三藏的三徒弟，面黑身长，性格稳重"
+    },
+    {
+      "name": "朱紫国王",
+      "description": "朱紫国的君主，久病不愈，面黄肌瘦"
+    },
+    {
+      "name": "唐王",
+      "description": "大唐皇帝，派遣三藏取经"
+    },
+    {
+      "name": "魏徵",
+      "description": "唐王驾前丞相，识天文地理的贤臣"
+    },
+    {
+      "name": "泾河龙王",
+      "description": "被魏徵梦斩的龙王"
+    },
+    {
+      "name": "崔玨",
+      "description": "酆都城判官"
+    },
+    {
+      "name": "馆使",
+      "description": "会同馆的正副官员，负责接待过客"
+    },
+    {
+      "name": "太监",
+      "description": "朱紫国宫中内臣，负责传达圣旨"
+    },
+    {
+      "name": "校尉",
+      "description": "朱紫国的武官，负责维护秩序"
+    },
+    {
+      "name": "太医院官",
+      "description": "朱紫国的医官"
+    },
+    {
+      "name": "文武众臣",
+      "description": "朱紫国的朝廷官员"
+    }
+  ],
+  "locations": [
+    {
+      "name": "朱紫国",
+      "type": "国家",
+      "parent": "西牛贺洲"
+    },
+    {
+      "name": "西牛贺洲",
+      "type": "大陆",
+      "parent": null
+    },
+    {
+      "name": "大唐",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "长安",
+      "type": "城市",
+      "parent": "大唐"
+    },
+    {
+      "name": "城门",
+      "type": "建筑",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "三层门",
+      "type": "建筑",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "大街市",
+      "type": "街道",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "会同馆",
+      "type": "官署",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "五凤楼",
+      "type": "宫殿建筑",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "端门",
+      "type": "宫殿建筑",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "金殿",
+      "type": "宫殿建筑",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "披香殿",
+      "type": "宫殿建筑",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "鼓楼",
+      "type": "建筑",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "郑家杂货店",
+      "type": "商店",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "客房",
+      "type": "房间",
+      "parent": "会同馆"
+    },
+    {
+      "name": "西房",
+      "type": "房间",
+      "parent": "会同馆"
+    },
+    {
+      "name": "厢房",
+      "type": "房间",
+      "parent": "会同馆"
+    },
+    {
+      "name": "龙床",
+      "type": "家具",
+      "parent": "宫中"
+    },
+    {
+      "name": "宫中",
+      "type": "区域",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "西天",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "雷音寺",
+      "type": "寺庙",
+      "parent": "西天"
+    },
+    {
+      "name": "酆都城",
+      "type": "冥界城市",
+      "parent": "冥界"
+    },
+    {
+      "name": "泾河",
+      "type": "河流",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "孙行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙和尚",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "唐王",
+      "person_b": "三藏",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "唐王",
+      "person_b": "魏徵",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "朱紫国王",
+      "person_b": "文武众臣",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "魏徵",
+      "person_b": "崔玨",
+      "relation_type": "朋友"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "朱紫国",
+      "target": "西牛贺洲",
+      "relation_type": "contains",
+      "value": "朱紫国位于西牛贺洲"
+    },
+    {
+      "source": "朱紫国",
+      "target": "城门",
+      "relation_type": "contains",
+      "value": "城门位于朱紫国内"
+    },
+    {
+      "source": "城门",
+      "target": "三层门",
+      "relation_type": "contains",
+      "value": "三层门在城门内"
+    },
+    {
+      "source": "朱紫国",
+      "target": "大街市",
+      "relation_type": "contains",
+      "value": "大街市位于朱紫国内"
+    },
+    {
+      "source": "朱紫国",
+      "target": "会同馆",
+      "relation_type": "contains",
+      "value": "会同馆位于朱紫国内"
+    },
+    {
+      "source": "会同馆",
+      "target": "客房",
+      "relation_type": "contains",
+      "value": "客房位于会同馆内"
+    },
+    {
+      "source": "会同馆",
+      "target": "西房",
+      "relation_type": "contains",
+      "value": "西房位于会同馆内"
+    },
+    {
+      "source": "会同馆",
+      "target": "厢房",
+      "relation_type": "contains",
+      "value": "厢房位于会同馆内"
+    },
+    {
+      "source": "朱紫国",
+      "target": "五凤楼",
+      "relation_type": "contains",
+      "value": "五凤楼位于朱紫国宫中"
+    },
+    {
+      "source": "朱紫国",
+      "target": "端门",
+      "relation_type": "contains",
+      "value": "端门位于朱紫国宫中"
+    },
+    {
+      "source": "朱紫国",
+      "target": "金殿",
+      "relation_type": "contains",
+      "value": "金殿位于朱紫国宫中"
+    },
+    {
+      "source": "朱紫国",
+      "target": "披香殿",
+      "relation_type": "contains",
+      "value": "披香殿位于朱紫国宫中"
+    },
+    {
+      "source": "大街市",
+      "target": "鼓楼",
+      "relation_type": "contains",
+      "value": "鼓楼位于大街上"
+    },
+    {
+      "source": "鼓楼",
+      "target": "郑家杂货店",
+      "relation_type": "adjacent",
+      "value": "郑家杂货店在鼓楼附近"
+    },
+    {
+      "source": "宫中",
+      "target": "龙床",
+      "relation_type": "contains",
+      "value": "龙床位于宫中"
+    },
+    {
+      "source": "朱紫国",
+      "target": "宫中",
+      "relation_type": "contains",
+      "value": "宫中位于朱紫国内"
+    },
+    {
+      "source": "大街市",
+      "target": "鼓楼",
+      "relation_type": "direction",
+      "value": "街西转过拐角到鼓楼"
+    },
+    {
+      "source": "会同馆",
+      "target": "大街市",
+      "relation_type": "adjacent",
+      "value": "会同馆位于大街上"
+    }
+  ],
+  "_chapter": 68,
+  "_input_tokens": 8188,
+  "_output_tokens": 2304
+}

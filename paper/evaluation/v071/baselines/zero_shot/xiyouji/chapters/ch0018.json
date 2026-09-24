@@ -1,0 +1,171 @@
+{
+  "characters": [
+    {
+      "name": "行者",
+      "description": "孙悟空，齐天大圣，会七十二变，使用金箍棒，五百年前大闹天宫的弼马温"
+    },
+    {
+      "name": "三藏",
+      "description": "唐僧，御弟圣僧，东土大唐前往西天取经的和尚"
+    },
+    {
+      "name": "菩萨",
+      "description": "佛教菩萨，能降妖伏魔"
+    },
+    {
+      "name": "高太公",
+      "description": "高老庄的富户，有三个女儿，小女儿被妖怪占为妻"
+    },
+    {
+      "name": "高才",
+      "description": "高太公的家人，负责寻找法师降妖"
+    },
+    {
+      "name": "翠兰",
+      "description": "高太公的小女儿，年方二十，被猪精占为妻"
+    },
+    {
+      "name": "香兰",
+      "description": "高太公的大女儿，已配与本庄人家"
+    },
+    {
+      "name": "玉兰",
+      "description": "高太公的二女儿，已配与本庄人家"
+    },
+    {
+      "name": "猪刚鬣",
+      "description": "猪精妖怪，住在福陵山云栈洞，能变化，使用九齿钉钯，高太公的女婿"
+    }
+  ],
+  "locations": [
+    {
+      "name": "黑风洞",
+      "type": "洞穴",
+      "parent": null
+    },
+    {
+      "name": "高老庄",
+      "type": "村庄",
+      "parent": "乌斯藏国"
+    },
+    {
+      "name": "乌斯藏国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "福陵山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "云栈洞",
+      "type": "洞穴",
+      "parent": "福陵山"
+    },
+    {
+      "name": "高太公家",
+      "type": "宅院",
+      "parent": "高老庄"
+    },
+    {
+      "name": "后宅",
+      "type": "房屋",
+      "parent": "高太公家"
+    },
+    {
+      "name": "中堂",
+      "type": "房间",
+      "parent": "高太公家"
+    },
+    {
+      "name": "敞厅",
+      "type": "房间",
+      "parent": "高太公家"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "行者",
+      "person_b": "三藏",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "高太公",
+      "person_b": "翠兰",
+      "relation_type": "父女关系"
+    },
+    {
+      "person_a": "高太公",
+      "person_b": "香兰",
+      "relation_type": "父女关系"
+    },
+    {
+      "person_a": "高太公",
+      "person_b": "玉兰",
+      "relation_type": "父女关系"
+    },
+    {
+      "person_a": "高太公",
+      "person_b": "高才",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "猪刚鬣",
+      "person_b": "翠兰",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "猪刚鬣",
+      "person_b": "高太公",
+      "relation_type": "翁婿关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "云栈洞",
+      "target": "福陵山",
+      "relation_type": "contains",
+      "value": "洞穴位于山中"
+    },
+    {
+      "source": "高老庄",
+      "target": "乌斯藏国",
+      "relation_type": "contains",
+      "value": "村庄位于国界之地"
+    },
+    {
+      "source": "高太公家",
+      "target": "高老庄",
+      "relation_type": "contains",
+      "value": "宅院位于村庄内"
+    },
+    {
+      "source": "后宅",
+      "target": "高太公家",
+      "relation_type": "contains",
+      "value": "房屋位于宅院内"
+    },
+    {
+      "source": "中堂",
+      "target": "高太公家",
+      "relation_type": "contains",
+      "value": "房间位于宅院内"
+    },
+    {
+      "source": "敞厅",
+      "target": "高太公家",
+      "relation_type": "contains",
+      "value": "房间位于宅院内"
+    },
+    {
+      "source": "后宅",
+      "target": "高太公家",
+      "relation_type": "direction",
+      "value": "位于宅院后部"
+    }
+  ],
+  "_chapter": 18,
+  "_input_tokens": 6741,
+  "_output_tokens": 1198
+}

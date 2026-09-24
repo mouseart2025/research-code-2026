@@ -1,0 +1,183 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "唐僧，东土差往西天取经的僧人，师父"
+    },
+    {
+      "name": "行者",
+      "description": "孙悟空，三藏的大徒弟，会七十二变，有降妖伏魔本领"
+    },
+    {
+      "name": "八戒",
+      "description": "猪八戒，三藏的二徒弟，有三十六般变化，能变大猪"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙和尚，三藏的三徒弟"
+    },
+    {
+      "name": "老者",
+      "description": "驼罗庄的李姓老人，庄主"
+    },
+    {
+      "name": "大蟒",
+      "description": "红鳞大蟒精，在驼罗庄作恶的妖怪"
+    },
+    {
+      "name": "和尚",
+      "description": "前年来驼罗庄降妖失败的僧人"
+    },
+    {
+      "name": "道士",
+      "description": "旧年来驼罗庄降妖失败的道士"
+    }
+  ],
+  "locations": [
+    {
+      "name": "小西天",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "大西天",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "驼罗庄",
+      "type": "村庄",
+      "parent": null
+    },
+    {
+      "name": "李家庄",
+      "type": "庄园",
+      "parent": "驼罗庄"
+    },
+    {
+      "name": "七绝山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "稀柿衕",
+      "type": "山道",
+      "parent": "七绝山"
+    },
+    {
+      "name": "山庄",
+      "type": "建筑",
+      "parent": "驼罗庄"
+    },
+    {
+      "name": "瓦房",
+      "type": "建筑",
+      "parent": "山庄"
+    },
+    {
+      "name": "天井",
+      "type": "建筑部分",
+      "parent": "瓦房"
+    },
+    {
+      "name": "胡同",
+      "type": "道路",
+      "parent": "七绝山"
+    },
+    {
+      "name": "东胜神洲",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "花果山",
+      "type": "山脉",
+      "parent": "东胜神洲"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "驼罗庄",
+      "target": "七绝山",
+      "relation_type": "direction",
+      "value": "西去三十余里"
+    },
+    {
+      "source": "七绝山",
+      "target": "稀柿衕",
+      "relation_type": "contains",
+      "value": "山径八百里"
+    },
+    {
+      "source": "驼罗庄",
+      "target": "山庄",
+      "relation_type": "contains",
+      "value": "庄内建筑"
+    },
+    {
+      "source": "山庄",
+      "target": "瓦房",
+      "relation_type": "contains",
+      "value": "三间瓦房"
+    },
+    {
+      "source": "瓦房",
+      "target": "天井",
+      "relation_type": "contains",
+      "value": "房屋内部"
+    },
+    {
+      "source": "花果山",
+      "target": "东胜神洲",
+      "relation_type": "contains",
+      "value": "位于东胜神洲"
+    },
+    {
+      "source": "小西天",
+      "target": "大西天",
+      "relation_type": "direction",
+      "value": "路途甚远"
+    },
+    {
+      "source": "胡同",
+      "target": "七绝山",
+      "relation_type": "contains",
+      "value": "夹石胡同"
+    }
+  ],
+  "_chapter": 67,
+  "_input_tokens": 8314,
+  "_output_tokens": 1167
+}

@@ -1,0 +1,173 @@
+{
+  "characters": [
+    {
+      "name": "孙行者/孙悟空",
+      "description": "唐僧徒弟，齐天大圣，手持金箍棒，神通广大"
+    },
+    {
+      "name": "唐三藏/唐僧",
+      "description": "大唐上国驾前御弟，取经人，孙悟空的师父"
+    },
+    {
+      "name": "观音菩萨",
+      "description": "南海观音，慈悲救世，法力无边"
+    },
+    {
+      "name": "黑熊精/熊罴",
+      "description": "黑风山黑风洞妖怪，偷取袈裟，后被观音收为守山大神"
+    },
+    {
+      "name": "金池长老",
+      "description": "观音院老和尚，已死，与黑熊精为朋友"
+    },
+    {
+      "name": "白衣秀士",
+      "description": "白花蛇成精，被孙悟空打死"
+    },
+    {
+      "name": "凌虚子",
+      "description": "苍狼成精的道人，被孙悟空打死"
+    },
+    {
+      "name": "院主",
+      "description": "观音院上房院主，伺候唐僧"
+    }
+  ],
+  "locations": [
+    {
+      "name": "观音院",
+      "type": "寺院",
+      "parent": null
+    },
+    {
+      "name": "黑风山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "黑风洞",
+      "type": "洞府",
+      "parent": "黑风山"
+    },
+    {
+      "name": "南海",
+      "type": "海域",
+      "parent": null
+    },
+    {
+      "name": "落伽山",
+      "type": "山",
+      "parent": "南海"
+    },
+    {
+      "name": "芳草坡",
+      "type": "地点",
+      "parent": "黑风山"
+    },
+    {
+      "name": "方丈",
+      "type": "房间",
+      "parent": "观音院"
+    },
+    {
+      "name": "禅堂",
+      "type": "房间",
+      "parent": "观音院"
+    },
+    {
+      "name": "竹林",
+      "type": "树林",
+      "parent": "落伽山"
+    },
+    {
+      "name": "潮音洞",
+      "type": "洞府",
+      "parent": "落伽山"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐三藏",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "金池长老",
+      "person_b": "黑熊精",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "凌虚子",
+      "person_b": "黑熊精",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "白衣秀士",
+      "person_b": "黑熊精",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "观音菩萨",
+      "person_b": "黑熊精",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "院主",
+      "person_b": "金池长老",
+      "relation_type": "师徒"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "黑风山",
+      "target": "黑风洞",
+      "relation_type": "contains",
+      "value": "黑风洞位于黑风山中"
+    },
+    {
+      "source": "南海",
+      "target": "落伽山",
+      "relation_type": "contains",
+      "value": "落伽山在南海中"
+    },
+    {
+      "source": "落伽山",
+      "target": "竹林",
+      "relation_type": "contains",
+      "value": "竹林在落伽山上"
+    },
+    {
+      "source": "落伽山",
+      "target": "潮音洞",
+      "relation_type": "contains",
+      "value": "潮音洞在落伽山上"
+    },
+    {
+      "source": "观音院",
+      "target": "方丈",
+      "relation_type": "contains",
+      "value": "方丈在观音院内"
+    },
+    {
+      "source": "观音院",
+      "target": "禅堂",
+      "relation_type": "contains",
+      "value": "禅堂在观音院内"
+    },
+    {
+      "source": "黑风山",
+      "target": "芳草坡",
+      "relation_type": "contains",
+      "value": "芳草坡在黑风山上"
+    },
+    {
+      "source": "观音院",
+      "target": "黑风山",
+      "relation_type": "adjacent",
+      "value": "黑风山邻近观音院"
+    }
+  ],
+  "_chapter": 17,
+  "_input_tokens": 10030,
+  "_output_tokens": 1172
+}

@@ -1,0 +1,239 @@
+{
+  "characters": [
+    {
+      "name": "红玉",
+      "description": "丫鬟，对贾芸有情思，心神恍惚，打扫房屋"
+    },
+    {
+      "name": "贾芸",
+      "description": "贾家男子，在山坡上指挥种树"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，留心红玉，被贾环用蜡灯烫伤脸部，后中邪"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，指派红玉借喷壶"
+    },
+    {
+      "name": "碧痕",
+      "description": "丫鬟，催宝玉洗脸"
+    },
+    {
+      "name": "林黛玉",
+      "description": "林姑娘，住在潇湘馆，关心宝玉，后也中邪昏倒"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉母亲，疼爱宝玉"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政庶子，嫉恨宝玉，故意用蜡灯烫宝玉"
+    },
+    {
+      "name": "彩霞",
+      "description": "丫鬟，与贾环较好，为宝玉拍背"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，管家媳妇，后中邪发疯"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾环之母，嫉妒宝玉凤姐，与马道婆合谋害人"
+    },
+    {
+      "name": "马道婆",
+      "description": "宝玉干娘，道婆，用邪法害宝玉凤姐"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗，最疼宝玉"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉父亲，贾家家长"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "薛姨妈之女"
+    },
+    {
+      "name": "李宫裁",
+      "description": "李纨，寡嫂"
+    },
+    {
+      "name": "和尚",
+      "description": "癞头和尚，能治邪祟"
+    },
+    {
+      "name": "道人",
+      "description": "跛足道人，与和尚一起治病"
+    }
+  ],
+  "locations": [
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "翠烟桥",
+      "type": "桥梁",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "西南角游廊",
+      "type": "廊道",
+      "parent": "大观园"
+    },
+    {
+      "name": "王夫人房间",
+      "type": "居室",
+      "parent": "荣国府"
+    },
+    {
+      "name": "赵姨娘房间",
+      "type": "居室",
+      "parent": "荣国府"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "荣国府"
+    },
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "山坡",
+      "type": "地势",
+      "parent": "大观园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾环",
+      "person_b": "赵姨娘",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾环",
+      "person_b": "宝玉",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "红玉",
+      "person_b": "贾芸",
+      "relation_type": "恋慕"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "马道婆",
+      "relation_type": "合谋"
+    },
+    {
+      "person_a": "马道婆",
+      "person_b": "宝玉",
+      "relation_type": "干娘"
+    },
+    {
+      "person_a": "彩霞",
+      "person_b": "贾环",
+      "relation_type": "亲近"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "翠烟桥",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "西南角游廊",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣国府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣国府",
+      "target": "王夫人房间",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "翠烟桥",
+      "target": "潇湘馆",
+      "relation_type": "direction",
+      "value": "通向"
+    },
+    {
+      "source": "山坡",
+      "target": "翠烟桥",
+      "relation_type": "direction",
+      "value": "远望可见"
+    },
+    {
+      "source": "怡红院",
+      "target": "西南角游廊",
+      "relation_type": "adjacent",
+      "value": ""
+    }
+  ],
+  "_chapter": 25,
+  "_input_tokens": 10240,
+  "_output_tokens": 1631
+}

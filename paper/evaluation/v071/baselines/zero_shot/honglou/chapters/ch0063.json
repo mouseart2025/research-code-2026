@@ -1,0 +1,510 @@
+{
+  "characters": [
+    {
+      "name": "平儿",
+      "description": "凤姐的陪房丫鬟，打扮得花枝招展，今日是她的生日"
+    },
+    {
+      "name": "林之孝家的",
+      "description": "管事的婆子，负责园中事务管理"
+    },
+    {
+      "name": "柳家的",
+      "description": "厨房管事，母女二人，负责预备饭菜"
+    },
+    {
+      "name": "秦显家的",
+      "description": "想要接管厨房的人，最终被撵出"
+    },
+    {
+      "name": "司棋",
+      "description": "丫鬟，对厨房人事变动感到失望"
+    },
+    {
+      "name": "李纨",
+      "description": "大嫂，管理园中事务"
+    },
+    {
+      "name": "探春",
+      "description": "三姑娘，管理园中事务，性格精明能干"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾环的母亲，担心彩云偷东西的事情被发现"
+    },
+    {
+      "name": "彩云",
+      "description": "丫鬟，私赠东西给贾环，后来赌气将东西丢入河中"
+    },
+    {
+      "name": "贾环",
+      "description": "贾宝玉的弟弟，怀疑彩云与宝玉的关系"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，今日是他的生日"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛宝钗的表妹，与宝玉同日生日"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲，现在不在家"
+    },
+    {
+      "name": "张道士",
+      "description": "道士，送了生日礼物给宝玉"
+    },
+    {
+      "name": "王子腾",
+      "description": "王夫人的兄弟，送了生日礼物"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛宝钗的母亲"
+    },
+    {
+      "name": "尤氏",
+      "description": "宁府当家奶奶"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，贾琏的妻子，平儿的主人"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "贾兰",
+      "description": "李纨的儿子"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "翠墨",
+      "description": "丫鬟"
+    },
+    {
+      "name": "小螺",
+      "description": "丫鬟"
+    },
+    {
+      "name": "翠缕",
+      "description": "丫鬟"
+    },
+    {
+      "name": "入画",
+      "description": "丫鬟"
+    },
+    {
+      "name": "篆儿",
+      "description": "邢岫烟的丫鬟"
+    },
+    {
+      "name": "巧姐儿",
+      "description": "凤姐的女儿"
+    },
+    {
+      "name": "彩鸾",
+      "description": "丫鬟"
+    },
+    {
+      "name": "绣鸾",
+      "description": "丫鬟"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，贾母的侄孙女"
+    },
+    {
+      "name": "岫烟",
+      "description": "邢岫烟"
+    },
+    {
+      "name": "惜春",
+      "description": "四姑娘"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，宝玉的表妹"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛家公子，宝钗的堂弟"
+    },
+    {
+      "name": "香菱",
+      "description": "薛家丫鬟"
+    },
+    {
+      "name": "待书",
+      "description": "丫鬟"
+    },
+    {
+      "name": "素云",
+      "description": "丫鬟"
+    },
+    {
+      "name": "芳官",
+      "description": "小戏子，现在服侍宝玉"
+    },
+    {
+      "name": "蕊官",
+      "description": "小戏子"
+    },
+    {
+      "name": "藕官",
+      "description": "小戏子"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "玉钏儿",
+      "description": "丫鬟"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的丫鬟"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的丫鬟"
+    },
+    {
+      "name": "迎春",
+      "description": "二姑娘"
+    },
+    {
+      "name": "彩儿",
+      "description": "惜春房中的小丫头"
+    },
+    {
+      "name": "小燕",
+      "description": "小丫鬟"
+    },
+    {
+      "name": "五儿",
+      "description": "柳家的女儿，准备进园服侍"
+    }
+  ],
+  "locations": [
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "前厅院",
+      "type": "院落",
+      "parent": "荣府"
+    },
+    {
+      "name": "宗祠",
+      "type": "建筑",
+      "parent": "宁府"
+    },
+    {
+      "name": "祖先堂",
+      "type": "建筑",
+      "parent": "宁府"
+    },
+    {
+      "name": "月台",
+      "type": "建筑",
+      "parent": "宁府"
+    },
+    {
+      "name": "尤氏上房",
+      "type": "房间",
+      "parent": "宁府"
+    },
+    {
+      "name": "薛姨妈处",
+      "type": "居所",
+      "parent": null
+    },
+    {
+      "name": "沁芳亭",
+      "type": "亭子",
+      "parent": "大观园"
+    },
+    {
+      "name": "芍药栏",
+      "type": "花圃",
+      "parent": "大观园"
+    },
+    {
+      "name": "红香圃",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "厨房",
+      "type": "功能区",
+      "parent": "大观园"
+    },
+    {
+      "name": "河",
+      "type": "水体",
+      "parent": "大观园"
+    },
+    {
+      "name": "山石",
+      "type": "景观",
+      "parent": "大观园"
+    },
+    {
+      "name": "石凳",
+      "type": "设施",
+      "parent": "大观园"
+    },
+    {
+      "name": "议事厅",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "角门",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "宝玉房中",
+      "type": "房间",
+      "parent": "大观园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "贾环",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "彩云",
+      "person_b": "贾环",
+      "relation_type": "恋人"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝琴",
+      "person_b": "宝钗",
+      "relation_type": "表姐妹"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛蝌",
+      "person_b": "宝钗",
+      "relation_type": "堂兄妹"
+    },
+    {
+      "person_a": "柳家的母女",
+      "person_b": "五儿",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "麝月",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "芳官",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾兰",
+      "person_b": "李纨",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "巧姐儿",
+      "person_b": "凤姐",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "篆儿",
+      "person_b": "岫烟",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "莺儿",
+      "person_b": "宝钗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "彩儿",
+      "person_b": "惜春",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾环",
+      "relation_type": "兄弟"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "前厅院",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": "位于荣府内"
+    },
+    {
+      "source": "宗祠",
+      "target": "宁府",
+      "relation_type": "contains",
+      "value": "位于宁府内"
+    },
+    {
+      "source": "祖先堂",
+      "target": "宁府",
+      "relation_type": "contains",
+      "value": "位于宁府内"
+    },
+    {
+      "source": "月台",
+      "target": "宁府",
+      "relation_type": "contains",
+      "value": "位于宁府内"
+    },
+    {
+      "source": "沁芳亭",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "位于园中"
+    },
+    {
+      "source": "芍药栏",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "位于园中"
+    },
+    {
+      "source": "红香圃",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "位于园中"
+    },
+    {
+      "source": "厨房",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "位于园中"
+    },
+    {
+      "source": "河",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园中水体"
+    },
+    {
+      "source": "山石",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园中景观"
+    },
+    {
+      "source": "石凳",
+      "target": "山石",
+      "relation_type": "adjacent",
+      "value": "位于山石后"
+    },
+    {
+      "source": "议事厅",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "位于园中"
+    },
+    {
+      "source": "角门",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园中出入口"
+    },
+    {
+      "source": "宝玉房中",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "位于园中"
+    },
+    {
+      "source": "荣府",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "贾府的一部分"
+    },
+    {
+      "source": "宁府",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "贾府的一部分"
+    },
+    {
+      "source": "大观园",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "贾府的一部分"
+    }
+  ],
+  "_chapter": 63,
+  "_input_tokens": 12245,
+  "_output_tokens": 3234
+}

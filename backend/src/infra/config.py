@@ -27,6 +27,14 @@ LLM_MAX_TOKENS = int(os.environ.get("LLM_MAX_TOKENS", "16384"))
 # Separate from LLM_PROVIDER so users can use Anthropic-compatible proxies
 LLM_PROVIDER_FORMAT: str = "openai"
 
+# QA mode: "rag" (default, fixed retrieval pipeline) | "agent" (tool-use loop,
+# requires a cloud provider with tool calling; Ollama always falls back to rag)
+QA_MODE: str = os.environ.get("QA_MODE", "rag")
+
+# Sidecar API 访问令牌（V-01 修复）：Tauri 宿主每次启动 sidecar 时随机生成，
+# 经 AI_READER_SIDECAR_TOKEN 环境变量传入。为空 = 不启用鉴权（web 直跑/开发模式）。
+SIDECAR_TOKEN: str = os.environ.get("AI_READER_SIDECAR_TOKEN", "")
+
 # Preserve .env initial values as fallback for mode switching
 _ENV_LLM_API_KEY = LLM_API_KEY
 _ENV_LLM_BASE_URL = LLM_BASE_URL
@@ -42,13 +50,65 @@ VOT_SPATIAL_ENABLED: bool = True
 # When True, a single LLM call reviews top entities after aggregation.
 LLM_QUALITY_REVIEW: bool = False
 
+# Relation dimension schema v1 (FR-1.2/FR-1.3; docs/analysis/relation-dimension-schema-v1.md).
+# When False, the dimension guide is not injected into the extraction prompt and
+# dimension sanitization/voting is skipped — prompt and parsing behave exactly
+# as before the dimension upgrade (NFR-3).
+RELATION_DIMENSIONS_ENABLED: bool = os.environ.get(
+    "RELATION_DIMENSIONS_ENABLED", "true"
+).strip().lower() not in ("0", "false", "no", "off")
+
+# Self-consistency sample count for rel_subtype voting (FR-1.3). The main
+# extraction pass counts as the first sample, so N=3 (default) adds 2
+# lightweight dimension-only calls per chapter. 1 disables voting.
+RELATION_SUBTYPE_VOTE_SAMPLES: int = int(os.environ.get("RELATION_SUBTYPE_VOTE_SAMPLES", "3"))
+
+# Citation-grounded 抽取 (Epic 3, FR-3.1)。默认开;关闭后抽取 prompt 不注入
+# 证据锚定指引、few-shot 示例不带事件 evidence、解析后不做证据清洗,
+# 行为与 v0.73 完全一致 (NFR-3)。
+EVIDENCE_GROUNDING_ENABLED: bool = os.environ.get(
+    "EVIDENCE_GROUNDING_ENABLED", "true"
+).strip().lower() not in ("0", "false", "no", "off")
+
+# LLM 增量实体消解 (Epic 2, FR-2.1–2.4)。默认开;关闭后聚合期不做
+# embedding blocking + LLM 聚类判定,行为与 v0.73 完全一致 (NFR-3)。
+ENTITY_RESOLUTION_ENABLED: bool = os.environ.get(
+    "ENTITY_RESOLUTION_ENABLED", "true"
+).strip().lower() not in ("0", "false", "no", "off")
+
+# 两遍制 recall pass (Epic 4, FR-4.1)。默认开;首遍抽取后对每章再跑一次
+# "查漏"调用(只补漏),补漏记录标记 source="recall_pass"。关闭后单遍行为
+# 与 v0.73 完全一致 (NFR-3);单章 LLM 调用 ≤2 倍 (NFR-2)。
+RECALL_PASS_ENABLED: bool = os.environ.get(
+    "RECALL_PASS_ENABLED", "true"
+).strip().lower() not in ("0", "false", "no", "off")
+
+# 自适应 recall 触发阈值 (成本优化): 仅当首遍产出稀薄时才发起查漏调用 ——
+# spatial_relationships 与 events 均为空,或两者总数低于该阈值。
+# 设为 0 时仅"双空"触发;RECALL_PASS_ENABLED=false 时永不触发(总开关)。
+RECALL_PASS_MIN_SIGNALS: int = int(os.environ.get("RECALL_PASS_MIN_SIGNALS", "2"))
+
+# 幻觉人物 LLM 判定层 (Epic 4, FR-4.2)。默认开;在 FactValidator 规则层之后、
+# 落库之前,对规则层抓不住的疑似幻觉人物(原文中找不到的名字)做 LLM 判定,
+# 高置信幻觉剔除、低置信降级为存疑,决策落 JSONL 审计日志 (NFR-5)。
+# 关闭后不做判定,行为与 v0.73 完全一致 (NFR-3)。
+HALLUCINATION_REVIEW_ENABLED: bool = os.environ.get(
+    "HALLUCINATION_REVIEW_ENABLED", "true"
+).strip().lower() not in ("0", "false", "no", "off")
+
+# Candidate blocking: 余弦相似度阈值 + top-k 近邻成簇,簇外不做 LLM 判定 (FR-2.1)。
+ER_SIMILARITY_THRESHOLD: float = float(os.environ.get("ER_SIMILARITY_THRESHOLD", "0.75"))
+ER_TOP_K: int = int(os.environ.get("ER_TOP_K", "5"))
+# 单簇最大成员数 — 超出则按相似度截断,保证 LLM 调用量与人物数近似线性 (NFR-2)。
+ER_MAX_CLUSTER_SIZE: int = int(os.environ.get("ER_MAX_CLUSTER_SIZE", "12"))
+
 # Context window size (tokens). Auto-detected at startup; 8192 = conservative default.
 CONTEXT_WINDOW_SIZE: int = 8192
 
 
 def update_context_window(size: int) -> None:
     """Update CONTEXT_WINDOW_SIZE at runtime (called after detection)."""
-    global CONTEXT_WINDOW_SIZE  # noqa: PLW0603
+    global CONTEXT_WINDOW_SIZE
     CONTEXT_WINDOW_SIZE = size
 
 
@@ -69,7 +129,7 @@ def update_cloud_config(
 
     Falls back to .env initial values when DB-provided values are empty.
     """
-    global LLM_PROVIDER, LLM_API_KEY, LLM_BASE_URL, LLM_MODEL, LLM_PROVIDER_FORMAT  # noqa: PLW0603
+    global LLM_PROVIDER, LLM_API_KEY, LLM_BASE_URL, LLM_MODEL, LLM_PROVIDER_FORMAT
 
     LLM_PROVIDER = provider
     LLM_API_KEY = api_key or _ENV_LLM_API_KEY
@@ -85,7 +145,7 @@ def update_cloud_config(
 
 def switch_to_ollama(model: str = "qwen3:8b") -> None:
     """Hot-switch back to local Ollama mode."""
-    global LLM_PROVIDER, OLLAMA_MODEL, LLM_PROVIDER_FORMAT  # noqa: PLW0603
+    global LLM_PROVIDER, OLLAMA_MODEL, LLM_PROVIDER_FORMAT
 
     LLM_PROVIDER = "ollama"
     OLLAMA_MODEL = model
@@ -108,7 +168,7 @@ def _reset_llm_client() -> None:
 
 def update_max_tokens(max_tokens: int) -> None:
     """Update LLM_MAX_TOKENS at runtime."""
-    global LLM_MAX_TOKENS  # noqa: PLW0603
+    global LLM_MAX_TOKENS
 
     LLM_MAX_TOKENS = max_tokens
 

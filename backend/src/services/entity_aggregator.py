@@ -9,17 +9,14 @@ from __future__ import annotations
 import json
 import logging
 from collections import defaultdict
-from functools import lru_cache
 from typing import Any
 
 from src.db.sqlite_db import get_connection
 from src.models.chapter_fact import ChapterFact
-from src.services.alias_resolver import build_alias_map
-from src.services.relation_utils import classify_relation_category, normalize_relation_type
 from src.models.entity_profiles import (
+    AbilityEntry,
     AliasEntry,
     AppearanceEntry,
-    AbilityEntry,
     EntitySummary,
     ItemAssociation,
     ItemFlowEntry,
@@ -35,6 +32,11 @@ from src.models.entity_profiles import (
     PersonProfile,
     RelationChain,
     RelationStage,
+)
+from src.services.alias_resolver import build_alias_map
+from src.services.relation_utils import (
+    classify_relation_category,
+    normalize_relation_type,
 )
 
 # ── Cache ─────────────────────────────────────────
@@ -63,12 +65,16 @@ def _cache_set(key: tuple[str, str, str], value: Any) -> None:
 def invalidate_cache(novel_id: str) -> None:
     """Invalidate all cached profiles and alias map for a novel."""
     from src.services.alias_resolver import invalidate_alias_cache
+    from src.services.hallucination_filter import (
+        invalidate_cache as invalidate_hallucination_cache,
+    )
 
     keys_to_remove = [k for k in _cache if k[0] == novel_id]
     for k in keys_to_remove:
         _cache.pop(k, None)
     _cache_order[:] = [k for k in _cache_order if k[0] != novel_id]
     invalidate_alias_cache(novel_id)
+    invalidate_hallucination_cache(novel_id)
 
 
 async def _apply_edit_markers(profile: Any, novel_id: str) -> Any:
@@ -281,11 +287,9 @@ async def aggregate_person(novel_id: str, person_name: str) -> PersonProfile:
         type_counts: dict[str, int] = defaultdict(int)
         all_chapters: list[int] = []
         all_evidences: list[str] = []
-        first_blood_type: str | None = None
 
         for ch, rtype, evidence in raw_stages:
             normalized = normalize_relation_type(rtype)
-            cat = classify_relation_category(normalized)
             type_counts[normalized] += 1
             all_chapters.append(ch)
             if evidence and evidence not in all_evidences:
@@ -458,7 +462,7 @@ async def aggregate_location(novel_id: str, location_name: str) -> LocationProfi
 
         # Visitors: characters who were at this location
         for char in fact.characters:
-            resolved_locs = {alias_map.get(l, l) for l in char.locations_in_chapter}
+            resolved_locs = {alias_map.get(loc, loc) for loc in char.locations_in_chapter}
             if location_name in resolved_locs:
                 visitor_canonical = alias_map.get(char.name, char.name)
                 visitor_map[visitor_canonical].append(ch)
@@ -557,9 +561,18 @@ async def aggregate_item(novel_id: str, item_name: str) -> ItemProfile:
     related_set: set[str] = set()
     chapter_set: set[int] = set()
 
+    # issue #70: related_items 只来自 LLM 显式记录的 item_events[].related
+    # (有原文证据的组成/持有转移/互动/同源关系),不再用同章共现启发式
+    # (共现会把搜索时偶然同场的另一物品、同类不同持有者的物品错标为关联)。
+    # all_item_names 是全书物品实体集合,作为读取侧 target-type 防线:
+    # 领域/能力机制等从未作为物品出现的实体不得进入 related_items。
+    all_item_names: set[str] = set()
+    for fact in facts:
+        for ie in fact.item_events:
+            all_item_names.add(alias_map.get(ie.item_name, ie.item_name))
+
     for fact in facts:
         ch = fact.chapter_id
-        chapter_items_in_event: list[str] = []
 
         for ie in fact.item_events:
             ie_canonical = alias_map.get(ie.item_name, ie.item_name)
@@ -576,13 +589,18 @@ async def aggregate_item(novel_id: str, item_name: str) -> ItemProfile:
                         description=ie.description or "",
                     )
                 )
-            chapter_items_in_event.append(ie_canonical)
 
-        # Related items: other items appearing in chapters where this item appears
-        if ch in chapter_set:
-            for other_name in chapter_items_in_event:
-                if other_name != item_name:
-                    related_set.add(other_name)
+            # Explicit related items (both directions: the relation is recorded
+            # on one item's event but displayed on both items' profiles)
+            related_targets = {
+                alias_map.get(rel.name, rel.name) for rel in ie.related
+            }
+            if ie_canonical == item_name:
+                for target in related_targets:
+                    if target != item_name and target in all_item_names:
+                        related_set.add(target)
+            elif item_name in related_targets and ie_canonical in all_item_names:
+                related_set.add(ie_canonical)
 
     profile = ItemProfile(
         name=item_name,
@@ -672,10 +690,14 @@ async def aggregate_org(novel_id: str, org_name: str) -> OrgProfile:
 # ── Entity List ───────────────────────────────────
 
 
-async def get_all_entities(novel_id: str) -> list[EntitySummary]:
+async def get_all_entities(
+    novel_id: str, *, apply_visibility: bool = True
+) -> list[EntitySummary]:
     """Scan all ChapterFacts and return a deduplicated entity list.
 
     Uses alias_map to merge entities that are aliases of the same canonical name.
+    apply_visibility=False 跳过 entity_hide/entity_retype(用于冲突检测的
+    自动基线);默认 True,所有现存调用方行为不变。
     """
     facts = await _load_chapter_facts(novel_id)
     alias_map = await build_alias_map(novel_id)
@@ -703,6 +725,33 @@ async def get_all_entities(novel_id: str) -> list[EntitySummary]:
 
         for nc in fact.new_concepts:
             entity_map[(nc.name, "concept")].add(ch)
+
+    # ── 实体级可见性 override(issue #66 Epic 1, FR-1.1/FR-1.2)──
+    # entity_hide: 从聚合入口剔除(软删);entity_retype: 把该实体路由到
+    # 目标类型,章节集合取各类型的并集。在类型投票之前应用,投票自然失效。
+    # 无 override 时零行为变化(逐字节不变量)。
+    if apply_visibility:
+        from src.services.entity_visibility import (
+            expand_hidden,
+            expand_retype,
+            get_visibility_overrides,
+        )
+
+        hidden, retype = await get_visibility_overrides(novel_id)
+        if hidden or retype:
+            hidden_r = expand_hidden(alias_map, hidden)
+            for key in [k for k in entity_map if k[0] in hidden_r]:
+                del entity_map[key]
+            for name, target in expand_retype(alias_map, retype).items():
+                keys = [k for k in entity_map if k[0] == name]
+                if not keys:
+                    continue  # 改型目标已不存在(如被后续 merge 吞并)
+                chapters_union: set[int] = set()
+                for k in keys:
+                    chapters_union |= entity_map[k]
+                    if k[1] != target:
+                        del entity_map[k]
+                entity_map[(name, target)] = chapters_union
 
     # ── Entity type voting: resolve cross-type conflicts ──
     # When the same canonical name appears as multiple types (e.g., 林黛玉 as
@@ -732,8 +781,8 @@ async def get_all_entities(novel_id: str) -> list[EntitySummary]:
     # Re-apply the generic-person authority at read time so collective/generic
     # references (群妖, 众小妖, 百十群妖, …) that predate the current rules — or
     # slipped past extraction — don't surface as entities. Single source of
-    # truth: fact_validator._is_generic_person.
-    from src.extraction.fact_validator import _is_generic_person
+    # truth: name_authority.is_generic_person.
+    from src.services.name_authority import is_generic_person as _is_generic_person
 
     entities = []
     for (name, etype), chapters in entity_map.items():

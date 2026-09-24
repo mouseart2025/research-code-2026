@@ -15,20 +15,92 @@ from __future__ import annotations
 import logging
 import time
 from collections import Counter
-from typing import AsyncGenerator
+from collections.abc import AsyncGenerator
 
+from src.services.geo_skills.base import GeoSkill
 from src.services.geo_skills.snapshot import (
     HierarchyMetrics,
     HierarchySnapshot,
-    SkillResult,
 )
 from src.services.geo_skills.snapshot_store import (
     SnapshotStore,
     snapshot_from_world_structure,
 )
-from src.services.geo_skills.base import GeoSkill
 
 logger = logging.getLogger(__name__)
+
+# 「天下」为文本真实概念的小说(水浒=大宋天下/三国=汉室天下/封神=
+# 成汤天下):其 uber_root 是真实地点节点(tier=world),进入标注与
+# gold。其余小说(西游的四大部洲宇宙、红楼的虚幻地理、未知作品)的
+# uber_root 只是工程根(Edmonds 单根/地图布局/孤儿兜底所需),属
+# 虚拟节点——不渲染为地点、不进标注导出(Anonymous 10.2:天下≠主世界)。
+REAL_TIANXIA_TITLES = ("水浒", "三国", "封神")
+
+
+def apply_alias_merge(
+    parents: dict[str, str], novel_title: str,
+) -> tuple[dict[str, str], dict | None]:
+    """apply 层别名归并:对既有 parent 表过 LOCATION_ALIAS_MAP。
+
+    - 别名节点的 children 一律改指 canonical(保序遍历,确定性);
+    - 别名节点自身的 parent 边仅保留金标/先验佐证者
+      (LOCATION_ALIAS_KEEP_EDGES),其余删除;映射产生的 self-loop 去除;
+    - 空壳别名节点(边被删且零子)随 parent 表摘除。
+    开关 evolve_param("geo_alias.apply_merge", True);表为空(其余四本)
+    或开关关闭时原样返回,零行为。返回 (新 parent 表, 报告|None)。
+    """
+    from src.services.geo_skills.evolve_params import evolve_param
+    from src.utils.location_names import (
+        location_alias_keep_edges_for_title,
+        location_alias_map_for_title,
+    )
+
+    if not evolve_param("geo_alias.apply_merge", True):
+        return parents, None
+    alias_map = location_alias_map_for_title(novel_title)
+    if not alias_map:
+        return parents, None
+    keep_edges = location_alias_keep_edges_for_title(novel_title)
+
+    new_parents: dict[str, str] = {}
+    repointed: list[tuple[str, str, str]] = []  # (child, old_parent, canonical)
+    removed_edges: list[tuple[str, str]] = []
+    kept_alias_edges: list[tuple[str, str]] = []
+    for child, parent in parents.items():
+        if parent in alias_map:
+            canon = alias_map[parent]
+            repointed.append((child, parent, canon))
+            parent = canon
+        if child in alias_map:
+            # 别名节点自身的 parent 边:仅保留佐证表内的
+            if keep_edges.get(child) == parent and child != parent:
+                new_parents[child] = parent
+                kept_alias_edges.append((child, parent))
+            else:
+                removed_edges.append((child, parent))
+            continue
+        if child == parent:
+            removed_edges.append((child, parent))  # 映射产生的 self-loop
+            continue
+        new_parents[child] = parent
+
+    # 摘除:所有未保留佐证边的别名节点。即便它本就不以 child 身份出现
+    # (纯 parent 残留,子节点已归并),也必须从 tiers 中摘除,否则
+    # _inject_layer_roots 的 Phase 0 orphan 兜底会把它重挂到根。
+    kept_children = {c for c, _ in kept_alias_edges}
+    removed_nodes = sorted(set(alias_map) - kept_children)
+    report = {
+        "repointed_children": repointed,
+        "removed_edges": removed_edges,
+        "kept_alias_edges": kept_alias_edges,
+        "removed_alias_nodes": removed_nodes,
+    }
+    return new_parents, report
+
+
+def is_real_tianxia_novel(novel_title: str) -> bool:
+    """该小说的「天下」是否为文本内真实概念(而非工程根)。"""
+    return any(k in novel_title for k in REAL_TIANXIA_TITLES)
 
 
 class ProgressEvent:
@@ -43,17 +115,26 @@ class ProgressEvent:
 class GeoOrchestrator:
     """Orchestrate geographic analysis skills with snapshot versioning."""
 
-    def __init__(self, novel_id: str):
+    def __init__(self, novel_id: str, novel_title: str = ""):
         self.novel_id = novel_id
+        self.novel_title = novel_title
         self.store = SnapshotStore()
         self._skills: list[tuple[str, GeoSkill]] = []
+        # run() 的最终快照。apply_to_world_structure 优先用它而非
+        # store.load_latest——后者按 version DESC 取链,若历史残留更高版本
+        # (fresh 重写 v0-6 但旧链 v7+ 仍在),会把陈旧快照当成最新结果应用
+        # (2026-09-19 实测:西游旧链 18 版,demo 重建应用了前一天的快照,
+        # 高老庄→灭法国 等已修复边全部回退)。
+        self._last_run_snapshot: HierarchySnapshot | None = None
 
     def add_skill(self, tag: str, skill: GeoSkill) -> GeoOrchestrator:
         """Add a skill to the pipeline. Returns self for chaining."""
         self._skills.append((tag, skill))
         return self
 
-    async def run(self) -> AsyncGenerator[ProgressEvent, None]:
+    async def run(
+        self, fresh: bool = False
+    ) -> AsyncGenerator[ProgressEvent, None]:
         """Execute all skills in sequence, yielding progress events.
 
         Each skill:
@@ -64,10 +145,18 @@ class GeoOrchestrator:
         5. Progress event is yielded
 
         If a skill fails, pipeline continues with previous snapshot.
+
+        ``fresh=True`` 时**忽略** hierarchy_snapshots 的历史快照,始终从
+        world_structures 导入 v0。默认 False 以保持既有行为。
+
+        为何需要 fresh(2026-09-08):默认路径走 ``store.load_latest()``,
+        即「在上次结果上继续优化」。同一份 world_structure 连续 rebuild 两次
+        会因为起点不同而产生 ~50 条 parent 漂移,且随运行次数累积。
+        可复现性验收(repro_check)与「重建」语义都要求同起点,fresh 即为此。
         """
         # Load or create initial snapshot
         yield ProgressEvent("init", "正在加载层级快照...")
-        snapshot = await self.store.load_latest(self.novel_id)
+        snapshot = None if fresh else await self.store.load_latest(self.novel_id)
         if snapshot is None:
             snapshot = await snapshot_from_world_structure(self.novel_id)
             await self.store.save(self.novel_id, snapshot, tag="import")
@@ -149,6 +238,7 @@ class GeoOrchestrator:
             )
 
         # Final metrics comparison
+        self._last_run_snapshot = snapshot
         final_metrics = HierarchyMetrics.compute(snapshot)
         yield ProgressEvent(
             "done",
@@ -173,7 +263,7 @@ class GeoOrchestrator:
 
         Returns summary dict.
         """
-        snapshot = await self.store.load_latest(self.novel_id)
+        snapshot = self._last_run_snapshot or await self.store.load_latest(self.novel_id)
         if not snapshot:
             return {"error": "No snapshot available"}
 
@@ -186,6 +276,22 @@ class GeoOrchestrator:
         old_parents = len(ws.location_parents)
         ws.location_parents = dict(snapshot.location_parents)
         ws.location_tiers = dict(snapshot.location_tiers)
+
+        # Apply 层别名归并(geo_alias.apply_merge 默认开,表空零行为):
+        # VoteBuilder 归并票仓后,旧 ws 残留的别名节点(汴梁城等)在此
+        # 归并——children 改指 canonical,无佐证别名边删除,空壳摘除。
+        merged_parents, alias_merge_report = apply_alias_merge(
+            ws.location_parents, self.novel_title,
+        )
+        ws.location_parents = merged_parents
+        # 被摘除的别名节点同步移出 tiers/layer/icon 表——否则
+        # _inject_layer_roots 的 Phase 0 orphan 兜底会把它们重挂到根。
+        if alias_merge_report:
+            for _name in alias_merge_report["removed_alias_nodes"]:
+                ws.location_tiers.pop(_name, None)
+                ws.location_layer_map.pop(_name, None)
+                if hasattr(ws, "location_icons"):
+                    ws.location_icons.pop(_name, None)
 
         # ── Re-detect layers after parent changes ──
         # Parent changes may invalidate old layer propagation (e.g., a location
@@ -222,7 +328,7 @@ class GeoOrchestrator:
         # Goal: 天下's children should be layer roots only, not a flat mix.
         # For each non-overworld layer, re-parent its top-level locations under
         # a layer root node (either an existing location or a virtual one).
-        self._inject_layer_roots(ws)
+        self._inject_layer_roots(ws, self.novel_title)
 
         await world_structure_store.save(self.novel_id, ws)
 
@@ -237,7 +343,8 @@ class GeoOrchestrator:
             "version": snapshot.version,
             "source": snapshot.source,
             "old_parent_count": old_parents,
-            "new_parent_count": len(snapshot.location_parents),
+            "new_parent_count": len(ws.location_parents),
+            "alias_merge": alias_merge_report,
             "metrics": {
                 "avg_depth": metrics.avg_depth,
                 "max_children": metrics.max_children,
@@ -246,7 +353,7 @@ class GeoOrchestrator:
         }
 
     @staticmethod
-    def _inject_layer_roots(ws) -> None:
+    def _inject_layer_roots(ws, novel_title: str = "") -> None:
         """Inject virtual layer root nodes so 天下's children are grouped by layer.
 
         Before: 天下 → [东胜神洲, 天庭, 幽冥界, 庄院, ...] (flat mix)
@@ -259,10 +366,31 @@ class GeoOrchestrator:
         2. If an existing location matches that name, promote it as root
         3. Otherwise create a virtual node
         4. Re-parent all 天下-children in that layer under the root
+
+        虚拟标记(2026-09-19):新建的图层根节点(主世界/天界…)是渲染分组
+        脚手架,标记进 ws.virtual_locations;被提升为图层根的**真实地点**
+        (如天庭)不标记。uber_root 本身依小说而定:水浒/三国/封神的
+        「天下」是文本真实概念,其余小说的 uber_root 是工程根(虚拟)。
         """
         parents = ws.location_parents
         tiers = ws.location_tiers
         layer_map = ws.location_layer_map
+
+        # 资信边免疫(layer.credentialed_edge_immunity 默认开):
+        # fixture/errata/prior 佐证的边不被本函数的图层分组/跨层解挂/
+        # 孤儿补挂覆盖(2026-09-22 归因:水浒 20 条金标 天下 边被 主世界
+        # 分组覆盖、西游 龙宫→东海 被 Phase A 解挂、红楼 芦雪庵 被
+        # Phase 0 补挂 主世界)。开关关闭时零行为变化。
+        from src.services.geo_skills.credentialed_edges import (
+            credentialed_edges,
+            credentialed_parents_for,
+        )
+        from src.services.geo_skills.evolve_params import evolve_param
+        immune = (
+            credentialed_edges(novel_title)
+            if evolve_param("layer.credentialed_edge_immunity", True)
+            else frozenset()
+        )
 
         # Find uber_root (天下 or equivalent)
         uber_root = None
@@ -277,7 +405,29 @@ class GeoOrchestrator:
                     uber_root = name
                     break
         if not uber_root:
+            # 纯起点兜底(2026-09-23):空 ws 起点(新小说首建)下「天下」
+            # 可能既无 tier=world 标记也不入 tiers 键,上述两条均落空导致
+            # 提前返回、Phase 0 收口与图层分组整体不执行、单根保证失效
+            # (三国/封神实测 roots=5/4,残留 parent-only 散根)。改看
+            # parents 值集:作为父节点出现但自身无 parent 的枢纽即
+            # uber_root,取子节点最多者,并列按名排序保确定性。
+            child_count = Counter(p for p in parents.values() if p)
+            candidates = sorted(
+                {p for p in parents.values() if p} - set(parents.keys()),
+                key=lambda n: (-child_count[n], n),
+            )
+            if candidates:
+                uber_root = candidates[0]
+                logger.info(
+                    "uber_root fallback via parent-hub: %s (%d children)",
+                    uber_root, child_count[uber_root],
+                )
+        if not uber_root:
             return
+        # 工程根虚拟化:水浒/三国/封神的「天下」是文本真实概念(真实节点),
+        # 其余小说的 uber_root 只是工程容器(Anonymous 10.2,2026-09-19)
+        if not is_real_tianxia_novel(novel_title):
+            ws.virtual_locations.add(uber_root)
 
         # Phase 0 (close orphans): The MWA formulation guarantees every non-root
         # node has an incoming edge from some parent (ultimately uber_root).
@@ -294,11 +444,37 @@ class GeoOrchestrator:
         #       itself has no recorded parent) — common when extraction names
         #       a "super-location" that didn't enter tiers.
         candidate_nodes = set(tiers.keys()) | {p for p in parents.values() if p}
-        for name in candidate_nodes:
+        # sorted: 同上,保证补挂顺序确定
+        for name in sorted(candidate_nodes):
             if name == uber_root:
                 continue
             if name not in parents:
-                parents[name] = uber_root
+                # 资信孤儿补挂:金标/errata/先验给出了 parent 且该 parent
+                # 已在图中、不成环时,优先挂资信 parent,而不是 uber_root
+                # (红楼 芦雪庵→大观园 由此恢复,而非误挂 主世界)。
+                attached = False
+                if immune:
+                    for cand in credentialed_parents_for(name, novel_title):
+                        if cand == name:
+                            continue
+                        if cand not in candidate_nodes and cand != uber_root:
+                            continue
+                        # 环检查:从 cand 沿父链向上不得回到 name
+                        node, seen = cand, {name}
+                        while node in parents and node not in seen:
+                            seen.add(node)
+                            node = parents[node]
+                        if node == name:
+                            continue
+                        parents[name] = cand
+                        attached = True
+                        logger.info(
+                            "Credentialed orphan attach: %s → %s (was uber_root fallback)",
+                            name, cand,
+                        )
+                        break
+                if not attached:
+                    parents[name] = uber_root
 
         # Phase A: Fix cross-layer parenting — locations whose parent is
         # in a different layer should be detached to become layer top-level.
@@ -308,6 +484,10 @@ class GeoOrchestrator:
             c_layer = layer_map.get(child, "overworld")
             p_layer = layer_map.get(parent, "overworld")
             if c_layer != "overworld" and p_layer != c_layer and parent != uber_root:
+                # 资信边免疫:金标/errata/先验佐证的跨层边(如西游 龙宫→东海)
+                # 不解挂——资信优先级高于图层整洁。
+                if (child, parent) in immune:
+                    continue
                 parents[child] = uber_root
 
         # Collect uber_root's direct children, grouped by layer
@@ -344,6 +524,10 @@ class GeoOrchestrator:
                 # Use existing location as root — re-parent siblings under it
                 for c in children:
                     if c != existing_root:
+                        # 资信边免疫:佐证边(如水浒 京畿→天下)不参与分组,
+                        # 保持原 parent;虚拟根仍为其余子节点创建。
+                        if (c, uber_root) in immune:
+                            continue
                         parents[c] = existing_root
                 logger.info(
                     "Layer root [%s]: %s (existing, %d children adopted)",
@@ -354,7 +538,11 @@ class GeoOrchestrator:
                 parents[root_name] = uber_root
                 tiers[root_name] = "continent" if layer_id == "overworld" else "realm"
                 layer_map[root_name] = layer_id
+                ws.virtual_locations.add(root_name)  # 渲染分组脚手架,非知识声明
                 for c in children:
+                    # 资信边免疫:同上,佐证边保持原 parent。
+                    if (c, uber_root) in immune:
+                        continue
                     parents[c] = root_name
                 logger.info(
                     "Layer root [%s]: %s (virtual, %d children)",
@@ -364,3 +552,43 @@ class GeoOrchestrator:
     async def get_version_history(self) -> list[dict]:
         """Get version history with metrics for paper tracking."""
         return await self.store.list_versions(self.novel_id)
+
+
+def build_default_orchestrator(novel_id: str, novel_title: str = "") -> GeoOrchestrator:
+    """构建标准 v2 重建管线(rebuild-hierarchy-v2 端点与分析后自动重建共用).
+
+    单一实现,避免两条调用链各自拼装再次漂移。顺序固定:
+    tier → votes → prior → edmonds → auditor → suffix → purify
+    (auditor 2026-09-20 起默认启用,可由 evolve_param("auditor.enabled")
+    关闭)。
+
+    v0.71.1 起 SuffixNormalizer 须排在 Edmonds 之后: 其名合并(乌斯藏国界→乌斯藏国,
+    石头城→都中 等)需要最终裁决权;放在 Edmonds 之前会被后续
+    name-containment/vote 权重再次覆盖。Story 5.5 起 purify 排最后(见下)。
+    """
+    from src.services.geo_skills.edmonds_resolver import EdmondsResolver
+    from src.services.geo_skills.evolve_params import evolve_param
+    from src.services.geo_skills.knowledge_prior import KnowledgePrior
+    from src.services.geo_skills.suffix_normalizer import SuffixNormalizer
+    from src.services.geo_skills.tier_classifier import TierClassifier
+    from src.services.geo_skills.vote_builder import VoteBuilder
+
+    orch = GeoOrchestrator(novel_id, novel_title=novel_title)
+    orch.add_skill("tier", TierClassifier(novel_id))
+    orch.add_skill("votes", VoteBuilder(novel_id, novel_title=novel_title))
+    orch.add_skill("prior", KnowledgePrior(novel_title=novel_title))
+    orch.add_skill("edmonds", EdmondsResolver())
+    # P1-C: 入网门禁审计(2026-09-20 起默认启用,五本实测:红楼 fixture
+    # PP +0.0556,无任何书回退 >0.02)。可用 evolve_param 关闭:
+    # auditor.enabled=False;auditor.report_only=True 时只记录不剔除。
+    if evolve_param("auditor.enabled", True):
+        from src.services.geo_skills.auditor_skill import AuditorSkill
+
+        orch.add_skill("auditor", AuditorSkill(novel_id))
+    orch.add_skill("suffix", SuffixNormalizer())
+    # 实体净化放在最后:等 SuffixNormalizer 完成变体归并后再剔除,否则
+    # 归并可能把子节点重新挂回待剔除的实体上。
+    from src.services.geo_skills.entity_purifier import EntityPurifier
+
+    orch.add_skill("purify", EntityPurifier(novel_id))
+    return orch

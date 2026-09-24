@@ -1,0 +1,221 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣",
+      "description": "孙悟空，使铁棒，会变化，可变蜜蜂"
+    },
+    {
+      "name": "猪八戒",
+      "description": "八戒，使钉钯，称呆子"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙和尚，看守行李马匹"
+    },
+    {
+      "name": "唐僧",
+      "description": "唐三藏，师父，取经人，出家人吃素"
+    },
+    {
+      "name": "女怪",
+      "description": "蝎子精，使三股钢叉，有倒马毒，原在雷音寺听佛谈经"
+    },
+    {
+      "name": "西梁国女王",
+      "description": "西梁国君主"
+    },
+    {
+      "name": "观世音菩萨",
+      "description": "菩萨，指示降妖方法"
+    },
+    {
+      "name": "昴日星官",
+      "description": "天庭星官，本相为双冠子大公鸡，能降伏蝎子精"
+    },
+    {
+      "name": "如来",
+      "description": "佛祖，曾被蝎子精扎伤"
+    },
+    {
+      "name": "增长天王",
+      "description": "天庭天王"
+    },
+    {
+      "name": "陶张辛邓四大元帅",
+      "description": "天庭元帅"
+    }
+  ],
+  "locations": [
+    {
+      "name": "西梁国",
+      "type": "国家",
+      "parent": ""
+    },
+    {
+      "name": "毒敌山",
+      "type": "山",
+      "parent": ""
+    },
+    {
+      "name": "琵琶洞",
+      "type": "洞穴",
+      "parent": "毒敌山"
+    },
+    {
+      "name": "石屏",
+      "type": "地形",
+      "parent": "毒敌山"
+    },
+    {
+      "name": "花亭",
+      "type": "建筑",
+      "parent": "琵琶洞"
+    },
+    {
+      "name": "香房",
+      "type": "房间",
+      "parent": "琵琶洞"
+    },
+    {
+      "name": "雷音寺",
+      "type": "寺庙",
+      "parent": ""
+    },
+    {
+      "name": "东天门",
+      "type": "天庭入口",
+      "parent": "天庭"
+    },
+    {
+      "name": "光明宫",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "观星台",
+      "type": "台",
+      "parent": "天庭"
+    },
+    {
+      "name": "斗牛宫",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "南海",
+      "type": "海域",
+      "parent": ""
+    },
+    {
+      "name": "子母河",
+      "type": "河流",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙大圣",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "女怪",
+      "person_b": "唐僧",
+      "relation_type": "欲配偶"
+    },
+    {
+      "person_a": "女怪",
+      "person_b": "如来",
+      "relation_type": "曾伤害"
+    },
+    {
+      "person_a": "观世音菩萨",
+      "person_b": "孙大圣",
+      "relation_type": "指导"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "毒敌山",
+      "target": "琵琶洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "琵琶洞",
+      "target": "花亭",
+      "relation_type": "contains",
+      "value": "洞内有亭"
+    },
+    {
+      "source": "琵琶洞",
+      "target": "香房",
+      "relation_type": "contains",
+      "value": "洞内有房"
+    },
+    {
+      "source": "毒敌山",
+      "target": "石屏",
+      "relation_type": "contains",
+      "value": "山中有石屏"
+    },
+    {
+      "source": "石屏",
+      "target": "琵琶洞",
+      "relation_type": "adjacent",
+      "value": "石屏后有洞门"
+    },
+    {
+      "source": "天庭",
+      "target": "光明宫",
+      "relation_type": "contains",
+      "value": "天庭内有宫"
+    },
+    {
+      "source": "天庭",
+      "target": "东天门",
+      "relation_type": "contains",
+      "value": "天庭入口"
+    },
+    {
+      "source": "天庭",
+      "target": "观星台",
+      "relation_type": "contains",
+      "value": "天庭内有台"
+    },
+    {
+      "source": "旋风",
+      "target": "西北",
+      "relation_type": "direction",
+      "value": "旋风往西北方向"
+    }
+  ],
+  "_chapter": 55,
+  "_input_tokens": 9013,
+  "_output_tokens": 1427
+}

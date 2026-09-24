@@ -1,0 +1,256 @@
+{
+  "characters": [
+    {
+      "name": "张稍",
+      "description": "渔翁，不登科的进士，能识字的山人，住在泾河岸边"
+    },
+    {
+      "name": "李定",
+      "description": "樵子，不登科的进士，能识字的山人，住在深山"
+    },
+    {
+      "name": "唐太宗",
+      "description": "大唐太宗文皇帝，登基改元龙集贞观，此时已登极十三年"
+    },
+    {
+      "name": "袁守诚",
+      "description": "卖卦先生，钦天监台正先生袁天罡的叔父，神课先生，名扬大国"
+    },
+    {
+      "name": "泾河龙王",
+      "description": "八河都总管，司雨大龙神，因违犯天条该魏征处斩"
+    },
+    {
+      "name": "魏征",
+      "description": "唐王驾下的丞相，人曹官，奉天命斩泾河龙王"
+    },
+    {
+      "name": "袁天罡",
+      "description": "当朝钦天监台正先生，袁守诚的侄子"
+    },
+    {
+      "name": "房玄龄",
+      "description": "唐朝文官"
+    },
+    {
+      "name": "杜如晦",
+      "description": "唐朝文官"
+    },
+    {
+      "name": "徐世勣",
+      "description": "唐朝文官"
+    },
+    {
+      "name": "许敬宗",
+      "description": "唐朝文官"
+    },
+    {
+      "name": "王珪",
+      "description": "唐朝文官"
+    },
+    {
+      "name": "马三宝",
+      "description": "唐朝武官"
+    },
+    {
+      "name": "段志贤",
+      "description": "唐朝武官"
+    },
+    {
+      "name": "殷开山",
+      "description": "唐朝武官"
+    },
+    {
+      "name": "程咬金",
+      "description": "唐朝武官"
+    },
+    {
+      "name": "刘洪纪",
+      "description": "唐朝武官"
+    },
+    {
+      "name": "胡敬德",
+      "description": "唐朝武官"
+    },
+    {
+      "name": "秦叔宝",
+      "description": "唐朝武官"
+    },
+    {
+      "name": "夜叉",
+      "description": "泾河水府巡水的夜叉"
+    },
+    {
+      "name": "鲥军师",
+      "description": "泾河龙王手下的军师"
+    }
+  ],
+  "locations": [
+    {
+      "name": "长安城",
+      "type": "城市",
+      "parent": "陕西"
+    },
+    {
+      "name": "陕西",
+      "type": "省份",
+      "parent": ""
+    },
+    {
+      "name": "泾河",
+      "type": "河流",
+      "parent": "长安城外"
+    },
+    {
+      "name": "水晶宫",
+      "type": "宫殿",
+      "parent": "泾河水府"
+    },
+    {
+      "name": "泾河水府",
+      "type": "水府",
+      "parent": "泾河"
+    },
+    {
+      "name": "西门街",
+      "type": "街道",
+      "parent": "长安城"
+    },
+    {
+      "name": "皇宫",
+      "type": "宫殿",
+      "parent": "长安城"
+    },
+    {
+      "name": "金銮殿",
+      "type": "殿堂",
+      "parent": "皇宫"
+    },
+    {
+      "name": "便殿",
+      "type": "殿堂",
+      "parent": "皇宫"
+    },
+    {
+      "name": "剐龙台",
+      "type": "刑场",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "张稍",
+      "person_b": "李定",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "袁守诚",
+      "person_b": "袁天罡",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "泾河龙王",
+      "person_b": "夜叉",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "泾河龙王",
+      "person_b": "鲥军师",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "唐太宗",
+      "person_b": "魏征",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "唐太宗",
+      "person_b": "房玄龄",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "唐太宗",
+      "person_b": "杜如晦",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "唐太宗",
+      "person_b": "徐世勣",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "张稍",
+      "person_b": "袁守诚",
+      "relation_type": "买卦者与卖卦者"
+    },
+    {
+      "person_a": "泾河龙王",
+      "person_b": "袁守诚",
+      "relation_type": "敌对"
+    },
+    {
+      "person_a": "魏征",
+      "person_b": "泾河龙王",
+      "relation_type": "行刑者与罪犯"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "陕西",
+      "target": "长安城",
+      "relation_type": "contains",
+      "value": "长安城位于陕西"
+    },
+    {
+      "source": "长安城",
+      "target": "泾河",
+      "relation_type": "adjacent",
+      "value": "泾河在长安城外"
+    },
+    {
+      "source": "泾河",
+      "target": "泾河水府",
+      "relation_type": "contains",
+      "value": "水府在泾河中"
+    },
+    {
+      "source": "泾河水府",
+      "target": "水晶宫",
+      "relation_type": "contains",
+      "value": "水晶宫在水府内"
+    },
+    {
+      "source": "长安城",
+      "target": "西门街",
+      "relation_type": "contains",
+      "value": "西门街在长安城内"
+    },
+    {
+      "source": "长安城",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "皇宫在长安城内"
+    },
+    {
+      "source": "皇宫",
+      "target": "金銮殿",
+      "relation_type": "contains",
+      "value": "金銮殿在皇宫内"
+    },
+    {
+      "source": "皇宫",
+      "target": "便殿",
+      "relation_type": "contains",
+      "value": "便殿在皇宫内"
+    },
+    {
+      "source": "长安城",
+      "target": "八水",
+      "relation_type": "direction",
+      "value": "八水绕城流"
+    }
+  ],
+  "_chapter": 9,
+  "_input_tokens": 7249,
+  "_output_tokens": 1715
+}

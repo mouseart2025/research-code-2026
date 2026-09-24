@@ -1,0 +1,170 @@
+{
+  "xiyouji": {
+    "per_temp": {
+      "0.0": {
+        "novel_id": "629fa976-6ce2-418b-b74a-f043b884bb1d",
+        "metrics": {
+          "avg_depth": 2.93,
+          "max_depth": 5,
+          "root_count": 1,
+          "max_children": 38,
+          "max_children_node": "西牛贺洲",
+          "total_locations": 543,
+          "total_parents": 572,
+          "cycles": 0
+        },
+        "benchmark_file": "benchmark_xiyouji_629fa976.json"
+      },
+      "0.7": {
+        "novel_id": "afc1720f-dddc-4b54-9491-30d3ef491976",
+        "metrics": {
+          "avg_depth": 2.61,
+          "max_depth": 5,
+          "root_count": 1,
+          "max_children": 45,
+          "max_children_node": "西牛贺洲",
+          "total_locations": 503,
+          "total_parents": 564,
+          "cycles": 0
+        },
+        "benchmark_file": "benchmark_xiyouji_afc1720f.json"
+      },
+      "1.0": {
+        "novel_id": "bc4984bb-ca99-4102-af00-1dfae5ad3462",
+        "metrics": {
+          "avg_depth": 3.07,
+          "max_depth": 6,
+          "root_count": 1,
+          "max_children": 41,
+          "max_children_node": "西牛贺洲",
+          "total_locations": 550,
+          "total_parents": 590,
+          "cycles": 0
+        },
+        "benchmark_file": "benchmark_xiyouji_bc4984bb.json"
+      }
+    },
+    "struct_agg": {
+      "max_children": {
+        "mean": 41.333333333333336,
+        "std": 2.8674417556808756,
+        "vals": [
+          38,
+          45,
+          41
+        ]
+      },
+      "root_count": {
+        "mean": 1,
+        "std": 0.0,
+        "vals": [
+          1,
+          1,
+          1
+        ]
+      },
+      "cycles": {
+        "mean": 0,
+        "std": 0.0,
+        "vals": [
+          0,
+          0,
+          0
+        ]
+      },
+      "avg_depth": {
+        "mean": 2.87,
+        "std": 0.19252705437591536,
+        "vals": [
+          2.93,
+          2.61,
+          3.07
+        ]
+      }
+    }
+  },
+  "honglou": {
+    "per_temp": {
+      "0.0": {
+        "novel_id": "3793ddb5-caf9-4698-b83c-5e2b9136a04e",
+        "metrics": {
+          "avg_depth": 2.94,
+          "max_depth": 5,
+          "root_count": 1,
+          "max_children": 72,
+          "max_children_node": "荣国府",
+          "total_locations": 430,
+          "total_parents": 433,
+          "cycles": 0
+        },
+        "benchmark_file": "benchmark_honglou_3793ddb5.json"
+      },
+      "0.7": {
+        "novel_id": "b967ba16-bc8b-4f21-a1d8-d380b4f3d368",
+        "metrics": {
+          "avg_depth": 3.89,
+          "max_depth": 6,
+          "root_count": 1,
+          "max_children": 85,
+          "max_children_node": "荣国府",
+          "total_locations": 377,
+          "total_parents": 389,
+          "cycles": 0
+        },
+        "benchmark_file": "benchmark_honglou_b967ba16.json"
+      },
+      "1.0": {
+        "novel_id": "2bf66c78-92cb-45e4-af9e-32f0040ec1ad",
+        "metrics": {
+          "avg_depth": 5.56,
+          "max_depth": 9,
+          "root_count": 1,
+          "max_children": 78,
+          "max_children_node": "荣国府",
+          "total_locations": 392,
+          "total_parents": 402,
+          "cycles": 0
+        },
+        "benchmark_file": "benchmark_honglou_2bf66c78.json"
+      }
+    },
+    "struct_agg": {
+      "max_children": {
+        "mean": 78.33333333333333,
+        "std": 5.312459150169742,
+        "vals": [
+          72,
+          85,
+          78
+        ]
+      },
+      "root_count": {
+        "mean": 1,
+        "std": 0.0,
+        "vals": [
+          1,
+          1,
+          1
+        ]
+      },
+      "cycles": {
+        "mean": 0,
+        "std": 0.0,
+        "vals": [
+          0,
+          0,
+          0
+        ]
+      },
+      "avg_depth": {
+        "mean": 4.13,
+        "std": 1.0829896890860349,
+        "vals": [
+          2.94,
+          3.89,
+          5.56
+        ]
+      }
+    }
+  }
+}

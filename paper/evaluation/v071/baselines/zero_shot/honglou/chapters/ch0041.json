@@ -1,0 +1,332 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾府的公子，提出用高几摆酒席的主意"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾府丫鬟，在屏风前催促宝玉"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太，众人的长辈，主持宴席"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲，贾府的夫人"
+    },
+    {
+      "name": "史湘云",
+      "description": "贾府的姊妹之一，参与酒令游戏"
+    },
+    {
+      "name": "李纨",
+      "description": "大奶奶，负责安排茶酒器皿等事务"
+    },
+    {
+      "name": "刘姥姥",
+      "description": "来自乡下的老妇人，贾母的客人"
+    },
+    {
+      "name": "板儿",
+      "description": "刘姥姥的孙子"
+    },
+    {
+      "name": "丰儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "素云",
+      "description": "李纨的丫鬟"
+    },
+    {
+      "name": "碧月",
+      "description": "丫鬟，捧菊花盘子"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，贾府管家媳妇，善于安排事务"
+    },
+    {
+      "name": "惜春",
+      "description": "贾母的小孙女，会画画"
+    },
+    {
+      "name": "林黛玉",
+      "description": "贾母的外孙女，住在潇湘馆"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的丫鬟"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛宝钗的母亲"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛姨妈的女儿，住在蘅芜苑"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三小姐，住在秋爽斋"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府二小姐"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母身边的大丫鬟，主持酒令"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "平丫头",
+      "description": "凤姐屋里的丫鬟"
+    },
+    {
+      "name": "玉钏儿",
+      "description": "丫鬟，跟随上船"
+    },
+    {
+      "name": "文官",
+      "description": "戏班中的女孩子"
+    }
+  ],
+  "locations": [
+    {
+      "name": "上房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "大观楼",
+      "type": "楼阁",
+      "parent": "园"
+    },
+    {
+      "name": "缀锦阁",
+      "type": "阁楼",
+      "parent": "大观楼"
+    },
+    {
+      "name": "沁芳亭",
+      "type": "亭子",
+      "parent": "园"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "园"
+    },
+    {
+      "name": "秋爽斋",
+      "type": "院落",
+      "parent": "园"
+    },
+    {
+      "name": "晓翠堂",
+      "type": "厅堂",
+      "parent": "秋爽斋"
+    },
+    {
+      "name": "紫菱洲",
+      "type": "水中洲",
+      "parent": "园"
+    },
+    {
+      "name": "蓼溆",
+      "type": "水边",
+      "parent": "园"
+    },
+    {
+      "name": "荇叶渚",
+      "type": "水中小洲",
+      "parent": "园"
+    },
+    {
+      "name": "花溆",
+      "type": "水边花地",
+      "parent": "园"
+    },
+    {
+      "name": "萝港",
+      "type": "港湾",
+      "parent": "园"
+    },
+    {
+      "name": "蘅芜苑",
+      "type": "院落",
+      "parent": "园"
+    },
+    {
+      "name": "藕香榭",
+      "type": "水上建筑",
+      "parent": "园"
+    },
+    {
+      "name": "池",
+      "type": "水池",
+      "parent": "园"
+    },
+    {
+      "name": "舡坞",
+      "type": "停船处",
+      "parent": "园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "林黛玉",
+      "relation_type": "外祖母外孙女"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "刘姥姥",
+      "person_b": "板儿",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "丰儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "素云",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "惜春",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平丫头",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "园",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园林在贾府内"
+    },
+    {
+      "source": "大观楼",
+      "target": "园",
+      "relation_type": "contains",
+      "value": "楼在园中"
+    },
+    {
+      "source": "缀锦阁",
+      "target": "大观楼",
+      "relation_type": "contains",
+      "value": "阁在楼上"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "园",
+      "relation_type": "contains",
+      "value": "馆在园中"
+    },
+    {
+      "source": "秋爽斋",
+      "target": "园",
+      "relation_type": "contains",
+      "value": "斋在园中"
+    },
+    {
+      "source": "晓翠堂",
+      "target": "秋爽斋",
+      "relation_type": "contains",
+      "value": "堂在斋中"
+    },
+    {
+      "source": "蘅芜苑",
+      "target": "园",
+      "relation_type": "contains",
+      "value": "苑在园中"
+    },
+    {
+      "source": "沁芳亭",
+      "target": "园",
+      "relation_type": "contains",
+      "value": "亭在园中"
+    },
+    {
+      "source": "池",
+      "target": "园",
+      "relation_type": "contains",
+      "value": "池在园中"
+    },
+    {
+      "source": "紫菱洲",
+      "target": "池",
+      "relation_type": "contains",
+      "value": "洲在池中"
+    },
+    {
+      "source": "荇叶渚",
+      "target": "池",
+      "relation_type": "contains",
+      "value": "渚在池中"
+    },
+    {
+      "source": "藕香榭",
+      "target": "池",
+      "relation_type": "adjacent",
+      "value": "榭在池边"
+    },
+    {
+      "source": "缀锦阁",
+      "target": "藕香榭",
+      "relation_type": "direction",
+      "value": "阁在榭附近"
+    }
+  ],
+  "_chapter": 41,
+  "_input_tokens": 12003,
+  "_output_tokens": 2130
+}

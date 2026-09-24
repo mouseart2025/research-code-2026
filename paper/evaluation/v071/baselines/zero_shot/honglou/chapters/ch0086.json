@@ -1,0 +1,482 @@
+{
+  "characters": [
+    {
+      "name": "赵姨娘",
+      "description": "贾环之母，在屋里抱怨贾环，与凤姐有怨"
+    },
+    {
+      "name": "贾环",
+      "description": "赵姨娘之子，弄倒药铞子洒了药，被人责骂"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，贾府管家，与赵姨娘有怨"
+    },
+    {
+      "name": "巧姐儿",
+      "description": "凤姐之女，曾生病，后来好了"
+    },
+    {
+      "name": "林之孝",
+      "description": "贾府管事，负责回报事务"
+    },
+    {
+      "name": "贾政",
+      "description": "贾府二老爷，升任工部郎中"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾府大老爷，贾政之兄"
+    },
+    {
+      "name": "贾珍",
+      "description": "贾府族人"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府族人"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，贾政之子，佩戴通灵宝玉"
+    },
+    {
+      "name": "北静郡王",
+      "description": "王爷，对宝玉甚是喜爱"
+    },
+    {
+      "name": "太监",
+      "description": "北静王府的太监，负责接待"
+    },
+    {
+      "name": "吴巡抚",
+      "description": "巡抚大人，保举贾政"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太，众人之长辈"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟，心思细密"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中丫鬟，与麝月拌嘴"
+    },
+    {
+      "name": "紫鹃",
+      "description": "林黛玉的丫鬟"
+    },
+    {
+      "name": "林黛玉",
+      "description": "林姑娘，贾母外孙女，体弱多病，心思敏感"
+    },
+    {
+      "name": "雪雁",
+      "description": "林黛玉房中丫鬟"
+    },
+    {
+      "name": "锄药",
+      "description": "小厮"
+    },
+    {
+      "name": "贾芸",
+      "description": "芸二爷，贾府族人，向宝玉递帖子"
+    },
+    {
+      "name": "代儒",
+      "description": "家塾老师"
+    },
+    {
+      "name": "李贵",
+      "description": "宝玉跟班"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，贾母侄孙女"
+    },
+    {
+      "name": "探春",
+      "description": "贾探春，贾政之女"
+    },
+    {
+      "name": "惜春",
+      "description": "贾惜春"
+    },
+    {
+      "name": "李纨",
+      "description": "寡嫂"
+    },
+    {
+      "name": "李纹",
+      "description": "李家姐妹"
+    },
+    {
+      "name": "李绮",
+      "description": "李家姐妹"
+    },
+    {
+      "name": "邢岫烟",
+      "description": "邢夫人侄女"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，薛姨妈之女"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛宝琴，薛家人"
+    },
+    {
+      "name": "迎春",
+      "description": "贾迎春"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家太太，王夫人之妹"
+    },
+    {
+      "name": "王子腾",
+      "description": "王夫人之兄，送戏贺喜"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛家二爷"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛姨妈之子，在外打死人被拿"
+    },
+    {
+      "name": "金桂",
+      "description": "薛蟠之妻"
+    },
+    {
+      "name": "香菱",
+      "description": "薛蟠之妾"
+    }
+  ],
+  "locations": [
+    {
+      "name": "赵姨娘屋",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "外间屋",
+      "type": "房间",
+      "parent": "赵姨娘屋"
+    },
+    {
+      "name": "里间",
+      "type": "房间",
+      "parent": "赵姨娘屋"
+    },
+    {
+      "name": "北府",
+      "type": "王府",
+      "parent": ""
+    },
+    {
+      "name": "内宫门",
+      "type": "门",
+      "parent": "北府"
+    },
+    {
+      "name": "殿门廊下",
+      "type": "廊",
+      "parent": "北府"
+    },
+    {
+      "name": "前殿",
+      "type": "殿",
+      "parent": "北府"
+    },
+    {
+      "name": "小巧精致的院",
+      "type": "院落",
+      "parent": "北府"
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "贾母房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "家塾",
+      "type": "学堂",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "大门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "宗祠",
+      "type": "祠堂",
+      "parent": "贾府"
+    },
+    {
+      "name": "正厅",
+      "type": "厅堂",
+      "parent": "贾府"
+    },
+    {
+      "name": "后厦",
+      "type": "房间",
+      "parent": "正厅"
+    },
+    {
+      "name": "薛家",
+      "type": "宅邸",
+      "parent": ""
+    },
+    {
+      "name": "厅房",
+      "type": "房间",
+      "parent": "薛家"
+    },
+    {
+      "name": "当铺",
+      "type": "店铺",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "赵姨娘",
+      "person_b": "贾环",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "巧姐儿",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾赦",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "邢夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "麝月",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "秋纹",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "雪雁",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "林黛玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "北静郡王",
+      "person_b": "太监",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛蟠",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "金桂",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "香菱",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "薛姨妈",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "王子腾",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "代儒",
+      "person_b": "宝玉",
+      "relation_type": "师生"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "赵姨娘屋",
+      "target": "外间屋",
+      "relation_type": "contains",
+      "value": "包含外间屋"
+    },
+    {
+      "source": "赵姨娘屋",
+      "target": "里间",
+      "relation_type": "contains",
+      "value": "包含里间"
+    },
+    {
+      "source": "北府",
+      "target": "内宫门",
+      "relation_type": "contains",
+      "value": "府内有内宫门"
+    },
+    {
+      "source": "北府",
+      "target": "殿门廊下",
+      "relation_type": "contains",
+      "value": "府内有殿门廊下"
+    },
+    {
+      "source": "北府",
+      "target": "前殿",
+      "relation_type": "contains",
+      "value": "府内有前殿"
+    },
+    {
+      "source": "北府",
+      "target": "小巧精致的院",
+      "relation_type": "contains",
+      "value": "府内有精致院落"
+    },
+    {
+      "source": "贾府",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "府内院落"
+    },
+    {
+      "source": "贾府",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "府内院落"
+    },
+    {
+      "source": "贾府",
+      "target": "家塾",
+      "relation_type": "contains",
+      "value": "府内学堂"
+    },
+    {
+      "source": "贾府",
+      "target": "贾母房",
+      "relation_type": "contains",
+      "value": "府内房间"
+    },
+    {
+      "source": "贾府",
+      "target": "正厅",
+      "relation_type": "contains",
+      "value": "府内厅堂"
+    },
+    {
+      "source": "贾府",
+      "target": "宗祠",
+      "relation_type": "contains",
+      "value": "府内祠堂"
+    },
+    {
+      "source": "正厅",
+      "target": "后厦",
+      "relation_type": "contains",
+      "value": "厅后有后厦"
+    },
+    {
+      "source": "薛家",
+      "target": "厅房",
+      "relation_type": "contains",
+      "value": "宅内有厅房"
+    },
+    {
+      "source": "怡红院",
+      "target": "潇湘馆",
+      "relation_type": "adjacent",
+      "value": "同在园中相邻"
+    },
+    {
+      "source": "二门",
+      "target": "大门",
+      "relation_type": "direction",
+      "value": "二门在大门内侧"
+    }
+  ],
+  "_chapter": 86,
+  "_input_tokens": 9972,
+  "_output_tokens": 3075
+}

@@ -1,0 +1,244 @@
+{
+  "characters": [
+    {
+      "name": "锦衣官",
+      "description": "负责押送假唐僧到朝廷的官员"
+    },
+    {
+      "name": "假唐僧",
+      "description": "孙悟空变化的假唐僧，后现出孙大圣本相"
+    },
+    {
+      "name": "黄门官",
+      "description": "负责传达消息的宫廷官员"
+    },
+    {
+      "name": "比丘王",
+      "description": "比丘国的昏君，被妖精蒙蔽，要取唐僧心肝做药引"
+    },
+    {
+      "name": "国丈",
+      "description": "白鹿精变化而成，蛊惑比丘王的妖怪"
+    },
+    {
+      "name": "孙悟空",
+      "description": "孙大圣，唐僧的大徒弟，能七十二变，使用金箍棒"
+    },
+    {
+      "name": "唐三藏",
+      "description": "唐朝御弟，西天取经的和尚"
+    },
+    {
+      "name": "猪八戒",
+      "description": "猪悟能，唐僧的二徒弟，使用九齿钉钯"
+    },
+    {
+      "name": "沙悟净",
+      "description": "沙僧，唐僧的三徒弟"
+    },
+    {
+      "name": "美后",
+      "description": "白面狐狸精变化的美女，被比丘王宠幸"
+    },
+    {
+      "name": "南极老人星",
+      "description": "南极寿星，白鹿的主人"
+    },
+    {
+      "name": "当坊土地",
+      "description": "柳林坡的土地神"
+    },
+    {
+      "name": "东华帝君",
+      "description": "曾与寿星下棋的仙人"
+    },
+    {
+      "name": "阁下太宰",
+      "description": "比丘国的重要官员"
+    }
+  ],
+  "locations": [
+    {
+      "name": "馆驿",
+      "type": "建筑",
+      "parent": "比丘国"
+    },
+    {
+      "name": "朝门",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "皇宫",
+      "type": "建筑群",
+      "parent": "比丘国"
+    },
+    {
+      "name": "比丘国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "金亭馆驿",
+      "type": "建筑",
+      "parent": "比丘国"
+    },
+    {
+      "name": "柳林坡",
+      "type": "地形",
+      "parent": null
+    },
+    {
+      "name": "清华庄",
+      "type": "虚假地点",
+      "parent": "柳林坡"
+    },
+    {
+      "name": "清华洞",
+      "type": "洞府",
+      "parent": "柳林坡"
+    },
+    {
+      "name": "清华仙府",
+      "type": "洞府",
+      "parent": "清华洞"
+    },
+    {
+      "name": "宝殿",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "正宫",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "东宫",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "西宫",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "六院",
+      "type": "建筑群",
+      "parent": "皇宫"
+    },
+    {
+      "name": "谨身殿",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "东阁",
+      "type": "建筑",
+      "parent": "皇宫"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐三藏",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐三藏",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "沙悟净",
+      "person_b": "唐三藏",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "比丘王",
+      "person_b": "国丈",
+      "relation_type": "君臣关系"
+    },
+    {
+      "person_a": "比丘王",
+      "person_b": "美后",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "南极老人星",
+      "person_b": "东华帝君",
+      "relation_type": "友人关系"
+    },
+    {
+      "person_a": "阁下太宰",
+      "person_b": "比丘王",
+      "relation_type": "君臣关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "比丘国",
+      "target": "柳林坡",
+      "relation_type": "direction",
+      "value": "南七十里"
+    },
+    {
+      "source": "皇宫",
+      "target": "比丘国",
+      "relation_type": "contains",
+      "value": "宫殿位于国都内"
+    },
+    {
+      "source": "朝门",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "朝门为皇宫入口"
+    },
+    {
+      "source": "清华洞",
+      "target": "柳林坡",
+      "relation_type": "contains",
+      "value": "洞府位于柳林坡九叉杨树根下"
+    },
+    {
+      "source": "清华仙府",
+      "target": "清华洞",
+      "relation_type": "contains",
+      "value": "仙府在洞内"
+    },
+    {
+      "source": "金亭馆驿",
+      "target": "比丘国",
+      "relation_type": "contains",
+      "value": "馆驿位于城内"
+    },
+    {
+      "source": "正宫",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "正宫属于皇宫"
+    },
+    {
+      "source": "东宫",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "东宫属于皇宫"
+    },
+    {
+      "source": "西宫",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "西宫属于皇宫"
+    },
+    {
+      "source": "六院",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "六院属于皇宫"
+    }
+  ],
+  "_chapter": 79,
+  "_input_tokens": 7565,
+  "_output_tokens": 1667
+}

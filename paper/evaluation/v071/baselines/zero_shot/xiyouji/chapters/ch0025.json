@@ -1,0 +1,205 @@
+{
+  "characters": [
+    {
+      "name": "唐僧/三藏",
+      "description": "东土大唐差往西天取经的僧人，师父"
+    },
+    {
+      "name": "孙悟空/行者/大圣",
+      "description": "唐僧的大徒弟，猴头，会七十二变，有金箍棒"
+    },
+    {
+      "name": "猪八戒/八戒/悟能",
+      "description": "唐僧的二徒弟，贪吃，使钉钯"
+    },
+    {
+      "name": "沙和尚/沙僧/悟净",
+      "description": "唐僧的三徒弟，使宝杖"
+    },
+    {
+      "name": "清风",
+      "description": "五庄观的道童之一"
+    },
+    {
+      "name": "明月",
+      "description": "五庄观的道童之一"
+    },
+    {
+      "name": "镇元大仙/大仙",
+      "description": "五庄观观主，与世同君，修仙得道的仙人"
+    }
+  ],
+  "locations": [
+    {
+      "name": "五庄观",
+      "type": "道观",
+      "parent": "万寿山"
+    },
+    {
+      "name": "万寿山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "殿上/正殿",
+      "type": "建筑",
+      "parent": "五庄观"
+    },
+    {
+      "name": "人参园/后园",
+      "type": "园林",
+      "parent": "五庄观"
+    },
+    {
+      "name": "前山门",
+      "type": "建筑",
+      "parent": "五庄观"
+    },
+    {
+      "name": "二山门",
+      "type": "建筑",
+      "parent": "五庄观"
+    },
+    {
+      "name": "正殿门",
+      "type": "建筑",
+      "parent": "五庄观"
+    },
+    {
+      "name": "元始宫",
+      "type": "仙宫",
+      "parent": null
+    },
+    {
+      "name": "兜率",
+      "type": "仙境",
+      "parent": null
+    },
+    {
+      "name": "东天门",
+      "type": "建筑",
+      "parent": null
+    },
+    {
+      "name": "南天门",
+      "type": "建筑",
+      "parent": null
+    },
+    {
+      "name": "路旁树林",
+      "type": "自然环境",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙和尚",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "清风",
+      "person_b": "明月",
+      "relation_type": "同门"
+    },
+    {
+      "person_a": "镇元大仙",
+      "person_b": "清风",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "镇元大仙",
+      "person_b": "明月",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "镇元大仙",
+      "person_b": "唐僧",
+      "relation_type": "故人"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "万寿山",
+      "target": "五庄观",
+      "relation_type": "contains",
+      "value": "五庄观位于万寿山上"
+    },
+    {
+      "source": "五庄观",
+      "target": "正殿",
+      "relation_type": "contains",
+      "value": "正殿在五庄观内"
+    },
+    {
+      "source": "五庄观",
+      "target": "人参园",
+      "relation_type": "contains",
+      "value": "人参园在五庄观后面"
+    },
+    {
+      "source": "五庄观",
+      "target": "前山门",
+      "relation_type": "contains",
+      "value": "前山门是五庄观的入口"
+    },
+    {
+      "source": "前山门",
+      "target": "二山门",
+      "relation_type": "direction",
+      "value": "前山门在二山门前面"
+    },
+    {
+      "source": "二山门",
+      "target": "正殿门",
+      "relation_type": "direction",
+      "value": "二山门在正殿门前面"
+    },
+    {
+      "source": "元始宫",
+      "target": "兜率",
+      "relation_type": "direction",
+      "value": "从元始宫到兜率"
+    },
+    {
+      "source": "兜率",
+      "target": "万寿山",
+      "relation_type": "direction",
+      "value": "从兜率下降到万寿山"
+    },
+    {
+      "source": "五庄观",
+      "target": "路旁树林",
+      "relation_type": "direction",
+      "value": "路旁树林在五庄观西边"
+    }
+  ],
+  "_chapter": 25,
+  "_input_tokens": 8900,
+  "_output_tokens": 1359
+}

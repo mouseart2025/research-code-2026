@@ -1,0 +1,273 @@
+{
+  "characters": [
+    {
+      "name": "唐三藏",
+      "description": "取经的圣僧，师父"
+    },
+    {
+      "name": "孙悟空",
+      "description": "齐天大圣，孙行者，唐三藏的大徒弟，神通广大"
+    },
+    {
+      "name": "猪八戒",
+      "description": "唐三藏的二徒弟，贪吃"
+    },
+    {
+      "name": "沙悟净",
+      "description": "沙和尚，唐三藏的三徒弟"
+    },
+    {
+      "name": "虎力大仙",
+      "description": "车迟国三个道士仙长中的大师父"
+    },
+    {
+      "name": "鹿力大仙",
+      "description": "车迟国三个道士仙长中的二师父"
+    },
+    {
+      "name": "羊力大仙",
+      "description": "车迟国三个道士仙长中的三师父"
+    },
+    {
+      "name": "车迟国国王",
+      "description": "车迟国君王，偏心无道，好道爱贤"
+    },
+    {
+      "name": "小道士",
+      "description": "两个少年道士，监督和尚干活"
+    },
+    {
+      "name": "智渊寺和尚",
+      "description": "车迟国智渊寺的和尚们"
+    },
+    {
+      "name": "太白金星",
+      "description": "在梦中托梦给和尚们的仙人"
+    },
+    {
+      "name": "元始天尊",
+      "description": "三清观中供奉的道教神仙"
+    },
+    {
+      "name": "灵宝道君",
+      "description": "三清观中供奉的道教神仙"
+    },
+    {
+      "name": "太上老君",
+      "description": "三清观中供奉的道教神仙"
+    }
+  ],
+  "locations": [
+    {
+      "name": "黑水河",
+      "type": "河流",
+      "parent": "西行路上"
+    },
+    {
+      "name": "车迟国",
+      "type": "国家",
+      "parent": "西域"
+    },
+    {
+      "name": "车迟国城池",
+      "type": "城市",
+      "parent": "车迟国"
+    },
+    {
+      "name": "沙滩",
+      "type": "空地",
+      "parent": "车迟国城门外"
+    },
+    {
+      "name": "双关",
+      "type": "关卡",
+      "parent": "沙滩"
+    },
+    {
+      "name": "夹脊小路",
+      "type": "道路",
+      "parent": "沙滩"
+    },
+    {
+      "name": "智渊寺",
+      "type": "寺院",
+      "parent": "车迟国城内"
+    },
+    {
+      "name": "金刚殿",
+      "type": "殿堂",
+      "parent": "智渊寺"
+    },
+    {
+      "name": "正殿",
+      "type": "殿堂",
+      "parent": "智渊寺"
+    },
+    {
+      "name": "方丈",
+      "type": "住所",
+      "parent": "智渊寺"
+    },
+    {
+      "name": "三清观",
+      "type": "道观",
+      "parent": "车迟国城内"
+    },
+    {
+      "name": "三清殿",
+      "type": "殿堂",
+      "parent": "三清观"
+    },
+    {
+      "name": "东廊",
+      "type": "厢房",
+      "parent": "三清观"
+    },
+    {
+      "name": "后方丈",
+      "type": "住所",
+      "parent": "三清观"
+    },
+    {
+      "name": "东厕",
+      "type": "厕所",
+      "parent": "三清观"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐三藏",
+      "person_b": "孙悟空",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "猪八戒",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "沙悟净",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "虎力大仙",
+      "person_b": "小道士",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "鹿力大仙",
+      "person_b": "小道士",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "羊力大仙",
+      "person_b": "小道士",
+      "relation_type": "师父徒弟"
+    },
+    {
+      "person_a": "车迟国国王",
+      "person_b": "虎力大仙",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "车迟国国王",
+      "person_b": "鹿力大仙",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "车迟国国王",
+      "person_b": "羊力大仙",
+      "relation_type": "君臣"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "车迟国",
+      "target": "车迟国城池",
+      "relation_type": "contains",
+      "value": "包含城池"
+    },
+    {
+      "source": "车迟国城门外",
+      "target": "沙滩",
+      "relation_type": "contains",
+      "value": "城门外有沙滩空地"
+    },
+    {
+      "source": "沙滩",
+      "target": "双关",
+      "relation_type": "contains",
+      "value": "沙滩上有两座大关"
+    },
+    {
+      "source": "沙滩",
+      "target": "夹脊小路",
+      "relation_type": "contains",
+      "value": "沙滩上有夹脊小路"
+    },
+    {
+      "source": "车迟国城内",
+      "target": "智渊寺",
+      "relation_type": "contains",
+      "value": "城内有智渊寺"
+    },
+    {
+      "source": "智渊寺",
+      "target": "金刚殿",
+      "relation_type": "contains",
+      "value": "寺内有金刚殿"
+    },
+    {
+      "source": "智渊寺",
+      "target": "正殿",
+      "relation_type": "contains",
+      "value": "寺内有正殿"
+    },
+    {
+      "source": "智渊寺",
+      "target": "方丈",
+      "relation_type": "contains",
+      "value": "寺内有方丈"
+    },
+    {
+      "source": "车迟国城内",
+      "target": "三清观",
+      "relation_type": "contains",
+      "value": "城内有三清观"
+    },
+    {
+      "source": "三清观",
+      "target": "三清殿",
+      "relation_type": "contains",
+      "value": "观内有三清殿"
+    },
+    {
+      "source": "三清观",
+      "target": "东廊",
+      "relation_type": "contains",
+      "value": "观内有东廊"
+    },
+    {
+      "source": "三清观",
+      "target": "后方丈",
+      "relation_type": "contains",
+      "value": "观内有后方丈"
+    },
+    {
+      "source": "三清观",
+      "target": "东厕",
+      "relation_type": "contains",
+      "value": "观内有东厕"
+    },
+    {
+      "source": "三清观",
+      "target": "智渊寺",
+      "relation_type": "direction",
+      "value": "三清观在智渊寺正南方向"
+    }
+  ],
+  "_chapter": 44,
+  "_input_tokens": 9134,
+  "_output_tokens": 1857
+}

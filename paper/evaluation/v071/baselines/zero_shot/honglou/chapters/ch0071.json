@@ -1,0 +1,329 @@
+{
+  "characters": [
+    {
+      "name": "贾琏",
+      "description": "在梨香院伴宿七日夜，办理尤二姐丧事"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府长辈，吩咐不许送往家庙，关心宝玉功课"
+    },
+    {
+      "name": "时觉",
+      "description": "与贾琏商议埋葬事宜的人"
+    },
+    {
+      "name": "尤三姐",
+      "description": "已故人物，埋葬时作为参考位置"
+    },
+    {
+      "name": "尤二姐",
+      "description": "已故人物，被埋葬"
+    },
+    {
+      "name": "王信夫妇",
+      "description": "参与送殡的族中人"
+    },
+    {
+      "name": "尤氏",
+      "description": "参与送殡的婆媳之一"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，管家，近期生病，忙于外务"
+    },
+    {
+      "name": "林之孝",
+      "description": "管事，开了人名单子"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府夫人，与贾母商议事务"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "大丫鬟，发誓不嫁，一向未和宝玉说话"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，主要人物，近期情色若痴，后专心练字读书"
+    },
+    {
+      "name": "琥珀",
+      "description": "大丫鬟，有病不能配人"
+    },
+    {
+      "name": "彩云",
+      "description": "大丫鬟，与贾环分崩，染了无医之症"
+    },
+    {
+      "name": "贾环",
+      "description": "与彩云分崩的人物"
+    },
+    {
+      "name": "李纨",
+      "description": "寡妇，料理家务，住在稻香村"
+    },
+    {
+      "name": "探春",
+      "description": "贾探春，料理家务，生日是三月初二"
+    },
+    {
+      "name": "柳湘莲",
+      "description": "已故人物，冷遁而亡"
+    },
+    {
+      "name": "尤小妹",
+      "description": "已故人物，剑刎而亡"
+    },
+    {
+      "name": "柳五儿",
+      "description": "气病的人物"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，劝宝玉用功"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中丫鬟，穿葱绿院绸小袄"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中丫鬟，穿红绫抹胸"
+    },
+    {
+      "name": "温都里",
+      "description": "被称为雄奴的小厮，被晴雯麝月戏耍"
+    },
+    {
+      "name": "碧月",
+      "description": "李纨房中丫鬟"
+    },
+    {
+      "name": "小燕",
+      "description": "房中丫鬟，捡到手帕"
+    },
+    {
+      "name": "琴姑娘",
+      "description": "宝琴，现在跟在老太太身边"
+    },
+    {
+      "name": "香菱",
+      "description": "薛宝钗房中丫鬟，已出去"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，住处冷清，作词填词"
+    },
+    {
+      "name": "翠缕",
+      "description": "湘云的丫鬟"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，诗社成员，作桃花诗，为社主"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，诗社成员，帮宝玉临字"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛宝琴，诗社成员，作桃花行"
+    },
+    {
+      "name": "王子腾",
+      "description": "王夫人兄弟，其女许配保宁侯之子"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的丫鬟，为宝玉临字"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉父亲，在外地，六月中准进京"
+    }
+  ],
+  "locations": [
+    {
+      "name": "梨香院",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "家庙",
+      "type": "宗教建筑",
+      "parent": null
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "沁芳亭",
+      "type": "亭子",
+      "parent": "大观园"
+    },
+    {
+      "name": "稻香村",
+      "type": "村落式建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "馆舍",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "近海一带",
+      "type": "地理区域",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾琏",
+      "person_b": "尤二姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "彩云",
+      "person_b": "贾环",
+      "relation_type": "情人关系（已分崩）"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "麝月",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "碧月",
+      "person_b": "李纨",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "翠缕",
+      "person_b": "湘云",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "王子腾",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "湘云",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "宝琴",
+      "relation_type": "朋友"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "梨香院",
+      "relation_type": "contains",
+      "value": "梨香院位于贾府内"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "大观园位于贾府内"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "怡红院位于大观园内"
+    },
+    {
+      "source": "大观园",
+      "target": "沁芳亭",
+      "relation_type": "contains",
+      "value": "沁芳亭位于大观园内"
+    },
+    {
+      "source": "大观园",
+      "target": "稻香村",
+      "relation_type": "contains",
+      "value": "稻香村位于大观园内"
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "潇湘馆位于大观园内"
+    },
+    {
+      "source": "沁芳亭",
+      "target": "稻香村",
+      "relation_type": "direction",
+      "value": "从沁芳亭往稻香村去"
+    }
+  ],
+  "_chapter": 71,
+  "_input_tokens": 4805,
+  "_output_tokens": 2357
+}

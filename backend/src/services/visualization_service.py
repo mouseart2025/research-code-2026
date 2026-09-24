@@ -7,15 +7,30 @@ All functions accept chapter_start/chapter_end to filter by range.
 from __future__ import annotations
 
 import asyncio
+import contextlib
 import json
 import logging
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from src.db.sqlite_db import get_connection
-from src.models.chapter_fact import ChapterFact
 from src.db import world_structure_store
+from src.db.sqlite_db import get_connection
+from src.extraction.fact_validator import _LOCATION_NAME_NORMALIZE
 from src.infra.config import DATA_DIR
+from src.models.chapter_fact import ChapterFact, classify_spatial_relation
+from src.models.world_structure import LayerType
+from src.services.alias_resolver import build_alias_map
+from src.services.conflict_detector import (
+    _detect_direction_conflicts,
+    _detect_distance_conflicts,
+    _detect_location_conflicts,
+)
+from src.services.geo_resolver import (
+    auto_resolve as geo_auto_resolve,
+)
+from src.services.geo_resolver import (
+    place_unresolved_geo_coords,
+)
 from src.services.map_layout_service import (
     CANVAS_HEIGHT,
     CANVAS_WIDTH,
@@ -32,20 +47,8 @@ from src.services.map_layout_service import (
     layout_to_list,
     place_unresolved_near_neighbors,
 )
-from src.services.alias_resolver import build_alias_map
-from src.services.geo_resolver import (
-    auto_resolve as geo_auto_resolve,
-    place_unresolved_geo_coords,
-)
-from src.extraction.fact_validator import _LOCATION_NAME_NORMALIZE
-from src.services.conflict_detector import (
-    _detect_location_conflicts,
-    _detect_direction_conflicts,
-    _detect_distance_conflicts,
-)
 from src.services.relation_utils import normalize_relation_type
 from src.services.world_structure_agent import WorldStructureAgent
-from src.models.world_structure import LayerType
 
 logger = logging.getLogger(__name__)
 
@@ -119,13 +122,15 @@ async def get_analyzed_range(novel_id: str) -> tuple[int, int]:
 async def get_graph_data(
     novel_id: str, chapter_start: int, chapter_end: int
 ) -> dict:
-    from src.services.relation_utils import classify_relation_category
     from src.services.name_authority import (
         CANONICAL_BLOCKLIST,
         GENERIC_PERSON_ALIASES,
         is_surname_plus_shi,
     )
-    from src.extraction.fact_validator import _is_generic_person
+    from src.services.name_authority import (
+        is_generic_person as _is_generic_person,
+    )
+    from src.services.relation_utils import classify_relation_category
 
     facts = await _load_facts_in_range(novel_id, chapter_start, chapter_end)
     alias_map = await build_alias_map(novel_id)
@@ -167,9 +172,7 @@ async def get_graph_data(
         if len(name) >= 3 and name.endswith("等"):
             return True
         # 长描述性名称 (飞东洋游普世感恩行孝黄毛红嘴白鹦哥)
-        if len(name) >= 10:
-            return True
-        return False
+        return len(name) >= 10
 
     # Collect person nodes
     person_chapters: dict[str, set[int]] = defaultdict(set)
@@ -247,8 +250,55 @@ async def get_graph_data(
                 person_org[person] = best_org
 
     from src.services.alias_resolver import get_override_targets
+    from src.services.hallucination_filter import get_ungrounded_persons
+
+    # v0.72: filter hallucination islands (issue #30) — person nodes whose
+    # canonical name and aliases never literally appear in the source text
+    # (e.g. characters leaked from the LLM's pretrained knowledge of other
+    # novels). Checked against the full book text, so real characters are
+    # never filtered just because they appear outside the selected range.
+    ungrounded = await get_ungrounded_persons(novel_id, person_chapters.keys(), alias_map)
+    if ungrounded:
+        for name in ungrounded:
+            person_chapters.pop(name, None)
+            person_org.pop(name, None)
+            person_aliases.pop(name, None)
+        edge_map = {
+            k: v
+            for k, v in edge_map.items()
+            if k[0] not in ungrounded and k[1] not in ungrounded
+        }
 
     override_targets = await get_override_targets(novel_id)
+
+    # 实体级可见性 override(issue #66 Epic 1):隐藏的实体、或改型到非
+    # person 的实体从图谱剔除(节点 + 相关边)。无 override 时零行为变化。
+    from src.services.entity_visibility import (
+        expand_hidden,
+        expand_retype,
+        get_visibility_overrides,
+    )
+
+    hidden, retype = await get_visibility_overrides(novel_id)
+    if hidden or retype:
+        hidden_r = expand_hidden(alias_map, hidden)
+        retype_r = expand_retype(alias_map, retype)
+        gone = {
+            name
+            for name in person_chapters
+            if name in hidden_r or retype_r.get(name, "person") != "person"
+        }
+        if gone:
+            for name in gone:
+                person_chapters.pop(name, None)
+                person_org.pop(name, None)
+                person_aliases.pop(name, None)
+            edge_map = {
+                k: v
+                for k, v in edge_map.items()
+                if k[0] not in gone and k[1] not in gone
+            }
+
     nodes = [
         {
             "id": name,
@@ -299,6 +349,7 @@ async def get_graph_data(
         "suggested_min_edge_weight": suggested_min_edge,
         "category_counts": dict(category_counts),
         "type_counts": dict(type_counts.most_common(20)),
+        "filtered_ungrounded_persons": sorted(ungrounded),
     }
 
 
@@ -369,6 +420,7 @@ def _snap_sea_orphans_to_land(
     children of snapped parents also move to land. Returns total snap count.
     """
     import math
+
     import numpy as np
     from scipy.spatial import KDTree
 
@@ -390,8 +442,8 @@ def _snap_sea_orphans_to_land(
             ocean_names.add(loc["name"])
 
     def _is_on_land(x: float, y: float) -> bool:
-        gxi = int(round(x / cell_size))
-        gyi = int(round(y / cell_size))
+        gxi = round(x / cell_size)
+        gyi = round(y / cell_size)
         if 0 <= gyi < grid_h and 0 <= gxi < grid_w:
             return bool(land_mask[gyi, gxi])
         return False
@@ -531,7 +583,7 @@ def _clean_spatial_constraints(
         rtype = c["relation_type"]
 
         # ── Fix contains inversions ──
-        if rtype == "contains":
+        if classify_spatial_relation(rtype) == "hierarchy":
             src, tgt = c["source"], c["target"]
             src_level = loc_level.get(src, 0)
             tgt_level = loc_level.get(tgt, 0)
@@ -661,9 +713,7 @@ def _enhance_constraints(
                 return True
             cur = p
         # Both rootless → trivially share "no parent" ancestor
-        if not loc_parent.get(a) and not loc_parent.get(b):
-            return True
-        return False
+        return bool(not loc_parent.get(a) and not loc_parent.get(b))
 
     for _person, path in trajectories.items():
         if len(path) < 2:
@@ -772,7 +822,117 @@ def _enhance_constraints(
 
 
 _map_cache: dict[str, tuple[float, dict]] = {}  # key → (timestamp, data)
-_MAP_CACHE_TTL = 300  # 5 minutes
+_MAP_CACHE_TTL = 1800  # 30 minutes
+
+
+def canonicalize_map_names(
+    loc_info: dict,
+    loc_chapters: dict,
+    loc_role: dict,
+    trajectories: dict,
+    constraint_map: dict,
+    alias_map: dict,
+) -> dict:
+    """map 展示层地名 canonical 化(map.alias_canonical;只改展示,不改 facts/ws)。
+
+    facts 原始名(水浒 京师/红楼 神京)归一到层级权威 canonical 名:
+    地点条目合并、章节/角色/轨迹/空间约束引用同步映射,别名自指约束
+    (映射后 s==t)剔除。保序遍历保确定性。返回归并报告。
+    """
+    report: dict = {"renamed": [], "merged_locations": [],
+                    "self_loop_constraints": []}
+    if not alias_map:
+        return report
+
+    role_priority = {"setting": 3, "boundary": 2, "referenced": 1}
+    for alias in sorted(alias_map):
+        canon = alias_map[alias]
+        if alias in loc_info:
+            if canon not in loc_info:
+                loc_info[canon] = loc_info[alias]
+            else:
+                if not loc_info[canon].get("parent") and loc_info[alias].get("parent"):
+                    loc_info[canon]["parent"] = loc_info[alias]["parent"]
+                report["merged_locations"].append(alias)
+            del loc_info[alias]
+            report["renamed"].append((alias, canon))
+        if alias in loc_chapters:
+            loc_chapters.setdefault(canon, set()).update(
+                loc_chapters.pop(alias))
+        if alias in loc_role:
+            new_role = loc_role.pop(alias)
+            cur = loc_role.get(canon)
+            if role_priority.get(new_role or "", 0) > role_priority.get(cur or "", 0):
+                loc_role[canon] = new_role
+        for entries in trajectories.values():
+            for entry in entries:
+                if entry.get("location") == alias:
+                    entry["location"] = canon
+
+    # 空间约束:端点/途经点统一映射;s==t 的自指约束剔除;键冲突取高置信
+    remapped: dict = {}
+    for (src, tgt, rel_type), c in constraint_map.items():
+        ns, nt = alias_map.get(src, src), alias_map.get(tgt, tgt)
+        if ns == nt:
+            report["self_loop_constraints"].append((src, tgt, rel_type))
+            continue
+        waypoints = c.get("waypoints")
+        c = {**c, "source": ns, "target": nt}
+        if waypoints:
+            c["waypoints"] = [alias_map.get(w, w) for w in waypoints]
+        key = (ns, nt, rel_type)
+        existing = remapped.get(key)
+        if existing is None or _CONFIDENCE_RANK.get(
+                c.get("confidence"), 1) > _CONFIDENCE_RANK.get(
+                existing.get("confidence"), 1):
+            remapped[key] = c
+    constraint_map.clear()
+    constraint_map.update(remapped)
+    return report
+
+
+def canonicalize_constraint_list(
+    spatial_constraints: list[dict],
+    alias_map: dict[str, str],
+) -> list[dict]:
+    """约束清单的 canonical 过一遍(enhance/注入之后):端点与途经点过
+    别名表、剔除映射后自指(s==t)、按键去重(先见优先,同键高置信优先)。
+    保序。alias_map 为空时原样返回。
+    """
+    if not alias_map:
+        return spatial_constraints
+    out: list[dict] = []
+    best: dict[tuple[str, str, str], int] = {}
+    for c in spatial_constraints:
+        ns = alias_map.get(c.get("source"), c.get("source"))
+        nt = alias_map.get(c.get("target"), c.get("target"))
+        if ns == nt:
+            continue
+        nc = dict(c, source=ns, target=nt)
+        if nc.get("waypoints"):
+            nc["waypoints"] = [alias_map.get(w, w) for w in nc["waypoints"]]
+        key = (ns, nt, nc.get("relation_type"))
+        rank = _CONFIDENCE_RANK.get(nc.get("confidence"), 1)
+        idx = best.get(key)
+        if idx is None:
+            best[key] = len(out)
+            out.append(nc)
+        elif rank > _CONFIDENCE_RANK.get(out[idx].get("confidence"), 1):
+            out[idx] = nc
+    return out
+
+
+async def invalidate_map_response_cache(novel_id: str) -> None:
+    """丢弃某小说的内存地图响应缓存 + 持久化地理 artifacts(实体 override 写入后调用)。
+
+    DB 层布局缓存(map_layouts/layer_layouts)不动 — 隐藏/改型在响应边界
+    过滤,布局坐标本身与可见性无关,可复用。landmass/rivers/roads 由
+    地点集合塑形,地点增删必须重算,故持久化 artifacts 一并删除。
+    """
+    prefix = f"{novel_id}:"
+    for key in [k for k in _map_cache if k.startswith(prefix)]:
+        _map_cache.pop(key, None)
+    await world_structure_store.delete_geo_artifacts(novel_id)
 
 async def get_map_data(
     novel_id: str, chapter_start: int, chapter_end: int,
@@ -843,6 +1003,69 @@ async def get_map_data(
                     "waypoints": sr.waypoints,
                 }
 
+    # 实体级可见性 override(issue #66 Epic 1, FR-1.1/FR-1.2):隐藏的、或
+    # 改型到非 location 的地点从地图剔除。地图用的是原始名,override key 是
+    # canonical,经 alias_map 双向展开。无 override 时零行为变化。
+    removed_locations: set[str] = set()
+    from src.services.entity_visibility import (
+        expand_hidden,
+        expand_retype,
+        get_visibility_overrides,
+    )
+
+    hidden_locs, retype_locs = await get_visibility_overrides(novel_id)
+    if hidden_locs or retype_locs:
+        alias_map_vis = await build_alias_map(novel_id)
+        hidden_r = expand_hidden(alias_map_vis, hidden_locs)
+        retype_r = expand_retype(alias_map_vis, retype_locs)
+        for name in list(loc_info):
+            canon = alias_map_vis.get(name, name)
+            if canon in hidden_r or name in hidden_r:
+                removed_locations.add(name)
+            else:
+                target = retype_r.get(canon, retype_r.get(name))
+                if target and target != "location":
+                    removed_locations.add(name)
+        for name in removed_locations:
+            loc_info.pop(name, None)
+            loc_chapters.pop(name, None)
+            loc_role.pop(name, None)
+        if removed_locations:
+            trajectories = defaultdict(list, {
+                p: [e for e in entries if e["location"] not in removed_locations]
+                for p, entries in trajectories.items()
+            })
+            # 引用被剔除地点的空间约束一并丢弃(否则也会被下游 dangling 检查删掉)
+            for key in [
+                k for k in constraint_map
+                if k[0] in removed_locations or k[1] in removed_locations
+            ]:
+                del constraint_map[key]
+
+    # map 展示层地名 canonical 化(map.alias_canonical 默认开,表空零行为):
+    # facts 原始名(水浒 京师/北京大名府、红楼 神京)归一到层级权威
+    # canonical 名,使地图与 world-structure 层级树展示一致;
+    # 轨迹/空间约束引用同步映射,不产生 dangling。
+    _map_alias_map: dict[str, str] = {}
+    from src.services.geo_skills.evolve_params import evolve_param
+    if evolve_param("map.alias_canonical", True):
+        from src.db.novel_store import get_novel as _get_novel_meta
+        from src.utils.location_names import location_alias_map_for_title
+        _meta = await _get_novel_meta(novel_id)
+        _map_alias_map = location_alias_map_for_title(
+            (_meta or {}).get("title") or "")
+        if _map_alias_map:
+            _alias_report = canonicalize_map_names(
+                loc_info, loc_chapters, loc_role, trajectories,
+                constraint_map, _map_alias_map)
+            if _alias_report["renamed"]:
+                logger.info(
+                    "Map alias canonical: %d renamed, %d merged, %d self-loop dropped",
+                    len(_alias_report["renamed"]),
+                    len(_alias_report["merged_locations"]),
+                    len(_alias_report["self_loop_constraints"]),
+                )
+
     # Calculate hierarchy levels
     def get_level(name: str, visited: set[str] | None = None) -> int:
         if visited is None:
@@ -874,7 +1097,7 @@ async def get_map_data(
         }
         for name, info in loc_info.items()
     ]
-    locations.sort(key=lambda l: (-l["mention_count"], l["name"]))
+    locations.sort(key=lambda loc: (-loc["mention_count"], loc["name"]))
 
     # Deduplicate trajectories
     for person in list(trajectories.keys()):
@@ -1084,7 +1307,7 @@ async def get_map_data(
                 if len(active_regions) > MAX_DISPLAY_REGIONS:
                     # Count locations per region
                     region_loc_counts: dict[str, int] = {}
-                    for loc_name_r, region_name_r in ws.location_region_map.items():
+                    for _loc_name_r, region_name_r in ws.location_region_map.items():
                         region_loc_counts[region_name_r] = region_loc_counts.get(region_name_r, 0) + 1
                     active_regions.sort(
                         key=lambda r: region_loc_counts.get(r["name"], 0), reverse=True,
@@ -1126,6 +1349,12 @@ async def get_map_data(
         spatial_constraints, dict(trajectories), locations,
         completed_relations=_completed_rels,
     )
+    # completed_spatial_relations 是 ws 存量原始名(如 敕建宝林寺),
+    # enhance 后再过一遍 canonical,避免别名端点 dangling
+    # (别名节点已被归并/摘除,约束引用必须与展示节点一致)。
+    if _map_alias_map:
+        spatial_constraints = canonicalize_constraint_list(
+            spatial_constraints, _map_alias_map)
 
     # ── Layout computation with caching ──
     _ws_scale_for_hash = ws.spatial_scale if ws else None
@@ -1157,6 +1386,7 @@ async def get_map_data(
         and target_layer == "overworld"
         and ws and _effective_geo_type in ("realistic", "mixed")
         and cached_layer["layout_mode"] != "geographic"
+        and not await world_structure_store.get_geo_failed(novel_id)
     ):
         logger.info("Invalidating stale overworld cache (geo_type=%s/%s but cached as %s)",
                      ws.geo_type, _effective_geo_type, cached_layer["layout_mode"])
@@ -1172,35 +1402,56 @@ async def get_map_data(
         ) else None
         # Restore geo_coords for cached geographic layouts (coords are not in cache)
         if layout_mode == "geographic" and target_layer == "overworld" and ws:
+            # Fast path: persisted geo_coords artifact skips the full
+            # geo_auto_resolve (geonames index rebuild + whole-book resolution)
             try:
-                all_names = [loc["name"] for loc in locations]
-                loc_parent_map = {
-                    loc["name"]: loc.get("parent")
-                    for loc in locations
-                }
-                _scope, _gtype, _resolver, resolved = await geo_auto_resolve(
-                    ws.novel_genre_hint, all_names, all_names, loc_parent_map,
-                    known_geo_type=ws.geo_type,
+                _coords_art = await world_structure_store.load_geo_artifacts(
+                    novel_id, target_layer, ch_hash,
                 )
-                if resolved:
-                    geo_coords_raw = {
-                        name: {"lat": coord[0], "lng": coord[1]}
-                        for name, coord in resolved.items()
-                    }
-                    # Also estimate geo_coords for unresolved locations
-                    resolved_names = set(resolved.keys())
-                    unresolved_names = [
-                        loc["name"] for loc in locations
-                        if loc["name"] not in resolved_names
-                    ]
-                    if unresolved_names:
-                        estimated = place_unresolved_geo_coords(
-                            unresolved_names, resolved, loc_parent_map,
-                        )
-                        for name, (lat, lng) in estimated.items():
-                            geo_coords_raw[name] = {"lat": lat, "lng": lng}
             except Exception:
-                logger.warning("Failed to restore geo_coords from cache", exc_info=True)
+                logger.warning("Failed to load geo coords artifact", exc_info=True)
+                _coords_art = None
+            if _coords_art is not None and _coords_art.get("geo_coords") is not None:
+                geo_coords_raw = _coords_art["geo_coords"]
+            else:
+                try:
+                    all_names = [loc["name"] for loc in locations]
+                    loc_parent_map = {
+                        loc["name"]: loc.get("parent")
+                        for loc in locations
+                    }
+                    _scope, _gtype, _resolver, resolved = await geo_auto_resolve(
+                        ws.novel_genre_hint, all_names, all_names, loc_parent_map,
+                        known_geo_type=ws.geo_type,
+                    )
+                    if resolved:
+                        geo_coords_raw = {
+                            name: {"lat": coord[0], "lng": coord[1]}
+                            for name, coord in resolved.items()
+                        }
+                        # Also estimate geo_coords for unresolved locations
+                        resolved_names = set(resolved.keys())
+                        unresolved_names = [
+                            loc["name"] for loc in locations
+                            if loc["name"] not in resolved_names
+                        ]
+                        if unresolved_names:
+                            estimated = place_unresolved_geo_coords(
+                                unresolved_names, resolved, loc_parent_map,
+                            )
+                            for name, (lat, lng) in estimated.items():
+                                geo_coords_raw[name] = {"lat": lat, "lng": lng}
+                except Exception:
+                    logger.warning("Failed to restore geo_coords from cache", exc_info=True)
+                # Backfill the artifact so the next cold process hits the fast path
+                if geo_coords_raw:
+                    try:
+                        await world_structure_store.save_geo_coords(
+                            novel_id, target_layer, ch_hash,
+                            json.dumps(geo_coords_raw, ensure_ascii=False),
+                        )
+                    except Exception:
+                        logger.warning("Failed to persist geo coords artifact", exc_info=True)
     else:
         # ── Geographic layout: real-world coordinates via GeoNames ──
         # Only attempt for overworld layer (sub-layers are fictional internal spaces)
@@ -1222,7 +1473,7 @@ async def get_map_data(
                     # Pass through auto_resolve even for non-realistic types,
                     # because auto_resolve applies genre-based overrides
                     # (e.g., historical novels with cached "fantasy" → "mixed").
-                    geo_scope, geo_type, resolver, resolved = await geo_auto_resolve(
+                    _geo_scope, geo_type, resolver, resolved = await geo_auto_resolve(
                         ws.novel_genre_hint, all_names, major_names, loc_parent_map,
                         known_geo_type=ws.geo_type,
                     )
@@ -1232,7 +1483,7 @@ async def get_map_data(
                         await world_structure_store.save(novel_id, ws)
                 else:
                     # First-time detection — run full detection and persist
-                    geo_scope, geo_type, resolver, resolved = await geo_auto_resolve(
+                    _geo_scope, geo_type, resolver, resolved = await geo_auto_resolve(
                         ws.novel_genre_hint, all_names, major_names, loc_parent_map,
                     )
                     ws.geo_type = geo_type
@@ -1304,6 +1555,20 @@ async def get_map_data(
                         novel_id, target_layer, ch_hash,
                         layout_data, "geographic",
                     )
+                    # Persist resolved geo coords (pre-override final value,
+                    # unresolved estimates merged) so cold processes skip
+                    # re-running geo_auto_resolve. User lat/lng overrides are
+                    # still applied last at response assembly.
+                    if geo_coords_raw:
+                        try:
+                            await world_structure_store.save_geo_coords(
+                                novel_id, target_layer, ch_hash,
+                                json.dumps(geo_coords_raw, ensure_ascii=False),
+                            )
+                        except Exception:
+                            logger.warning(
+                                "Failed to persist geo coords artifact", exc_info=True,
+                            )
             except Exception:
                 logger.warning(
                     "Geographic layout failed, falling back to solver",
@@ -1353,6 +1618,23 @@ async def get_map_data(
                     first_chapter_map,
                     location_region_bounds=location_region_bounds,
                 )
+
+        # Geo was attempted (effective type realistic/mixed) but the final
+        # overworld layout came out non-geographic — both fall-through paths
+        # (exception fallback / insufficient resolution) land here. Persist a
+        # one-shot failure marker so the stale-cache check above stops
+        # invalidating the layer cache on every cold process. Not set when
+        # geo was never attempted (ws/geo_type missing).
+        if (
+            not geo_resolved
+            and target_layer == "overworld"
+            and ws is not None
+            and _effective_geo_type in ("realistic", "mixed")
+        ):
+            try:
+                await world_structure_store.set_geo_failed(novel_id)
+            except Exception:
+                logger.warning("Failed to persist geo_failed marker", exc_info=True)
 
     # ── Revealed location names for fog of war ──
     revealed_names: list[str] = []
@@ -1424,55 +1706,109 @@ async def get_map_data(
                 break
     landmass_result: dict = {}
     roads: list[dict] = []
-    if layout_mode != "geographic" and len(layout_data) >= 3 and _is_overworld_like and not _is_underwater:
-        _lrm = ws.location_region_map if ws else None
+    rivers: list[dict] = []
+
+    # ── Persisted geo artifacts (map_geo_artifacts) ──
+    # Stored AFTER the sea-orphan snap (final state) on the cold path, so the
+    # read path uses them directly without re-running generation or the snap.
+    _geo_artifacts: dict | None = None
+    if layout_mode != "geographic" and _is_overworld_like:
         try:
-            landmass_result = generate_landmasses(
-                locations, layout_data, novel_id,
-                canvas_width=_resp_cw, canvas_height=_resp_ch,
-                location_region_map=_lrm,
+            _geo_artifacts = await world_structure_store.load_geo_artifacts(
+                novel_id, target_layer, ch_hash,
             )
         except Exception:
-            logger.warning("Failed to generate landmasses", exc_info=True)
+            logger.warning("Failed to load map geo artifacts", exc_info=True)
+            _geo_artifacts = None
 
-    # ── Snap sea-orphan locations to nearest land ──
-    # After landmass generation, some unconstrained locations may visually sit
-    # in the ocean. Snap non-ocean locations back to the nearest land cell.
-    if landmass_result and "_land_mask" in landmass_result:
-        _snap_count = _snap_sea_orphans_to_land(
-            layout_data, locations, landmass_result, spatial_constraints,
-        )
-        if _snap_count:
-            logger.info("Snapped %d sea-orphan locations to nearest land", _snap_count)
-            # Regenerate landmass only if significant snaps occurred (>= 3)
-            # to cover new positions. Minor snaps are already near land.
-            if _snap_count >= 3:
+    if _geo_artifacts is not None:
+        landmass_result = {
+            "landmasses": _geo_artifacts["landmasses"],
+            "shelves": _geo_artifacts["shelves"],
+        }
+        rivers = _geo_artifacts["rivers"]
+        roads = _geo_artifacts["roads"]
+        logger.debug("Using persisted map geo artifacts for %s/%s", novel_id, target_layer)
+    else:
+        if layout_mode != "geographic" and len(layout_data) >= 3 and _is_overworld_like and not _is_underwater:
+            _lrm = ws.location_region_map if ws else None
+            try:
+                landmass_result = generate_landmasses(
+                    locations, layout_data, novel_id,
+                    canvas_width=_resp_cw, canvas_height=_resp_ch,
+                    location_region_map=_lrm,
+                )
+            except Exception:
+                logger.warning("Failed to generate landmasses", exc_info=True)
+
+        # ── Snap sea-orphan locations to nearest land ──
+        # After landmass generation, some unconstrained locations may visually sit
+        # in the ocean. Snap non-ocean locations back to the nearest land cell.
+        if landmass_result and "_land_mask" in landmass_result:
+            _snap_count = _snap_sea_orphans_to_land(
+                layout_data, locations, landmass_result, spatial_constraints,
+            )
+            if _snap_count:
+                logger.info("Snapped %d sea-orphan locations to nearest land", _snap_count)
+                # Persist snapped positions so cached-layout reads stay consistent
+                # with the post-snap geo artifacts saved below
                 try:
-                    landmass_result = generate_landmasses(
-                        locations, layout_data, novel_id,
-                        canvas_width=_resp_cw, canvas_height=_resp_ch,
-                        location_region_map=_lrm,
-                    )
-                    logger.debug("Regenerated landmasses after sea-orphan snap")
+                    if cached_layer is not None or layout_mode == "layered":
+                        await _save_cached_layer_layout(
+                            novel_id, target_layer, ch_hash, layout_data, layout_mode,
+                        )
+                    else:
+                        conn = await get_connection()
+                        try:
+                            await conn.execute(
+                                "UPDATE map_layouts SET layout_json = ? WHERE novel_id = ? AND chapter_hash = ?",
+                                (json.dumps(layout_data, ensure_ascii=False), novel_id, ch_hash),
+                            )
+                            await conn.commit()
+                        finally:
+                            await conn.close()
                 except Exception:
-                    logger.warning("Failed to regenerate landmasses after snap", exc_info=True)
+                    logger.warning("Failed to write back snapped layout", exc_info=True)
+                # Regenerate landmass only if significant snaps occurred (>= 3)
+                # to cover new positions. Minor snaps are already near land.
+                if _snap_count >= 3:
+                    try:
+                        landmass_result = generate_landmasses(
+                            locations, layout_data, novel_id,
+                            canvas_width=_resp_cw, canvas_height=_resp_ch,
+                            location_region_map=_lrm,
+                        )
+                        logger.debug("Regenerated landmasses after sea-orphan snap")
+                    except Exception:
+                        logger.warning("Failed to regenerate landmasses after snap", exc_info=True)
 
-    # Generate river network AFTER landmasses (clip rivers to land)
-    rivers: list[dict] = []
-    if layout_mode != "geographic" and len(layout_data) >= 3 and _is_overworld_like:
-        # Pass land_mask so rivers terminate at coastline
-        _land_mask_info = None
-        if "_land_mask" in landmass_result:
-            _land_mask_info = {
-                "_land_mask": landmass_result["_land_mask"],
-                "_cell_size": landmass_result["_cell_size"],
-            }
-        rivers = generate_rivers(
-            locations, layout_data, novel_id,
-            canvas_width=_resp_cw, canvas_height=_resp_ch,
-            land_mask_info=_land_mask_info,
-        )
-        roads = generate_roads(locations, layout_data, land_mask_info=_land_mask_info)
+        # Generate river network AFTER landmasses (clip rivers to land)
+        if layout_mode != "geographic" and len(layout_data) >= 3 and _is_overworld_like:
+            # Pass land_mask so rivers terminate at coastline
+            _land_mask_info = None
+            if "_land_mask" in landmass_result:
+                _land_mask_info = {
+                    "_land_mask": landmass_result["_land_mask"],
+                    "_cell_size": landmass_result["_cell_size"],
+                }
+            rivers = generate_rivers(
+                locations, layout_data, novel_id,
+                canvas_width=_resp_cw, canvas_height=_resp_ch,
+                land_mask_info=_land_mask_info,
+            )
+            roads = generate_roads(locations, layout_data, land_mask_info=_land_mask_info)
+
+            # Persist final (post-snap) geo artifacts for restart-surviving reuse
+            try:
+                await world_structure_store.save_geo_artifacts(
+                    novel_id, target_layer, ch_hash,
+                    json.dumps(landmass_result.get("landmasses", []), ensure_ascii=False),
+                    json.dumps(landmass_result.get("shelves", []), ensure_ascii=False),
+                    json.dumps(rivers, ensure_ascii=False),
+                    json.dumps(roads, ensure_ascii=False),
+                )
+            except Exception:
+                logger.warning("Failed to persist map geo artifacts", exc_info=True)
 
     # ── Fill missing layout coordinates ──
     # Some locations (sub-sites, buildings) may not get layout positions from
@@ -1519,7 +1855,7 @@ async def get_map_data(
         if _missing:
             logger.debug(
                 "Filled %d/%d missing layout positions via parent fallback",
-                len(_missing) - len([l for l in locations if l["name"] not in _layout_map]),
+                len(_missing) - len([loc for loc in locations if loc["name"] not in _layout_map]),
                 len(_missing),
             )
 
@@ -1534,6 +1870,29 @@ async def get_map_data(
     # Space theme only for cosmic layers, NOT for overworld (earth surface).
     _SPACE_LAYER_IDS = {"galaxy", "solarsystem", "trisolaris", "trisolaris-game"}
     space_theme = bool(layer_id and layer_id in _SPACE_LAYER_IDS)
+
+    # 响应边界兜底过滤:DB/内存缓存的布局可能仍含被隐藏地点的坐标
+    if removed_locations:
+        layout_data = [
+            it for it in layout_data if it.get("name") not in removed_locations
+        ]
+        for lid, litems in layer_layouts.items():
+            layer_layouts[lid] = [
+                it for it in litems if it.get("name") not in removed_locations
+            ]
+        if geo_coords_raw:
+            for name in removed_locations:
+                geo_coords_raw.pop(name, None)
+        revealed_names = [n for n in revealed_names if n not in removed_locations]
+        for gc in geo_context:
+            gc["entries"] = [
+                e for e in gc["entries"]
+                if e.get("type") != "location" or e.get("name") not in removed_locations
+            ]
+        location_conflicts = [
+            c for c in location_conflicts
+            if c.get("entity") not in removed_locations
+        ]
 
     result: dict = {
         "locations": locations,
@@ -1555,7 +1914,7 @@ async def get_map_data(
         "canvas_size": {"width": _resp_cw, "height": _resp_ch},
         "geography_context": geo_context,
         "location_conflicts": location_conflicts,
-        "max_mention_count": max((l["mention_count"] for l in locations), default=1),
+        "max_mention_count": max((loc["mention_count"] for loc in locations), default=1),
         "suggested_min_mentions": 3 if len(locations) > 300 else (2 if len(locations) > 150 else 1),
         "space_theme": space_theme,
     }
@@ -1675,6 +2034,9 @@ async def save_user_override(
         await conn.execute(
             "DELETE FROM map_layouts WHERE novel_id = ?", (novel_id,),
         )
+        await conn.execute(
+            "DELETE FROM map_geo_artifacts WHERE novel_id = ?", (novel_id,),
+        )
         await conn.commit()
     finally:
         await conn.close()
@@ -1712,6 +2074,9 @@ async def invalidate_layout_cache(novel_id: str) -> None:
 
         await conn.execute(
             "DELETE FROM map_layouts WHERE novel_id = ?", (novel_id,),
+        )
+        await conn.execute(
+            "DELETE FROM map_geo_artifacts WHERE novel_id = ?", (novel_id,),
         )
 
         # Store baseline in a sentinel row that will be overwritten on next compute
@@ -1755,10 +2120,8 @@ async def _compute_or_load_layout(
             terrain_url = f"/api/novels/{novel_id}/map/terrain" if terrain_path else None
             cached_satisfaction = None
             if row["satisfaction_json"]:
-                try:
+                with contextlib.suppress(json.JSONDecodeError, TypeError):
                     cached_satisfaction = json.loads(row["satisfaction_json"])
-                except (json.JSONDecodeError, TypeError):
-                    pass
             return layout_data, row["layout_mode"], terrain_url, cached_satisfaction
     finally:
         await conn.close()
@@ -1983,7 +2346,6 @@ async def get_timeline_data(
                      [rel.person_a, rel.person_b], None, ch)
 
     # ── Compute suggested defaults ──
-    total = len(events)
     suggested_hidden_types = ["角色登场", "物品交接"]
     suggested_min_swimlane = 5 if len(swimlanes) > 100 else 3 if len(swimlanes) > 30 else 1
 
@@ -1998,14 +2360,36 @@ async def get_timeline_data(
 
 # ── Factions (Organization Network) ──────────────
 
-# Location types that indicate an organization
-_ORG_TYPE_KEYWORDS = ("门", "派", "宗", "帮", "教", "盟", "会", "阁", "堂",
-                       "军", "朝", "国", "族", "殿", "府", "院")
+# Location types that indicate an organization.
+# issue #70 (D4): 收窄词表 —— 「国/府/会/阁/堂/殿/院」同时是地点形态词
+# (王国/府邸/会馆/宫殿/院落),会把非组织地点误判为 org,已移除。
+_ORG_TYPE_KEYWORDS = ("门", "派", "宗", "帮", "教", "盟", "军", "朝", "族")
+
+# 单字「门」的歧义排除:这些 type 里「门」指建筑(城门/宫门/营门),
+# 不是门派。三国演义实测:19+ 个城门/宫门类地点(嘉德门/东门/北掖门…)
+# 经 Source 2 被误判为 org。「城门口」由「城门」子串覆盖。
+_ORG_TYPE_GATE_KEYWORDS = ("城门", "宫门", "营门")
+
+# Source 4(概念路径)白名单:只有 category 明确是组织/势力/门派/政权类
+# 的概念才可作为 org。军事计谋/战术/制度/器械/编制等一律排除 ——
+# 三国演义实测 73 个概念 org 中 70 个是此类噪音(军令状/诈死计/掎角之势…)。
+# 命中的真实例:宗教组织(五斗米道/太平道)、军事组织(御林军)。
+_ORG_CONCEPT_CATEGORY_KEYWORDS = (
+    "组织", "势力", "门派", "政权", "朝廷", "同盟", "帮派", "教派", "宗门",
+    "家族",
+)
 
 
 def _is_org_type(loc_type: str) -> bool:
     """Check whether a location type represents an organization."""
+    if any(kw in loc_type for kw in _ORG_TYPE_GATE_KEYWORDS):
+        return False
     return any(kw in loc_type for kw in _ORG_TYPE_KEYWORDS)
+
+
+def _is_org_concept_category(category: str) -> bool:
+    """概念 category 是否明确指组织/势力(Source 4 白名单)。"""
+    return any(kw in category for kw in _ORG_CONCEPT_CATEGORY_KEYWORDS)
 
 
 async def get_factions_data(
@@ -2056,8 +2440,9 @@ async def get_factions_data(
                     }
 
     # ── Source 2: locations with org-like types ──
-    # Many sects/factions appear as locations (type="门派"/"帮派" etc.)
-    # Characters visiting these locations are associated as members.
+    # Many sects/factions appear as locations (type="门派"/"帮派" etc.).
+    # Characters visiting these locations are recorded as visitors (Source 3),
+    # not members. 建筑类「门」(城门/宫门/营门)由 _is_org_type 排除。
     org_locations: set[str] = set()  # canonical location names that are orgs
     for fact in facts:
         for loc in fact.locations:
@@ -2067,25 +2452,28 @@ async def get_factions_data(
             if _is_org_type(loc.type):
                 org_locations.add(loc_canonical)
 
-    # ── Source 3: characters at org-locations ──
+    # ── Source 3: characters at org-locations → visitors (NOT members) ──
+    # issue #70 (D4): 到访 ≠ 成员。人物出现在 org 类地点只说明到访,
+    # 输出到独立的 visitors 字段,不进成员列表、不计 member_count。
+    # 已有 org_event 成员记录的人物不重复记为访客。
+    org_visitors: dict[str, Counter] = defaultdict(Counter)  # org → person → visit count
     for fact in facts:
         for char in fact.characters:
             char_canonical = alias_map.get(char.name, char.name)
             for loc_name in char.locations_in_chapter:
                 loc_canonical = alias_map.get(loc_name, loc_name)
                 if loc_canonical in org_locations:
-                    if char_canonical not in org_members[loc_canonical]:
-                        org_members[loc_canonical][char_canonical] = {
-                            "person": char_canonical,
-                            "role": "",
-                            "status": "出现",
-                        }
+                    if char_canonical in org_members.get(loc_canonical, {}):
+                        continue
+                    org_visitors[loc_canonical][char_canonical] += 1
 
     # ── Source 4: new_concepts about org systems ──
+    # 概念 category 是自由文本,军事计谋/战术/制度等噪音极大(实测占绝
+    # 大多数),改用白名单:仅明确组织/势力/门派/政权类才进。
     for fact in facts:
         for concept in fact.new_concepts:
             cat = concept.category
-            if _is_org_type(cat) and concept.name not in org_info:
+            if _is_org_concept_category(cat) and concept.name not in org_info:
                 org_info[concept.name] = {"name": concept.name, "type": cat}
 
     # Build output
@@ -2105,4 +2493,17 @@ async def get_factions_data(
         for org, members_map in org_members.items()
     }
 
-    return {"orgs": orgs, "relations": org_relations, "members": members}
+    visitors = {
+        org: [
+            {"person": person, "chapters": count}
+            for person, count in counts.most_common()
+        ]
+        for org, counts in org_visitors.items()
+    }
+
+    return {
+        "orgs": orgs,
+        "relations": org_relations,
+        "members": members,
+        "visitors": visitors,
+    }

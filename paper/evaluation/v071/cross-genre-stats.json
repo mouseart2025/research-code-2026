@@ -1,0 +1,57 @@
+{
+  "santi": {
+    "title": "三体1",
+    "genre": "sci-fi",
+    "chapters": 38,
+    "people_unique_names": 142,
+    "location_unique_names": 208,
+    "hierarchy_avg_depth": 3.45,
+    "hierarchy_max_children": 30,
+    "hierarchy_root_count": 1,
+    "total_nodes": 194
+  },
+  "shediao": {
+    "title": "射雕英雄传",
+    "genre": "wuxia",
+    "chapters": 48,
+    "people_unique_names": 458,
+    "location_unique_names": 687,
+    "hierarchy_avg_depth": 4.86,
+    "hierarchy_max_children": 32,
+    "hierarchy_root_count": 3,
+    "total_nodes": 719
+  },
+  "tianlong": {
+    "title": "天龙八部",
+    "genre": "wuxia",
+    "chapters": 53,
+    "people_unique_names": 564,
+    "location_unique_names": 727,
+    "hierarchy_avg_depth": 4.64,
+    "hierarchy_max_children": 32,
+    "hierarchy_root_count": 3,
+    "total_nodes": 751
+  },
+  "mojie": {
+    "title": "魔戒",
+    "genre": "fantasy-western",
+    "chapters": 82,
+    "people_unique_names": 408,
+    "location_unique_names": 791,
+    "hierarchy_avg_depth": 4.9,
+    "hierarchy_max_children": 137,
+    "hierarchy_root_count": 3,
+    "total_nodes": 754
+  },
+  "pingfan": {
+    "title": "平凡的世界",
+    "genre": "realism",
+    "chapters": 171,
+    "people_unique_names": 384,
+    "location_unique_names": 792,
+    "hierarchy_avg_depth": 5.65,
+    "hierarchy_max_children": 37,
+    "hierarchy_root_count": 1,
+    "total_nodes": 825
+  }
+}

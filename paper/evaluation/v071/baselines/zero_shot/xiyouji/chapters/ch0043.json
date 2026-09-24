@@ -1,0 +1,178 @@
+{
+  "characters": [
+    {
+      "name": "菩萨",
+      "description": "观音菩萨，念咒收服妖精，用杨柳枝蘸甘露施法"
+    },
+    {
+      "name": "行者",
+      "description": "孙悟空，又称悟空、孙大圣、齐天大圣，唐僧大徒弟，五百年前大闹天宫"
+    },
+    {
+      "name": "童子",
+      "description": "被菩萨收服的妖精，戴上金箍后归正果，一步一拜到落伽山"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙和尚，又称悟净，黑汉子晦气色脸，使降妖宝杖，原为灵霄殿外旧时仙"
+    },
+    {
+      "name": "八戒",
+      "description": "猪八戒，长嘴和尚，会水，被妖怪捉住"
+    },
+    {
+      "name": "三藏",
+      "description": "唐僧，东土钦差取经僧人，十世修行的元体人"
+    },
+    {
+      "name": "鼍龙",
+      "description": "黑水河妖怪，小鼍龙，西海龙王外甥，占据衡阳峪黑水河神府"
+    },
+    {
+      "name": "河神",
+      "description": "黑水河真神，年迈身衰，被鼍龙占了神府"
+    },
+    {
+      "name": "敖顺",
+      "description": "西海龙王，鼍龙的二舅爷"
+    },
+    {
+      "name": "摩昂",
+      "description": "西海龙王太子，敖顺之子"
+    }
+  ],
+  "locations": [
+    {
+      "name": "落伽山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "松林",
+      "type": "林",
+      "parent": null
+    },
+    {
+      "name": "洞",
+      "type": "洞穴",
+      "parent": null
+    },
+    {
+      "name": "浮屠山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "黑水河",
+      "type": "河",
+      "parent": null
+    },
+    {
+      "name": "衡阳峪黑水河神府",
+      "type": "神府",
+      "parent": "黑水河"
+    },
+    {
+      "name": "西洋大海",
+      "type": "海",
+      "parent": null
+    },
+    {
+      "name": "水晶宫",
+      "type": "宫殿",
+      "parent": "西洋大海"
+    },
+    {
+      "name": "淮渎",
+      "type": "水域",
+      "parent": null
+    },
+    {
+      "name": "济渎",
+      "type": "水域",
+      "parent": null
+    },
+    {
+      "name": "江渎",
+      "type": "水域",
+      "parent": null
+    },
+    {
+      "name": "河渎",
+      "type": "水域",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "菩萨",
+      "person_b": "童子",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "三藏",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "三藏",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "三藏",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "敖顺",
+      "person_b": "鼍龙",
+      "relation_type": "舅甥"
+    },
+    {
+      "person_a": "摩昂",
+      "person_b": "鼍龙",
+      "relation_type": "表兄弟"
+    },
+    {
+      "person_a": "摩昂",
+      "person_b": "敖顺",
+      "relation_type": "父子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "衡阳峪黑水河神府",
+      "target": "黑水河",
+      "relation_type": "contains",
+      "value": "神府位于河中"
+    },
+    {
+      "source": "水晶宫",
+      "target": "西洋大海",
+      "relation_type": "contains",
+      "value": "龙宫在海底"
+    },
+    {
+      "source": "松林",
+      "target": "黑水河",
+      "relation_type": "adjacent",
+      "value": "林在河边"
+    },
+    {
+      "source": "黑水河",
+      "target": "西洋大海",
+      "relation_type": "direction",
+      "value": "河流向西洋大海"
+    },
+    {
+      "source": "洞",
+      "target": "松林",
+      "relation_type": "adjacent",
+      "value": "洞在林中"
+    }
+  ],
+  "_chapter": 43,
+  "_input_tokens": 9571,
+  "_output_tokens": 1223
+}

@@ -1,0 +1,354 @@
+{
+  "characters": [
+    {
+      "name": "凤姐",
+      "description": "贾家重要女性成员，善于交际"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，佩戴通灵宝玉，性格温和"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗，地位尊贵，年老但有兴致"
+    },
+    {
+      "name": "秦钟",
+      "description": "形容标致，举止温柔，即将成为宝玉的伴读朋友"
+    },
+    {
+      "name": "尤氏",
+      "description": "邀请贾母等人看戏"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾家女主人，性格好清净"
+    },
+    {
+      "name": "林黛玉",
+      "description": "聪慧伶俐，说话尖锐，身体虚弱"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "容貌美丽，性格温和，正在养病，佩戴金锁"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛宝钗之母，待人和善"
+    },
+    {
+      "name": "詹光",
+      "description": "门下清客相公"
+    },
+    {
+      "name": "单聘仁",
+      "description": "门下清客相公"
+    },
+    {
+      "name": "吴新登",
+      "description": "银库房总领"
+    },
+    {
+      "name": "戴良",
+      "description": "仓上头目"
+    },
+    {
+      "name": "钱华",
+      "description": "买办"
+    },
+    {
+      "name": "莺儿",
+      "description": "薛宝钗的丫鬟"
+    },
+    {
+      "name": "李嬷嬷",
+      "description": "宝玉的奶母，管教严格"
+    },
+    {
+      "name": "雪雁",
+      "description": "林黛玉的小丫鬟"
+    },
+    {
+      "name": "紫鹃",
+      "description": "林黛玉的丫鬟"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房中丫鬟，称为袭人姐姐"
+    },
+    {
+      "name": "茜雪",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "秦业",
+      "description": "秦钟之父，现任营缮郎，年近七十"
+    },
+    {
+      "name": "贾代儒",
+      "description": "贾家塾中司塾，当今老儒"
+    },
+    {
+      "name": "贾蓉",
+      "description": "秦氏之夫"
+    },
+    {
+      "name": "秦氏",
+      "description": "秦钟之姐，贾蓉之妻"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "宅邸",
+      "parent": null
+    },
+    {
+      "name": "那府",
+      "type": "宅邸",
+      "parent": null
+    },
+    {
+      "name": "上房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "穿堂",
+      "type": "建筑空间",
+      "parent": "贾府"
+    },
+    {
+      "name": "梦坡斋",
+      "type": "书房",
+      "parent": "贾府"
+    },
+    {
+      "name": "梨香院",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "银库房",
+      "type": "库房",
+      "parent": "贾府"
+    },
+    {
+      "name": "帐房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "薛姨妈室",
+      "type": "房间",
+      "parent": "梨香院"
+    },
+    {
+      "name": "里间",
+      "type": "内室",
+      "parent": "薛姨妈室"
+    },
+    {
+      "name": "贾母房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "宝玉卧室",
+      "type": "卧室",
+      "parent": "贾府"
+    },
+    {
+      "name": "绛云轩",
+      "type": "轩",
+      "parent": "宝玉卧室"
+    },
+    {
+      "name": "大荒山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "青埂峰",
+      "type": "山峰",
+      "parent": "大荒山"
+    },
+    {
+      "name": "养生堂",
+      "type": "机构",
+      "parent": null
+    },
+    {
+      "name": "贾家塾",
+      "type": "学塾",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "秦钟",
+      "relation_type": "朋友/伴读"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "薛宝钗",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "李嬷嬷",
+      "relation_type": "主仆/奶母"
+    },
+    {
+      "person_a": "薛宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "薛姨妈",
+      "relation_type": "外甥女姨妈"
+    },
+    {
+      "person_a": "莺儿",
+      "person_b": "薛宝钗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "雪雁",
+      "person_b": "林黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "林黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "茜雪",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "秦钟",
+      "person_b": "秦业",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "秦钟",
+      "person_b": "秦氏",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "秦氏",
+      "person_b": "贾蓉",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "王夫人",
+      "relation_type": "婆媳"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "梨香院",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "院落位于府内"
+    },
+    {
+      "source": "薛姨妈室",
+      "target": "梨香院",
+      "relation_type": "contains",
+      "value": "房间位于院内"
+    },
+    {
+      "source": "里间",
+      "target": "薛姨妈室",
+      "relation_type": "contains",
+      "value": "内室在外室里面，更暖和"
+    },
+    {
+      "source": "穿堂",
+      "target": "梨香院",
+      "relation_type": "direction",
+      "value": "从穿堂向东向北绕厅后可到梨香院"
+    },
+    {
+      "source": "梦坡斋",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "小书房位于府内"
+    },
+    {
+      "source": "青埂峰",
+      "target": "大荒山",
+      "relation_type": "contains",
+      "value": "山峰位于山中"
+    },
+    {
+      "source": "银库房",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "库房位于府内"
+    },
+    {
+      "source": "帐房",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "帐房位于府内"
+    },
+    {
+      "source": "绛云轩",
+      "target": "宝玉卧室",
+      "relation_type": "contains",
+      "value": "轩名题在卧室门斗上"
+    },
+    {
+      "source": "上房",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "主要房间位于府内"
+    },
+    {
+      "source": "贾家塾",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "家塾位于贾府"
+    }
+  ],
+  "_chapter": 8,
+  "_input_tokens": 8549,
+  "_output_tokens": 2344
+}

@@ -1,0 +1,183 @@
+{
+  "characters": [
+    {
+      "name": "土地",
+      "description": "火焰山土地神，原是兜率宫守炉的道人，因失守被贬为土地"
+    },
+    {
+      "name": "行者/孙悟空/大圣",
+      "description": "齐天大圣，保护唐僧西天取经，武艺高强，善于变化"
+    },
+    {
+      "name": "猪八戒",
+      "description": "唐僧弟子之一"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧弟子之一"
+    },
+    {
+      "name": "唐僧",
+      "description": "西天取经的师父"
+    },
+    {
+      "name": "牛魔王/大力王",
+      "description": "西方大力号魔王，罗刹女丈夫，武艺高强，头戴银亮熟铁盔"
+    },
+    {
+      "name": "罗刹女/铁扇公主",
+      "description": "牛魔王妻子，拥有芭蕉扇宝贝，居住在芭蕉洞"
+    },
+    {
+      "name": "玉面公主",
+      "description": "万岁狐王之女，有百万家私，招赘牛魔王为夫，美貌动人"
+    },
+    {
+      "name": "万岁狐王",
+      "description": "玉面公主之父，已去世"
+    },
+    {
+      "name": "牛圣婴",
+      "description": "牛魔王之子，已成为观音菩萨座下善财童子"
+    },
+    {
+      "name": "老龙",
+      "description": "碧波潭中的老龙精，宴请牛魔王"
+    }
+  ],
+  "locations": [
+    {
+      "name": "火焰山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "积雷山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "摩云洞",
+      "type": "洞穴",
+      "parent": "积雷山"
+    },
+    {
+      "name": "翠云山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "芭蕉洞",
+      "type": "洞穴",
+      "parent": "翠云山"
+    },
+    {
+      "name": "乱石山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "碧波潭",
+      "type": "水域",
+      "parent": "乱石山"
+    },
+    {
+      "name": "兜率宫",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "天庭",
+      "type": "仙界",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "牛魔王",
+      "person_b": "罗刹女",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "玉面公主",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "牛圣婴",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "罗刹女",
+      "person_b": "牛圣婴",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "万岁狐王",
+      "person_b": "玉面公主",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "牛魔王",
+      "relation_type": "结义兄弟"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "积雷山",
+      "target": "火焰山",
+      "relation_type": "direction",
+      "value": "正南方"
+    },
+    {
+      "source": "火焰山",
+      "target": "积雷山",
+      "relation_type": "distance",
+      "value": "三千余里"
+    },
+    {
+      "source": "摩云洞",
+      "target": "积雷山",
+      "relation_type": "contains",
+      "value": "位于积雷山中"
+    },
+    {
+      "source": "芭蕉洞",
+      "target": "翠云山",
+      "relation_type": "contains",
+      "value": "位于翠云山中"
+    },
+    {
+      "source": "碧波潭",
+      "target": "乱石山",
+      "relation_type": "contains",
+      "value": "位于乱石山中"
+    },
+    {
+      "source": "碧波潭",
+      "target": "积雷山",
+      "relation_type": "direction",
+      "value": "西北方"
+    }
+  ],
+  "_chapter": 60,
+  "_input_tokens": 8596,
+  "_output_tokens": 1280
+}

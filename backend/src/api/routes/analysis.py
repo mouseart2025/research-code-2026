@@ -2,6 +2,7 @@
 
 import csv
 import io
+import logging
 
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
@@ -11,11 +12,12 @@ from src.db import (
     analysis_task_store,
     chapter_fact_store,
     novel_store,
-    world_structure_override_store,
-    world_structure_store,
 )
 from src.db.sqlite_db import get_connection
+from src.services import embedding_service
 from src.services.analysis_service import get_analysis_service
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api", tags=["analysis"])
 
@@ -153,7 +155,7 @@ async def start_analysis(novel_id: str, req: AnalyzeRequest | None = None):
     try:
         task_id = await service.start(novel_id, chapter_start, chapter_end, force=force)
     except ValueError as e:
-        raise HTTPException(status_code=409, detail=str(e))
+        raise HTTPException(status_code=409, detail=str(e)) from e
 
     return {"task_id": task_id, "status": "running"}
 
@@ -176,7 +178,7 @@ async def patch_task(task_id: str, req: PatchTaskRequest):
         else:
             raise HTTPException(status_code=400, detail=f"无效的状态: {req.status}")
     except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        raise HTTPException(status_code=400, detail=str(e)) from e
 
     return {"task_id": task_id, "status": req.status}
 
@@ -202,7 +204,16 @@ async def get_latest_task(novel_id: str):
     # is the DB row ID (not chapter_num), so we count all facts without
     # range filtering to avoid a chapter_id vs chapter_num mismatch.
     stats = {"entities": 0, "relations": 0, "events": 0}
-    quality = {"truncated_chapters": 0, "segmented_chapters": 0, "total_segments": 0}
+    # truncated_chapters    = 输入侧(原文超长被切)
+    # output_truncated_chapters = 输出侧(LLM 撞输出上限,尾部 section 缺失)
+    #   后者才是致命的:JSON 被 repair 后语法合法、locations 却是 0,
+    #   之前完全没有信号,验收指标里显示为"零截断"。
+    quality = {
+        "truncated_chapters": 0,
+        "segmented_chapters": 0,
+        "total_segments": 0,
+        "output_truncated_chapters": 0,
+    }
     if task["status"] in ("running", "paused", "completed", "completed_with_errors"):
         all_facts = await chapter_fact_store.get_all_chapter_facts(novel_id)
         for ef in all_facts:
@@ -212,6 +223,8 @@ async def get_latest_task(novel_id: str):
             stats["events"] += len(fact.get("events", []))
             if ef.get("is_truncated"):
                 quality["truncated_chapters"] += 1
+            if ef.get("output_truncated"):
+                quality["output_truncated_chapters"] += 1
             seg = ef.get("segment_count", 1)
             if seg > 1:
                 quality["segmented_chapters"] += 1
@@ -295,12 +308,27 @@ async def clear_analysis_data(novel_id: str):
             (novel_id,),
         )
         await conn.execute(
+            "DELETE FROM map_geo_artifacts WHERE novel_id = ?",
+            (novel_id,),
+        )
+        await conn.execute(
+            "DELETE FROM map_layout_meta WHERE novel_id = ?",
+            (novel_id,),
+        )
+        await conn.execute(
             "DELETE FROM map_user_overrides WHERE novel_id = ?",
             (novel_id,),
         )
         await conn.commit()
     finally:
         await conn.close()
+
+    # 同步删除 chroma 向量索引。best-effort：chroma 未初始化/不可用时
+    # 不能让清除路由 500，重新分析时会重建索引
+    try:
+        embedding_service.delete_novel_collections(novel_id)
+    except Exception as e:
+        logger.warning("Failed to delete chroma collections for %s: %s", novel_id, e)
 
     return {"ok": True, "message": "分析数据已清除"}
 
@@ -325,6 +353,7 @@ async def get_cost_detail(novel_id: str):
     total_entities = 0
     model_used = ""
     truncated_count = 0
+    output_truncated_count = 0
     segmented_count = 0
     total_segments = 0
 
@@ -341,7 +370,10 @@ async def get_cost_detail(novel_id: str):
         c_usd = ef.get("cost_usd", 0.0)
         c_cny = ef.get("cost_cny", 0.0)
         is_trunc = ef.get("is_truncated", False)
+        out_trunc = ef.get("output_truncated", False)
         seg_count = ef.get("segment_count", 1)
+        if out_trunc:
+            output_truncated_count += 1
 
         total_input += inp
         total_output += out
@@ -368,6 +400,7 @@ async def get_cost_detail(novel_id: str):
             "extracted_at": ef.get("extracted_at"),
             "llm_model": ef.get("llm_model", ""),
             "is_truncated": is_trunc,
+            "output_truncated": out_trunc,
             "segment_count": seg_count,
         })
 
@@ -385,6 +418,7 @@ async def get_cost_detail(novel_id: str):
         },
         "quality": {
             "truncated_chapters": truncated_count,
+            "output_truncated_chapters": output_truncated_count,
             "segmented_chapters": segmented_count,
             "total_segments": total_segments,
         },

@@ -1,0 +1,173 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣/孙行者/行者",
+      "description": "主角，取经团队成员，有七十二变化，使用金箍棒"
+    },
+    {
+      "name": "唐僧/三藏",
+      "description": "取经团队师父，西天取经的和尚"
+    },
+    {
+      "name": "猪八戒",
+      "description": "取经团队成员，使用九齿钯"
+    },
+    {
+      "name": "沙僧/沙和尚",
+      "description": "取经团队成员，使用降妖杖"
+    },
+    {
+      "name": "金角大王",
+      "description": "老魔，妖怪首领，使用七星剑"
+    },
+    {
+      "name": "银角大王",
+      "description": "二魔，妖怪，金角大王的兄弟"
+    },
+    {
+      "name": "狐阿七大王",
+      "description": "狐狸精，金角大王的舅父，使用方天戟"
+    },
+    {
+      "name": "太上老君",
+      "description": "道教神仙，宝贝的真正主人"
+    },
+    {
+      "name": "金童",
+      "description": "太上老君的童子，看金炉"
+    },
+    {
+      "name": "银童",
+      "description": "太上老君的童子，看银炉"
+    }
+  ],
+  "locations": [
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞府",
+      "parent": "花果山"
+    },
+    {
+      "name": "莲花洞",
+      "type": "洞府",
+      "parent": "平顶山"
+    },
+    {
+      "name": "压龙山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "压龙洞",
+      "type": "洞府",
+      "parent": "压龙山"
+    },
+    {
+      "name": "平顶山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "昆仑山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "兜率院",
+      "type": "仙境",
+      "parent": "大罗天"
+    },
+    {
+      "name": "大罗天",
+      "type": "天界",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "金角大王",
+      "person_b": "银角大王",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "金角大王",
+      "person_b": "狐阿七大王",
+      "relation_type": "甥舅"
+    },
+    {
+      "person_a": "太上老君",
+      "person_b": "金童",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "太上老君",
+      "person_b": "银童",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "金童",
+      "person_b": "金角大王",
+      "relation_type": "化身"
+    },
+    {
+      "person_a": "银童",
+      "person_b": "银角大王",
+      "relation_type": "化身"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "水帘洞位于花果山"
+    },
+    {
+      "source": "平顶山",
+      "target": "莲花洞",
+      "relation_type": "contains",
+      "value": "莲花洞位于平顶山"
+    },
+    {
+      "source": "压龙山",
+      "target": "压龙洞",
+      "relation_type": "contains",
+      "value": "压龙洞位于压龙山"
+    },
+    {
+      "source": "莲花洞",
+      "target": "压龙山",
+      "relation_type": "direction",
+      "value": "压龙山在莲花洞西南方"
+    },
+    {
+      "source": "大罗天",
+      "target": "兜率院",
+      "relation_type": "contains",
+      "value": "兜率院位于大罗天"
+    }
+  ],
+  "_chapter": 35,
+  "_input_tokens": 8259,
+  "_output_tokens": 1140
+}

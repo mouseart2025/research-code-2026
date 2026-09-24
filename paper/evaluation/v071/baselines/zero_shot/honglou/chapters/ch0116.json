@@ -1,0 +1,272 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾府二少爷，佩戴通灵宝玉，因失玉而病重"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝玉之妻，二奶奶"
+    },
+    {
+      "name": "秋纹",
+      "description": "贾府丫鬟"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉父亲，老爷"
+    },
+    {
+      "name": "贾环",
+      "description": "宝玉的兄弟"
+    },
+    {
+      "name": "贾兰",
+      "description": "宝玉的侄儿"
+    },
+    {
+      "name": "赖大",
+      "description": "贾府管事"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四姑娘，想要出家"
+    },
+    {
+      "name": "彩屏",
+      "description": "惜春的丫鬟"
+    },
+    {
+      "name": "尤氏",
+      "description": "珍大奶奶，东府当家人"
+    },
+    {
+      "name": "甄宝玉",
+      "description": "甄家少爷，与贾宝玉同名同貌"
+    },
+    {
+      "name": "甄夫人",
+      "description": "甄宝玉的母亲"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉母亲，贾府太太"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾府大夫人"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉贴身丫鬟"
+    },
+    {
+      "name": "紫鹃",
+      "description": "贾府丫鬟，曾服侍黛玉"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府二爷"
+    },
+    {
+      "name": "贾芸",
+      "description": "贾府族人"
+    },
+    {
+      "name": "王仁",
+      "description": "王夫人娘家人"
+    },
+    {
+      "name": "巧姐儿",
+      "description": "贾琏女儿"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "和尚",
+      "description": "送玉回来的神秘僧人"
+    },
+    {
+      "name": "地藏庵姑子",
+      "description": "来自地藏庵的尼姑"
+    },
+    {
+      "name": "妙玉",
+      "description": "栊翠庵的尼姑，已被强盗掳走"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "宝玉房中",
+      "type": "卧室",
+      "parent": "贾府"
+    },
+    {
+      "name": "外书房",
+      "type": "书房",
+      "parent": "贾府"
+    },
+    {
+      "name": "内书房",
+      "type": "书房",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人处",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "惜春房中",
+      "type": "卧室",
+      "parent": "贾府"
+    },
+    {
+      "name": "地藏庵",
+      "type": "庵堂",
+      "parent": null
+    },
+    {
+      "name": "铁槛寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "水月庵",
+      "type": "庵堂",
+      "parent": null
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "贾府"
+    },
+    {
+      "name": "东府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "学里",
+      "type": "学校",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾环",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾兰",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "尤氏",
+      "person_b": "惜春",
+      "relation_type": "嫂妹"
+    },
+    {
+      "person_a": "甄夫人",
+      "person_b": "甄宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "秋纹",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "彩屏",
+      "person_b": "惜春",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "麝月",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "宝玉房中",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "贾府",
+      "target": "外书房",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "贾府",
+      "target": "内书房",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "贾府",
+      "target": "王夫人处",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "贾府",
+      "target": "惜春房中",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "贾府",
+      "target": "栊翠庵",
+      "relation_type": "contains",
+      "value": "府内庵堂"
+    },
+    {
+      "source": "外书房",
+      "target": "内书房",
+      "relation_type": "adjacent",
+      "value": "相邻房间"
+    },
+    {
+      "source": "宝玉房中",
+      "target": "王夫人处",
+      "relation_type": "direction",
+      "value": "可步行到达"
+    }
+  ],
+  "_chapter": 116,
+  "_input_tokens": 8612,
+  "_output_tokens": 1693
+}

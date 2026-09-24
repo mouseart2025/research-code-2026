@@ -1,0 +1,265 @@
+{
+  "characters": [
+    {
+      "name": "赵姨娘",
+      "description": "在寺内得了暴病，被阴司里拷打死了，曾使毒心害人"
+    },
+    {
+      "name": "贾环",
+      "description": "赵姨娘的儿子，母亲死后大哭"
+    },
+    {
+      "name": "周姨娘",
+      "description": "偏房侧室，心里苦楚，为赵姨娘的下场感到悲切"
+    },
+    {
+      "name": "贾政",
+      "description": "贾府的老爷，派家人料理赵姨娘的后事"
+    },
+    {
+      "name": "凤姐",
+      "description": "琏二奶奶，病重垂危，被尤二姐等冤魂缠绕"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的贴身丫鬟，照顾凤姐"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐的丈夫，对凤姐态度冷淡"
+    },
+    {
+      "name": "邢王二夫人",
+      "description": "贾府的夫人们，只派人问候凤姐，不亲自探望"
+    },
+    {
+      "name": "尤二姐",
+      "description": "已死，魂魄出现在凤姐面前"
+    },
+    {
+      "name": "刘姥姥",
+      "description": "村庄老妇，来探望贾府，与凤姐关系很好"
+    },
+    {
+      "name": "青儿",
+      "description": "刘姥姥的外孙女"
+    },
+    {
+      "name": "巧姐儿",
+      "description": "凤姐的女儿，名字是刘姥姥起的"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府太太，来探望凤姐"
+    },
+    {
+      "name": "妙玉",
+      "description": "栊翠庵的女尼，被强徒劫去"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，为妙玉被劫感到痛苦，与紫鹃有情感纠葛"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝玉的妻子，劝解宝玉"
+    },
+    {
+      "name": "紫鹃",
+      "description": "原是林黛玉的丫鬟，现在贾府中，与宝玉关系复杂"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "林妹妹",
+      "description": "林黛玉，已死，紫鹃的原主人"
+    },
+    {
+      "name": "小红",
+      "description": "贾府丫鬟"
+    },
+    {
+      "name": "丰儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "秋桐",
+      "description": "贾琏的妾"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府小姐，知道妙玉被劫之事"
+    }
+  ],
+  "locations": [
+    {
+      "name": "寺内",
+      "type": "宗教建筑",
+      "parent": null
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "贾府"
+    },
+    {
+      "name": "省亲园子",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "西厢",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "下房",
+      "type": "房间",
+      "parent": "西厢"
+    },
+    {
+      "name": "里间",
+      "type": "房间",
+      "parent": "西厢"
+    },
+    {
+      "name": "东院",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "屯乡",
+      "type": "乡村",
+      "parent": null
+    },
+    {
+      "name": "城",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "后门",
+      "type": "门",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "赵姨娘",
+      "person_b": "贾环",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "巧姐儿",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "刘姥姥",
+      "person_b": "青儿",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "巧姐儿",
+      "person_b": "刘姥姥",
+      "relation_type": "干亲"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "林妹妹",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "麝月",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "秋桐",
+      "relation_type": "主妾"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾环",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "凤姐",
+      "relation_type": "婆媳"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "栊翠庵",
+      "target": "省亲园子",
+      "relation_type": "contains",
+      "value": "庵圈在园子里头"
+    },
+    {
+      "source": "省亲园子",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园子属于贾府地址"
+    },
+    {
+      "source": "下房",
+      "target": "西厢里间",
+      "relation_type": "contains",
+      "value": "紫鹃的下房在西厢里间"
+    },
+    {
+      "source": "后门",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "贾府的入口"
+    },
+    {
+      "source": "东院",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "贾府内的院落"
+    },
+    {
+      "source": "屯乡",
+      "target": "城",
+      "relation_type": "direction",
+      "value": "屯乡在城外"
+    }
+  ],
+  "_chapter": 114,
+  "_input_tokens": 8672,
+  "_output_tokens": 1856
+}

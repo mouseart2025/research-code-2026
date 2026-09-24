@@ -1,0 +1,327 @@
+{
+  "characters": [
+    {
+      "name": "太宗",
+      "description": "大唐皇帝，又称李世民、唐太宗文皇帝，与魏征对弈时因泾河龙王事件而魂游地府"
+    },
+    {
+      "name": "魏征",
+      "description": "朝中重臣，梦中斩龙，后守后宰门，手持诛龙宝剑，与崔珪有书信往来"
+    },
+    {
+      "name": "泾河龙王",
+      "description": "被魏征梦中所斩的龙，死后向太宗索命，后被观音菩萨喝退"
+    },
+    {
+      "name": "秦叔宝",
+      "description": "将军，与徐茂功一同将龙头呈给皇帝，后与尉迟敬德守前宫门"
+    },
+    {
+      "name": "徐茂功",
+      "description": "将军，与秦叔宝一同发现龙头，后受太宗托付国家大事"
+    },
+    {
+      "name": "尉迟敬德",
+      "description": "护国公，与秦叔宝一同守前宫门"
+    },
+    {
+      "name": "观音菩萨",
+      "description": "女真人形象，用杨柳枝喝退龙王，领佛旨到东土寻取经人"
+    },
+    {
+      "name": "崔珪",
+      "description": "生前为兹州令后升礼部侍郎，死后在阴司做酆都掌案判官，魏征的八拜之交"
+    },
+    {
+      "name": "李渊",
+      "description": "太宗的先父，已故，魂在地府"
+    },
+    {
+      "name": "建成",
+      "description": "太宗的先兄，已故，在地府中向太宗索命"
+    },
+    {
+      "name": "元吉",
+      "description": "太宗的故弟，已故，在地府中向太宗索命"
+    },
+    {
+      "name": "十代阎王",
+      "description": "秦广王、楚江王、宋帝王、仵官王、阎罗王、平等王、泰山王、都市王、卞城王、转轮王，阴间鬼王"
+    },
+    {
+      "name": "朱太尉",
+      "description": "阴司官员，执引魂幡，与崔判官一同送太宗还魂"
+    },
+    {
+      "name": "相良",
+      "description": "河南开封府人，有十三库金银在阴司寄放"
+    }
+  ],
+  "locations": [
+    {
+      "name": "便殿",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "千步廊",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "十字街",
+      "type": "街道",
+      "parent": "长安"
+    },
+    {
+      "name": "剐龙台",
+      "type": "建筑",
+      "parent": "天界"
+    },
+    {
+      "name": "市曹",
+      "type": "建筑",
+      "parent": "长安"
+    },
+    {
+      "name": "分宫楼",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "后宰门",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "白虎殿",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "五凤楼",
+      "type": "建筑",
+      "parent": "皇宫"
+    },
+    {
+      "name": "荒郊草野",
+      "type": "地形",
+      "parent": "阴间"
+    },
+    {
+      "name": "幽冥地府",
+      "type": "区域",
+      "parent": "阴间"
+    },
+    {
+      "name": "鬼门关",
+      "type": "关口",
+      "parent": "幽冥地府"
+    },
+    {
+      "name": "森罗殿",
+      "type": "建筑",
+      "parent": "幽冥地府"
+    },
+    {
+      "name": "幽冥背阴山",
+      "type": "山脉",
+      "parent": "阴间"
+    },
+    {
+      "name": "十八层地狱",
+      "type": "区域",
+      "parent": "幽冥背阴山"
+    },
+    {
+      "name": "奈河桥",
+      "type": "桥梁",
+      "parent": "阴间"
+    },
+    {
+      "name": "枉死城",
+      "type": "城市",
+      "parent": "阴间"
+    },
+    {
+      "name": "长安",
+      "type": "城市",
+      "parent": "大唐"
+    },
+    {
+      "name": "都土地庙",
+      "type": "建筑",
+      "parent": "长安"
+    },
+    {
+      "name": "河南开封府",
+      "type": "行政区",
+      "parent": "大唐"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "太宗",
+      "person_b": "魏征",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "太宗",
+      "person_b": "秦叔宝",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "太宗",
+      "person_b": "徐茂功",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "太宗",
+      "person_b": "尉迟敬德",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "太宗",
+      "person_b": "李渊",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "太宗",
+      "person_b": "建成",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "太宗",
+      "person_b": "元吉",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "魏征",
+      "person_b": "崔珪",
+      "relation_type": "八拜之交"
+    },
+    {
+      "person_a": "秦叔宝",
+      "person_b": "尉迟敬德",
+      "relation_type": "同僚"
+    },
+    {
+      "person_a": "崔珪",
+      "person_b": "朱太尉",
+      "relation_type": "同僚"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "皇宫",
+      "target": "便殿",
+      "relation_type": "contains",
+      "value": "内部建筑"
+    },
+    {
+      "source": "皇宫",
+      "target": "千步廊",
+      "relation_type": "contains",
+      "value": "内部建筑"
+    },
+    {
+      "source": "千步廊",
+      "target": "十字街",
+      "relation_type": "direction",
+      "value": "南"
+    },
+    {
+      "source": "长安",
+      "target": "十字街",
+      "relation_type": "contains",
+      "value": "城市街道"
+    },
+    {
+      "source": "长安",
+      "target": "市曹",
+      "relation_type": "contains",
+      "value": "城市建筑"
+    },
+    {
+      "source": "长安",
+      "target": "都土地庙",
+      "relation_type": "contains",
+      "value": "城市建筑"
+    },
+    {
+      "source": "皇宫",
+      "target": "分宫楼",
+      "relation_type": "contains",
+      "value": "内部建筑"
+    },
+    {
+      "source": "皇宫",
+      "target": "后宰门",
+      "relation_type": "contains",
+      "value": "后门"
+    },
+    {
+      "source": "皇宫",
+      "target": "白虎殿",
+      "relation_type": "contains",
+      "value": "内部建筑"
+    },
+    {
+      "source": "皇宫",
+      "target": "五凤楼",
+      "relation_type": "contains",
+      "value": "前楼"
+    },
+    {
+      "source": "幽冥地府",
+      "target": "鬼门关",
+      "relation_type": "contains",
+      "value": "入口关口"
+    },
+    {
+      "source": "幽冥地府",
+      "target": "森罗殿",
+      "relation_type": "contains",
+      "value": "主要建筑"
+    },
+    {
+      "source": "幽冥背阴山",
+      "target": "十八层地狱",
+      "relation_type": "direction",
+      "value": "背后"
+    },
+    {
+      "source": "阴间",
+      "target": "幽冥背阴山",
+      "relation_type": "contains",
+      "value": "地形"
+    },
+    {
+      "source": "阴间",
+      "target": "奈河桥",
+      "relation_type": "contains",
+      "value": "桥梁"
+    },
+    {
+      "source": "阴间",
+      "target": "枉死城",
+      "relation_type": "contains",
+      "value": "城市"
+    },
+    {
+      "source": "大唐",
+      "target": "长安",
+      "relation_type": "contains",
+      "value": "都城"
+    },
+    {
+      "source": "大唐",
+      "target": "河南开封府",
+      "relation_type": "contains",
+      "value": "行政区"
+    }
+  ],
+  "_chapter": 10,
+  "_input_tokens": 8081,
+  "_output_tokens": 2288
+}

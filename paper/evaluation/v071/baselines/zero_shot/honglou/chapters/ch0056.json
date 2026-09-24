@@ -1,0 +1,277 @@
+{
+  "characters": [
+    {
+      "name": "凤姐儿",
+      "description": "贾府管家，因小月在家一月不能理事，身体虚弱"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府主母，因凤姐病重暂令李纨协理家务"
+    },
+    {
+      "name": "李纨",
+      "description": "宝玉嫂子，尚德不尚才，与探春共同管理家务"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三姑娘，精明能干，与李纨共同管理家务"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，被王夫人请来协助照管园中事务，后有孕"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟，代凤姐传话"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，又犯了嗽疾"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，因时气所感卧病于蘅芜苑"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾府姨娘，探春生母，性格急躁爱生事"
+    },
+    {
+      "name": "赵国基",
+      "description": "赵姨娘的兄弟，已死"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟，后被安排嫁人"
+    },
+    {
+      "name": "吴新登的媳妇",
+      "description": "贾府管事媳妇"
+    },
+    {
+      "name": "环儿",
+      "description": "贾环，赵姨娘的儿子"
+    },
+    {
+      "name": "兰哥儿",
+      "description": "贾兰，李纨的儿子"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，已出家"
+    },
+    {
+      "name": "贾政",
+      "description": "贾府二老爷，后回家"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾府大老爷"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁国府族长"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府大爷"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛宝钗的母亲"
+    },
+    {
+      "name": "巧姐",
+      "description": "贾琏的女儿"
+    },
+    {
+      "name": "刘姥姥",
+      "description": "外来客人"
+    },
+    {
+      "name": "花自芳的女人",
+      "description": "袭人的嫂子"
+    }
+  ],
+  "locations": [
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "宫中",
+      "type": "皇宫",
+      "parent": null
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "荣府"
+    },
+    {
+      "name": "蘅芜苑",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "三间小花厅",
+      "type": "厅堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "议事厅",
+      "type": "厅堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "家学",
+      "type": "学堂",
+      "parent": "荣府"
+    },
+    {
+      "name": "锦乡侯府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "宁国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "城南蒋家",
+      "type": "民宅",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "王夫人",
+      "person_b": "凤姐儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "李纨",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "探春",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝钗",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "赵姨娘",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "赵国基",
+      "relation_type": "姐弟"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "环儿",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "兰哥儿",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾赦",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "巧姐",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "花自芳的女人",
+      "person_b": "袭人",
+      "relation_type": "嫂子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "荣府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园林位于府邸内"
+    },
+    {
+      "source": "大观园",
+      "target": "蘅芜苑",
+      "relation_type": "contains",
+      "value": "院落位于园中"
+    },
+    {
+      "source": "大观园",
+      "target": "三间小花厅",
+      "relation_type": "contains",
+      "value": "位于园门口南边"
+    },
+    {
+      "source": "大观园",
+      "target": "议事厅",
+      "relation_type": "contains",
+      "value": "即三间小花厅"
+    },
+    {
+      "source": "大观园",
+      "target": "栊翠庵",
+      "relation_type": "contains",
+      "value": "庵堂圈在园内"
+    },
+    {
+      "source": "荣府",
+      "target": "家学",
+      "relation_type": "contains",
+      "value": "学堂在府内"
+    },
+    {
+      "source": "三间小花厅",
+      "target": "园门口",
+      "relation_type": "adjacent",
+      "value": "位于园门口南边"
+    }
+  ],
+  "_chapter": 56,
+  "_input_tokens": 9933,
+  "_output_tokens": 1851
+}

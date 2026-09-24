@@ -1,0 +1,326 @@
+{
+  "characters": [
+    {
+      "name": "贾政",
+      "description": "贾府主要人物，被查抄时在场接待官员"
+    },
+    {
+      "name": "赖大",
+      "description": "贾府家人，负责通报来客"
+    },
+    {
+      "name": "赵堂官",
+      "description": "锦衣府堂官，负责查抄贾府，后被称为赵全"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾政侄儿，现承担总管家职责"
+    },
+    {
+      "name": "西平王",
+      "description": "王爷，奉旨查办贾府事务"
+    },
+    {
+      "name": "北静王",
+      "description": "王爷，后到场宣旨，对贾府较为宽容"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾政兄长，被革去世职并拿下质审"
+    },
+    {
+      "name": "贾珍",
+      "description": "东府贾珍，被王爷拿去"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍儿子，与贾珍一同被拿"
+    },
+    {
+      "name": "贾蔷",
+      "description": "贾府子弟"
+    },
+    {
+      "name": "贾芝",
+      "description": "贾府子弟"
+    },
+    {
+      "name": "贾兰",
+      "description": "贾府子弟，建议贾政去看老太太"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，假说有病在贾母那边"
+    },
+    {
+      "name": "贾环",
+      "description": "贾府子弟，平时不大见人"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太，听到查抄消息后吓得涕泪交流"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政妻子"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦妻子，因夫子被拘而痛哭"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾琏妻子，带病在身，听到查抄消息后昏死过去"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫环，照顾凤姐"
+    },
+    {
+      "name": "巧姐",
+      "description": "凤姐女儿"
+    },
+    {
+      "name": "宝钗",
+      "description": "贾府女眷之一"
+    },
+    {
+      "name": "李纨",
+      "description": "贾府女眷，安慰贾母"
+    },
+    {
+      "name": "焦大",
+      "description": "贾府老仆人，活了八九十岁，跟着太爷受过苦"
+    },
+    {
+      "name": "薛蝌",
+      "description": "贾府亲戚，能够出入通信打听消息"
+    },
+    {
+      "name": "来旺",
+      "description": "贾府家人"
+    },
+    {
+      "name": "鲍二",
+      "description": "贾府家人，被御史拿去作证"
+    },
+    {
+      "name": "李御史",
+      "description": "御史，参奏平安州及贾赦"
+    }
+  ],
+  "locations": [
+    {
+      "name": "荣禧堂",
+      "type": "厅堂",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "门户",
+      "parent": "贾府"
+    },
+    {
+      "name": "厅",
+      "type": "厅堂",
+      "parent": "贾府"
+    },
+    {
+      "name": "里间屋",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "下房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾母房中",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾赦家",
+      "type": "住所",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾政那边",
+      "type": "住所",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾琏屋内",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "邢夫人那边",
+      "type": "住所",
+      "parent": "贾府"
+    },
+    {
+      "name": "凤姐那边",
+      "type": "住所",
+      "parent": "贾府"
+    },
+    {
+      "name": "东府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "西府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "平安州",
+      "type": "州县",
+      "parent": null
+    },
+    {
+      "name": "锦衣府",
+      "type": "官府",
+      "parent": null
+    },
+    {
+      "name": "刑科",
+      "type": "官府",
+      "parent": null
+    },
+    {
+      "name": "都察院",
+      "type": "官府",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾政",
+      "person_b": "贾琏",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾赦",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "巧姐",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "邢夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾政",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾赦",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "薛蝌",
+      "relation_type": "姨甥"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "荣禧堂",
+      "relation_type": "contains",
+      "value": "荣禧堂位于贾府内"
+    },
+    {
+      "source": "贾府",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": "二门为贾府内部门户"
+    },
+    {
+      "source": "贾府",
+      "target": "厅",
+      "relation_type": "contains",
+      "value": "厅堂位于贾府内"
+    },
+    {
+      "source": "厅",
+      "target": "里间屋",
+      "relation_type": "contains",
+      "value": "里间屋在厅堂内部"
+    },
+    {
+      "source": "贾府",
+      "target": "贾母房中",
+      "relation_type": "contains",
+      "value": "贾母房间在贾府内"
+    },
+    {
+      "source": "贾府",
+      "target": "贾琏屋内",
+      "relation_type": "contains",
+      "value": "贾琏房间在贾府内"
+    },
+    {
+      "source": "贾府",
+      "target": "东府",
+      "relation_type": "contains",
+      "value": "东府为贾府的一部分"
+    },
+    {
+      "source": "贾府",
+      "target": "西府",
+      "relation_type": "contains",
+      "value": "西府为贾府的一部分"
+    },
+    {
+      "source": "贾府",
+      "target": "各门",
+      "relation_type": "contains",
+      "value": "各个门户分布在贾府内"
+    },
+    {
+      "source": "凤姐那边",
+      "target": "二门旁舍",
+      "relation_type": "adjacent",
+      "value": "凤姐住所靠近二门旁舍"
+    }
+  ],
+  "_chapter": 106,
+  "_input_tokens": 6782,
+  "_output_tokens": 2158
+}

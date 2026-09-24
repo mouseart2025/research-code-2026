@@ -1,0 +1,280 @@
+{
+  "characters": [
+    {
+      "name": "王夫人",
+      "description": "贾府主人，宝玉的母亲"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太，宝玉的祖母"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中丫鬟，因病被撵出府，后死亡"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，王夫人之子"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房中丫鬟，被王夫人看重"
+    },
+    {
+      "name": "芳官",
+      "description": "学戏的女孩子，被撵出府"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾府当家少奶奶"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府小姐"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家小姐，王夫人的外甥女"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "黛玉",
+      "description": "贾府小姐，宝玉的表妹"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政之子，宝玉的弟弟"
+    },
+    {
+      "name": "贾兰",
+      "description": "贾家晚辈"
+    },
+    {
+      "name": "林四娘",
+      "description": "故事中的姽婳将军，恒王爱妾"
+    },
+    {
+      "name": "恒王",
+      "description": "故事中的王爵，出镇青州"
+    },
+    {
+      "name": "宋妈",
+      "description": "贾府老婆子"
+    },
+    {
+      "name": "小丫鬟",
+      "description": "宝玉房中的小丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "贾母处",
+      "type": "居住区",
+      "parent": "贾府"
+    },
+    {
+      "name": "园子",
+      "type": "花园",
+      "parent": "贾府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "居住区",
+      "parent": "园子"
+    },
+    {
+      "name": "蘅芜院",
+      "type": "居住区",
+      "parent": "园子"
+    },
+    {
+      "name": "怡红院",
+      "type": "居住区",
+      "parent": "园子"
+    },
+    {
+      "name": "书房",
+      "type": "读书区",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人屋里",
+      "type": "居住区",
+      "parent": "贾府"
+    },
+    {
+      "name": "山石后",
+      "type": "地点",
+      "parent": "园子"
+    },
+    {
+      "name": "芙蓉池",
+      "type": "水景",
+      "parent": "园子"
+    },
+    {
+      "name": "城外化人厂",
+      "type": "火化场",
+      "parent": ""
+    },
+    {
+      "name": "青州",
+      "type": "城市",
+      "parent": ""
+    },
+    {
+      "name": "二门",
+      "type": "门户",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝钗",
+      "relation_type": "姨甥"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "麝月",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "秋纹",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾环",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾环",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "林四娘",
+      "person_b": "恒王",
+      "relation_type": "君臣"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "园子",
+      "relation_type": "contains",
+      "value": "包含花园"
+    },
+    {
+      "source": "园子",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "园中居住区"
+    },
+    {
+      "source": "园子",
+      "target": "蘅芜院",
+      "relation_type": "contains",
+      "value": "园中居住区"
+    },
+    {
+      "source": "园子",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "园中居住区"
+    },
+    {
+      "source": "园子",
+      "target": "芙蓉池",
+      "relation_type": "contains",
+      "value": "园中池塘"
+    },
+    {
+      "source": "园子",
+      "target": "山石后",
+      "relation_type": "contains",
+      "value": "园中隐蔽处"
+    },
+    {
+      "source": "贾府",
+      "target": "贾母处",
+      "relation_type": "contains",
+      "value": "府内居住区"
+    },
+    {
+      "source": "贾府",
+      "target": "王夫人屋里",
+      "relation_type": "contains",
+      "value": "府内居住区"
+    },
+    {
+      "source": "贾府",
+      "target": "书房",
+      "relation_type": "contains",
+      "value": "府内读书区"
+    },
+    {
+      "source": "贾府",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": "府内门户"
+    },
+    {
+      "source": "怡红院",
+      "target": "芙蓉池",
+      "relation_type": "adjacent",
+      "value": "相邻位置"
+    }
+  ],
+  "_chapter": 79,
+  "_input_tokens": 11643,
+  "_output_tokens": 1738
+}

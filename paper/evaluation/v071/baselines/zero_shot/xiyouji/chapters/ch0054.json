@@ -1,0 +1,193 @@
+{
+  "characters": [
+    {
+      "name": "唐僧/唐三藏",
+      "description": "东土大唐王御弟，取经人，法名玄奘，俗家姓陈，相貌堂堂，丰姿英俊"
+    },
+    {
+      "name": "孙悟空/孙大圣",
+      "description": "唐僧大徒弟，祖贯东胜神洲傲来国人氏，会使定身法"
+    },
+    {
+      "name": "猪八戒/猪悟能",
+      "description": "唐僧二徒弟，西牛贺洲乌斯庄人氏，长嘴大耳，形容丑陋，贪吃"
+    },
+    {
+      "name": "沙僧/沙悟净",
+      "description": "唐僧三徒弟，流沙河人氏，持宝杖"
+    },
+    {
+      "name": "女王",
+      "description": "西梁女国国王，美貌，愿招唐僧为夫"
+    },
+    {
+      "name": "驿丞",
+      "description": "迎阳驿驿丞，女官"
+    },
+    {
+      "name": "太师",
+      "description": "当驾太师，为女王作媒"
+    },
+    {
+      "name": "黄门官",
+      "description": "宫中官员"
+    },
+    {
+      "name": "神秘女子",
+      "description": "路旁出现的女子，将唐僧摄走"
+    }
+  ],
+  "locations": [
+    {
+      "name": "西梁国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "东关厢",
+      "type": "城区",
+      "parent": "西梁国"
+    },
+    {
+      "name": "迎阳驿",
+      "type": "官驿",
+      "parent": "西梁国"
+    },
+    {
+      "name": "五凤楼",
+      "type": "建筑",
+      "parent": "西梁国"
+    },
+    {
+      "name": "金銮宝殿",
+      "type": "宫殿",
+      "parent": "西梁国"
+    },
+    {
+      "name": "东阁",
+      "type": "宫殿建筑",
+      "parent": "西梁国"
+    },
+    {
+      "name": "西关",
+      "type": "城区",
+      "parent": "西梁国"
+    },
+    {
+      "name": "大唐",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "西天",
+      "type": "目的地",
+      "parent": null
+    },
+    {
+      "name": "东土",
+      "type": "地域",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙悟空",
+      "relation_type": "师父-大徒弟"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师父-二徒弟"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师父-三徒弟"
+    },
+    {
+      "person_a": "女王",
+      "person_b": "唐僧",
+      "relation_type": "求婚对象"
+    },
+    {
+      "person_a": "太师",
+      "person_b": "女王",
+      "relation_type": "臣子"
+    },
+    {
+      "person_a": "驿丞",
+      "person_b": "女王",
+      "relation_type": "臣子"
+    },
+    {
+      "person_a": "太师",
+      "person_b": "唐僧",
+      "relation_type": "媒人"
+    },
+    {
+      "person_a": "驿丞",
+      "person_b": "唐僧",
+      "relation_type": "主婚人"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "西梁国",
+      "target": "东关厢",
+      "relation_type": "contains",
+      "value": "城市包含城区"
+    },
+    {
+      "source": "西梁国",
+      "target": "五凤楼",
+      "relation_type": "contains",
+      "value": "国家包含建筑"
+    },
+    {
+      "source": "西梁国",
+      "target": "迎阳驿",
+      "relation_type": "contains",
+      "value": "国家包含驿站"
+    },
+    {
+      "source": "西梁国",
+      "target": "金銮宝殿",
+      "relation_type": "contains",
+      "value": "国家包含宫殿"
+    },
+    {
+      "source": "西梁国",
+      "target": "东阁",
+      "relation_type": "contains",
+      "value": "国家包含建筑"
+    },
+    {
+      "source": "西梁国",
+      "target": "西关",
+      "relation_type": "contains",
+      "value": "城市包含城区"
+    },
+    {
+      "source": "师徒",
+      "target": "西梁国",
+      "relation_type": "direction",
+      "value": "从东向西进入"
+    },
+    {
+      "source": "迎阳驿",
+      "target": "城",
+      "relation_type": "direction",
+      "value": "在城外"
+    },
+    {
+      "source": "西关",
+      "target": "西天",
+      "relation_type": "direction",
+      "value": "通往西天的出口"
+    }
+  ],
+  "_chapter": 54,
+  "_input_tokens": 8561,
+  "_output_tokens": 1326
+}

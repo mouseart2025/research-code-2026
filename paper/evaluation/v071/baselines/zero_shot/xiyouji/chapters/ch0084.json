@@ -1,0 +1,284 @@
+{
+  "characters": [
+    {
+      "name": "唐三藏",
+      "description": "僧人，西天取经的师父，化名唐大官儿"
+    },
+    {
+      "name": "孙悟空",
+      "description": "猴精，有火眼金睛和七十二变等神通，化名孙二官儿"
+    },
+    {
+      "name": "猪八戒",
+      "description": "猪精，师父的徒弟，化名朱三官儿"
+    },
+    {
+      "name": "沙悟净",
+      "description": "师父的徒弟，化名沙四官儿"
+    },
+    {
+      "name": "观音菩萨",
+      "description": "佛教菩萨，化身老母前来指点迷津"
+    },
+    {
+      "name": "善财童子",
+      "description": "观音菩萨的随从，化身小孩儿"
+    },
+    {
+      "name": "灭法国王",
+      "description": "灭法国的国王，发愿杀一万个和尚"
+    },
+    {
+      "name": "王小二",
+      "description": "开饭店的店主"
+    },
+    {
+      "name": "赵寡妇",
+      "description": "开店的寡妇，约五十七八岁"
+    },
+    {
+      "name": "总兵",
+      "description": "城中的军事长官"
+    }
+  ],
+  "locations": [
+    {
+      "name": "灭法国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "灭法国城",
+      "type": "城市",
+      "parent": "灭法国"
+    },
+    {
+      "name": "城门",
+      "type": "建筑",
+      "parent": "灭法国城"
+    },
+    {
+      "name": "十字街",
+      "type": "街道",
+      "parent": "灭法国城"
+    },
+    {
+      "name": "九重殿",
+      "type": "宫殿",
+      "parent": "灭法国城"
+    },
+    {
+      "name": "六军营",
+      "type": "军营",
+      "parent": "灭法国城"
+    },
+    {
+      "name": "五鼓楼",
+      "type": "建筑",
+      "parent": "灭法国城"
+    },
+    {
+      "name": "王小二店",
+      "type": "客栈",
+      "parent": "灭法国城"
+    },
+    {
+      "name": "赵寡妇店",
+      "type": "客栈",
+      "parent": "灭法国城"
+    },
+    {
+      "name": "皇宫",
+      "type": "宫殿",
+      "parent": "灭法国城"
+    },
+    {
+      "name": "皇宫内院",
+      "type": "院落",
+      "parent": "皇宫"
+    },
+    {
+      "name": "寝宫",
+      "type": "宫室",
+      "parent": "皇宫内院"
+    },
+    {
+      "name": "坑坎",
+      "type": "地形",
+      "parent": null
+    },
+    {
+      "name": "路旁",
+      "type": "道路",
+      "parent": null
+    },
+    {
+      "name": "柳阴",
+      "type": "自然景观",
+      "parent": "路旁"
+    },
+    {
+      "name": "南海",
+      "type": "海域",
+      "parent": null
+    },
+    {
+      "name": "五府六部",
+      "type": "官署",
+      "parent": "灭法国城"
+    },
+    {
+      "name": "总府",
+      "type": "官署",
+      "parent": "灭法国城"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐三藏",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "沙悟净",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "观音菩萨",
+      "person_b": "善财童子",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙悟净",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙悟净",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "王小二",
+      "person_b": "王小二婆婆",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "赵寡妇",
+      "person_b": "赵寡妇女儿",
+      "relation_type": "母女"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "灭法国城",
+      "target": "灭法国",
+      "relation_type": "contains",
+      "value": "城市位于国境内"
+    },
+    {
+      "source": "皇宫",
+      "target": "灭法国城",
+      "relation_type": "contains",
+      "value": "宫殿位于城中"
+    },
+    {
+      "source": "皇宫内院",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "内院在宫殿内部"
+    },
+    {
+      "source": "寝宫",
+      "target": "皇宫内院",
+      "relation_type": "contains",
+      "value": "寝宫在内院中"
+    },
+    {
+      "source": "王小二店",
+      "target": "灭法国城",
+      "relation_type": "contains",
+      "value": "客栈位于城中"
+    },
+    {
+      "source": "赵寡妇店",
+      "target": "灭法国城",
+      "relation_type": "contains",
+      "value": "客栈位于城中"
+    },
+    {
+      "source": "赵寡妇店",
+      "target": "王小二店",
+      "relation_type": "adjacent",
+      "value": "斜对门"
+    },
+    {
+      "source": "十字街",
+      "target": "灭法国城",
+      "relation_type": "contains",
+      "value": "街道在城中"
+    },
+    {
+      "source": "九重殿",
+      "target": "灭法国城",
+      "relation_type": "contains",
+      "value": "宫殿建筑在城中"
+    },
+    {
+      "source": "坑坎",
+      "target": "路旁",
+      "relation_type": "adjacent",
+      "value": "在路边附近"
+    },
+    {
+      "source": "柳阴",
+      "target": "路旁",
+      "relation_type": "contains",
+      "value": "柳树林在路旁"
+    },
+    {
+      "source": "五府六部",
+      "target": "灭法国城",
+      "relation_type": "contains",
+      "value": "官署位于城中"
+    },
+    {
+      "source": "总府",
+      "target": "灭法国城",
+      "relation_type": "contains",
+      "value": "总兵府在城中"
+    },
+    {
+      "source": "城门",
+      "target": "灭法国城",
+      "relation_type": "contains",
+      "value": "城门是城市出入口"
+    },
+    {
+      "source": "灭法国",
+      "target": "路旁",
+      "relation_type": "direction",
+      "value": "西去五六里"
+    },
+    {
+      "source": "南海",
+      "target": "灭法国",
+      "relation_type": "direction",
+      "value": "观音菩萨返回南海"
+    }
+  ],
+  "_chapter": 84,
+  "_input_tokens": 8555,
+  "_output_tokens": 1860
+}

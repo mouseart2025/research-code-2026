@@ -1,0 +1,316 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣/孙悟空/孙行者",
+      "description": "齐天大圣，会七十二变，使金箍棒，怕烟不怕火，火眼金睛"
+    },
+    {
+      "name": "猪八戒/猪悟能/天蓬元帅",
+      "description": "长嘴大耳的和尚，使九齿钯，会按摩禅法"
+    },
+    {
+      "name": "沙僧/沙和尚/卷帘将军",
+      "description": "保护唐僧的弟子，性格谨慎"
+    },
+    {
+      "name": "唐僧/唐三藏",
+      "description": "取经僧人，被妖精捉去准备蒸吃"
+    },
+    {
+      "name": "红孩儿/圣婴大王",
+      "description": "面如傅粉，唇若涂朱，会三昧真火，使丈八长火尖枪，牛魔王之子"
+    },
+    {
+      "name": "牛魔王",
+      "description": "平天大圣，红孩儿的父亲，与孙悟空曾结拜为兄弟"
+    },
+    {
+      "name": "蛟魔王",
+      "description": "复海大圣，七大圣中排行第二"
+    },
+    {
+      "name": "大鹏魔王",
+      "description": "混天大圣，七大圣中排行第三"
+    },
+    {
+      "name": "狮狔王",
+      "description": "移山大圣，七大圣中排行第四"
+    },
+    {
+      "name": "猕猴王",
+      "description": "通风大圣，七大圣中排行第五"
+    },
+    {
+      "name": "獝狨王",
+      "description": "驱神大圣，七大圣中排行第六"
+    },
+    {
+      "name": "敖广",
+      "description": "东海龙王，主司雨泽"
+    },
+    {
+      "name": "敖钦",
+      "description": "南海龙王"
+    },
+    {
+      "name": "敖闰",
+      "description": "北海龙王"
+    },
+    {
+      "name": "敖顺",
+      "description": "西海龙王"
+    },
+    {
+      "name": "云里雾",
+      "description": "红孩儿手下六健将之一"
+    },
+    {
+      "name": "雾里云",
+      "description": "红孩儿手下六健将之一"
+    },
+    {
+      "name": "急如火",
+      "description": "红孩儿手下六健将之一"
+    },
+    {
+      "name": "快如风",
+      "description": "红孩儿手下六健将之一"
+    },
+    {
+      "name": "兴烘掀",
+      "description": "红孩儿手下六健将之一"
+    },
+    {
+      "name": "掀烘兴",
+      "description": "红孩儿手下六健将之一"
+    }
+  ],
+  "locations": [
+    {
+      "name": "号山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "枯松涧",
+      "type": "山涧",
+      "parent": "号山"
+    },
+    {
+      "name": "火云洞",
+      "type": "洞府",
+      "parent": "号山"
+    },
+    {
+      "name": "怪石崖",
+      "type": "崖壁",
+      "parent": "号山"
+    },
+    {
+      "name": "东洋大海",
+      "type": "海洋",
+      "parent": null
+    },
+    {
+      "name": "水晶宫",
+      "type": "宫殿",
+      "parent": "东洋大海"
+    },
+    {
+      "name": "南海",
+      "type": "海洋",
+      "parent": null
+    },
+    {
+      "name": "北海",
+      "type": "海洋",
+      "parent": null
+    },
+    {
+      "name": "西海",
+      "type": "海洋",
+      "parent": null
+    },
+    {
+      "name": "松林",
+      "type": "树林",
+      "parent": "号山"
+    },
+    {
+      "name": "壁岩",
+      "type": "岩壁",
+      "parent": "号山"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "红孩儿",
+      "person_b": "牛魔王",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "牛魔王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "蛟魔王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "大鹏魔王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "狮狔王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "猕猴王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "獝狨王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "敖广",
+      "person_b": "敖钦",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "敖广",
+      "person_b": "敖闰",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "敖广",
+      "person_b": "敖顺",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "云里雾",
+      "person_b": "红孩儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "雾里云",
+      "person_b": "红孩儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "急如火",
+      "person_b": "红孩儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "快如风",
+      "person_b": "红孩儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "兴烘掀",
+      "person_b": "红孩儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "掀烘兴",
+      "person_b": "红孩儿",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "号山",
+      "target": "枯松涧",
+      "relation_type": "contains",
+      "value": "山中有涧"
+    },
+    {
+      "source": "号山",
+      "target": "火云洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "号山",
+      "target": "怪石崖",
+      "relation_type": "contains",
+      "value": "山中有崖"
+    },
+    {
+      "source": "号山",
+      "target": "松林",
+      "relation_type": "contains",
+      "value": "山中有林"
+    },
+    {
+      "source": "火云洞",
+      "target": "怪石崖",
+      "relation_type": "adjacent",
+      "value": "洞在崖前"
+    },
+    {
+      "source": "东洋大海",
+      "target": "水晶宫",
+      "relation_type": "contains",
+      "value": "海中宫殿"
+    },
+    {
+      "source": "枯松涧",
+      "target": "火云洞",
+      "relation_type": "direction",
+      "value": "涧边有洞"
+    },
+    {
+      "source": "松林",
+      "target": "枯松涧",
+      "relation_type": "adjacent",
+      "value": "林边有涧"
+    },
+    {
+      "source": "壁岩",
+      "target": "南海",
+      "relation_type": "direction",
+      "value": "去南海路上"
+    }
+  ],
+  "_chapter": 41,
+  "_input_tokens": 9318,
+  "_output_tokens": 2214
+}

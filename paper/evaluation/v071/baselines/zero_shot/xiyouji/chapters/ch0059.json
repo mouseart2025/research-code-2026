@@ -1,0 +1,185 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "东土大唐取经僧人，师徒四人的师父"
+    },
+    {
+      "name": "孙悟空/行者/大圣",
+      "description": "三藏的大徒弟，会七十二变，使用金箍棒"
+    },
+    {
+      "name": "八戒",
+      "description": "三藏的二徒弟，猪的形象"
+    },
+    {
+      "name": "沙僧",
+      "description": "三藏的三徒弟"
+    },
+    {
+      "name": "老者",
+      "description": "红砖庄院的主人，穿着黄红色葛布衣服"
+    },
+    {
+      "name": "卖糕男子",
+      "description": "推红车卖糕的年轻人"
+    },
+    {
+      "name": "樵夫",
+      "description": "在翠云山伐木的樵子"
+    },
+    {
+      "name": "铁扇公主/罗刹女",
+      "description": "牛魔王妻子，红孩儿母亲，拥有芭蕉扇"
+    },
+    {
+      "name": "牛魔王",
+      "description": "铁扇公主的丈夫，又称大力王"
+    },
+    {
+      "name": "红孩儿",
+      "description": "牛魔王和铁扇公主之子，现为观音菩萨童子"
+    },
+    {
+      "name": "毛女",
+      "description": "芭蕉洞的侍女"
+    },
+    {
+      "name": "灵吉菩萨",
+      "description": "小须弥山的菩萨，曾赐定风丹给孙悟空"
+    },
+    {
+      "name": "土地",
+      "description": "火焰山土地神"
+    }
+  ],
+  "locations": [
+    {
+      "name": "火焰山",
+      "type": "山",
+      "parent": "西方路"
+    },
+    {
+      "name": "斯哈哩国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "红砖庄院",
+      "type": "庄院",
+      "parent": null
+    },
+    {
+      "name": "翠云山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "芭蕉洞",
+      "type": "洞穴",
+      "parent": "翠云山"
+    },
+    {
+      "name": "小须弥山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "西海",
+      "type": "海",
+      "parent": null
+    },
+    {
+      "name": "东土大唐",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "西天",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "昆仑山",
+      "type": "山",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "铁扇公主",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "红孩儿",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "铁扇公主",
+      "person_b": "红孩儿",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "孙悟空",
+      "relation_type": "结义兄弟"
+    },
+    {
+      "person_a": "铁扇公主",
+      "person_b": "孙悟空",
+      "relation_type": "仇敌"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "芭蕉洞",
+      "target": "翠云山",
+      "relation_type": "contains",
+      "value": "洞穴位于山中"
+    },
+    {
+      "source": "火焰山",
+      "target": "红砖庄院",
+      "relation_type": "direction",
+      "value": "西距六十里"
+    },
+    {
+      "source": "翠云山",
+      "target": "红砖庄院",
+      "relation_type": "direction",
+      "value": "西南方向一千四百五六十里"
+    },
+    {
+      "source": "小须弥山",
+      "target": "火焰山",
+      "relation_type": "direction",
+      "value": "东南方向五万余里"
+    },
+    {
+      "source": "火焰山",
+      "target": "西方路",
+      "relation_type": "contains",
+      "value": "位于西去必经之路上，宽八百里"
+    }
+  ],
+  "_chapter": 59,
+  "_input_tokens": 8911,
+  "_output_tokens": 1247
+}

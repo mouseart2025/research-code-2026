@@ -1,0 +1,181 @@
+{
+  "characters": [
+    {
+      "name": "孙悟空",
+      "description": "美猴王，从菩提祖师学道，获得姓名孙悟空，学会七十二变和筋斗云等本领"
+    },
+    {
+      "name": "菩提祖师",
+      "description": "传授悟空道法的师父，居住在三星仙洞，精通各种道术"
+    },
+    {
+      "name": "混世魔王",
+      "description": "占据水脏洞的妖魔，头戴乌金盔，身高三丈，手执钢刀，被悟空斩杀"
+    },
+    {
+      "name": "众仙",
+      "description": "菩提祖师的弟子们，悟空的师兄"
+    },
+    {
+      "name": "众猴",
+      "description": "花果山水帘洞中的猴子猴孙，悟空的部下"
+    },
+    {
+      "name": "小妖",
+      "description": "混世魔王手下的妖怪"
+    }
+  ],
+  "locations": [
+    {
+      "name": "三星仙洞",
+      "type": "洞府",
+      "parent": "斜月三星洞"
+    },
+    {
+      "name": "斜月三星洞",
+      "type": "修仙之地",
+      "parent": "灵台方寸山"
+    },
+    {
+      "name": "灵台方寸山",
+      "type": "山",
+      "parent": "西牛贺洲"
+    },
+    {
+      "name": "西牛贺洲",
+      "type": "洲",
+      "parent": null
+    },
+    {
+      "name": "烂桃山",
+      "type": "山",
+      "parent": "灵台方寸山"
+    },
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": "东胜神洲"
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞府",
+      "parent": "花果山"
+    },
+    {
+      "name": "东胜神洲",
+      "type": "洲",
+      "parent": null
+    },
+    {
+      "name": "傲来国",
+      "type": "国",
+      "parent": "东胜神洲"
+    },
+    {
+      "name": "水脏洞",
+      "type": "洞府",
+      "parent": "北山"
+    },
+    {
+      "name": "北山",
+      "type": "山",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "菩提祖师",
+      "person_b": "孙悟空",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "菩提祖师",
+      "relation_type": "弟子"
+    },
+    {
+      "person_a": "众仙",
+      "person_b": "孙悟空",
+      "relation_type": "师兄"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "众猴",
+      "relation_type": "大王"
+    },
+    {
+      "person_a": "众猴",
+      "person_b": "孙悟空",
+      "relation_type": "部下"
+    },
+    {
+      "person_a": "混世魔王",
+      "person_b": "小妖",
+      "relation_type": "主人"
+    },
+    {
+      "person_a": "小妖",
+      "person_b": "混世魔王",
+      "relation_type": "手下"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "灵台方寸山",
+      "target": "三星仙洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "灵台方寸山",
+      "target": "烂桃山",
+      "relation_type": "contains",
+      "value": "山后有桃山"
+    },
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "东胜神洲",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "洲中有山"
+    },
+    {
+      "source": "东胜神洲",
+      "target": "傲来国",
+      "relation_type": "contains",
+      "value": "洲中有国"
+    },
+    {
+      "source": "西牛贺洲",
+      "target": "灵台方寸山",
+      "relation_type": "contains",
+      "value": "洲中有山"
+    },
+    {
+      "source": "北山",
+      "target": "水脏洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "花果山",
+      "target": "北山",
+      "relation_type": "direction",
+      "value": "正北方向"
+    },
+    {
+      "source": "三星仙洞",
+      "target": "花果山",
+      "relation_type": "direction",
+      "value": "东海方向"
+    }
+  ],
+  "_chapter": 2,
+  "_input_tokens": 8331,
+  "_output_tokens": 1219
+}

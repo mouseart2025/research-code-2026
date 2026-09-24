@@ -1,0 +1,224 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "东土钦差上雷音寺拜佛求经的僧人，师父"
+    },
+    {
+      "name": "行者",
+      "description": "三藏的徒弟，毛脸相貌，本领高强，会变化筋斗云"
+    },
+    {
+      "name": "院主",
+      "description": "观音禅院的院主"
+    },
+    {
+      "name": "老僧",
+      "description": "观音禅院师祖，二百七十岁，贪恋袈裟"
+    },
+    {
+      "name": "广智",
+      "description": "观音禅院小和尚，提出杀害计划"
+    },
+    {
+      "name": "广谋",
+      "description": "观音禅院小和尚，广智的师弟，提出放火计划"
+    },
+    {
+      "name": "黑大王",
+      "description": "黑风山黑风洞内的妖精，与老和尚讲道"
+    },
+    {
+      "name": "广目天王",
+      "description": "天庭天王，借给行者辟火罩"
+    },
+    {
+      "name": "庞刘苟毕",
+      "description": "南天门守将"
+    },
+    {
+      "name": "马赵温关",
+      "description": "南天门守将"
+    }
+  ],
+  "locations": [
+    {
+      "name": "观音禅院",
+      "type": "寺院",
+      "parent": ""
+    },
+    {
+      "name": "山门",
+      "type": "建筑",
+      "parent": "观音禅院"
+    },
+    {
+      "name": "正殿",
+      "type": "建筑",
+      "parent": "观音禅院"
+    },
+    {
+      "name": "五福堂",
+      "type": "建筑",
+      "parent": "观音禅院"
+    },
+    {
+      "name": "钟鼓楼",
+      "type": "建筑",
+      "parent": "观音禅院"
+    },
+    {
+      "name": "浮屠塔",
+      "type": "建筑",
+      "parent": "观音禅院"
+    },
+    {
+      "name": "后方丈",
+      "type": "建筑",
+      "parent": "观音禅院"
+    },
+    {
+      "name": "禅堂",
+      "type": "建筑",
+      "parent": "观音禅院"
+    },
+    {
+      "name": "黑风山",
+      "type": "山",
+      "parent": ""
+    },
+    {
+      "name": "黑风洞",
+      "type": "洞穴",
+      "parent": "黑风山"
+    },
+    {
+      "name": "东土",
+      "type": "地域",
+      "parent": ""
+    },
+    {
+      "name": "长安",
+      "type": "城市",
+      "parent": "东土"
+    },
+    {
+      "name": "两界山",
+      "type": "山",
+      "parent": ""
+    },
+    {
+      "name": "西番哈咇国",
+      "type": "国家",
+      "parent": ""
+    },
+    {
+      "name": "南天门",
+      "type": "天庭建筑",
+      "parent": ""
+    },
+    {
+      "name": "雷音寺",
+      "type": "寺院",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "行者",
+      "relation_type": "师父-徒弟"
+    },
+    {
+      "person_a": "老僧",
+      "person_b": "众僧",
+      "relation_type": "师祖-弟子"
+    },
+    {
+      "person_a": "广智",
+      "person_b": "广谋",
+      "relation_type": "师兄-师弟"
+    },
+    {
+      "person_a": "老僧",
+      "person_b": "黑大王",
+      "relation_type": "讲道关系"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "广目天王",
+      "relation_type": "旧识"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "观音禅院",
+      "target": "山门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "观音禅院",
+      "target": "正殿",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "观音禅院",
+      "target": "五福堂",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "观音禅院",
+      "target": "钟鼓楼",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "观音禅院",
+      "target": "后方丈",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "观音禅院",
+      "target": "禅堂",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "黑风山",
+      "target": "黑风洞",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "黑风山",
+      "target": "观音禅院",
+      "relation_type": "direction",
+      "value": "正南二十里"
+    },
+    {
+      "source": "东土",
+      "target": "长安",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "正殿",
+      "target": "后方丈",
+      "relation_type": "direction",
+      "value": "前后关系"
+    },
+    {
+      "source": "禅堂",
+      "target": "后方丈",
+      "relation_type": "direction",
+      "value": "前后关系"
+    }
+  ],
+  "_chapter": 16,
+  "_input_tokens": 9056,
+  "_output_tokens": 1355
+}

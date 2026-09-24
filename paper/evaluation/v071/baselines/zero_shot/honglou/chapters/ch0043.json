@@ -1,0 +1,254 @@
+{
+  "characters": [
+    {
+      "name": "刘姥姥",
+      "description": "乡下老妇人，来贾府做客，见识广博，善于给孩子起名"
+    },
+    {
+      "name": "板儿",
+      "description": "刘姥姥带来的孩子"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "贾府管家奶奶，王熙凤，有一个女儿大姐儿"
+    },
+    {
+      "name": "大姐儿",
+      "description": "凤姐儿的女儿，生病发热，后被起名巧哥儿"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐儿的丫鬟，为人谦逊善良"
+    },
+    {
+      "name": "彩明",
+      "description": "丫鬟，负责念《玉匣记》"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太，生病需要看医生"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的贴身丫鬟"
+    },
+    {
+      "name": "贾珍",
+      "description": "贾府男性，陪同太医"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府男性，陪同太医"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾府男性，陪同太医"
+    },
+    {
+      "name": "王太医",
+      "description": "御医，为贾母和大姐儿看病"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府夫人"
+    },
+    {
+      "name": "李纨",
+      "description": "贾府寡妇，住稻香村，主持诗社"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，贾府公子"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，住蘅芜苑，博学多才"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，机智伶俐，善于取笑"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三小姐"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四小姐，会画画"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，容易大笑"
+    },
+    {
+      "name": "素云",
+      "description": "丫鬟，为李纨传话"
+    },
+    {
+      "name": "詹子亮",
+      "description": "画师，擅长工细楼台"
+    },
+    {
+      "name": "程日兴",
+      "description": "画师，擅长画美人"
+    }
+  ],
+  "locations": [
+    {
+      "name": "园子",
+      "type": "花园",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "大宅院",
+      "parent": null
+    },
+    {
+      "name": "蘅芜苑",
+      "type": "住所",
+      "parent": "园子"
+    },
+    {
+      "name": "稻香村",
+      "type": "住所",
+      "parent": "园子"
+    },
+    {
+      "name": "外书房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "下房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "角门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "甬路",
+      "type": "道路",
+      "parent": "贾府"
+    },
+    {
+      "name": "旁阶",
+      "type": "台阶",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "刘姥姥",
+      "person_b": "板儿",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "大姐儿",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "黛玉",
+      "relation_type": "姊妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "王太医",
+      "person_b": "王君效",
+      "relation_type": "叔祖关系"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "彩明",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "素云",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "园子",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园子位于贾府内"
+    },
+    {
+      "source": "蘅芜苑",
+      "target": "园子",
+      "relation_type": "contains",
+      "value": "蘅芜苑在园子中"
+    },
+    {
+      "source": "稻香村",
+      "target": "园子",
+      "relation_type": "contains",
+      "value": "稻香村在园子中"
+    },
+    {
+      "source": "外书房",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "外书房在贾府中"
+    },
+    {
+      "source": "下房",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "下房在贾府中"
+    },
+    {
+      "source": "甬路",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "甬路是贾府内的主要道路"
+    },
+    {
+      "source": "旁阶",
+      "target": "甬路",
+      "relation_type": "adjacent",
+      "value": "旁阶在甬路旁边"
+    },
+    {
+      "source": "角门",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "角门是贾府的出入口"
+    },
+    {
+      "source": "二门",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "二门是贾府内门"
+    }
+  ],
+  "_chapter": 43,
+  "_input_tokens": 9353,
+  "_output_tokens": 1678
+}

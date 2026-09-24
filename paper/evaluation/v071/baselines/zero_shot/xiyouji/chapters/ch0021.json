@@ -1,0 +1,191 @@
+{
+  "characters": [
+    {
+      "name": "孙行者/孙悟空/齐天大圣",
+      "description": "毛脸和尚，身躯鄙猥，面容羸瘦，不满四尺，手执如意铁棒，会变化法术"
+    },
+    {
+      "name": "猪八戒/悟能",
+      "description": "长嘴大耳朵的和尚，使钉钯，唐僧的徒弟"
+    },
+    {
+      "name": "唐僧/三藏法师",
+      "description": "东土大唐御弟，取经僧人，被妖怪抓住绑在定风桩上"
+    },
+    {
+      "name": "黄风大王/老妖",
+      "description": "黄风洞主，手持三股钢叉，穿金盔金甲，会使三昧神风"
+    },
+    {
+      "name": "虎先锋",
+      "description": "黄风大王的先锋，被孙悟空打死"
+    },
+    {
+      "name": "灵吉菩萨",
+      "description": "小须弥山讲经禅院的菩萨，持飞龙宝杖和定风丹，受如来法令镇押黄风怪"
+    },
+    {
+      "name": "李长庚/太白金星",
+      "description": "西方太白金星，化作老公公指引孙悟空去须弥山"
+    },
+    {
+      "name": "护教伽蓝",
+      "description": "奉菩萨法旨暗保唐僧的神灵，化作庄院老者"
+    },
+    {
+      "name": "庄院老者",
+      "description": "实为护教伽蓝点化，给孙悟空治眼疾"
+    },
+    {
+      "name": "道人",
+      "description": "灵吉菩萨讲经处的弟子，项挂数珠口中念佛"
+    }
+  ],
+  "locations": [
+    {
+      "name": "黄风洞",
+      "type": "妖怪洞府",
+      "parent": "黄风山"
+    },
+    {
+      "name": "黄风山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "东山坡",
+      "type": "山坡",
+      "parent": "黄风山"
+    },
+    {
+      "name": "小须弥山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "讲经禅院",
+      "type": "寺院",
+      "parent": "小须弥山"
+    },
+    {
+      "name": "定风桩",
+      "type": "建筑物",
+      "parent": "黄风洞"
+    },
+    {
+      "name": "庄院",
+      "type": "住宅",
+      "parent": null
+    },
+    {
+      "name": "山凹",
+      "type": "地形",
+      "parent": "黄风山"
+    },
+    {
+      "name": "树林",
+      "type": "自然环境",
+      "parent": null
+    },
+    {
+      "name": "大路",
+      "type": "道路",
+      "parent": null
+    },
+    {
+      "name": "灵山",
+      "type": "佛教圣地",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "虎先锋",
+      "person_b": "黄风大王",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "灵吉菩萨",
+      "person_b": "黄风大王",
+      "relation_type": "镇压者"
+    },
+    {
+      "person_a": "护教伽蓝",
+      "person_b": "唐僧",
+      "relation_type": "暗中保护"
+    },
+    {
+      "person_a": "李长庚",
+      "person_b": "猪八戒",
+      "relation_type": "恩人"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "黄风山",
+      "target": "黄风洞",
+      "relation_type": "contains",
+      "value": "洞在山中"
+    },
+    {
+      "source": "黄风山",
+      "target": "东山坡",
+      "relation_type": "contains",
+      "value": "山坡在山上"
+    },
+    {
+      "source": "黄风洞",
+      "target": "定风桩",
+      "relation_type": "contains",
+      "value": "定风桩在洞后园"
+    },
+    {
+      "source": "小须弥山",
+      "target": "讲经禅院",
+      "relation_type": "contains",
+      "value": "禅院在山中"
+    },
+    {
+      "source": "须弥山",
+      "target": "黄风山",
+      "relation_type": "direction",
+      "value": "须弥山在黄风山直南二千里"
+    },
+    {
+      "source": "树林",
+      "target": "大路",
+      "relation_type": "adjacent",
+      "value": "树林在大路旁"
+    },
+    {
+      "source": "山凹",
+      "target": "黄风山",
+      "relation_type": "contains",
+      "value": "山凹在山中"
+    },
+    {
+      "source": "庄院",
+      "target": "路南山坡",
+      "relation_type": "contains",
+      "value": "庄院在山坡下"
+    }
+  ],
+  "_chapter": 21,
+  "_input_tokens": 8398,
+  "_output_tokens": 1426
+}

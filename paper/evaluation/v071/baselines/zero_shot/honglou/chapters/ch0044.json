@@ -1,0 +1,378 @@
+{
+  "characters": [
+    {
+      "name": "王夫人",
+      "description": "贾母的儿媳妇，贾政的妻子"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老太太，众人的长辈"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，贾琏的妻子，管家媳妇"
+    },
+    {
+      "name": "贾政",
+      "description": "王夫人的丈夫"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "王夫人的姐妹，薛家的太太"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦的妻子"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，薛姨妈的女儿"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，贾母的宝贝孙子"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍的妻子，宁国府当家媳妇"
+    },
+    {
+      "name": "李纨",
+      "description": "贾珠的遗孀，寡妇"
+    },
+    {
+      "name": "赖大的母亲",
+      "description": "赖大家的，贾府老管家婆子"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的贴身丫鬟"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的陪房丫鬟"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "彩霞",
+      "description": "丫鬟"
+    },
+    {
+      "name": "林之孝家的",
+      "description": "荣国府管事婆子"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，贾母的外孙女"
+    },
+    {
+      "name": "彩云",
+      "description": "王夫人房里的丫鬟"
+    },
+    {
+      "name": "周",
+      "description": "王夫人房里的婆子"
+    },
+    {
+      "name": "赵",
+      "description": "王夫人房里的婆子"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "李贵",
+      "description": "宝玉房里的小厮"
+    },
+    {
+      "name": "翠墨",
+      "description": "丫鬟"
+    },
+    {
+      "name": "探春",
+      "description": "贾探春，贾政的女儿"
+    },
+    {
+      "name": "玉钏儿",
+      "description": "王夫人房里的丫鬟"
+    },
+    {
+      "name": "老姑子",
+      "description": "水仙庵的尼姑"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "厨房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾母房间",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "宁国府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "凤姐房间",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "佛堂",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "北静王府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "园后门",
+      "type": "门",
+      "parent": "大观园"
+    },
+    {
+      "name": "角门",
+      "type": "门",
+      "parent": "大观园"
+    },
+    {
+      "name": "北门",
+      "type": "城门",
+      "parent": null
+    },
+    {
+      "name": "水仙庵",
+      "type": "庵堂",
+      "parent": null
+    },
+    {
+      "name": "井台",
+      "type": "建筑",
+      "parent": "水仙庵"
+    },
+    {
+      "name": "禅堂",
+      "type": "房间",
+      "parent": "水仙庵"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "大花厅",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "穿堂",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "廊檐",
+      "type": "建筑",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "王夫人",
+      "person_b": "贾母",
+      "relation_type": "儿媳妇"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾政",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾母",
+      "relation_type": "孙媳妇"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "王夫人",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "尤氏",
+      "person_b": "贾珍",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "贾珠",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "贾政",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "茗烟",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "玉钏儿",
+      "person_b": "王夫人",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "荣国府",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "宁国府",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "荣国府",
+      "target": "贾母房间",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "荣国府",
+      "target": "凤姐房间",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "荣国府",
+      "target": "佛堂",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "大观园",
+      "target": "园后门",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "大观园",
+      "target": "角门",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "水仙庵",
+      "target": "井台",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "水仙庵",
+      "target": "禅堂",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "大花厅",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "穿堂",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "廊檐",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "园后门",
+      "target": "北门",
+      "relation_type": "direction",
+      "value": "通向"
+    },
+    {
+      "source": "北门",
+      "target": "水仙庵",
+      "relation_type": "direction",
+      "value": "七八里路外"
+    }
+  ],
+  "_chapter": 44,
+  "_input_tokens": 8169,
+  "_output_tokens": 2317
+}

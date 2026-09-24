@@ -1,0 +1,1694 @@
+{
+  "base_db": "/home/anon/.ai-reader-v2/data.db.bak-20260920-kimi",
+  "scratch": "/tmp/v078-refresh/data.db",
+  "run_pass1": {
+    "xiyouji": {
+      "novel": "xiyouji",
+      "stage_metrics": {
+        "import": {
+          "depth": 3.79,
+          "max_ch": 59,
+          "roots": 1,
+          "nodes": null
+        },
+        "tier": {
+          "depth": 3.79,
+          "max_ch": 59,
+          "roots": 1,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 3.79,
+          "max_ch": 59,
+          "roots": 1,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 3.79,
+          "max_ch": 59,
+          "roots": 1,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 2.85,
+          "max_ch": 73,
+          "roots": 1,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 2.73,
+          "max_ch": 63,
+          "roots": 20,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 2.75,
+          "max_ch": 63,
+          "roots": 20,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 2.75,
+          "max_ch": 63,
+          "roots": 20,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 63,
+      "ws_max_children": 63,
+      "voting_merged_max_ch": 128,
+      "voting_merged_max_ch_node": "西牛贺洲",
+      "naive_full": {
+        "overall": 0.9850622406639005,
+        "entity_precision": 0.9991701244813278,
+        "name_accuracy": 0.9991701244813278,
+        "tier_accuracy": 0.9908713692946058,
+        "parent_precision": 0.9983402489626556,
+        "structural_health": 0.9950207468879668,
+        "error_count": 18,
+        "total_nodes": 1205
+      },
+      "fair": {
+        "nodes": {
+          "voting": 788,
+          "full": 1016,
+          "intersection": 781,
+          "gold_subset": 562
+        },
+        "voting": {
+          "overall": 0.9750889679715302,
+          "entity_precision": 1.0,
+          "name_accuracy": 0.998220640569395,
+          "tier_accuracy": 0.9822064056939501,
+          "parent_precision": 0.99644128113879,
+          "structural_health": 0.9928825622775801,
+          "error_count": 14,
+          "total_nodes": 562
+        },
+        "full": {
+          "overall": 0.9804270462633452,
+          "entity_precision": 1.0,
+          "name_accuracy": 0.998220640569395,
+          "tier_accuracy": 0.9875444839857651,
+          "parent_precision": 0.998220640569395,
+          "structural_health": 0.9928825622775801,
+          "error_count": 11,
+          "total_nodes": 562
+        }
+      }
+    },
+    "honglou": {
+      "novel": "honglou",
+      "stage_metrics": {
+        "import": {
+          "depth": 4.47,
+          "max_ch": 96,
+          "roots": 1,
+          "nodes": null
+        },
+        "tier": {
+          "depth": 4.47,
+          "max_ch": 96,
+          "roots": 1,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 4.47,
+          "max_ch": 96,
+          "roots": 1,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 4.47,
+          "max_ch": 96,
+          "roots": 1,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 3.71,
+          "max_ch": 132,
+          "roots": 1,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 3.64,
+          "max_ch": 129,
+          "roots": 14,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 3.54,
+          "max_ch": 126,
+          "roots": 14,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 3.54,
+          "max_ch": 126,
+          "roots": 14,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 126,
+      "ws_max_children": 126,
+      "voting_merged_max_ch": 153,
+      "voting_merged_max_ch_node": "荣国府",
+      "naive_full": {
+        "overall": 0.974,
+        "entity_precision": 0.999,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.982,
+        "parent_precision": 0.995,
+        "structural_health": 0.995,
+        "error_count": 26,
+        "total_nodes": 1000
+      },
+      "fair": {
+        "nodes": {
+          "voting": 772,
+          "full": 846,
+          "intersection": 771,
+          "gold_subset": 513
+        },
+        "voting": {
+          "overall": 0.9688109161793372,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.9766081871345029,
+          "parent_precision": 0.9922027290448343,
+          "structural_health": 0.9941520467836258,
+          "error_count": 16,
+          "total_nodes": 513
+        },
+        "full": {
+          "overall": 0.9707602339181287,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.9785575048732944,
+          "parent_precision": 0.9922027290448343,
+          "structural_health": 0.9941520467836258,
+          "error_count": 15,
+          "total_nodes": 513
+        }
+      }
+    },
+    "shuihu": {
+      "novel": "shuihu",
+      "stage_metrics": {
+        "import": {
+          "depth": 4.05,
+          "max_ch": 75,
+          "roots": 1,
+          "nodes": null
+        },
+        "tier": {
+          "depth": 4.05,
+          "max_ch": 75,
+          "roots": 1,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 4.05,
+          "max_ch": 75,
+          "roots": 1,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 4.05,
+          "max_ch": 75,
+          "roots": 2,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 3.13,
+          "max_ch": 79,
+          "roots": 1,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 3.02,
+          "max_ch": 79,
+          "roots": 19,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 3.0,
+          "max_ch": 79,
+          "roots": 19,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 3.0,
+          "max_ch": 79,
+          "roots": 19,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 79,
+      "ws_max_children": 79,
+      "voting_merged_max_ch": 144,
+      "voting_merged_max_ch_node": "山东",
+      "naive_full": {
+        "overall": 0.8900939985538684,
+        "entity_precision": 1.0,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.8900939985538684,
+        "parent_precision": 1.0,
+        "structural_health": 0.9992769342010123,
+        "error_count": 152,
+        "total_nodes": 1383
+      },
+      "fair": {
+        "nodes": {
+          "voting": 1623,
+          "full": 1786,
+          "intersection": 1605,
+          "gold_subset": 922
+        },
+        "voting": {
+          "overall": 0.8557483731019523,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.8557483731019523,
+          "parent_precision": 1.0,
+          "structural_health": 0.9989154013015185,
+          "error_count": 133,
+          "total_nodes": 922
+        },
+        "full": {
+          "overall": 0.8557483731019523,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.8557483731019523,
+          "parent_precision": 1.0,
+          "structural_health": 0.9989154013015185,
+          "error_count": 133,
+          "total_nodes": 922
+        }
+      }
+    },
+    "sanguo": {
+      "novel": "sanguo",
+      "stage_metrics": {
+        "import": {
+          "depth": 3.93,
+          "max_ch": 72,
+          "roots": 1,
+          "nodes": null
+        },
+        "tier": {
+          "depth": 3.93,
+          "max_ch": 72,
+          "roots": 1,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 3.93,
+          "max_ch": 72,
+          "roots": 1,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 3.93,
+          "max_ch": 72,
+          "roots": 1,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 3.02,
+          "max_ch": 56,
+          "roots": 1,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 2.93,
+          "max_ch": 56,
+          "roots": 25,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 2.93,
+          "max_ch": 56,
+          "roots": 25,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 2.89,
+          "max_ch": 74,
+          "roots": 25,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 74,
+      "ws_max_children": 74,
+      "voting_merged_max_ch": 103,
+      "voting_merged_max_ch_node": "荆州",
+      "naive_full": {
+        "overall": 0.8785714285714286,
+        "entity_precision": 0.9964285714285714,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.8848214285714285,
+        "parent_precision": 0.9982142857142857,
+        "structural_health": 0.9982142857142857,
+        "error_count": 136,
+        "total_nodes": 1120
+      },
+      "fair": {
+        "nodes": {
+          "voting": 1223,
+          "full": 1295,
+          "intersection": 1212,
+          "gold_subset": 1063
+        },
+        "voting": {
+          "overall": 0.8730009407337723,
+          "entity_precision": 0.9990592662276576,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.8777046095954845,
+          "parent_precision": 0.9971777986829727,
+          "structural_health": 0.9990592662276576,
+          "error_count": 135,
+          "total_nodes": 1063
+        },
+        "full": {
+          "overall": 0.8748824082784572,
+          "entity_precision": 0.9990592662276576,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.878645343367827,
+          "parent_precision": 0.9981185324553151,
+          "structural_health": 0.9990592662276576,
+          "error_count": 133,
+          "total_nodes": 1063
+        }
+      }
+    },
+    "fengshen": {
+      "novel": "fengshen",
+      "stage_metrics": {
+        "import": {
+          "depth": 3.22,
+          "max_ch": 69,
+          "roots": 1,
+          "nodes": null
+        },
+        "tier": {
+          "depth": 3.22,
+          "max_ch": 69,
+          "roots": 1,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 3.22,
+          "max_ch": 69,
+          "roots": 1,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 3.22,
+          "max_ch": 69,
+          "roots": 1,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 2.17,
+          "max_ch": 99,
+          "roots": 1,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 2.11,
+          "max_ch": 99,
+          "roots": 7,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 2.11,
+          "max_ch": 99,
+          "roots": 7,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 99,
+      "ws_max_children": 71,
+      "voting_merged_max_ch": 120,
+      "voting_merged_max_ch_node": "西岐",
+      "naive_full": {
+        "overall": 0.9484978540772532,
+        "entity_precision": 0.9957081545064378,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.9656652360515021,
+        "parent_precision": 0.9785407725321889,
+        "structural_health": 1.0,
+        "error_count": 12,
+        "total_nodes": 233
+      },
+      "fair": {
+        "nodes": {
+          "voting": 436,
+          "full": 618,
+          "intersection": 433,
+          "gold_subset": 225
+        },
+        "voting": {
+          "overall": 0.9466666666666667,
+          "entity_precision": 0.9955555555555555,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.9644444444444444,
+          "parent_precision": 0.9777777777777777,
+          "structural_health": 1.0,
+          "error_count": 12,
+          "total_nodes": 225
+        },
+        "full": {
+          "overall": 0.9466666666666667,
+          "entity_precision": 0.9955555555555555,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.9644444444444444,
+          "parent_precision": 0.9777777777777777,
+          "structural_health": 1.0,
+          "error_count": 12,
+          "total_nodes": 225
+        }
+      }
+    }
+  },
+  "determinism": {
+    "xiyouji": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "honglou": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "shuihu": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "sanguo": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "fengshen": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    }
+  },
+  "pure_start_run_pass1": {
+    "xiyouji": {
+      "novel": "xiyouji",
+      "stage_metrics": {
+        "import": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 128,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 2.84,
+          "max_ch": 69,
+          "roots": 0,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 2.82,
+          "max_ch": 58,
+          "roots": 1,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 2.82,
+          "max_ch": 57,
+          "roots": 1,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 2.82,
+          "max_ch": 57,
+          "roots": 1,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 57,
+      "ws_max_children": 57,
+      "voting_merged_max_ch": 203,
+      "voting_merged_max_ch_node": "西牛贺洲",
+      "naive_full": {
+        "overall": 0.9850622406639005,
+        "entity_precision": 1.0,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.9883817427385893,
+        "parent_precision": 0.9975103734439834,
+        "structural_health": 0.9983402489626556,
+        "error_count": 18,
+        "total_nodes": 1205
+      },
+      "fair": {
+        "nodes": {
+          "voting": 500,
+          "full": 553,
+          "intersection": 484,
+          "gold_subset": 376
+        },
+        "voting": {
+          "overall": 0.9707446808510638,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.976063829787234,
+          "parent_precision": 0.9973404255319149,
+          "structural_health": 0.9946808510638298,
+          "error_count": 11,
+          "total_nodes": 376
+        },
+        "full": {
+          "overall": 0.9680851063829787,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.973404255319149,
+          "parent_precision": 0.9973404255319149,
+          "structural_health": 0.9946808510638298,
+          "error_count": 12,
+          "total_nodes": 376
+        }
+      }
+    },
+    "honglou": {
+      "novel": "honglou",
+      "stage_metrics": {
+        "import": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 79,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 4.81,
+          "max_ch": 128,
+          "roots": 0,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 4.81,
+          "max_ch": 125,
+          "roots": 0,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 4.73,
+          "max_ch": 122,
+          "roots": 0,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 4.73,
+          "max_ch": 122,
+          "roots": 0,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 122,
+      "ws_max_children": 122,
+      "voting_merged_max_ch": 145,
+      "voting_merged_max_ch_node": "荣国府",
+      "naive_full": {
+        "overall": 0.978,
+        "entity_precision": 1.0,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.981,
+        "parent_precision": 0.995,
+        "structural_health": 0.998,
+        "error_count": 22,
+        "total_nodes": 1000
+      },
+      "fair": {
+        "nodes": {
+          "voting": 415,
+          "full": 504,
+          "intersection": 406,
+          "gold_subset": 302
+        },
+        "voting": {
+          "overall": 0.9735099337748344,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.9801324503311258,
+          "parent_precision": 0.9900662251655629,
+          "structural_health": 0.9933774834437086,
+          "error_count": 8,
+          "total_nodes": 302
+        },
+        "full": {
+          "overall": 0.9768211920529801,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.9834437086092715,
+          "parent_precision": 0.9900662251655629,
+          "structural_health": 0.9933774834437086,
+          "error_count": 7,
+          "total_nodes": 302
+        }
+      }
+    },
+    "shuihu": {
+      "novel": "shuihu",
+      "stage_metrics": {
+        "import": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 165,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 6.29,
+          "max_ch": 70,
+          "roots": 1,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 6.29,
+          "max_ch": 70,
+          "roots": 1,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 6.29,
+          "max_ch": 70,
+          "roots": 1,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 6.29,
+          "max_ch": 70,
+          "roots": 1,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 70,
+      "ws_max_children": 70,
+      "voting_merged_max_ch": 139,
+      "voting_merged_max_ch_node": "山东",
+      "naive_full": {
+        "overall": 0.8908170643528561,
+        "entity_precision": 1.0,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.8908170643528561,
+        "parent_precision": 1.0,
+        "structural_health": 1.0,
+        "error_count": 151,
+        "total_nodes": 1383
+      },
+      "fair": {
+        "nodes": {
+          "voting": 948,
+          "full": 1126,
+          "intersection": 926,
+          "gold_subset": 641
+        },
+        "voting": {
+          "overall": 0.8346333853354134,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.8346333853354134,
+          "parent_precision": 1.0,
+          "structural_health": 0.9984399375975039,
+          "error_count": 106,
+          "total_nodes": 641
+        },
+        "full": {
+          "overall": 0.84399375975039,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.84399375975039,
+          "parent_precision": 1.0,
+          "structural_health": 1.0,
+          "error_count": 100,
+          "total_nodes": 641
+        }
+      }
+    },
+    "sanguo": {
+      "novel": "sanguo",
+      "stage_metrics": {
+        "import": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 26,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 6.08,
+          "max_ch": 58,
+          "roots": 0,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 5.46,
+          "max_ch": 58,
+          "roots": 0,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 5.46,
+          "max_ch": 58,
+          "roots": 0,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 4.96,
+          "max_ch": 59,
+          "roots": 0,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 59,
+      "ws_max_children": 59,
+      "voting_merged_max_ch": 112,
+      "voting_merged_max_ch_node": "天下",
+      "naive_full": {
+        "overall": 0.8803571428571428,
+        "entity_precision": 0.9991071428571429,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.8821428571428571,
+        "parent_precision": 0.9982142857142857,
+        "structural_health": 0.9991071428571429,
+        "error_count": 134,
+        "total_nodes": 1120
+      },
+      "fair": {
+        "nodes": {
+          "voting": 664,
+          "full": 847,
+          "intersection": 632,
+          "gold_subset": 486
+        },
+        "voting": {
+          "overall": 0.831275720164609,
+          "entity_precision": 0.9979423868312757,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.8353909465020576,
+          "parent_precision": 0.9958847736625515,
+          "structural_health": 0.9979423868312757,
+          "error_count": 82,
+          "total_nodes": 486
+        },
+        "full": {
+          "overall": 0.8333333333333334,
+          "entity_precision": 0.9979423868312757,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.8374485596707819,
+          "parent_precision": 0.9958847736625515,
+          "structural_health": 0.9979423868312757,
+          "error_count": 81,
+          "total_nodes": 486
+        }
+      }
+    },
+    "fengshen": {
+      "novel": "fengshen",
+      "stage_metrics": {
+        "import": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 29,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 3.34,
+          "max_ch": 63,
+          "roots": 0,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 1.97,
+          "max_ch": 63,
+          "roots": 0,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 1.97,
+          "max_ch": 63,
+          "roots": 0,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 63,
+      "ws_max_children": 63,
+      "voting_merged_max_ch": 118,
+      "voting_merged_max_ch_node": "西岐",
+      "naive_full": {
+        "overall": 0.9484978540772532,
+        "entity_precision": 0.9957081545064378,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.9613733905579399,
+        "parent_precision": 0.9828326180257511,
+        "structural_health": 1.0,
+        "error_count": 12,
+        "total_nodes": 233
+      },
+      "fair": {
+        "nodes": {
+          "voting": 356,
+          "full": 355,
+          "intersection": 313,
+          "gold_subset": 131
+        },
+        "voting": {
+          "overall": 0.9236641221374046,
+          "entity_precision": 0.9923664122137404,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.9541984732824428,
+          "parent_precision": 0.9694656488549618,
+          "structural_health": 1.0,
+          "error_count": 10,
+          "total_nodes": 131
+        },
+        "full": {
+          "overall": 0.9312977099236641,
+          "entity_precision": 0.9923664122137404,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.9541984732824428,
+          "parent_precision": 0.9694656488549618,
+          "structural_health": 1.0,
+          "error_count": 9,
+          "total_nodes": 131
+        }
+      }
+    }
+  },
+  "pure_start_determinism": {
+    "xiyouji": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "honglou": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "shuihu": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "sanguo": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "fengshen": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    }
+  },
+  "pure_start_sensitivity": {
+    "note": "同交集敏感度:cohortA=金标∩voting920∩ws920∩ws_pure(纯精度);cohortB=金标∩voting920∩ws920(昨日fair交集,含覆盖惩罚)。评分脚本 /tmp/v078_score.py",
+    "cohortA_macro": {
+      "base920": 0.9186,
+      "pure": 0.9182
+    },
+    "cohortB_macro": {
+      "base920": 0.9174,
+      "pure": 0.9171
+    },
+    "per_book": {
+      "xiyouji": {
+        "A": [
+          0.9812,
+          0.9759
+        ],
+        "B": [
+          0.9819,
+          0.9767
+        ]
+      },
+      "honglou": {
+        "A": [
+          0.9729,
+          0.9763
+        ],
+        "B": [
+          0.9704,
+          0.9737
+        ]
+      },
+      "shuihu": {
+        "A": [
+          0.8604,
+          0.8604
+        ],
+        "B": [
+          0.8536,
+          0.8536
+        ]
+      },
+      "sanguo": {
+        "A": [
+          0.8468,
+          0.8468
+        ],
+        "B": [
+          0.8488,
+          0.8488
+        ]
+      },
+      "fengshen": {
+        "A": [
+          0.9318,
+          0.9318
+        ],
+        "B": [
+          0.9324,
+          0.9324
+        ]
+      }
+    },
+    "table5_pure_start": {
+      "xiyouji": {
+        "max_ch": 57,
+        "node": "西牛贺洲",
+        "roots": 1,
+        "cycles": 0,
+        "depth": 4.91,
+        "voting_merged_max_ch": 203
+      },
+      "honglou": {
+        "max_ch": 122,
+        "node": "大观园",
+        "roots": 1,
+        "cycles": 0,
+        "depth": 4.87,
+        "voting_merged_max_ch": 145
+      },
+      "shuihu": {
+        "max_ch": 70,
+        "node": "梁山泊",
+        "roots": 1,
+        "cycles": 0,
+        "depth": 8.74,
+        "voting_merged_max_ch": 139
+      },
+      "sanguo": {
+        "max_ch": 59,
+        "node": "益州",
+        "roots": 5,
+        "cycles": 0,
+        "depth": 5.74,
+        "voting_merged_max_ch": 112
+      },
+      "fengshen": {
+        "max_ch": 63,
+        "node": "朝歌",
+        "roots": 4,
+        "cycles": 0,
+        "depth": 2.91,
+        "voting_merged_max_ch": 118
+      }
+    }
+  },
+  "pure_start_postfix_run_pass1": {
+    "xiyouji": {
+      "novel": "xiyouji",
+      "stage_metrics": {
+        "import": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 128,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 2.84,
+          "max_ch": 69,
+          "roots": 0,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 2.82,
+          "max_ch": 58,
+          "roots": 1,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 2.82,
+          "max_ch": 57,
+          "roots": 1,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 2.82,
+          "max_ch": 57,
+          "roots": 1,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 57,
+      "ws_max_children": 57,
+      "voting_merged_max_ch": 203,
+      "voting_merged_max_ch_node": "西牛贺洲",
+      "naive_full": {
+        "overall": 0.9850622406639005,
+        "entity_precision": 1.0,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.9883817427385893,
+        "parent_precision": 0.9975103734439834,
+        "structural_health": 0.9983402489626556,
+        "error_count": 18,
+        "total_nodes": 1205
+      },
+      "fair": {
+        "nodes": {
+          "voting": 500,
+          "full": 553,
+          "intersection": 484,
+          "gold_subset": 376
+        },
+        "voting": {
+          "overall": 0.9707446808510638,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.976063829787234,
+          "parent_precision": 0.9973404255319149,
+          "structural_health": 0.9946808510638298,
+          "error_count": 11,
+          "total_nodes": 376
+        },
+        "full": {
+          "overall": 0.9680851063829787,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.973404255319149,
+          "parent_precision": 0.9973404255319149,
+          "structural_health": 0.9946808510638298,
+          "error_count": 12,
+          "total_nodes": 376
+        }
+      }
+    },
+    "honglou": {
+      "novel": "honglou",
+      "stage_metrics": {
+        "import": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 79,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 4.81,
+          "max_ch": 128,
+          "roots": 0,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 4.81,
+          "max_ch": 125,
+          "roots": 0,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 4.73,
+          "max_ch": 122,
+          "roots": 0,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 4.73,
+          "max_ch": 122,
+          "roots": 0,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 122,
+      "ws_max_children": 122,
+      "voting_merged_max_ch": 145,
+      "voting_merged_max_ch_node": "荣国府",
+      "naive_full": {
+        "overall": 0.978,
+        "entity_precision": 1.0,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.981,
+        "parent_precision": 0.995,
+        "structural_health": 0.998,
+        "error_count": 22,
+        "total_nodes": 1000
+      },
+      "fair": {
+        "nodes": {
+          "voting": 420,
+          "full": 505,
+          "intersection": 411,
+          "gold_subset": 305
+        },
+        "voting": {
+          "overall": 0.9704918032786886,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.9770491803278688,
+          "parent_precision": 0.9901639344262295,
+          "structural_health": 0.9934426229508196,
+          "error_count": 9,
+          "total_nodes": 305
+        },
+        "full": {
+          "overall": 0.9737704918032787,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.980327868852459,
+          "parent_precision": 0.9901639344262295,
+          "structural_health": 0.9934426229508196,
+          "error_count": 8,
+          "total_nodes": 305
+        }
+      }
+    },
+    "shuihu": {
+      "novel": "shuihu",
+      "stage_metrics": {
+        "import": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 165,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 6.29,
+          "max_ch": 70,
+          "roots": 1,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 6.29,
+          "max_ch": 70,
+          "roots": 1,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 6.29,
+          "max_ch": 70,
+          "roots": 1,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 6.29,
+          "max_ch": 70,
+          "roots": 1,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 70,
+      "ws_max_children": 70,
+      "voting_merged_max_ch": 139,
+      "voting_merged_max_ch_node": "山东",
+      "naive_full": {
+        "overall": 0.8908170643528561,
+        "entity_precision": 1.0,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.8908170643528561,
+        "parent_precision": 1.0,
+        "structural_health": 1.0,
+        "error_count": 151,
+        "total_nodes": 1383
+      },
+      "fair": {
+        "nodes": {
+          "voting": 948,
+          "full": 1126,
+          "intersection": 926,
+          "gold_subset": 641
+        },
+        "voting": {
+          "overall": 0.8346333853354134,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.8346333853354134,
+          "parent_precision": 1.0,
+          "structural_health": 0.9984399375975039,
+          "error_count": 106,
+          "total_nodes": 641
+        },
+        "full": {
+          "overall": 0.84399375975039,
+          "entity_precision": 1.0,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.84399375975039,
+          "parent_precision": 1.0,
+          "structural_health": 1.0,
+          "error_count": 100,
+          "total_nodes": 641
+        }
+      }
+    },
+    "sanguo": {
+      "novel": "sanguo",
+      "stage_metrics": {
+        "import": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 26,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 6.08,
+          "max_ch": 58,
+          "roots": 0,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 5.46,
+          "max_ch": 58,
+          "roots": 0,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 5.46,
+          "max_ch": 58,
+          "roots": 0,
+          "nodes": null
+        },
+        "purify": {
+          "depth": 4.96,
+          "max_ch": 59,
+          "roots": 0,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 59,
+      "ws_max_children": 59,
+      "voting_merged_max_ch": 108,
+      "voting_merged_max_ch_node": "荆州",
+      "naive_full": {
+        "overall": 0.8803571428571428,
+        "entity_precision": 0.9991071428571429,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.8821428571428571,
+        "parent_precision": 0.9982142857142857,
+        "structural_health": 0.9991071428571429,
+        "error_count": 134,
+        "total_nodes": 1120
+      },
+      "fair": {
+        "nodes": {
+          "voting": 665,
+          "full": 848,
+          "intersection": 633,
+          "gold_subset": 486
+        },
+        "voting": {
+          "overall": 0.831275720164609,
+          "entity_precision": 0.9979423868312757,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.8353909465020576,
+          "parent_precision": 0.9958847736625515,
+          "structural_health": 0.9979423868312757,
+          "error_count": 82,
+          "total_nodes": 486
+        },
+        "full": {
+          "overall": 0.8333333333333334,
+          "entity_precision": 0.9979423868312757,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.8374485596707819,
+          "parent_precision": 0.9958847736625515,
+          "structural_health": 0.9979423868312757,
+          "error_count": 81,
+          "total_nodes": 486
+        }
+      }
+    },
+    "fengshen": {
+      "novel": "fengshen",
+      "stage_metrics": {
+        "import": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "votes": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 0,
+          "nodes": null
+        },
+        "prior": {
+          "depth": 0.0,
+          "max_ch": 0,
+          "roots": 29,
+          "nodes": null
+        },
+        "edmonds": {
+          "depth": 3.34,
+          "max_ch": 63,
+          "roots": 0,
+          "nodes": null
+        },
+        "auditor": {
+          "depth": 1.97,
+          "max_ch": 63,
+          "roots": 0,
+          "nodes": null
+        },
+        "suffix": {
+          "depth": 1.97,
+          "max_ch": 63,
+          "roots": 0,
+          "nodes": null
+        }
+      },
+      "snapshot_max_ch": 63,
+      "ws_max_children": 63,
+      "voting_merged_max_ch": 118,
+      "voting_merged_max_ch_node": "西岐",
+      "naive_full": {
+        "overall": 0.9484978540772532,
+        "entity_precision": 0.9957081545064378,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.9613733905579399,
+        "parent_precision": 0.9828326180257511,
+        "structural_health": 1.0,
+        "error_count": 12,
+        "total_nodes": 233
+      },
+      "fair": {
+        "nodes": {
+          "voting": 357,
+          "full": 356,
+          "intersection": 314,
+          "gold_subset": 131
+        },
+        "voting": {
+          "overall": 0.9236641221374046,
+          "entity_precision": 0.9923664122137404,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.9541984732824428,
+          "parent_precision": 0.9694656488549618,
+          "structural_health": 1.0,
+          "error_count": 10,
+          "total_nodes": 131
+        },
+        "full": {
+          "overall": 0.9312977099236641,
+          "entity_precision": 0.9923664122137404,
+          "name_accuracy": 1.0,
+          "tier_accuracy": 0.9541984732824428,
+          "parent_precision": 0.9694656488549618,
+          "structural_health": 1.0,
+          "error_count": 9,
+          "total_nodes": 131
+        }
+      }
+    }
+  },
+  "pure_start_postfix_determinism": {
+    "xiyouji": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "honglou": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "shuihu": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "sanguo": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    },
+    "fengshen": {
+      "ws_edge_diff": 0,
+      "naive_overall_equal": true,
+      "fair_equal": true,
+      "stage_metrics_equal": true
+    }
+  },
+  "pure_start_postfix_table5": {
+    "xiyouji": {
+      "voting_merged": 203,
+      "full_max_ch": 57,
+      "node": "西牛贺洲",
+      "roots": 1,
+      "cycles": 0,
+      "depth": 4.91
+    },
+    "honglou": {
+      "voting_merged": 145,
+      "full_max_ch": 122,
+      "node": "大观园",
+      "roots": 1,
+      "cycles": 0,
+      "depth": 5.82
+    },
+    "shuihu": {
+      "voting_merged": 139,
+      "full_max_ch": 70,
+      "node": "梁山泊",
+      "roots": 1,
+      "cycles": 0,
+      "depth": 8.74
+    },
+    "sanguo": {
+      "voting_merged": 108,
+      "full_max_ch": 59,
+      "node": "益州",
+      "roots": 1,
+      "cycles": 0,
+      "depth": 6.1
+    },
+    "fengshen": {
+      "voting_merged": 118,
+      "full_max_ch": 63,
+      "node": "朝歌",
+      "roots": 1,
+      "cycles": 0,
+      "depth": 4.04
+    },
+    "_fixture_pp_chain_pure_start_pre_post_identical": {
+      "xiyouji": [
+        0.8814,
+        0.7411
+      ],
+      "honglou": [
+        0.9318,
+        0.766
+      ],
+      "shuihu": [
+        0.7943,
+        0.3681
+      ]
+    }
+  },
+  "fair_confirm_postfix_pure_start": {
+    "per_book": {
+      "xiyouji": {
+        "gold_subset": 376,
+        "voting": 0.9707446808510638,
+        "full": 0.9680851063829787,
+        "delta_full_minus_voting": -0.00266
+      },
+      "honglou": {
+        "gold_subset": 305,
+        "voting": 0.9704918032786886,
+        "full": 0.9737704918032787,
+        "delta_full_minus_voting": 0.003279
+      },
+      "shuihu": {
+        "gold_subset": 641,
+        "voting": 0.8346333853354134,
+        "full": 0.84399375975039,
+        "delta_full_minus_voting": 0.00936
+      },
+      "sanguo": {
+        "gold_subset": 486,
+        "voting": 0.831275720164609,
+        "full": 0.8333333333333334,
+        "delta_full_minus_voting": 0.002058
+      },
+      "fengshen": {
+        "gold_subset": 131,
+        "voting": 0.9236641221374046,
+        "full": 0.9312977099236641,
+        "delta_full_minus_voting": 0.007634
+      }
+    },
+    "macro": {
+      "full": 0.910096,
+      "voting": 0.906162
+    },
+    "claim_check": "full>=voting on all five (ties on 2) → 纯起点修复后口径: 4 本 full>voting, 西游 voting 反超 +0.0026(噪声内), 无持平本"
+  },
+  "cross_llm_recheck_2026_09_23": {
+    "status": "BLOCKED_input_unrecoverable",
+    "evidence": [
+      "cross-llm/ 目录仅 README.md + result.json(指标输出),无抽取输入(fact_json×100 章)",
+      "novel 530de1f0 已从真库删除(README 自述: 实验后已删除,数据不在冻结集内)",
+      "全部可用备份(2026-04-22 dedup 前/9-19×2/9-20×5/9-22×4/epic6-rerun 8-27)字节级扫描: 该 novel id 仅存 2 处索引页残迹(freelist),无 fact_json 负载;9 月各备份含 900-1100 处 deepseek 字符串均为他书 llm_model 字段",
+      "两仓 git log -S530de1f0: 仅 2026-07-20 两个 commit(README+result.json 归档 + Edmonds 修环修复),无任何抽取数据入库"
+    ],
+    "frozen_metrics": {
+      "voting": {
+        "roots": 5,
+        "max_ch": 56,
+        "cycles": 0
+      },
+      "full": {
+        "roots": 1,
+        "max_ch": 46,
+        "cycles": 0
+      }
+    }
+  },
+  "fanren_cross_genre_2026_09_23": {
+    "novel_id": "28d69d85-0967-463d-a64e-cf404a5ca52e",
+    "title": "凡人修仙传",
+    "chapters": 2451,
+    "start_state": "pure extraction start (ws/snapshots cleared on scratch copy of live DB; real DB read-only)",
+    "pipeline": "v0.78 full chain tier→votes→prior→edmonds→auditor→suffix→purify + apply (含单根兜底修复)",
+    "unique_locations": 3247,
+    "avg_depth_parent_chain": 8.67,
+    "max_depth": 19,
+    "max_children": 97,
+    "max_children_node": "主世界 (虚拟图层根; 最大真实节点 灵界=69, 天渊城=58, 乱星海=56)",
+    "roots": 1,
+    "cycles": 0,
+    "run_seconds_per_pass": [
+      14.4,
+      13.1
+    ],
+    "determinism_edge_diff": 0,
+    "notes": "TierClassifier 在无 ws 纯起点静默 no-op(ws 行缺失→empty),凡修这类无先验书 tiers 近乎空(1 条);指标按 parents∪values∪tiers 全集计算。建议立项:TierClassifier 应能从 votes 快照分类而非依赖 ws。"
+  }
+}

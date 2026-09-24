@@ -1,0 +1,281 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣",
+      "description": "又称行者、孙悟空，火眼金睛，能识别妖精，有七十二变，曾大闹天宫，与牛魔王结拜兄弟"
+    },
+    {
+      "name": "八戒",
+      "description": "又称猪八戒，嘴长耳大脑后鬃硬，贪食，性格直爽但有时胆怯"
+    },
+    {
+      "name": "沙僧",
+      "description": "又称沙和尚，忠厚老实，负责看守行李马匹"
+    },
+    {
+      "name": "唐僧",
+      "description": "又称三藏、唐三藏，白面胖和尚，金蝉长老转生，十世修行的好人，肉眼凡胎不识妖怪"
+    },
+    {
+      "name": "乌鸡国国王",
+      "description": "已死三年后被救回生的皇帝，感恩唐僧师徒"
+    },
+    {
+      "name": "太子",
+      "description": "乌鸡国太子"
+    },
+    {
+      "name": "三宫妃后",
+      "description": "乌鸡国的后妃"
+    },
+    {
+      "name": "红孩儿",
+      "description": "又称圣婴大王，牛魔王之子，罗刹女所养，能变化，会三昧真火，在火焰山修行三百年"
+    },
+    {
+      "name": "牛魔王",
+      "description": "红孩儿之父，曾与孙悟空结拜为兄弟"
+    },
+    {
+      "name": "罗刹女",
+      "description": "红孩儿之母"
+    },
+    {
+      "name": "文殊菩萨",
+      "description": "降魔收怪的菩萨"
+    },
+    {
+      "name": "观世音菩萨",
+      "description": "劝化众人皈依佛果的菩萨"
+    },
+    {
+      "name": "宝林寺僧人",
+      "description": "送来皇帝服饰的僧人"
+    },
+    {
+      "name": "山神土地",
+      "description": "钻头号山的山神土地，共六十名，受红孩儿欺压"
+    }
+  ],
+  "locations": [
+    {
+      "name": "乌鸡国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "朝内",
+      "type": "宫殿",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "金銮殿",
+      "type": "宫殿",
+      "parent": "朝内"
+    },
+    {
+      "name": "东阁",
+      "type": "建筑",
+      "parent": "朝内"
+    },
+    {
+      "name": "宝林寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "钻头号山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "枯松涧",
+      "type": "山涧",
+      "parent": "钻头号山"
+    },
+    {
+      "name": "火云洞",
+      "type": "洞穴",
+      "parent": "枯松涧"
+    },
+    {
+      "name": "挟魂灵台",
+      "type": "台地",
+      "parent": "钻头号山"
+    },
+    {
+      "name": "藏魔洞",
+      "type": "洞穴",
+      "parent": "钻头号山"
+    },
+    {
+      "name": "流水涧",
+      "type": "山涧",
+      "parent": "钻头号山"
+    },
+    {
+      "name": "松林",
+      "type": "树林",
+      "parent": "钻头号山"
+    },
+    {
+      "name": "石板桥",
+      "type": "桥梁",
+      "parent": "枯松涧"
+    },
+    {
+      "name": "西天",
+      "type": "目的地",
+      "parent": null
+    },
+    {
+      "name": "东土",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "火焰山",
+      "type": "山脉",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙大圣",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "红孩儿",
+      "person_b": "牛魔王",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "红孩儿",
+      "person_b": "罗刹女",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "罗刹女",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "牛魔王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "太子",
+      "person_b": "乌鸡国国王",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "三宫妃后",
+      "person_b": "乌鸡国国王",
+      "relation_type": "夫妻"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "乌鸡国",
+      "target": "朝内",
+      "relation_type": "contains",
+      "value": "宫殿位于国内"
+    },
+    {
+      "source": "朝内",
+      "target": "金銮殿",
+      "relation_type": "contains",
+      "value": "殿堂位于宫内"
+    },
+    {
+      "source": "朝内",
+      "target": "东阁",
+      "relation_type": "contains",
+      "value": "建筑位于宫内"
+    },
+    {
+      "source": "钻头号山",
+      "target": "枯松涧",
+      "relation_type": "contains",
+      "value": "山涧位于山中"
+    },
+    {
+      "source": "枯松涧",
+      "target": "火云洞",
+      "relation_type": "contains",
+      "value": "洞穴位于涧边"
+    },
+    {
+      "source": "钻头号山",
+      "target": "挟魂灵台",
+      "relation_type": "contains",
+      "value": "台地位于山后"
+    },
+    {
+      "source": "挟魂灵台",
+      "target": "藏魔洞",
+      "relation_type": "contains",
+      "value": "洞穴位于台后"
+    },
+    {
+      "source": "钻头号山",
+      "target": "松林",
+      "relation_type": "contains",
+      "value": "树林位于山中"
+    },
+    {
+      "source": "枯松涧",
+      "target": "石板桥",
+      "relation_type": "contains",
+      "value": "桥梁横跨涧上"
+    },
+    {
+      "source": "乌鸡国",
+      "target": "西天",
+      "relation_type": "direction",
+      "value": "西天在乌鸡国以西"
+    },
+    {
+      "source": "乌鸡国",
+      "target": "钻头号山",
+      "relation_type": "direction",
+      "value": "钻头号山在乌鸡国以西"
+    },
+    {
+      "source": "钻头号山",
+      "target": "西天",
+      "relation_type": "direction",
+      "value": "西天在钻头号山以西"
+    }
+  ],
+  "_chapter": 40,
+  "_input_tokens": 8871,
+  "_output_tokens": 2027
+}

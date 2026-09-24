@@ -1,0 +1,270 @@
+{
+  "characters": [
+    {
+      "name": "甄士隐",
+      "description": "姓甄，名费，字士隐，嫡妻封氏，禀性恬淡，不以功名为念，年已半百，膝下无儿，只有一女英莲"
+    },
+    {
+      "name": "封氏",
+      "description": "甄士隐的嫡妻，情性贤淑，深明礼义"
+    },
+    {
+      "name": "英莲",
+      "description": "甄士隐之女，乳名，年方三岁，生得粉妆玉琢，乖觉可喜，后来走失"
+    },
+    {
+      "name": "贾雨村",
+      "description": "姓贾名化，表字时飞，别号雨村，胡州人氏，诗书仕宦之族，穷儒，寄居葫芦庙，卖字作文为生"
+    },
+    {
+      "name": "霍启",
+      "description": "甄士隐家的家人，因看护不当导致英莲走失，后逃往他乡"
+    },
+    {
+      "name": "封肃",
+      "description": "甄士隐的岳丈，大如州人氏，务农，家中殷实"
+    },
+    {
+      "name": "甄家丫鬟",
+      "description": "甄家的大丫鬟，生得仪容不俗，眉目清明，曾与贾雨村有过眼神交流"
+    },
+    {
+      "name": "僧人",
+      "description": "癞头跣脚，与道人同行，具有神通，能施佛法"
+    },
+    {
+      "name": "道人",
+      "description": "跛足蓬头，疯疯癫癫，与僧人同行，后来又以跛足道人身份出现"
+    },
+    {
+      "name": "空空道人",
+      "description": "访道求仙之人，后改名情僧，将《石头记》抄录传世"
+    },
+    {
+      "name": "曹雪芹",
+      "description": "在悼红轩中披阅十载，增删五次，纂成目录，分出章回"
+    },
+    {
+      "name": "神瑛侍者",
+      "description": "赤瑕宫神瑛侍者，日以甘露灌溉绛珠草，后下凡造历幻缘"
+    },
+    {
+      "name": "绛珠仙子",
+      "description": "原为绛珠草，受神瑛侍者灌溉之恩，后修成女体，欲以眼泪偿还恩情"
+    }
+  ],
+  "locations": [
+    {
+      "name": "姑苏",
+      "type": "城市",
+      "parent": "东南一隅"
+    },
+    {
+      "name": "阊门",
+      "type": "城门",
+      "parent": "姑苏"
+    },
+    {
+      "name": "十里街",
+      "type": "街道",
+      "parent": "阊门外"
+    },
+    {
+      "name": "仁清巷",
+      "type": "巷子",
+      "parent": "十里街"
+    },
+    {
+      "name": "葫芦庙",
+      "type": "古庙",
+      "parent": "仁清巷"
+    },
+    {
+      "name": "甄士隐家",
+      "type": "住宅",
+      "parent": "葫芦庙旁"
+    },
+    {
+      "name": "书房",
+      "type": "房间",
+      "parent": "甄士隐家"
+    },
+    {
+      "name": "大荒山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "无稽崖",
+      "type": "山崖",
+      "parent": "大荒山"
+    },
+    {
+      "name": "青埂峰",
+      "type": "山峰",
+      "parent": "无稽崖"
+    },
+    {
+      "name": "太虚幻境",
+      "type": "仙境",
+      "parent": null
+    },
+    {
+      "name": "西方灵河",
+      "type": "河流",
+      "parent": null
+    },
+    {
+      "name": "三生石",
+      "type": "石头",
+      "parent": "西方灵河岸"
+    },
+    {
+      "name": "离恨天",
+      "type": "天界",
+      "parent": null
+    },
+    {
+      "name": "赤瑕宫",
+      "type": "宫殿",
+      "parent": null
+    },
+    {
+      "name": "胡州",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "神京",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "田庄",
+      "type": "庄园",
+      "parent": null
+    },
+    {
+      "name": "大如州",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "北邙山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "悼红轩",
+      "type": "房屋",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "甄士隐",
+      "person_b": "封氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "甄士隐",
+      "person_b": "英莲",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "甄士隐",
+      "person_b": "贾雨村",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "甄士隐",
+      "person_b": "封肃",
+      "relation_type": "翁婿"
+    },
+    {
+      "person_a": "封氏",
+      "person_b": "封肃",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "甄士隐",
+      "person_b": "霍启",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "神瑛侍者",
+      "person_b": "绛珠仙子",
+      "relation_type": "恩人"
+    },
+    {
+      "person_a": "僧人",
+      "person_b": "道人",
+      "relation_type": "同伴"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "东南一隅",
+      "target": "姑苏",
+      "relation_type": "contains",
+      "value": "地陷东南后的一隅包含姑苏"
+    },
+    {
+      "source": "姑苏",
+      "target": "阊门",
+      "relation_type": "contains",
+      "value": "姑苏城内有阊门"
+    },
+    {
+      "source": "阊门",
+      "target": "十里街",
+      "relation_type": "adjacent",
+      "value": "阊门外有十里街"
+    },
+    {
+      "source": "十里街",
+      "target": "仁清巷",
+      "relation_type": "contains",
+      "value": "街内有仁清巷"
+    },
+    {
+      "source": "仁清巷",
+      "target": "葫芦庙",
+      "relation_type": "contains",
+      "value": "巷内有古庙"
+    },
+    {
+      "source": "葫芦庙",
+      "target": "甄士隐家",
+      "relation_type": "adjacent",
+      "value": "庙旁住着甄家"
+    },
+    {
+      "source": "甄士隐家",
+      "target": "书房",
+      "relation_type": "contains",
+      "value": "家中有书房"
+    },
+    {
+      "source": "大荒山",
+      "target": "无稽崖",
+      "relation_type": "contains",
+      "value": "山中有崖"
+    },
+    {
+      "source": "无稽崖",
+      "target": "青埂峰",
+      "relation_type": "contains",
+      "value": "崖下有峰"
+    },
+    {
+      "source": "西方灵河",
+      "target": "三生石",
+      "relation_type": "adjacent",
+      "value": "河岸上有三生石"
+    }
+  ],
+  "_chapter": 1,
+  "_input_tokens": 9949,
+  "_output_tokens": 1983
+}

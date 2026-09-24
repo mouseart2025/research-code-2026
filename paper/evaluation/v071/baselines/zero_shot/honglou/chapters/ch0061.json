@@ -1,0 +1,297 @@
+{
+  "characters": [
+    {
+      "name": "袭人",
+      "description": "宝玉房中的主要丫鬟"
+    },
+    {
+      "name": "平儿",
+      "description": "王熙凤的贴身丫鬟，因李纨有事找她而忙碌"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，怡红院的主人"
+    },
+    {
+      "name": "春燕",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "春燕娘",
+      "description": "春燕的母亲，粗使婆子"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家小姐，住在蘅芜苑"
+    },
+    {
+      "name": "黛玉",
+      "description": "林家小姐"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝钗的母亲"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的丫鬟"
+    },
+    {
+      "name": "蕊官",
+      "description": "戏班出身的丫鬟"
+    },
+    {
+      "name": "芳官",
+      "description": "戏班出身的丫鬟，宝玉房中"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政的儿子，宝玉的弟弟"
+    },
+    {
+      "name": "贾琮",
+      "description": "贾府公子"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "彩云",
+      "description": "王夫人房中的丫鬟"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾政的妾，贾环的生母"
+    },
+    {
+      "name": "夏婆子",
+      "description": "藕官的干娘，善于挑拨是非"
+    },
+    {
+      "name": "藕官",
+      "description": "戏班出身的丫鬟"
+    },
+    {
+      "name": "葵官",
+      "description": "湘云房中的戏班丫鬟"
+    },
+    {
+      "name": "豆官",
+      "description": "宝琴房中的戏班丫鬟"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍的妻子"
+    },
+    {
+      "name": "李纨",
+      "description": "贾珠的遗孀，大嫂"
+    },
+    {
+      "name": "探春",
+      "description": "贾政的女儿，当时协理家务"
+    },
+    {
+      "name": "艾官",
+      "description": "探春房中的戏班丫鬟"
+    },
+    {
+      "name": "翠墨",
+      "description": "探春房中的丫鬟"
+    },
+    {
+      "name": "蝉姐儿",
+      "description": "夏婆子的外孙女，在探春处当役"
+    },
+    {
+      "name": "柳家媳妇",
+      "description": "厨房中的媳妇"
+    },
+    {
+      "name": "五儿",
+      "description": "柳家的女儿，十六岁，想进宝玉房中当差"
+    },
+    {
+      "name": "钱槐",
+      "description": "赵姨娘的内侄，跟贾环上学，想娶五儿"
+    }
+  ],
+  "locations": [
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "蘅芜苑",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "梨香院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "厨房",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "后门",
+      "type": "门",
+      "parent": "大观园"
+    },
+    {
+      "name": "角门",
+      "type": "门",
+      "parent": "大观园"
+    },
+    {
+      "name": "仪门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "厅上",
+      "type": "建筑",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "春燕",
+      "person_b": "春燕娘",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "莺儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾环",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾琮",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾环",
+      "person_b": "赵姨娘",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "夏婆子",
+      "person_b": "藕官",
+      "relation_type": "干娘"
+    },
+    {
+      "person_a": "夏婆子",
+      "person_b": "蝉姐儿",
+      "relation_type": "外祖母"
+    },
+    {
+      "person_a": "柳家媳妇",
+      "person_b": "五儿",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "钱槐",
+      "relation_type": "姑侄"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "芳官",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "艾官",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "院落"
+    },
+    {
+      "source": "大观园",
+      "target": "蘅芜苑",
+      "relation_type": "contains",
+      "value": "院落"
+    },
+    {
+      "source": "大观园",
+      "target": "梨香院",
+      "relation_type": "contains",
+      "value": "院落"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园林"
+    },
+    {
+      "source": "大观园",
+      "target": "厨房",
+      "relation_type": "contains",
+      "value": "建筑"
+    },
+    {
+      "source": "大观园",
+      "target": "后门",
+      "relation_type": "contains",
+      "value": "门"
+    },
+    {
+      "source": "大观园",
+      "target": "角门",
+      "relation_type": "contains",
+      "value": "门"
+    },
+    {
+      "source": "贾府",
+      "target": "仪门",
+      "relation_type": "contains",
+      "value": "门"
+    },
+    {
+      "source": "贾府",
+      "target": "厅上",
+      "relation_type": "contains",
+      "value": "建筑"
+    }
+  ],
+  "_chapter": 61,
+  "_input_tokens": 9321,
+  "_output_tokens": 1910
+}

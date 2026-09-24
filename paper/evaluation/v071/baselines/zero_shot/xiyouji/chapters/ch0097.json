@@ -1,0 +1,249 @@
+{
+  "characters": [
+    {
+      "name": "唐僧",
+      "description": "唐朝和尚，西天取经的主要人物，骑白马"
+    },
+    {
+      "name": "孙行者",
+      "description": "唐僧徒弟，有腾云驾雾、变化等神通法力，会定身法"
+    },
+    {
+      "name": "猪八戒",
+      "description": "唐僧徒弟，长嘴，负责挑担"
+    },
+    {
+      "name": "沙和尚",
+      "description": "唐僧徒弟，黑脸，负责养马"
+    },
+    {
+      "name": "寇员外",
+      "description": "铜台府地灵县富商，斋僧二十四年，被强盗踢死后复活"
+    },
+    {
+      "name": "寇梁",
+      "description": "寇员外长子"
+    },
+    {
+      "name": "寇栋",
+      "description": "寇员外次子"
+    },
+    {
+      "name": "张氏穿针儿",
+      "description": "寇员外妻子，寇梁寇栋之母"
+    },
+    {
+      "name": "刺史",
+      "description": "铜台府刺史，正堂大人，平生正直"
+    },
+    {
+      "name": "知县",
+      "description": "地灵县知县"
+    },
+    {
+      "name": "狱官",
+      "description": "监狱管理官员"
+    },
+    {
+      "name": "地藏王菩萨",
+      "description": "幽冥界菩萨，收寇洪为掌善缘簿子的案长"
+    },
+    {
+      "name": "十阎王",
+      "description": "阴司十代阎君"
+    },
+    {
+      "name": "金衣童子",
+      "description": "地藏王菩萨的童子"
+    }
+  ],
+  "locations": [
+    {
+      "name": "华光破屋",
+      "type": "建筑",
+      "parent": "华光院"
+    },
+    {
+      "name": "华光院",
+      "type": "寺院",
+      "parent": "铜台府"
+    },
+    {
+      "name": "铜台府",
+      "type": "府城",
+      "parent": null
+    },
+    {
+      "name": "地灵县",
+      "type": "县城",
+      "parent": "铜台府"
+    },
+    {
+      "name": "寇家",
+      "type": "民宅",
+      "parent": "地灵县"
+    },
+    {
+      "name": "监狱",
+      "type": "官署建筑",
+      "parent": "铜台府"
+    },
+    {
+      "name": "府衙",
+      "type": "官署建筑",
+      "parent": "铜台府"
+    },
+    {
+      "name": "县衙",
+      "type": "官署建筑",
+      "parent": "地灵县"
+    },
+    {
+      "name": "阴司",
+      "type": "冥界",
+      "parent": null
+    },
+    {
+      "name": "森罗殿",
+      "type": "冥界建筑",
+      "parent": "阴司"
+    },
+    {
+      "name": "翠云宫",
+      "type": "冥界建筑",
+      "parent": "阴司"
+    },
+    {
+      "name": "山凹",
+      "type": "地形",
+      "parent": "铜台府郊外"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙和尚",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "寇员外",
+      "person_b": "寇梁",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "寇员外",
+      "person_b": "寇栋",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "寇员外",
+      "person_b": "张氏穿针儿",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "寇梁",
+      "person_b": "寇栋",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "张氏穿针儿",
+      "person_b": "寇梁",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "张氏穿针儿",
+      "person_b": "寇栋",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "刺史",
+      "person_b": "知县",
+      "relation_type": "上下级"
+    },
+    {
+      "person_a": "地藏王菩萨",
+      "person_b": "金衣童子",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "地藏王菩萨",
+      "person_b": "寇员外",
+      "relation_type": "菩萨与信徒"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "铜台府",
+      "target": "地灵县",
+      "relation_type": "contains",
+      "value": "府辖县"
+    },
+    {
+      "source": "地灵县",
+      "target": "寇家",
+      "relation_type": "contains",
+      "value": "县城内民宅"
+    },
+    {
+      "source": "华光院",
+      "target": "华光破屋",
+      "relation_type": "contains",
+      "value": "院内建筑"
+    },
+    {
+      "source": "铜台府",
+      "target": "监狱",
+      "relation_type": "contains",
+      "value": "府城内官署"
+    },
+    {
+      "source": "铜台府",
+      "target": "府衙",
+      "relation_type": "contains",
+      "value": "府城内官署"
+    },
+    {
+      "source": "地灵县",
+      "target": "县衙",
+      "relation_type": "contains",
+      "value": "县城内官署"
+    },
+    {
+      "source": "华光院",
+      "target": "山凹",
+      "relation_type": "direction",
+      "value": "西去二十里"
+    },
+    {
+      "source": "阴司",
+      "target": "森罗殿",
+      "relation_type": "contains",
+      "value": "冥界宫殿"
+    },
+    {
+      "source": "阴司",
+      "target": "翠云宫",
+      "relation_type": "contains",
+      "value": "冥界宫殿"
+    },
+    {
+      "source": "铜台府郊外",
+      "target": "山凹",
+      "relation_type": "contains",
+      "value": "城外地形"
+    }
+  ],
+  "_chapter": 97,
+  "_input_tokens": 10118,
+  "_output_tokens": 1648
+}

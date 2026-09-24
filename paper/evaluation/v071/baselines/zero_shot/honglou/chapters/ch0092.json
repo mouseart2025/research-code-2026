@@ -1,0 +1,297 @@
+{
+  "characters": [
+    {
+      "name": "薛蝌",
+      "description": "薛家男性成员，年纪较轻，负责办理薛蟠的事务"
+    },
+    {
+      "name": "宝蟾",
+      "description": "薛府丫鬟，与金桂关系密切，有心计"
+    },
+    {
+      "name": "金桂",
+      "description": "薛蟠之妻，性格复杂，对薛蝌有意思"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛家长子，因官司在县里"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家母亲，薛蟠和宝钗的母亲"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家女儿，与贾宝玉有婚约，因操劳生病"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛家亲戚，照顾宝钗"
+    },
+    {
+      "name": "秋菱",
+      "description": "薛家人员"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的贴身丫鬟"
+    },
+    {
+      "name": "夏三",
+      "description": "金桂的过继兄弟，从屯里来"
+    },
+    {
+      "name": "同贵",
+      "description": "薛姨妈身边的仆人"
+    },
+    {
+      "name": "李祥",
+      "description": "薛家家人，在县里照应薛蟠"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾府管家奶奶，王熙凤"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府二夫人，贾宝玉的母亲"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老祖宗"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾府大夫人"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾府东府当家奶奶"
+    },
+    {
+      "name": "贾政",
+      "description": "贾府二老爷，贾宝玉的父亲"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，贾宝玉"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，贾府表小姐"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的贴身丫鬟"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉的丫鬟"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中的丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "薛蝌房间",
+      "type": "房间",
+      "parent": "薛府"
+    },
+    {
+      "name": "薛府",
+      "type": "宅院",
+      "parent": ""
+    },
+    {
+      "name": "金桂房间",
+      "type": "房间",
+      "parent": "薛府"
+    },
+    {
+      "name": "县里",
+      "type": "行政区域",
+      "parent": ""
+    },
+    {
+      "name": "府里",
+      "type": "行政机构",
+      "parent": ""
+    },
+    {
+      "name": "道里",
+      "type": "行政机构",
+      "parent": ""
+    },
+    {
+      "name": "荣宁两府",
+      "type": "宅院群",
+      "parent": ""
+    },
+    {
+      "name": "贾母房中",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "学房",
+      "type": "建筑",
+      "parent": "荣府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "荣府"
+    },
+    {
+      "name": "屯里",
+      "type": "村镇",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "薛蟠",
+      "person_b": "金桂",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛蝌",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛姨妈",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛蟠",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "金桂",
+      "person_b": "宝蟾",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "金桂",
+      "person_b": "夏三",
+      "relation_type": "姐弟（过继）"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "莺儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "同贵",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "雪雁",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "秋纹",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "宝玉",
+      "relation_type": "未婚夫妻"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "薛府",
+      "target": "薛蝌房间",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "薛府",
+      "target": "金桂房间",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣府",
+      "target": "贾母房中",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣府",
+      "target": "学房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "潇湘馆",
+      "target": "里间屋内",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "老鸹",
+      "target": "东南",
+      "relation_type": "direction",
+      "value": "飞向东南上去"
+    }
+  ],
+  "_chapter": 92,
+  "_input_tokens": 6775,
+  "_output_tokens": 1921
+}

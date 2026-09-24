@@ -1,0 +1,284 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾家公子，正在和姐妹们一起看戏，善于体贴女孩儿"
+    },
+    {
+      "name": "林黛玉",
+      "description": "贾家小姐，正在看《荆钗记》，对剧情有自己的见解"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家小姐，在观戏时与黛玉交谈"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "贾琏之妻，管家奶奶，性格泼辣威严，在生日宴上喝醉发现丈夫偷情"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗，正在里间屋里榻上歪着和薛姨妈看戏"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家长辈，陪贾母看戏"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾家夫人，在地下高桌上坐着"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾家夫人，与王夫人坐在一起"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾家媳妇，负责招待凤姐"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的心腹丫头，贾琏的爱妾，聪明清俊"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐的丈夫，在家中与鲍二家的偷情"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母身边的大丫头，向凤姐敬酒"
+    },
+    {
+      "name": "赖大妈妈",
+      "description": "贾府的老嬷嬷，来给凤姐敬酒"
+    },
+    {
+      "name": "鲍二家的",
+      "description": "贾府仆人鲍二的妻子，与贾琏有染，后来吊死"
+    },
+    {
+      "name": "李纨",
+      "description": "贾家寡妇，住在稻香村，安慰平儿"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房中的大丫头，在怡红院接待平儿"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾母身边的丫头，传达贾母的话"
+    },
+    {
+      "name": "林之孝家的",
+      "description": "贾府管家媳妇，处理鲍二媳妇自杀事件"
+    },
+    {
+      "name": "王子腾",
+      "description": "王家人，有官职权势"
+    },
+    {
+      "name": "鲍二",
+      "description": "贾府仆人，其妻与贾琏有染后自杀"
+    }
+  ],
+  "locations": [
+    {
+      "name": "戏台",
+      "type": "娱乐场所",
+      "parent": "贾府"
+    },
+    {
+      "name": "里间屋",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "窗外廊檐下",
+      "type": "走廊",
+      "parent": "贾府"
+    },
+    {
+      "name": "穿廊",
+      "type": "走廊",
+      "parent": "贾府"
+    },
+    {
+      "name": "穿堂",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "小院子",
+      "type": "庭院",
+      "parent": "贾府"
+    },
+    {
+      "name": "凤姐房间",
+      "type": "卧室",
+      "parent": "贾府"
+    },
+    {
+      "name": "外书房",
+      "type": "书房",
+      "parent": "贾府"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "稻香村",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "凤姐儿",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "贾琏",
+      "relation_type": "妾"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "鲍二家的",
+      "relation_type": "情人"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "凤姐儿",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "凤姐儿",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "邢夫人",
+      "person_b": "贾琏",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "鲍二",
+      "person_b": "鲍二家的",
+      "relation_type": "夫妻"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "里间屋",
+      "relation_type": "contains",
+      "value": "贾母和薛姨妈看戏的地方"
+    },
+    {
+      "source": "贾府",
+      "target": "窗外廊檐下",
+      "relation_type": "contains",
+      "value": "丫头们吃喝的地方"
+    },
+    {
+      "source": "贾府",
+      "target": "穿廊",
+      "relation_type": "contains",
+      "value": "连接各房间的通道"
+    },
+    {
+      "source": "穿廊",
+      "target": "穿堂",
+      "relation_type": "adjacent",
+      "value": "相邻区域"
+    },
+    {
+      "source": "穿堂",
+      "target": "小院子",
+      "relation_type": "adjacent",
+      "value": "穿堂外的院子"
+    },
+    {
+      "source": "贾府",
+      "target": "外书房",
+      "relation_type": "contains",
+      "value": "贾琏赌气后去的地方"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "府内的园林"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "宝玉的住所"
+    },
+    {
+      "source": "大观园",
+      "target": "稻香村",
+      "relation_type": "contains",
+      "value": "李纨的住所"
+    },
+    {
+      "source": "凤姐房间",
+      "target": "小院子",
+      "relation_type": "adjacent",
+      "value": "房间外的院子"
+    },
+    {
+      "source": "怡红院",
+      "target": "稻香村",
+      "relation_type": "adjacent",
+      "value": "园内相邻院落"
+    }
+  ],
+  "_chapter": 45,
+  "_input_tokens": 8581,
+  "_output_tokens": 2060
+}

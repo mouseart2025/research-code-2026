@@ -1,0 +1,340 @@
+{
+  "characters": [
+    {
+      "name": "宝钗",
+      "description": "宝玉之妻，性格廉静寡欲，端庄明理，已有身孕"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，心痛难禁，深爱宝玉，后被安排嫁给蒋玉菡"
+    },
+    {
+      "name": "秋纹",
+      "description": "丫鬟，为袭人煎药"
+    },
+    {
+      "name": "巧姐儿",
+      "description": "贾家小姐，关心袭人病情"
+    },
+    {
+      "name": "平儿",
+      "description": "丫鬟，陪同巧姐儿探望袭人"
+    },
+    {
+      "name": "宝玉",
+      "description": "已出家为僧，披红斗篷，光头赤脚，被皇上赐号文妙真人"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉之父，在毗陵驿遇见出家的宝玉，后回朝复职"
+    },
+    {
+      "name": "贾兰",
+      "description": "贾政侄子，中了举人"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉之母，为宝玉出家而伤心"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝钗之母，劝慰王夫人和宝钗"
+    },
+    {
+      "name": "薛蟠",
+      "description": "宝钗之兄，获得赦免出狱"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛家人，帮助筹集赎罪银两"
+    },
+    {
+      "name": "香菱",
+      "description": "薛蟠的妾，后被立为正妻"
+    },
+    {
+      "name": "蒋玉菡",
+      "description": "戏子，后与袭人成婚"
+    },
+    {
+      "name": "贾母",
+      "description": "已故，灵柩被送往金陵安葬"
+    },
+    {
+      "name": "凤姐",
+      "description": "已故，棺木被送往金陵"
+    },
+    {
+      "name": "黛玉",
+      "description": "已故，灵柩被安葬"
+    },
+    {
+      "name": "贾蓉",
+      "description": "负责送灵柩"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾政兄长"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁国府当家"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾家人"
+    },
+    {
+      "name": "刘姥姥",
+      "description": "为巧姐亲事作媒"
+    },
+    {
+      "name": "花自芳",
+      "description": "袭人之兄"
+    },
+    {
+      "name": "贾雨村",
+      "description": "曾任官员，因婪索被褫籍为民"
+    },
+    {
+      "name": "甄士隐",
+      "description": "已成仙道，在觉迷渡口度化雨村"
+    },
+    {
+      "name": "空空道人",
+      "description": "抄录石头记的道人"
+    },
+    {
+      "name": "曹雪芹",
+      "description": "悼红轩中的先生，接受石头记传述"
+    }
+  ],
+  "locations": [
+    {
+      "name": "袭人房中",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "金陵",
+      "type": "城市",
+      "parent": ""
+    },
+    {
+      "name": "毗陵驿",
+      "type": "驿站",
+      "parent": ""
+    },
+    {
+      "name": "船",
+      "type": "交通工具",
+      "parent": "毗陵驿"
+    },
+    {
+      "name": "青埂峰",
+      "type": "山峰",
+      "parent": ""
+    },
+    {
+      "name": "鸿蒙太空",
+      "type": "神话空间",
+      "parent": ""
+    },
+    {
+      "name": "大荒",
+      "type": "荒野",
+      "parent": ""
+    },
+    {
+      "name": "朝中",
+      "type": "朝廷",
+      "parent": ""
+    },
+    {
+      "name": "宁国府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "城南",
+      "type": "地区",
+      "parent": ""
+    },
+    {
+      "name": "蒋家",
+      "type": "住宅",
+      "parent": "城南"
+    },
+    {
+      "name": "花家",
+      "type": "住宅",
+      "parent": ""
+    },
+    {
+      "name": "急流津",
+      "type": "渡口",
+      "parent": ""
+    },
+    {
+      "name": "觉迷渡口",
+      "type": "渡口",
+      "parent": "急流津"
+    },
+    {
+      "name": "茅庵",
+      "type": "庵堂",
+      "parent": "觉迷渡口"
+    },
+    {
+      "name": "太虚幻境",
+      "type": "仙境",
+      "parent": ""
+    },
+    {
+      "name": "悼红轩",
+      "type": "轩室",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝钗",
+      "person_b": "宝玉",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛姨妈",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "宝钗",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "香菱",
+      "person_b": "薛蟠",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "蒋玉菡",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "花自芳",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾赦",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "王夫人",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "王夫人",
+      "relation_type": "姐妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "袭人房中",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "栊翠庵",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "毗陵驿",
+      "target": "船",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "城南",
+      "target": "蒋家",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "急流津",
+      "target": "觉迷渡口",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "觉迷渡口",
+      "target": "茅庵",
+      "relation_type": "adjacent",
+      "value": "不远"
+    },
+    {
+      "source": "青埂峰",
+      "target": "太虚幻境",
+      "relation_type": "adjacent",
+      "value": ""
+    },
+    {
+      "source": "毗陵驿",
+      "target": "贾府",
+      "relation_type": "direction",
+      "value": "回程路上"
+    }
+  ],
+  "_chapter": 122,
+  "_input_tokens": 9658,
+  "_output_tokens": 2198
+}

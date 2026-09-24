@@ -1,0 +1,221 @@
+{
+  "characters": [
+    {
+      "name": "八戒",
+      "description": "猪八戒，手持钉钯，变化为黑胖和尚与女妖交谈"
+    },
+    {
+      "name": "行者",
+      "description": "孙悟空，又称孙大圣、猢狲，有火眼金睛，能72变化，使铁棒"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙和尚，使用禅杖，挑担随行"
+    },
+    {
+      "name": "三藏",
+      "description": "唐僧，又称长老，取经僧人，被妖精掳走"
+    },
+    {
+      "name": "女妖",
+      "description": "美貌女妖精，住在陷空山无底洞，要与唐僧成亲"
+    },
+    {
+      "name": "白龙马",
+      "description": "唐僧的坐骑，可归大海成龙"
+    },
+    {
+      "name": "观世音菩萨",
+      "description": "差遣众神暗中保护取经人"
+    }
+  ],
+  "locations": [
+    {
+      "name": "陷空山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "无底洞",
+      "type": "洞府",
+      "parent": "陷空山"
+    },
+    {
+      "name": "山凹",
+      "type": "地形",
+      "parent": "陷空山"
+    },
+    {
+      "name": "井",
+      "type": "水井",
+      "parent": "山凹"
+    },
+    {
+      "name": "牌楼",
+      "type": "建筑",
+      "parent": "陷空山"
+    },
+    {
+      "name": "洞门",
+      "type": "入口",
+      "parent": "无底洞"
+    },
+    {
+      "name": "草亭",
+      "type": "建筑",
+      "parent": "无底洞"
+    },
+    {
+      "name": "东廊",
+      "type": "建筑",
+      "parent": "无底洞"
+    },
+    {
+      "name": "花园",
+      "type": "园林",
+      "parent": "无底洞"
+    },
+    {
+      "name": "桃树林",
+      "type": "植物区域",
+      "parent": "花园"
+    },
+    {
+      "name": "高老庄",
+      "type": "村庄",
+      "parent": null
+    },
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "流沙河",
+      "type": "河流",
+      "parent": null
+    },
+    {
+      "name": "长安",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "两界山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "镇海寺",
+      "type": "寺庙",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师父-徒弟"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "行者",
+      "relation_type": "师父-徒弟"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师父-徒弟"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "女妖",
+      "person_b": "三藏",
+      "relation_type": "要成亲对象"
+    },
+    {
+      "person_a": "观世音菩萨",
+      "person_b": "三藏",
+      "relation_type": "保护者"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "陷空山",
+      "target": "无底洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "无底洞",
+      "target": "牌楼",
+      "relation_type": "contains",
+      "value": "洞前有牌楼"
+    },
+    {
+      "source": "无底洞",
+      "target": "草亭",
+      "relation_type": "contains",
+      "value": "洞内建筑"
+    },
+    {
+      "source": "无底洞",
+      "target": "东廊",
+      "relation_type": "contains",
+      "value": "洞内建筑"
+    },
+    {
+      "source": "无底洞",
+      "target": "花园",
+      "relation_type": "contains",
+      "value": "洞后有花园"
+    },
+    {
+      "source": "花园",
+      "target": "桃树林",
+      "relation_type": "contains",
+      "value": "园内有桃林"
+    },
+    {
+      "source": "山凹",
+      "target": "井",
+      "relation_type": "contains",
+      "value": "山凹里有井"
+    },
+    {
+      "source": "陷空山",
+      "target": "山凹",
+      "relation_type": "contains",
+      "value": "山中地形"
+    },
+    {
+      "source": "无底洞",
+      "target": "洞门",
+      "relation_type": "contains",
+      "value": "洞口入口"
+    },
+    {
+      "source": "牌楼",
+      "target": "洞门",
+      "relation_type": "direction",
+      "value": "牌楼下山脚下为洞口"
+    }
+  ],
+  "_chapter": 82,
+  "_input_tokens": 9119,
+  "_output_tokens": 1383
+}

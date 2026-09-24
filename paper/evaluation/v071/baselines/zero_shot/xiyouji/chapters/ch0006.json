@@ -1,0 +1,243 @@
+{
+  "characters": [
+    {
+      "name": "观世音菩萨",
+      "description": "南海普陀落伽山大慈大悲救苦救难灵感观世音菩萨"
+    },
+    {
+      "name": "惠岸行者",
+      "description": "观世音菩萨的大徒弟，李天王第二太子，又名木叉"
+    },
+    {
+      "name": "玉帝",
+      "description": "天庭的统治者，居于灵霄宝殿"
+    },
+    {
+      "name": "太上老君",
+      "description": "道教最高神祇，拥有金钢琢等法宝"
+    },
+    {
+      "name": "王母娘娘",
+      "description": "天庭王母，主办蟠桃大会"
+    },
+    {
+      "name": "齐天大圣",
+      "description": "东胜神洲傲来国花果山石卵化生的妖猴，本名孙悟空"
+    },
+    {
+      "name": "李天王",
+      "description": "托塔李天王，统领天兵天将"
+    },
+    {
+      "name": "哪吒",
+      "description": "李天王的太子"
+    },
+    {
+      "name": "二郎神",
+      "description": "显圣二郎真君，玉帝外甥，居灌江口"
+    },
+    {
+      "name": "四大天王",
+      "description": "天庭的四位护法天王"
+    },
+    {
+      "name": "赤脚大仙",
+      "description": "天庭仙人"
+    },
+    {
+      "name": "四大天师",
+      "description": "天庭的四位天师"
+    },
+    {
+      "name": "邱弘济",
+      "description": "天师之一"
+    },
+    {
+      "name": "梅山六兄弟",
+      "description": "康、张、姚、李四太尉，郭申、直健二将军"
+    },
+    {
+      "name": "大力鬼王",
+      "description": "传递消息的鬼王"
+    }
+  ],
+  "locations": [
+    {
+      "name": "南海普陀落伽山",
+      "type": "山",
+      "parent": "南海"
+    },
+    {
+      "name": "瑶池",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "灵霄宝殿",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "通明殿",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "天庭",
+      "type": "仙界",
+      "parent": null
+    },
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": "东胜神洲"
+    },
+    {
+      "name": "东胜神洲",
+      "type": "大洲",
+      "parent": null
+    },
+    {
+      "name": "傲来国",
+      "type": "国家",
+      "parent": "东胜神洲"
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞穴",
+      "parent": "花果山"
+    },
+    {
+      "name": "灌江口",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "灌洲",
+      "type": "州",
+      "parent": null
+    },
+    {
+      "name": "南天门",
+      "type": "天门",
+      "parent": "天庭"
+    },
+    {
+      "name": "斩妖台",
+      "type": "刑场",
+      "parent": "天庭"
+    },
+    {
+      "name": "蟠桃园",
+      "type": "园林",
+      "parent": "天庭"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "观世音菩萨",
+      "person_b": "惠岸行者",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "惠岸行者",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "哪吒",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "玉帝",
+      "person_b": "二郎神",
+      "relation_type": "舅甥"
+    },
+    {
+      "person_a": "二郎神",
+      "person_b": "梅山六兄弟",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "齐天大圣",
+      "person_b": "玉帝",
+      "relation_type": "敌对"
+    },
+    {
+      "person_a": "惠岸行者",
+      "person_b": "齐天大圣",
+      "relation_type": "敌对"
+    },
+    {
+      "person_a": "二郎神",
+      "person_b": "齐天大圣",
+      "relation_type": "敌对"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "南海",
+      "target": "南海普陀落伽山",
+      "relation_type": "contains",
+      "value": "山位于海中"
+    },
+    {
+      "source": "天庭",
+      "target": "瑶池",
+      "relation_type": "contains",
+      "value": "瑶池在天庭内"
+    },
+    {
+      "source": "天庭",
+      "target": "灵霄宝殿",
+      "relation_type": "contains",
+      "value": "主殿"
+    },
+    {
+      "source": "天庭",
+      "target": "通明殿",
+      "relation_type": "contains",
+      "value": "前殿"
+    },
+    {
+      "source": "东胜神洲",
+      "target": "傲来国",
+      "relation_type": "contains",
+      "value": "国家在洲内"
+    },
+    {
+      "source": "东胜神洲",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "山在洲内"
+    },
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "洞在山中"
+    },
+    {
+      "source": "通明殿",
+      "target": "灵霄宝殿",
+      "relation_type": "adjacent",
+      "value": "前后关系"
+    },
+    {
+      "source": "天庭",
+      "target": "花果山",
+      "relation_type": "direction",
+      "value": "天上地下"
+    },
+    {
+      "source": "灌江口",
+      "target": "花果山",
+      "relation_type": "direction",
+      "value": "相距遥远"
+    }
+  ],
+  "_chapter": 6,
+  "_input_tokens": 8149,
+  "_output_tokens": 1601
+}

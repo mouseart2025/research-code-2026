@@ -1,0 +1,222 @@
+{
+  "characters": [
+    {
+      "name": "孙悟空",
+      "description": "唐僧的大徒弟，又称行者、大圣，神通广大，善能降妖"
+    },
+    {
+      "name": "猪八戒",
+      "description": "唐僧的二徒弟，又称呆子，被派去请孙悟空回来救师父"
+    },
+    {
+      "name": "沙和尚",
+      "description": "唐僧的三徒弟，又称沙僧，被黄袍怪捉住"
+    },
+    {
+      "name": "唐僧",
+      "description": "师父，被黄袍怪变作老虎，慈悲好善"
+    },
+    {
+      "name": "黄袍怪",
+      "description": "妖精，实为天上奎木狼下界，摄走公主并伤害唐僧"
+    },
+    {
+      "name": "公主",
+      "description": "宝象国王第三个公主，被黄袍怪摄去，本是天上侍香玉女"
+    },
+    {
+      "name": "宝象国王",
+      "description": "公主的父亲，国家君主"
+    },
+    {
+      "name": "白龙马",
+      "description": "唐僧坐骑，夜现龙身寻师父"
+    },
+    {
+      "name": "玉帝",
+      "description": "天庭之主，查处奎木狼私下凡间"
+    },
+    {
+      "name": "奎木狼",
+      "description": "二十八宿之一，私下凡间化作黄袍怪"
+    }
+  ],
+  "locations": [
+    {
+      "name": "水帘洞",
+      "type": "洞府",
+      "parent": "花果山"
+    },
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "黑松林",
+      "type": "森林",
+      "parent": null
+    },
+    {
+      "name": "宝象国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "波月洞",
+      "type": "洞府",
+      "parent": "碗子山"
+    },
+    {
+      "name": "碗子山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "金銮殿",
+      "type": "宫殿",
+      "parent": "宝象国"
+    },
+    {
+      "name": "银安殿",
+      "type": "宫殿",
+      "parent": "宝象国"
+    },
+    {
+      "name": "南天门",
+      "type": "天门",
+      "parent": "天庭"
+    },
+    {
+      "name": "天庭",
+      "type": "仙界",
+      "parent": null
+    },
+    {
+      "name": "通明殿",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "灵霄殿",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "兜率宫",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "东洋大海",
+      "type": "海洋",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙和尚",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "公主",
+      "person_b": "宝象国王",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "黄袍怪",
+      "person_b": "公主",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "奎木狼",
+      "person_b": "黄袍怪",
+      "relation_type": "同一人"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "花果山包含水帘洞"
+    },
+    {
+      "source": "碗子山",
+      "target": "波月洞",
+      "relation_type": "contains",
+      "value": "碗子山包含波月洞"
+    },
+    {
+      "source": "宝象国",
+      "target": "金銮殿",
+      "relation_type": "contains",
+      "value": "宝象国包含金銮殿"
+    },
+    {
+      "source": "宝象国",
+      "target": "银安殿",
+      "relation_type": "contains",
+      "value": "宝象国包含银安殿"
+    },
+    {
+      "source": "天庭",
+      "target": "南天门",
+      "relation_type": "contains",
+      "value": "天庭包含南天门"
+    },
+    {
+      "source": "天庭",
+      "target": "通明殿",
+      "relation_type": "contains",
+      "value": "天庭包含通明殿"
+    },
+    {
+      "source": "天庭",
+      "target": "灵霄殿",
+      "relation_type": "contains",
+      "value": "天庭包含灵霄殿"
+    },
+    {
+      "source": "天庭",
+      "target": "兜率宫",
+      "relation_type": "contains",
+      "value": "天庭包含兜率宫"
+    },
+    {
+      "source": "花果山",
+      "target": "东洋大海",
+      "relation_type": "adjacent",
+      "value": "花果山靠近东洋大海"
+    }
+  ],
+  "_chapter": 31,
+  "_input_tokens": 10067,
+  "_output_tokens": 1528
+}

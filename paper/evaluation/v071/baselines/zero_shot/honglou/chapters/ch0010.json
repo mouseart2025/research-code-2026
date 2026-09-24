@@ -1,0 +1,243 @@
+{
+  "characters": [
+    {
+      "name": "金荣",
+      "description": "学房学生，与秦钟发生冲突"
+    },
+    {
+      "name": "贾瑞",
+      "description": "学房监督，勒令金荣道歉"
+    },
+    {
+      "name": "秦钟",
+      "description": "贾蓉的小舅子，在学房读书，与宝玉关系密切"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家子弟，与秦钟关系密切"
+    },
+    {
+      "name": "胡氏",
+      "description": "金荣的母亲"
+    },
+    {
+      "name": "琏二奶奶",
+      "description": "西府里的奶奶，帮助金荣入学"
+    },
+    {
+      "name": "薛大爷",
+      "description": "资助金荣家庭的人"
+    },
+    {
+      "name": "贾璜",
+      "description": "贾家玉字辈嫡派，金荣姑娘的丈夫"
+    },
+    {
+      "name": "璜大奶奶",
+      "description": "贾璜的妻子，金荣的姑娘"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "经常资助贾璜夫妻"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻，宁府主事"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁府主人"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子，秦氏的丈夫"
+    },
+    {
+      "name": "秦氏",
+      "description": "贾蓉的妻子，秦钟的姐姐，身患疾病"
+    },
+    {
+      "name": "冯紫英",
+      "description": "贾珍的朋友，推荐医生"
+    },
+    {
+      "name": "张友士",
+      "description": "医生，学问渊博，医理极深"
+    },
+    {
+      "name": "来升",
+      "description": "宁府管事，负责筵席准备"
+    },
+    {
+      "name": "太爷",
+      "description": "贾珍的父亲，即将过生日"
+    }
+  ],
+  "locations": [
+    {
+      "name": "学房",
+      "type": "教育场所",
+      "parent": "贾家"
+    },
+    {
+      "name": "金荣家",
+      "type": "住宅",
+      "parent": null
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": "贾家"
+    },
+    {
+      "name": "西府",
+      "type": "府邸",
+      "parent": "贾家"
+    },
+    {
+      "name": "车门",
+      "type": "入口",
+      "parent": "宁府"
+    },
+    {
+      "name": "东边小角门",
+      "type": "入口",
+      "parent": "宁府"
+    },
+    {
+      "name": "大厅",
+      "type": "房间",
+      "parent": "宁府"
+    },
+    {
+      "name": "贾蓉居室",
+      "type": "房间",
+      "parent": "宁府"
+    },
+    {
+      "name": "外间房",
+      "type": "房间",
+      "parent": "贾蓉居室"
+    },
+    {
+      "name": "冯紫英家",
+      "type": "住宅",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "金荣",
+      "person_b": "胡氏",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "金荣",
+      "person_b": "璜大奶奶",
+      "relation_type": "姑侄"
+    },
+    {
+      "person_a": "贾璜",
+      "person_b": "璜大奶奶",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "秦钟",
+      "person_b": "贾蓉",
+      "relation_type": "舅兄关系"
+    },
+    {
+      "person_a": "秦钟",
+      "person_b": "宝玉",
+      "relation_type": "好友"
+    },
+    {
+      "person_a": "秦钟",
+      "person_b": "秦氏",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "秦氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "冯紫英",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "冯紫英",
+      "person_b": "张友士",
+      "relation_type": "师生"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "太爷",
+      "relation_type": "父子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "宁府",
+      "target": "车门",
+      "relation_type": "contains",
+      "value": "入口"
+    },
+    {
+      "source": "宁府",
+      "target": "东边小角门",
+      "relation_type": "contains",
+      "value": "小角门位于东边"
+    },
+    {
+      "source": "宁府",
+      "target": "大厅",
+      "relation_type": "contains",
+      "value": "会客场所"
+    },
+    {
+      "source": "宁府",
+      "target": "贾蓉居室",
+      "relation_type": "contains",
+      "value": "住宅区域"
+    },
+    {
+      "source": "贾蓉居室",
+      "target": "外间房",
+      "relation_type": "contains",
+      "value": "居室的外间"
+    },
+    {
+      "source": "贾家",
+      "target": "宁府",
+      "relation_type": "contains",
+      "value": "东府"
+    },
+    {
+      "source": "贾家",
+      "target": "西府",
+      "relation_type": "contains",
+      "value": "西府"
+    },
+    {
+      "source": "贾家",
+      "target": "学房",
+      "relation_type": "contains",
+      "value": "教育场所"
+    }
+  ],
+  "_chapter": 10,
+  "_input_tokens": 6285,
+  "_output_tokens": 1581
+}

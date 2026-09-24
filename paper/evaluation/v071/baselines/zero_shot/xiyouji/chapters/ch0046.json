@@ -1,0 +1,215 @@
+{
+  "characters": [
+    {
+      "name": "国王",
+      "description": "车迟国国王，昏庸易受道士蛊惑"
+    },
+    {
+      "name": "孙行者",
+      "description": "孙悟空，有七十二变化和诸般神通的齐天大圣"
+    },
+    {
+      "name": "唐僧",
+      "description": "取经人，会坐禅，志诚君子"
+    },
+    {
+      "name": "八戒",
+      "description": "猪八戒，唐僧弟子"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙和尚，唐僧弟子"
+    },
+    {
+      "name": "虎力大仙",
+      "description": "三个道士之一，有呼风唤雨之术，本体是黄毛虎"
+    },
+    {
+      "name": "鹿力大仙",
+      "description": "三个道士之一，有隔板知物之法，本体是白毛角鹿"
+    },
+    {
+      "name": "羊力大仙",
+      "description": "三个道士之一，有冷龙护体之术，本体是山羊"
+    },
+    {
+      "name": "三宫皇后",
+      "description": "车迟国王后，亲手在柜中放置宝物"
+    },
+    {
+      "name": "道童",
+      "description": "道士弟子，被孙悟空剃度变成和尚"
+    },
+    {
+      "name": "北海龙王",
+      "description": "敖顺，被孙悟空召唤收取冷龙"
+    }
+  ],
+  "locations": [
+    {
+      "name": "车迟国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "金銮殿",
+      "type": "宫殿",
+      "parent": "皇宫"
+    },
+    {
+      "name": "皇宫",
+      "type": "宫殿建筑群",
+      "parent": "车迟国"
+    },
+    {
+      "name": "文华殿",
+      "type": "宫殿",
+      "parent": "皇宫"
+    },
+    {
+      "name": "御花园",
+      "type": "花园",
+      "parent": "皇宫"
+    },
+    {
+      "name": "杀场",
+      "type": "刑场",
+      "parent": "车迟国"
+    },
+    {
+      "name": "朝门",
+      "type": "宫门",
+      "parent": "皇宫"
+    },
+    {
+      "name": "御水河",
+      "type": "河流",
+      "parent": "车迟国"
+    },
+    {
+      "name": "小茅山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "钟南山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "北海",
+      "type": "海域",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "虎力大仙",
+      "person_b": "鹿力大仙",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "虎力大仙",
+      "person_b": "羊力大仙",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "鹿力大仙",
+      "person_b": "羊力大仙",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "三宫皇后",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "虎力大仙",
+      "person_b": "道童",
+      "relation_type": "师徒"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "皇宫",
+      "target": "车迟国",
+      "relation_type": "contains",
+      "value": "位于车迟国内"
+    },
+    {
+      "source": "金銮殿",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "位于皇宫内"
+    },
+    {
+      "source": "文华殿",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "位于皇宫内"
+    },
+    {
+      "source": "御花园",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "位于皇宫内"
+    },
+    {
+      "source": "朝门",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "位于皇宫外围"
+    },
+    {
+      "source": "杀场",
+      "target": "朝门",
+      "relation_type": "adjacent",
+      "value": "位于朝门之外"
+    },
+    {
+      "source": "御水河",
+      "target": "车迟国",
+      "relation_type": "contains",
+      "value": "流经车迟国境内"
+    },
+    {
+      "source": "禅台",
+      "target": "金銮殿",
+      "relation_type": "adjacent",
+      "value": "设在金銮殿左右两侧"
+    }
+  ],
+  "_chapter": 46,
+  "_input_tokens": 9268,
+  "_output_tokens": 1458
+}

@@ -1,0 +1,216 @@
+{
+  "characters": [
+    {
+      "name": "行者",
+      "description": "孙大圣，孙悟空，唐僧的徒弟，能够腾云驾雾，变化本相，持铁棒"
+    },
+    {
+      "name": "八戒",
+      "description": "猪八戒，唐僧的徒弟，原为天蓬元帅，持九齿钉钯，懂水性"
+    },
+    {
+      "name": "唐三藏",
+      "description": "东土大唐圣僧，奉钦差西天取经，十世修行好人"
+    },
+    {
+      "name": "沙和尚",
+      "description": "沙僧，悟净，唐僧的徒弟，原为流沙河内出身，持降妖宝杖"
+    },
+    {
+      "name": "陈澄",
+      "description": "陈家庄祭主，陈家庄的长者之一"
+    },
+    {
+      "name": "陈清",
+      "description": "陈家庄的长者，陈澄的兄弟"
+    },
+    {
+      "name": "陈关保",
+      "description": "童男，被用作祭品"
+    },
+    {
+      "name": "陈一秤金",
+      "description": "童女，被用作祭品"
+    },
+    {
+      "name": "灵感大王",
+      "description": "妖邪，河中之物，金甲金盔，要求童男女祭祀，有呼风唤雨神通"
+    },
+    {
+      "name": "斑衣鳜婆",
+      "description": "水族，为灵感大王出谋划策的老鳜婆"
+    },
+    {
+      "name": "唐王",
+      "description": "大唐皇帝，派遣唐僧西天取经"
+    }
+  ],
+  "locations": [
+    {
+      "name": "陈家庄",
+      "type": "村庄",
+      "parent": ""
+    },
+    {
+      "name": "灵感庙",
+      "type": "庙宇",
+      "parent": "陈家庄"
+    },
+    {
+      "name": "通天河",
+      "type": "河流",
+      "parent": ""
+    },
+    {
+      "name": "陈家",
+      "type": "宅院",
+      "parent": "陈家庄"
+    },
+    {
+      "name": "水府",
+      "type": "水下宫殿",
+      "parent": "通天河"
+    },
+    {
+      "name": "西梁女国",
+      "type": "国家",
+      "parent": ""
+    },
+    {
+      "name": "东土大唐",
+      "type": "国家",
+      "parent": ""
+    },
+    {
+      "name": "西天",
+      "type": "目的地",
+      "parent": ""
+    },
+    {
+      "name": "花园",
+      "type": "园林",
+      "parent": "陈家"
+    },
+    {
+      "name": "雪洞",
+      "type": "建筑",
+      "parent": "花园"
+    },
+    {
+      "name": "厢房",
+      "type": "房间",
+      "parent": "陈家"
+    },
+    {
+      "name": "厅堂",
+      "type": "房间",
+      "parent": "陈家"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "行者",
+      "person_b": "唐三藏",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "唐三藏",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙和尚",
+      "person_b": "唐三藏",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "陈澄",
+      "person_b": "陈清",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "灵感大王",
+      "person_b": "斑衣鳜婆",
+      "relation_type": "拜为兄妹"
+    },
+    {
+      "person_a": "唐王",
+      "person_b": "唐三藏",
+      "relation_type": "君臣"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "陈家庄",
+      "target": "灵感庙",
+      "relation_type": "contains",
+      "value": "庙宇位于村庄内"
+    },
+    {
+      "source": "陈家",
+      "target": "陈家庄",
+      "relation_type": "contains",
+      "value": "宅院位于村庄内"
+    },
+    {
+      "source": "通天河",
+      "target": "水府",
+      "relation_type": "contains",
+      "value": "水下宫殿位于河中"
+    },
+    {
+      "source": "陈家庄",
+      "target": "通天河",
+      "relation_type": "adjacent",
+      "value": "村庄临近河边"
+    },
+    {
+      "source": "通天河",
+      "target": "西梁女国",
+      "relation_type": "direction",
+      "value": "河对岸为西梁女国"
+    },
+    {
+      "source": "陈家",
+      "target": "花园",
+      "relation_type": "contains",
+      "value": "花园位于宅院内"
+    },
+    {
+      "source": "花园",
+      "target": "雪洞",
+      "relation_type": "contains",
+      "value": "雪洞位于花园内"
+    },
+    {
+      "source": "陈家",
+      "target": "厢房",
+      "relation_type": "contains",
+      "value": "厢房位于宅院内"
+    },
+    {
+      "source": "陈家",
+      "target": "厅堂",
+      "relation_type": "contains",
+      "value": "厅堂位于宅院内"
+    }
+  ],
+  "_chapter": 48,
+  "_input_tokens": 7847,
+  "_output_tokens": 1500
+}

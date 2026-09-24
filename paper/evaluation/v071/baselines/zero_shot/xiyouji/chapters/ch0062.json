@@ -1,0 +1,213 @@
+{
+  "characters": [
+    {
+      "name": "唐三藏",
+      "description": "东土大唐取经的圣僧，师父，法名玄奘"
+    },
+    {
+      "name": "孙悟空",
+      "description": "唐三藏的大徒弟，又称行者，神通广大"
+    },
+    {
+      "name": "猪八戒",
+      "description": "唐三藏的二徒弟，又称悟能，贪吃"
+    },
+    {
+      "name": "沙和尚",
+      "description": "唐三藏的三徒弟，又称悟净"
+    },
+    {
+      "name": "奔波儿灞",
+      "description": "鲇鱼怪，万圣龙王手下巡塔妖精"
+    },
+    {
+      "name": "灞波儿奔",
+      "description": "黑鱼精，万圣龙王手下巡塔妖精"
+    },
+    {
+      "name": "万圣龙王",
+      "description": "乱石山碧波潭的龙王，偷宝贼首"
+    },
+    {
+      "name": "万圣公主",
+      "description": "万圣龙王之女，花容月貌"
+    },
+    {
+      "name": "九头驸马",
+      "description": "万圣公主的夫婿，神通广大"
+    },
+    {
+      "name": "祭赛国王",
+      "description": "祭赛国的君主"
+    },
+    {
+      "name": "金光寺众僧",
+      "description": "金光寺被冤枉的和尚们，被披枷戴锁"
+    },
+    {
+      "name": "牛魔王",
+      "description": "被提及的妖怪，与万圣龙王有来往"
+    }
+  ],
+  "locations": [
+    {
+      "name": "祭赛国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "金光寺",
+      "type": "寺庙",
+      "parent": "祭赛国"
+    },
+    {
+      "name": "黄金宝塔",
+      "type": "宝塔",
+      "parent": "金光寺"
+    },
+    {
+      "name": "乱石山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "碧波潭",
+      "type": "潭",
+      "parent": "乱石山"
+    },
+    {
+      "name": "麒麟殿",
+      "type": "宫殿",
+      "parent": "祭赛国"
+    },
+    {
+      "name": "建章宫",
+      "type": "宫殿",
+      "parent": "祭赛国"
+    },
+    {
+      "name": "东华门",
+      "type": "城门",
+      "parent": "祭赛国"
+    },
+    {
+      "name": "南月陀国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "北高昌国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "东西梁国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "西本钵国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "大罗天",
+      "type": "仙界",
+      "parent": null
+    },
+    {
+      "name": "灵霄殿",
+      "type": "宫殿",
+      "parent": "大罗天"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐三藏",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "沙和尚",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "万圣龙王",
+      "person_b": "万圣公主",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "万圣公主",
+      "person_b": "九头驸马",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "万圣龙王",
+      "person_b": "奔波儿灞",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "万圣龙王",
+      "person_b": "灞波儿奔",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "万圣龙王",
+      "relation_type": "朋友"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "祭赛国",
+      "target": "金光寺",
+      "relation_type": "contains",
+      "value": "城内"
+    },
+    {
+      "source": "金光寺",
+      "target": "黄金宝塔",
+      "relation_type": "contains",
+      "value": "寺内"
+    },
+    {
+      "source": "乱石山",
+      "target": "碧波潭",
+      "relation_type": "contains",
+      "value": "山中"
+    },
+    {
+      "source": "祭赛国",
+      "target": "乱石山",
+      "relation_type": "direction",
+      "value": "东南方向百十里"
+    },
+    {
+      "source": "祭赛国",
+      "target": "麒麟殿",
+      "relation_type": "contains",
+      "value": "宫内"
+    },
+    {
+      "source": "祭赛国",
+      "target": "建章宫",
+      "relation_type": "contains",
+      "value": "宫内"
+    },
+    {
+      "source": "大罗天",
+      "target": "灵霄殿",
+      "relation_type": "contains",
+      "value": "天界"
+    }
+  ],
+  "_chapter": 62,
+  "_input_tokens": 8281,
+  "_output_tokens": 1426
+}

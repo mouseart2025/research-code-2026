@@ -1,0 +1,353 @@
+{
+  "characters": [
+    {
+      "name": "贾政",
+      "description": "先前曾将房产并大观园奏请入官，现在理家，奉贾母之命将人口渐次减少"
+    },
+    {
+      "name": "贾母",
+      "description": "家族中的老太太，疼爱宝玉，为宝钗办生日，在家中有很高地位"
+    },
+    {
+      "name": "包勇",
+      "description": "被贾政罚看荒园"
+    },
+    {
+      "name": "凤姐",
+      "description": "为贾母疼惜，治家办事能出力，但近来因被抄后扶病承欢贾母"
+    },
+    {
+      "name": "王夫人",
+      "description": "虽不大喜欢凤姐，但认可其治家能力"
+    },
+    {
+      "name": "贾赦",
+      "description": "到当差地方，写信回家说安逸"
+    },
+    {
+      "name": "贾珍",
+      "description": "到当差地方，写信回家说安逸"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻，听到家信后略略宽怀"
+    },
+    {
+      "name": "尤氏",
+      "description": "住在接连大观园的住宅，听到家信后略略宽怀"
+    },
+    {
+      "name": "史湘云",
+      "description": "已出嫁回门，来贾母这边请安，提议给宝钗做生日"
+    },
+    {
+      "name": "黛玉",
+      "description": "已去世，众人提起时不免泪落"
+    },
+    {
+      "name": "迎春",
+      "description": "生活苦楚，父亲不让其常回家"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛大哥，闹得家破人亡，是缓决人犯"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛蟠之母，守着薛蝌过日"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛姨妈的儿子，因哥哥在监里不肯娶亲"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝玉之妻，过门一年没过过安逸日子，生性大方"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾母最疼爱的孙子，疯疯颠颠，为宝钗轮流敬酒"
+    },
+    {
+      "name": "李纨",
+      "description": "珠儿媳妇，带着兰儿静静过日子"
+    },
+    {
+      "name": "兰儿",
+      "description": "李纨之子"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛家的姑娘，被请来参加宴席"
+    },
+    {
+      "name": "香菱",
+      "description": "跟着薛家来的丫头"
+    },
+    {
+      "name": "李婶娘",
+      "description": "被请来参加宴席的长辈"
+    },
+    {
+      "name": "李纹",
+      "description": "李家姐妹之一"
+    },
+    {
+      "name": "李绮",
+      "description": "李家姐妹之一"
+    },
+    {
+      "name": "惜春",
+      "description": "住在接连大观园的住宅"
+    },
+    {
+      "name": "岫烟",
+      "description": "假说病着不来"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的丫头，负责行令"
+    },
+    {
+      "name": "彩云",
+      "description": "丫头，和鸳鸯等在后间喝酒"
+    },
+    {
+      "name": "莺儿",
+      "description": "丫头，和鸳鸯等在后间喝酒"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫头，跟着宝玉到大观园"
+    },
+    {
+      "name": "平儿",
+      "description": "丫头，和鸳鸯等在后间喝酒"
+    },
+    {
+      "name": "五儿",
+      "description": "在新房插蜡的丫头"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉的丫头，带人去找宝玉"
+    },
+    {
+      "name": "珍珠",
+      "description": "小丫头，负责传话"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": ""
+    },
+    {
+      "name": "尤氏住宅",
+      "type": "住宅",
+      "parent": ""
+    },
+    {
+      "name": "惜春住宅",
+      "type": "住宅",
+      "parent": ""
+    },
+    {
+      "name": "贾母房中",
+      "type": "房间",
+      "parent": ""
+    },
+    {
+      "name": "薛家",
+      "type": "家宅",
+      "parent": ""
+    },
+    {
+      "name": "海疆",
+      "type": "地区",
+      "parent": ""
+    },
+    {
+      "name": "甄家",
+      "type": "家宅",
+      "parent": ""
+    },
+    {
+      "name": "外头",
+      "type": "区域",
+      "parent": ""
+    },
+    {
+      "name": "后间",
+      "type": "房间",
+      "parent": ""
+    },
+    {
+      "name": "潇湘馆",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "新房",
+      "type": "房间",
+      "parent": ""
+    },
+    {
+      "name": "园门",
+      "type": "门",
+      "parent": "大观园"
+    },
+    {
+      "name": "腰门",
+      "type": "门",
+      "parent": "大观园"
+    },
+    {
+      "name": "小门",
+      "type": "门",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖母-孙子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "史湘云",
+      "person_b": "宝玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "史湘云",
+      "person_b": "宝钗",
+      "relation_type": "表姐妹"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛蟠",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛蝌",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "兰儿",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "邢夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "李纹",
+      "person_b": "李绮",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛蝌",
+      "relation_type": "兄弟"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "尤氏住宅",
+      "relation_type": "adjacent",
+      "value": "接连"
+    },
+    {
+      "source": "大观园",
+      "target": "惜春住宅",
+      "relation_type": "adjacent",
+      "value": "接连"
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "园内建筑"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "园内建筑"
+    },
+    {
+      "source": "大观园",
+      "target": "园门",
+      "relation_type": "contains",
+      "value": "入口"
+    },
+    {
+      "source": "大观园",
+      "target": "腰门",
+      "relation_type": "contains",
+      "value": "内部门"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "怡红院",
+      "relation_type": "adjacent",
+      "value": "园内相邻"
+    },
+    {
+      "source": "尤氏住宅",
+      "target": "小门",
+      "relation_type": "contains",
+      "value": "连接大观园的门"
+    },
+    {
+      "source": "贾母房中",
+      "target": "后间",
+      "relation_type": "contains",
+      "value": "房间内部"
+    }
+  ],
+  "_chapter": 109,
+  "_input_tokens": 8741,
+  "_output_tokens": 2410
+}

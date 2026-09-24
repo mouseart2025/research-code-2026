@@ -1,0 +1,58 @@
+{
+  "_description": "Voting-only structural metrics across 5 novels. Complements ablation-voting-baseline.json (per-node) with tree-level properties (max_children, root_count, avg_depth, cycles). Data source: chapter_facts majority-vote parent aggregation, no validator/Edmonds/SuffixNormalizer.",
+  "per_novel": {
+    "xiyouji": {
+      "nodes": 640,
+      "edges": 605,
+      "max_children": 66,
+      "root_count": 35,
+      "avg_depth": 0.41,
+      "in_cycle_count": 0,
+      "has_cycles": false
+    },
+    "honglou": {
+      "nodes": 557,
+      "edges": 531,
+      "max_children": 137,
+      "root_count": 27,
+      "avg_depth": 0.26,
+      "in_cycle_count": 1,
+      "has_cycles": true
+    },
+    "shuihu": {
+      "nodes": 1193,
+      "edges": 1162,
+      "max_children": 79,
+      "root_count": 31,
+      "avg_depth": 0.36,
+      "in_cycle_count": 0,
+      "has_cycles": false
+    },
+    "sanguo": {
+      "nodes": 906,
+      "edges": 885,
+      "max_children": 58,
+      "root_count": 22,
+      "avg_depth": 0.26,
+      "in_cycle_count": 1,
+      "has_cycles": true
+    },
+    "fengshen": {
+      "nodes": 443,
+      "edges": 433,
+      "max_children": 114,
+      "root_count": 10,
+      "avg_depth": 0.25,
+      "in_cycle_count": 0,
+      "has_cycles": false
+    }
+  },
+  "five_novel_average": {
+    "nodes": 747.8,
+    "edges": 723.2,
+    "max_children": 90.8,
+    "root_count": 25.0,
+    "avg_depth": 0.31,
+    "in_cycle_count": 0.4
+  }
+}

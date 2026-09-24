@@ -8,18 +8,37 @@ import uuid
 
 from fastapi import WebSocket
 
-from src.db import analysis_task_store, chapter_fact_store, entity_dictionary_store
-from src.db import novel_store, world_structure_store
+from src.db import (
+    analysis_pass_store,
+    analysis_task_store,
+    chapter_fact_store,
+    entity_dictionary_store,
+    novel_store,
+    world_structure_store,
+)
 from src.db.sqlite_db import get_connection
-from src.extraction.chapter_fact_extractor import ChapterFactExtractor, ExtractionError, ExtractionMeta
+from src.extraction.chapter_fact_extractor import (
+    ChapterFactExtractor,
+    ExtractionError,
+)
 from src.extraction.context_summary_builder import ContextSummaryBuilder
 from src.extraction.fact_validator import FactValidator
 from src.extraction.name_resolver import NameResolver
 from src.extraction.scene_llm_extractor import SceneLLMExtractor
-from src.infra.llm_client import LLMError, LLMParseError, LLMTimeoutError, LlmUsage, get_llm_client
+from src.infra.llm_client import (
+    LLMError,
+    LLMParseError,
+    LLMTimeoutError,
+    get_llm_client,
+)
 from src.models.world_structure import WorldStructure
-from src.services.cost_service import add_monthly_usage, get_monthly_budget, get_monthly_usage, get_pricing
 from src.services import embedding_service
+from src.services.cost_service import (
+    add_monthly_usage,
+    get_monthly_budget,
+    get_monthly_usage,
+    get_pricing,
+)
 from src.services.hierarchy_consolidator import consolidate_hierarchy
 from src.services.visualization_service import invalidate_layout_cache
 from src.services.world_structure_agent import WorldStructureAgent
@@ -95,6 +114,8 @@ class AnalysisService:
         # Track running tasks for pause/cancel
         self._task_signals: dict[str, str] = {}  # task_id -> desired status
         self._active_loops: set[str] = set()  # task_ids with currently-running loops
+        # Strong refs to fire-and-forget tasks (prevents GC mid-run, RUF006)
+        self._background_tasks: set[asyncio.Task] = set()
         # Live timing stats per novel (survives page navigation)
         self._live_timing: dict[str, dict] = {}
         # Retry progress per novel (survives page navigation)
@@ -112,6 +133,12 @@ class AnalysisService:
         """Return novel IDs with active retries."""
         return list(self._retry_progress.keys())
 
+    def _spawn_background(self, coro, *, name: str | None = None) -> None:
+        """Fire-and-forget a coroutine, keeping a strong reference until done."""
+        task = asyncio.create_task(coro, name=name)
+        self._background_tasks.add(task)
+        task.add_done_callback(self._background_tasks.discard)
+
     @staticmethod
     async def _broadcast_stage(novel_id: str, chapter: int, label: str) -> None:
         """Broadcast a stage label for the current chapter processing step."""
@@ -123,6 +150,62 @@ class AnalysisService:
             "llm_model": get_model_name(),
             "llm_provider": LLM_PROVIDER,
         })
+
+    async def _review_hallucinations(
+        self,
+        novel_id: str,
+        chapter_num: int,
+        fact,
+        chapter_text: str,
+        protected_names: set[str] | None,
+    ):
+        """幻觉人物 LLM 判定层包装 (FR-4.2)。
+
+        规则层(validator.validate)之后、落库之前调用;开关关闭或判定失败时
+        原样返回 fact(不阻塞管线)。
+        """
+        from src.extraction.hallucination_reviewer import review_chapter_characters
+        try:
+            return await review_chapter_characters(
+                fact,
+                chapter_text=chapter_text,
+                llm=self.extractor.llm,
+                novel_id=novel_id,
+                chapter_id=chapter_num,
+                protected_names=protected_names,
+            )
+        except Exception as e:
+            logger.warning(
+                "Hallucination review failed for chapter %d: %s", chapter_num, e,
+            )
+            return fact
+
+    @staticmethod
+    async def _update_world_structure(world_agent, chapter_num, chapter_text, fact) -> None:
+        """世界结构更新(章内并行环节之一;异常由 gather 隔离处处理)。"""
+        await world_agent.process_chapter(chapter_num, chapter_text, fact)
+
+    async def _extract_and_store_scenes(
+        self, novel_id: str, chapter_pk: int, chapter_text: str, chapter_num: int, fact,
+    ) -> None:
+        """场景抽取 + 落库(章内并行环节之一)。须在 insert_chapter_fact 之后
+        运行(chapter_facts 行须已存在,UPDATE 才生效)。"""
+        scenes = await self.scene_extractor.extract(chapter_text, chapter_num, fact)
+        if scenes:
+            await chapter_fact_store.update_scenes(novel_id, chapter_pk, scenes)
+
+    @staticmethod
+    async def _index_chapter_embeddings(novel_id: str, chapter_num: int, chapter_text: str, fact) -> None:
+        """ChromaDB embedding 索引(章内并行环节之一)。同步 SDK 调用保持在
+        协程内(不引入额外线程),与另两个环节的 LLM 网络等待自然交叠。"""
+        fact_data = fact.model_dump()
+        fact_summary = embedding_service.build_fact_summary(fact_data)
+        embedding_service.index_chapter(
+            novel_id, chapter_num, chapter_text, fact_summary
+        )
+        embedding_service.index_entities_from_fact(
+            novel_id, chapter_num, fact_data
+        )
 
     async def start(
         self,
@@ -141,6 +224,12 @@ class AnalysisService:
         if existing:
             raise ValueError(f"Novel {novel_id} already has an active task: {existing['id']}")
 
+        # 单活互斥 (multi-pass Epic 2): 二审(source pass)进行中时一审不可启动,
+        # 反之亦然(SourcePassService.start 做对称检查)
+        existing_pass = await analysis_pass_store.get_active_pass(novel_id)
+        if existing_pass:
+            raise ValueError(f"Novel {novel_id} already has an active pass: {existing_pass['id']}")
+
         # Ensure pre-scan is done before analysis (skip on force re-analyze)
         if not force:
             await self._ensure_prescan(novel_id)
@@ -150,7 +239,7 @@ class AnalysisService:
         self._task_signals[task_id] = "running"
 
         # Launch background analysis loop
-        asyncio.create_task(self._run_loop(task_id, novel_id, chapter_start, chapter_end, force))
+        self._spawn_background(self._run_loop(task_id, novel_id, chapter_start, chapter_end, force))
 
         return task_id
 
@@ -175,7 +264,7 @@ class AnalysisService:
         if task_id not in self._active_loops:
             resume_from = task["current_chapter"] + 1
             chapter_end = task["chapter_end"]
-            asyncio.create_task(self._run_loop(task_id, novel_id, resume_from, chapter_end))
+            self._spawn_background(self._run_loop(task_id, novel_id, resume_from, chapter_end))
 
     async def pause(self, task_id: str) -> None:
         """Signal a running task to pause after current chapter.
@@ -337,11 +426,15 @@ class AnalysisService:
 
         # Build name corrections from entity dictionary (numeric-prefix fix).
         # E.g., if dictionary has "二愣子" and LLM extracts "愣子", correct it.
+        # _protected_names (FR-4.2 白名单): entity_dictionary 实体名 + 本次运行
+        # 已确立的人物名,幻觉人物 LLM 判定层对它们永不判定(真实人物不误杀)。
+        _protected_names: set[str] = set()
         _NUM_PREFIXES = frozenset("一二三四五六七八九十")
         try:
             _dict_entries = await entity_dictionary_store.get_all(novel_id)
             _corrections: dict[str, str] = {}
             _dict_names = {e.name for e in _dict_entries}
+            _protected_names.update(_dict_names)
             for entry in _dict_entries:
                 name = entry.name
                 if (
@@ -513,27 +606,21 @@ class AnalysisService:
                     _monthly_budget = await get_monthly_budget()
                     cost_stats["monthly_budget_cny"] = _monthly_budget
 
-                # Validate
+                # Validate (传入本章原文:自动补 character 做原文锚定)
                 await self._broadcast_stage(novel_id, chapter_num, "验证数据")
-                fact = validator.validate(fact)
+                fact = validator.validate(fact, chapter_text=chapter["content"])
+
+                # 幻觉人物 LLM 判定层 (FR-4.2): 规则层之后、落库之前;
+                # 已确立人物纳入白名单,后续章节不再判定(真实人物不误杀)
+                fact = await self._review_hallucinations(
+                    novel_id, chapter_num, fact, chapter["content"], _protected_names,
+                )
+                _protected_names.update(ch.name for ch in fact.characters)
 
                 # Resolve name variants → canonical (upstream alias unification)
                 fact = name_resolver.resolve(fact)
-                name_resolver.accumulate_from_chapter(fact)
-
-                # Update world structure (never blocks pipeline)
-                await self._broadcast_stage(novel_id, chapter_num, "更新世界结构")
-                world_structure_updated = False
-                try:
-                    await world_agent.process_chapter(
-                        chapter_num, chapter["content"], fact,
-                    )
-                    world_structure_updated = True
-                except Exception as e:
-                    logger.warning(
-                        "World structure agent error for chapter %d: %s",
-                        chapter_num, e,
-                    )
+                # 双向原文锚定:不可定位的 canonical/别名声明不进入映射
+                name_resolver.accumulate_from_chapter(fact, chapter_text=chapter["content"])
 
                 await self._broadcast_stage(novel_id, chapter_num, "保存数据")
                 elapsed_ms = int(time.time() * 1000) - start_ms
@@ -564,36 +651,40 @@ class AnalysisService:
                     cost_cny=_ch_cost_cny,
                     is_truncated=extraction_meta.is_truncated,
                     segment_count=extraction_meta.segment_count,
+                    output_truncated=extraction_meta.output_truncated,
                 )
 
-                # Scene extraction via LLM (non-fatal)
-                # Must run AFTER insert_chapter_fact so the row exists for UPDATE
-                await self._broadcast_stage(novel_id, chapter_num, "场景分析")
-                try:
-                    scenes = await self.scene_extractor.extract(
-                        chapter["content"], chapter_num, fact,
-                    )
-                    if scenes:
-                        await chapter_fact_store.update_scenes(
-                            novel_id, chapter_pk, scenes,
-                        )
-                except Exception as e:
-                    logger.warning(
-                        "场景提取失败 (chapter %d): %s", chapter_num, e,
-                    )
+                # 章内并行:世界结构更新 / 场景抽取 / embedding 索引互不依赖。
+                # 依赖关系:场景 UPDATE 依赖上面的 INSERT(行须已存在);
+                # embedding 只用 fact 与原文,不消费场景结果;幻觉判定产出
+                # 最终 fact,必须在此之前串行完成。异常隔离保持原容错语义
+                # (各环节失败仅记日志,不阻塞管线)。
+                await self._broadcast_stage(novel_id, chapter_num, "场景分析 · 世界结构更新")
 
-                # Index embeddings in ChromaDB
-                try:
-                    fact_data = fact.model_dump()
-                    fact_summary = embedding_service.build_fact_summary(fact_data)
-                    embedding_service.index_chapter(
-                        novel_id, chapter_num, chapter["content"], fact_summary
-                    )
-                    embedding_service.index_entities_from_fact(
-                        novel_id, chapter_num, fact_data
-                    )
-                except Exception as e:
-                    logger.warning("Embedding indexing failed for chapter %d: %s", chapter_num, e)
+                world_res, scenes_res, embed_res = await asyncio.gather(
+                    self._update_world_structure(
+                        world_agent, chapter_num, chapter["content"], fact,
+                    ),
+                    self._extract_and_store_scenes(
+                        novel_id, chapter_pk, chapter["content"], chapter_num, fact,
+                    ),
+                    self._index_chapter_embeddings(
+                        novel_id, chapter_num, chapter["content"], fact,
+                    ),
+                    return_exceptions=True,
+                )
+                world_structure_updated = world_res is None
+                for _res, _log_msg in (
+                    (world_res, "World structure agent error for chapter %d: %s"),
+                    (scenes_res, "场景提取失败 (chapter %d): %s"),
+                    (embed_res, "Embedding indexing failed for chapter %d: %s"),
+                ):
+                    if _res is None:
+                        continue
+                    if isinstance(_res, Exception):
+                        logger.warning(_log_msg, chapter_num, _res)
+                    else:
+                        raise _res  # CancelledError 等 BaseException 不吞
 
                 # Update chapter status
                 await analysis_task_store.update_chapter_analysis_status(
@@ -713,8 +804,36 @@ class AnalysisService:
                         chapter_text=retry_ch["content"],
                         context_summary=ctx,
                     )
-                    fact = validator.validate(fact)
+                    fact = validator.validate(fact, chapter_text=retry_ch["content"])
+                    # 幻觉人物 LLM 判定层 (FR-4.2),与主循环同口径
+                    fact = await self._review_hallucinations(
+                        novel_id, retry_num, fact, retry_ch["content"], _protected_names,
+                    )
+                    _protected_names.update(ch.name for ch in fact.characters)
                     retry_elapsed = int(time.time() * 1000) - retry_start
+                    # Cost accounting: same basis as the first-try path
+                    # (provider-reported usage × model pricing, cloud only)
+                    _retry_cost_usd, _retry_cost_cny = 0.0, 0.0
+                    if is_cloud:
+                        _retry_spent_usd = (
+                            (usage.prompt_tokens / 1_000_000) * _input_price
+                            + (usage.completion_tokens / 1_000_000) * _output_price
+                        )
+                        _retry_cost_usd = round(_retry_spent_usd, 6)
+                        _retry_cost_cny = round(_retry_cost_usd * 7.2, 4)
+                        cost_stats["total_input_tokens"] += usage.prompt_tokens
+                        cost_stats["total_output_tokens"] += usage.completion_tokens
+                        cost_stats["total_cost_usd"] = round(
+                            cost_stats["total_cost_usd"] + _retry_spent_usd, 4
+                        )
+                        cost_stats["total_cost_cny"] = round(
+                            cost_stats["total_cost_usd"] * 7.2, 2
+                        )
+                        updated = await add_monthly_usage(
+                            _retry_spent_usd, _retry_spent_usd * 7.2,
+                            usage.prompt_tokens, usage.completion_tokens,
+                        )
+                        cost_stats["monthly_used_cny"] = updated.get("cny", 0.0)
                     await chapter_fact_store.insert_chapter_fact(
                         novel_id=novel_id,
                         chapter_id=retry_ch["id"],
@@ -723,8 +842,8 @@ class AnalysisService:
                         extraction_ms=retry_elapsed,
                         input_tokens=usage.prompt_tokens,
                         output_tokens=usage.completion_tokens,
-                        cost_usd=0.0,
-                        cost_cny=0.0,
+                        cost_usd=_retry_cost_usd,
+                        cost_cny=_retry_cost_cny,
                     )
                     await analysis_task_store.update_chapter_analysis_status(
                         novel_id, retry_num, "completed"
@@ -765,7 +884,9 @@ class AnalysisService:
 
             if all_scenes and world_agent.structure:
                 # Part A: Scene transition analysis (pure algorithm, zero LLM cost)
-                from src.services.scene_transition_analyzer import SceneTransitionAnalyzer
+                from src.services.scene_transition_analyzer import (
+                    SceneTransitionAnalyzer,
+                )
                 analyzer = SceneTransitionAnalyzer()
                 scene_votes, scene_analysis = analyzer.analyze(all_scenes)
 
@@ -776,7 +897,9 @@ class AnalysisService:
                 # Part B: LLM hierarchy review (only when orphan roots >= 3)
                 orphan_count = _count_orphan_roots(world_agent.structure)
                 if orphan_count >= 3:
-                    from src.services.location_hierarchy_reviewer import LocationHierarchyReviewer
+                    from src.services.location_hierarchy_reviewer import (
+                        LocationHierarchyReviewer,
+                    )
                     reviewer = LocationHierarchyReviewer()
                     try:
                         review_votes = await asyncio.wait_for(
@@ -885,41 +1008,112 @@ class AnalysisService:
 
         # Auto-trigger post-analysis pipeline (non-fatal, independent background tasks)
         if final_status in ("completed", "completed_with_errors"):
-            # 1. Hierarchy rebuild (Edmonds, no LLM, <1s) — must run before spatial
-            asyncio.create_task(
-                self._auto_rebuild_hierarchy(novel_id),
-                name=f"auto-rebuild-{novel_id}",
+            self._schedule_post_analysis(novel_id)
+
+    def _schedule_post_analysis(self, novel_id: str) -> None:
+        """调度分析完成后的后台任务(全部非致命,失败不阻塞).
+
+        顺序约束: 层级重建(无 LLM, <1s)必须先于空间补全(LLM, 60-300s)完成。
+        两者都对 world_structures 做 load-modify-save 整文档写回,并发时
+        后完成的 spatial completion 会用启动时加载的旧基线覆盖重建结果
+        (last-writer-wins,Epic 6 实测: 西游 ws 被旧层级覆盖, roots=332 失真)。
+        因此 geo 链串行为单个任务;entity resolution 不写 world_structures,
+        保持并发。
+        """
+        self._spawn_background(
+            self._run_geo_pipeline(novel_id),
+            name=f"post-analysis-geo-{novel_id}",
+        )
+        # Entity resolution (Epic 2; LLM, gated by ENTITY_RESOLUTION_ENABLED)
+        from src.infra.config import ENTITY_RESOLUTION_ENABLED
+        if ENTITY_RESOLUTION_ENABLED:
+            self._spawn_background(
+                self._auto_entity_resolution(novel_id),
+                name=f"entity-resolution-{novel_id}",
             )
-            # 2. Spatial completion (LLM, ~60-300s)
-            asyncio.create_task(
-                self._auto_spatial_completion(novel_id),
-                name=f"spatial-completion-{novel_id}",
+
+    async def _run_geo_pipeline(self, novel_id: str) -> None:
+        """串行执行 geo 后台链: 层级重建 → 空间补全 → 地图预建.
+
+        两个步骤各自捕获异常(非致命),故 await 顺序执行不会互相阻塞。
+        地图预建必须排在最后: 它消费重建/补全后的 world_structures。
+        """
+        await self._auto_rebuild_hierarchy(novel_id)
+        await self._auto_spatial_completion(novel_id)
+        await self._auto_map_prebuild(novel_id)
+
+    async def _auto_map_prebuild(self, novel_id: str) -> None:
+        """Background task: pre-build the world map after the geo pipeline.
+
+        Runs get_map_data once so landmass/rivers/roads are generated and
+        persisted (map_geo_artifacts) before the user first opens the map.
+        Non-fatal: failures are logged and broadcast, never propagated.
+        """
+        try:
+            from src.db import novel_store
+            from src.services.visualization_service import (
+                get_map_data,
+                invalidate_map_response_cache,
             )
+
+            novel = await novel_store.get_novel(novel_id)
+            total_chapters = novel.get("total_chapters", 0) if novel else 0
+            if not total_chapters:
+                return
+
+            # geo 链可能改了 world_structures,先丢弃旧缓存再预热
+            await invalidate_map_response_cache(novel_id)
+            await manager.broadcast(novel_id, {
+                "type": "map_prebuild",
+                "status": "running",
+                "stage": "构建世界地图...",
+            })
+            await get_map_data(novel_id, 1, total_chapters)
+            await manager.broadcast(novel_id, {
+                "type": "map_prebuild",
+                "status": "done",
+            })
+            logger.info("Auto map prebuild completed for %s", novel_id)
+        except Exception:
+            logger.warning(
+                "Auto map prebuild failed for %s (non-fatal)",
+                novel_id, exc_info=True,
+            )
+            try:
+                await manager.broadcast(novel_id, {
+                    "type": "map_prebuild",
+                    "status": "error",
+                })
+            except Exception:
+                logger.debug("map_prebuild error broadcast failed for %s", novel_id)
+
+    async def _auto_entity_resolution(self, novel_id: str) -> None:
+        """Post-analysis LLM entity resolution (Epic 2). Non-fatal."""
+        try:
+            from src.services import entity_resolver
+
+            report = await entity_resolver.resolve_novel(novel_id)
+            logger.info("Auto entity resolution for %s: %s", novel_id, report)
+        except Exception:
+            logger.exception("Auto entity resolution failed for %s", novel_id)
 
     async def _auto_rebuild_hierarchy(self, novel_id: str) -> None:
         """Background task: rebuild hierarchy via Edmonds pipeline after analysis.
 
         Uses GeoOrchestrator v2 (TierClassifier → VoteBuilder → KnowledgePrior
-        → EdmondsResolver). No LLM, deterministic, <1s. Automatically applies
-        result to WorldStructure so the user gets a complete hierarchy
-        without manual "智能重绘".
+        → EdmondsResolver → SuffixNormalizer,与 rebuild-hierarchy-v2 端点
+        共用 build_default_orchestrator)。No LLM, deterministic, <1s.
+        Automatically applies result to WorldStructure so the user gets a
+        complete hierarchy without manual "智能重绘".
         """
         try:
             from src.db import novel_store
-            from src.services.geo_skills.orchestrator import GeoOrchestrator
-            from src.services.geo_skills.tier_classifier import TierClassifier
-            from src.services.geo_skills.vote_builder import VoteBuilder
-            from src.services.geo_skills.knowledge_prior import KnowledgePrior
-            from src.services.geo_skills.edmonds_resolver import EdmondsResolver
+            from src.services.geo_skills.orchestrator import build_default_orchestrator
 
             novel = await novel_store.get_novel(novel_id)
             title = novel.get("title", "") if novel else ""
 
-            orch = GeoOrchestrator(novel_id)
-            orch.add_skill("tier", TierClassifier(novel_id))
-            orch.add_skill("votes", VoteBuilder(novel_id))
-            orch.add_skill("prior", KnowledgePrior(novel_title=title))
-            orch.add_skill("edmonds", EdmondsResolver())
+            orch = build_default_orchestrator(novel_id, novel_title=title)
 
             # Consume all progress events (pipeline runs via async generator)
             async for event in orch.run():
@@ -1001,7 +1195,7 @@ class AnalysisService:
             return {"retried": 0, "total": 0}
 
         # Launch retry in background
-        asyncio.create_task(self._retry_failed_bg(novel_id, rows))
+        self._spawn_background(self._retry_failed_bg(novel_id, rows))
         return {"retried": len(rows), "total": len(rows)}
 
     async def _retry_failed_bg(self, novel_id: str, rows: list[dict]) -> None:
@@ -1010,6 +1204,12 @@ class AnalysisService:
         ws_struct = await world_structure_store.load(novel_id)
         loc_parents = ws_struct.location_parents if ws_struct else None
         loc_tiers = dict(ws_struct.location_tiers) if ws_struct and ws_struct.location_tiers else None
+        # Cost accounting basis: same as the main loop (cloud only)
+        _retry_is_cloud = _cfg.LLM_PROVIDER == "openai"
+        if _retry_is_cloud:
+            _retry_in_price, _retry_out_price = get_pricing(_cfg.LLM_MODEL or "")
+        else:
+            _retry_in_price, _retry_out_price = 0.0, 0.0
         # Per-retry validator to avoid shared state
         _retry_validator = FactValidator(
             genre=ws_struct.novel_genre_hint if ws_struct and ws_struct.novel_genre_hint else None
@@ -1050,7 +1250,26 @@ class AnalysisService:
                     chapter_text=ch_content,
                     context_summary=ctx,
                 )
-                fact = _retry_validator.validate(fact)
+                fact = _retry_validator.validate(fact, chapter_text=ch_content)
+                # 幻觉人物 LLM 判定层 (FR-4.2),与主分析循环同口径
+                fact = await self._review_hallucinations(
+                    novel_id, ch_num, fact, ch_content, None,
+                )
+
+                # Cost accounting: same basis as the first-try path
+                # (provider-reported usage × model pricing, cloud only)
+                _ch_cost_usd, _ch_cost_cny = 0.0, 0.0
+                if _retry_is_cloud:
+                    _spent_usd = (
+                        (usage.prompt_tokens / 1_000_000) * _retry_in_price
+                        + (usage.completion_tokens / 1_000_000) * _retry_out_price
+                    )
+                    _ch_cost_usd = round(_spent_usd, 6)
+                    _ch_cost_cny = round(_ch_cost_usd * 7.2, 4)
+                    await add_monthly_usage(
+                        _spent_usd, _spent_usd * 7.2,
+                        usage.prompt_tokens, usage.completion_tokens,
+                    )
 
                 await chapter_fact_store.insert_chapter_fact(
                     novel_id=novel_id,
@@ -1060,8 +1279,8 @@ class AnalysisService:
                     extraction_ms=0,
                     input_tokens=usage.prompt_tokens,
                     output_tokens=usage.completion_tokens,
-                    cost_usd=0.0,
-                    cost_cny=0.0,
+                    cost_usd=_ch_cost_usd,
+                    cost_cny=_ch_cost_cny,
                 )
                 await analysis_task_store.update_chapter_analysis_status(
                     novel_id, ch_num, "completed"

@@ -15,17 +15,14 @@ from __future__ import annotations
 import json
 import logging
 import re
+from collections import Counter
 from pathlib import Path
 
 from src.db import world_structure_override_store, world_structure_store
 from src.extraction.fact_validator import _is_generic_location
 from src.infra.context_budget import get_budget
 from src.infra.llm_client import LLMClient, get_llm_client
-from src.models.chapter_fact import ChapterFact
-from src.services.location_hint_service import extract_direction_hint
-from src.services.hierarchy_consolidator import consolidate_hierarchy
-from collections import Counter
-
+from src.models.chapter_fact import ChapterFact, classify_spatial_relation
 from src.models.world_structure import (
     LayerType,
     LocationIcon,
@@ -36,6 +33,9 @@ from src.models.world_structure import (
     WorldRegion,
     WorldStructure,
 )
+from src.services.hierarchy_consolidator import consolidate_hierarchy
+from src.services.location_hint_service import extract_direction_hint
+from src.utils.location_names import is_passage_like, is_special_space
 
 logger = logging.getLogger(__name__)
 
@@ -431,6 +431,50 @@ _NAME_SUFFIX_TIER: list[tuple[str, str]] = [
     ("径", "site"),      # 羊肠小径 — path/trail
 ]
 
+# ── 精确名 rank 保护(2026-09-20,五本真实库扫描+金标交叉确认)──
+# 名字以宏观后缀(洲/界/域)结尾、被通用后缀规则误判为 continent(1) 级,
+# 但实际是镇/边境/小地名。通用规则不动(影响面不可控),只按名单豁免。
+# 每条附证据;误剔记录指 Auditor 入网门禁在测量轮中按误判 rank 剔除了
+# 该节点的合法边。故意不收:紫菱洲(gold=site,但其子树金标直属大观园,
+# 洲→continent 的误判恰是 Auditor 正确剔除其子树误挂边的依据);
+# 东胜神洲等四大部洲/幽冥界(gold=continent,真宏观);本省/内省/灌洲
+# (证据不足);黑龙江(既有 2-char 保护条目)。
+_NAME_RANK_EXACT: dict[str, str] = {
+    # 水浒
+    "瓜洲": "city",        # 长江北岸镇(瓜洲渡);快照 tier=site;修复
+                           # 瓜洲→扬州 TIER_INVERSION 与 瓜洲渡口/草房 SCALE_SKIP 误剔
+    "高唐州地界": "region",  # X地界=X辖境,同既有("国界","region");facts 提及+误剔记录
+    "高唐界": "region",      # 同上;误剔记录(高唐界→凌州 TIER_INVERSION)
+    "凌州高唐界": "region",  # 快照 tier=site
+    "寿春县界": "site",      # 金标 golden_standard_water_margin: tier=site, parent=山东
+    "昌平县界": "site",      # 金标: tier=site, parent=河北
+    "南丰地界": "region",    # 快照 tier=building(噪声);X地界→region
+    "水泊梁山水域": "region",  # 水域≈泊(region);快照 tier=city
+    # 水浒 府邸类(府→kingdom(2) 误判,金标 tier=building parent=东京;
+    # rank 取 site 与既有 王府/侯府/国府→site 家族一致,site/building
+    # 均满足全部约束):修复 高太尉府→东京 等 TIER_INVERSION 误剔
+    "高太尉府": "site",      # 金标: tier=building, correct_parent=东京
+    "宿太尉府": "site",      # 金标: tier=building, correct_parent=东京
+    "太尉府": "site",        # 金标: tier=building, correct_parent=东京
+    "太师府": "site",        # 金标: tier=building, correct_parent=东京;
+                             # 封神 太师府(闻仲府邸)同类,快照 tier=city parent=朝歌
+    "蔡太师府": "site",      # 蔡京府邸;快照 tier=site;误剔记录(蔡太师府→御营)
+    "东京太师府": "site",    # 快照 tier=site;误剔记录(东京太师府→东京)
+    "小王都太尉府": "site",  # 快照 tier=city parent=京畿
+    "王都尉府": "site",      # 误剔记录(王都尉府→汴梁城 TIER_INVERSION)
+    # 红楼
+    "京口地界": "region",    # 快照 tier=site;京口(镇江)辖境
+    # 三国
+    "东吴边界": "region",    # X边界 同("国界","region");快照 tier=building(噪声)
+    "徐州界": "region",      # 快照 tier=region
+    "豫州界": "region",      # 快照 tier=region
+    "单于界": "region",      # 匈奴单于辖境;快照 tier=site
+    "鹦鹉洲": "site",        # 长江沙洲(江夏);快照 tier=building(噪声)
+    # 西游
+    "火焰山界": "region",    # 快照 tier=region,parent=火焰山
+    "通天河界": "region",    # 快照 tier=region,parent=通天河
+}
+
 
 def _find_continent(
     name: str,
@@ -457,9 +501,18 @@ def _get_suffix_rank(name: str) -> int | None:
 
     This is more reliable than LLM-classified location_tiers because the
     suffix is factual (from the name itself), not model-inferred.
+
+    Lookup order: (1) _NAME_RANK_EXACT 精确名保护(名单内名字直接返回,
+    不走通用后缀规则);(2) _NAME_SUFFIX_TIER 有序后缀匹配。所有 rank
+    判定消费方(vote_builder 方向校验/edmonds tier 软惩罚/
+    spatial_quality._check_ranks/topology_metrics 等)都经本函数,
+    保护项在每条路径一致生效。
     """
     if len(name) < 2:
         return None
+    exact = _NAME_RANK_EXACT.get(name)
+    if exact is not None:
+        return TIER_ORDER.get(exact, 4)
     for suffix, tier in _NAME_SUFFIX_TIER:
         if name.endswith(suffix):
             # Single-char suffix: require name longer than suffix (proper noun + suffix)
@@ -769,9 +822,7 @@ class WorldStructureAgent:
         assert self.structure is not None
         genre = self.structure.novel_genre_hint
         # Urban/realistic novels: disable instance detection
-        if genre in ("urban", "realistic"):
-            return False
-        return True
+        return genre not in ("urban", "realistic")
 
     # ── LLM trigger conditions ───────────────────────────────────
 
@@ -793,7 +844,7 @@ class WorldStructureAgent:
         # Condition 3: layer_transition to a new (not yet existing) layer
         if any(s.signal_type == "layer_transition" for s in signals):
             assert self.structure is not None
-            existing_layer_ids = {l.layer_id for l in self.structure.layers}
+            existing_layer_ids = {lyr.layer_id for lyr in self.structure.layers}
             for s in signals:
                 if s.signal_type != "layer_transition":
                     continue
@@ -813,10 +864,7 @@ class WorldStructureAgent:
             return True
 
         # Condition 5: periodic check every 20 chapters
-        if chapter_num % 20 == 0:
-            return True
-
-        return False
+        return chapter_num % 20 == 0
 
     # ── LLM update pipeline ──────────────────────────────────────
 
@@ -1139,11 +1187,11 @@ class WorldStructureAgent:
 
         for region in layer.regions:
             if region.name == region_name:
-                if "cardinal_direction" in op and op["cardinal_direction"]:
+                if op.get("cardinal_direction"):
                     region.cardinal_direction = op["cardinal_direction"]
-                if "region_type" in op and op["region_type"]:
+                if op.get("region_type"):
                     region.region_type = op["region_type"]
-                if "description" in op and op["description"]:
+                if op.get("description"):
                     region.description = op["description"]
                 return
 
@@ -1454,6 +1502,9 @@ class WorldStructureAgent:
                     continue
                 if loc.role in ("referenced", "boundary"):
                     continue
+                # Story 5.2: a passage-like primary setting cannot be a parent.
+                if is_passage_like(primary_setting):
+                    continue
                 _c_suf = _get_suffix_rank(name)
                 c_rank = _c_suf if _c_suf is not None else TIER_ORDER.get(
                     self.structure.location_tiers.get(name, "city"), 4)
@@ -1466,7 +1517,7 @@ class WorldStructureAgent:
         # writing "A contains B" when meaning "A is inside B".
         # Primary signal: suffix rank (name morphology). Fallback: tier comparison.
         for sr in fact.spatial_relationships:
-            if sr.relation_type == "contains" and sr.source != sr.target:
+            if classify_spatial_relation(sr.relation_type) == "hierarchy" and sr.source != sr.target:
                 source, target = sr.source, sr.target
                 # Skip generic locations (exempt uber-root)
                 if (_is_generic_location(source) and source != uber_root_name) or \
@@ -1482,40 +1533,26 @@ class WorldStructureAgent:
                     self.structure.location_tiers.get(source, "city"), 4)
                 tgt_rank_eff = target_suf if target_suf is not None else TIER_ORDER.get(
                     self.structure.location_tiers.get(target, "city"), 4)
-                if src_rank_eff > tgt_rank_eff:
-                    source, target = target, source
-                elif src_rank_eff == tgt_rank_eff:
-                    # Name containment heuristic for tiebreak
-                    if source.startswith(target) and len(source) > len(target):
+                # Story 5.3 (AC2): special spaces are exempt from suffix-rank
+                # direction validation — a realm can contain or be contained by a
+                # conventional place without triggering rank-based inversion.
+                if not (is_special_space(source) or is_special_space(target)):
+                    if src_rank_eff > tgt_rank_eff:
                         source, target = target, source
-                    elif not (target.startswith(source) and len(target) > len(source)):
-                        weight = 1
+                    elif src_rank_eff == tgt_rank_eff:
+                        # Name containment heuristic for tiebreak
+                        if source.startswith(target) and len(source) > len(target):
+                            source, target = target, source
+                        elif not (target.startswith(source) and len(target) > len(source)):
+                            weight = 1
+                # Story 5.2: passage-like node cannot be the container (parent).
+                if is_passage_like(source):
+                    continue
                 # source is container (parent), target is contained (child)
                 self._parent_votes.setdefault(target, Counter())[source] += weight
 
-        # ── Adjacent / Direction / In-between → parent propagation votes ──
-        # These non-contains spatial relationships indicate spatial proximity.
-        # If A is adjacent/direction to B and B already has a parent candidate C,
-        # propagate a weak vote A→C (weight=1). This allows locations near each
-        # other to inherit hierarchy from their neighbors.
-        for sr in fact.spatial_relationships:
-            if sr.relation_type not in ("adjacent", "direction", "in_between"):
-                continue
-            source, target = sr.source, sr.target
-            if source == target:
-                continue
-            if (_is_generic_location(source) and source != uber_root_name) or \
-               (_is_generic_location(target) and target != uber_root_name):
-                continue
-            # Bidirectional propagation: if either has a parent, share with the other
-            for from_loc, to_loc in [(source, target), (target, source)]:
-                from_votes = self._parent_votes.get(from_loc)
-                if not from_votes:
-                    continue
-                best_parent, best_count = from_votes.most_common(1)[0]
-                if best_parent and best_parent != to_loc and best_count >= 2:
-                    # Weak vote — must not exceed direct parent declaration weight
-                    self._parent_votes.setdefault(to_loc, Counter())[best_parent] += 1
+        # (Removed, issue #70 D3) Adjacent/direction/in_between 不再产生 parent
+        # 传播票:邻近 ≠ 包含,该通道曾把「B 距 A 两条街」误转为层级证据。
 
         # ── Name containment parent inference ──
         # If "石圪节公社" and "石圪节" both exist, the longer one is likely
@@ -1586,6 +1623,12 @@ class WorldStructureAgent:
         """
         assert self.structure is not None
 
+        # v0.76 / Story 5.3: 架空特殊空间（仙界/魔域/秘境/洞天…）归入独立 `realm` 层级，
+        # 不参与常规地理 suffix-rank 方向校验。SSOT 见 src.utils.location_names.is_special_space。
+        # 早返回：避免进入 Layer 5 父级约束（TIER_ORDER 未含 realm，否则会污染 _TIER_NAMES 下推逻辑）。
+        if is_special_space(name):
+            return LocationTier.realm.value
+
         # Vague types that LLM uses as catch-all — treat as uninformative
         _VAGUE_TYPES = {"区域", "地点", "地方", "位置", "场景"}
         effective_type = "" if loc_type in _VAGUE_TYPES else loc_type
@@ -1644,9 +1687,7 @@ class WorldStructureAgent:
             if "国" in name:
                 raw_tier = LocationTier.kingdom.value
             # site-level features
-            elif any(kw in effective_type for kw in ("洞", "穴", "桥", "渡", "关", "隘", "泉", "潭", "崖")):
-                raw_tier = LocationTier.site.value
-            elif level >= 2:
+            elif any(kw in effective_type for kw in ("洞", "穴", "桥", "渡", "关", "隘", "泉", "潭", "崖")) or level >= 2:
                 raw_tier = LocationTier.site.value
             # region fallback for top-level locations with informative type
             elif level == 0 and parent is None and effective_type and not any(
@@ -1775,8 +1816,8 @@ class WorldStructureAgent:
         base_scale = _TIER_SCALE_MAP.get(highest_tier, "continental")
 
         # Check for multi-layer (celestial / underworld / spirit)
-        non_overworld = [l for l in self.structure.layers if l.layer_id != "overworld"]
-        has_sky = any(l.layer_type == LayerType.sky for l in non_overworld)
+        non_overworld = [lyr for lyr in self.structure.layers if lyr.layer_id != "overworld"]
+        has_sky = any(lyr.layer_type == LayerType.sky for lyr in non_overworld)
 
         # Promote to cosmic if multi-realm
         if has_sky and base_scale in ("continental", "national"):
@@ -1894,7 +1935,7 @@ class WorldStructureAgent:
             "trisolaris-game": (LayerType.pocket, "三体游戏"),
         }
         # Add realm layers from _REALM_LAYER_KEYWORDS
-        for kw, (lid, display_name) in _REALM_LAYER_KEYWORDS.items():
+        for _kw, (lid, display_name) in _REALM_LAYER_KEYWORDS.items():
             if lid not in type_map:
                 type_map[lid] = (LayerType.overworld, display_name)
 
@@ -1911,7 +1952,7 @@ class WorldStructureAgent:
 
     def _has_layer(self, layer_id: str) -> bool:
         assert self.structure is not None
-        return any(l.layer_id == layer_id for l in self.structure.layers)
+        return any(lyr.layer_id == layer_id for lyr in self.structure.layers)
 
     def _assign_region(
         self, name: str, loc_type: str, parent: str | None,
@@ -2065,6 +2106,9 @@ class WorldStructureAgent:
             # Add votes for pairs with ≥5 co-occurrences (v0.63.0: 3→5 to reduce noise)
             for (big_loc, small_loc), count in pair_counts.items():
                 if count >= 5:
+                    # Story 5.2: passage-like node cannot be a parent.
+                    if is_passage_like(big_loc):
+                        continue
                     # S2a-1: Skip if big and small are in different continents
                     # Walk parent chain to find continent for each
                     _existing_parents = self.structure.location_parents if self.structure else {}
@@ -2097,8 +2141,9 @@ class WorldStructureAgent:
         Also populates ``self._chapter_primary_settings`` mapping chapter_id → primary
         setting location name (used for micro-location auto-mount).
         """
-        from src.db.sqlite_db import get_connection
         import json as _json
+
+        from src.db.sqlite_db import get_connection
 
         votes: dict[str, Counter] = {}
 
@@ -2131,7 +2176,7 @@ class WorldStructureAgent:
                     _cf_parent_pairs.add((name, parent))
                     _children_with_cf_evidence.add(name)
             for sr in data.get("spatial_relationships", []):
-                if sr.get("relation_type") == "contains":
+                if classify_spatial_relation(sr.get("relation_type", "")) == "hierarchy":
                     source = sr.get("source", "")
                     target = sr.get("target", "")
                     if source and target:
@@ -2151,6 +2196,11 @@ class WorldStructureAgent:
                 if parent not in known_locs and parent != uber_root_name:
                     baseline_skipped += 1
                     continue  # phantom parent
+                # Story 5.2: never re-inject legacy edges involving a
+                # passage-like node (e.g. 走廊→天下, 学校→长街).
+                if is_passage_like(child) or is_passage_like(parent):
+                    baseline_skipped += 1
+                    continue
                 if child in _children_with_cf_evidence and \
                    (child, parent) not in _cf_parent_pairs:
                     baseline_skipped += 1
@@ -2164,7 +2214,6 @@ class WorldStructureAgent:
                 )
 
         tiers = self.structure.location_tiers if self.structure else {}
-        all_known = set(tiers.keys())
 
         # ── v0.67.1: Build location frequency map (mention counts) ──
         # Used by _resolve_parents for frequency-based tiering: core(≥10),
@@ -2231,8 +2280,8 @@ class WorldStructureAgent:
         if self._peer_pairs:
             logger.info("Rebuilt %d peer pairs from chapter facts", len(self._peer_pairs))
 
-        # Collect spatial neighbor pairs for post-loop propagation (A.1)
-        spatial_neighbors: list[tuple[str, str]] = []
+        # (Removed, issue #70 D3) spatial neighbor propagation: adjacent/
+        # direction/in_between pairs no longer propagate parent votes (邻近≠包含).
         # Collect character-location co-occurrence per chapter (A.3)
         char_chapter_locs: dict[str, dict[int, set[str]]] = {}
 
@@ -2263,6 +2312,9 @@ class WorldStructureAgent:
                 if parent and name and name != parent:
                     if (not _is_generic_location(name) or name == uber_root_name) and \
                        (not _is_generic_location(parent) or parent == uber_root_name):
+                        # Story 5.2: passage-like node cannot be a parent.
+                        if is_passage_like(parent):
+                            continue
                         # Peer vote suppression: weight ÷ 3 when child-parent are known peers
                         pair_key = frozenset({name, parent})
                         if pair_key in self._peer_pairs:
@@ -2279,12 +2331,12 @@ class WorldStructureAgent:
                    (_is_generic_location(target) and target != uber_root_name):
                     continue
 
-                # Collect adjacent/direction/in_between pairs for propagation
-                if rel_type in ("adjacent", "direction", "in_between"):
-                    spatial_neighbors.append((source, target))
+                # (Removed, issue #70 D3) adjacent/direction/in_between 不再收集
+                # 为传播对 —— 邻近关系不构成包含证据,直接跳过。
+                if classify_spatial_relation(rel_type) != "hierarchy":
                     continue
-
-                if rel_type != "contains":
+                # Story 5.2: passage-like node cannot be the container (parent).
+                if is_passage_like(source):
                     continue
                 # Defensive weight reduction for contains relationships
                 weight = {"high": 2, "medium": 1, "low": 1}.get(sr.get("confidence", "low"), 1)
@@ -2295,12 +2347,15 @@ class WorldStructureAgent:
                     tiers.get(source, "city"), 4)
                 tgt_rank_eff = target_suf if target_suf is not None else TIER_ORDER.get(
                     tiers.get(target, "city"), 4)
-                if src_rank_eff > tgt_rank_eff:
-                    source, target = target, source
-                elif src_rank_eff == tgt_rank_eff:
-                    if source.startswith(target) and len(source) > len(target):
+                # Story 5.3 (AC2): special spaces exempt from suffix-rank direction
+                # validation.
+                if not (is_special_space(source) or is_special_space(target)):
+                    if src_rank_eff > tgt_rank_eff:
                         source, target = target, source
-                    elif not (target.startswith(source) and len(target) > len(source)):
+                    elif src_rank_eff == tgt_rank_eff:
+                        if source.startswith(target) and len(source) > len(target):
+                            source, target = target, source
+                        elif not (target.startswith(source) and len(target) > len(source)):
                             weight = 1
                 votes.setdefault(target, Counter())[source] += weight * chapter_weight
 
@@ -2338,6 +2393,9 @@ class WorldStructureAgent:
             # from polluting real-world hierarchy (e.g., 太虚幻境 chapter
             # assigning parent votes to 荣国府 interior locations).
             if primary_setting and not _is_realm_location(primary_setting):
+                # Story 5.2: a passage-like primary setting cannot be a parent.
+                if is_passage_like(primary_setting):
+                    continue
                 _p_suf = _get_suffix_rank(primary_setting)
                 p_rank = _p_suf if _p_suf is not None else TIER_ORDER.get(
                     tiers.get(primary_setting, "city"), 4)
@@ -2358,32 +2416,8 @@ class WorldStructureAgent:
                         continue  # same or larger tier → sibling, not child
                     votes.setdefault(loc_name, Counter())[primary_setting] += 2
 
-        # ── Spatial neighbor propagation (adjacent/direction/in_between) ──
-        # If A is adjacent/near B and B has a confident parent C, propagate A→C.
-        # Up to 2 rounds to allow transitive propagation (A→B→C chain).
-        if spatial_neighbors:
-            total_propagated = 0
-            for _round in range(2):
-                propagated = 0
-                for a, b in spatial_neighbors:
-                    for from_loc, to_loc in [(a, b), (b, a)]:
-                        from_votes = votes.get(from_loc)
-                        if not from_votes:
-                            continue
-                        best_parent, best_count = from_votes.most_common(1)[0]
-                        if best_parent and best_parent != to_loc and best_count >= 2:
-                            existing = votes.get(to_loc, Counter()).get(best_parent, 0)
-                            if existing == 0:
-                                votes.setdefault(to_loc, Counter())[best_parent] += 1
-                                propagated += 1
-                total_propagated += propagated
-                if propagated == 0:
-                    break
-            if total_propagated:
-                logger.info(
-                    "Spatial neighbor propagation: %d pairs, %d votes propagated",
-                    len(spatial_neighbors), total_propagated,
-                )
+        # (Removed, issue #70 D3) Spatial neighbor propagation (adjacent/
+        # direction/in_between) deleted — 邻近≠包含,不再向邻居传播 parent 票。
 
         # ── Character colocation → parent inference (A.3) ──
         if char_chapter_locs:
@@ -2399,7 +2433,7 @@ class WorldStructureAgent:
         # to 2 when OTHER parent candidates exist.
         if uber_root_name:
             capped = 0
-            for loc_name, counter in votes.items():
+            for _loc_name, counter in votes.items():
                 if uber_root_name in counter and len(counter) > 1:
                     # Has both uber-root and specific parents — cap uber-root
                     if counter[uber_root_name] > 2:
@@ -2508,6 +2542,11 @@ class WorldStructureAgent:
                 for winner, _count in votes.most_common():
                     if winner and winner != child:
                         if not known_locs or winner in known_locs:
+                            # Story 5.2 (AC3): a passage-like child must not hang
+                            # under world root — skip the uber_root candidate so it
+                            # stays an orphan (a topology node) instead of dangling.
+                            if is_passage_like(child) and winner == uber_root_name:
+                                continue
                             if winner != uber_root_name:
                                 best_parent = winner
                                 break
@@ -2531,6 +2570,10 @@ class WorldStructureAgent:
             for winner, _count in votes.most_common():
                 if winner and winner != child:
                     if not known_locs or winner in known_locs:
+                        # Story 5.2 (AC3): a passage-like child must not hang under
+                        # world root — skip the uber_root candidate.
+                        if is_passage_like(child) and winner == uber_root_name:
+                            continue
                         raw[child] = winner
                         break
 
@@ -2564,7 +2607,7 @@ class WorldStructureAgent:
                 continue  # direct parent or 1 tier gap — OK
             # Look for intermediate candidates in this child's votes
             for candidate, cand_votes in self._parent_votes.get(child, Counter()).items():
-                if candidate == parent or candidate == child:
+                if candidate in (parent, child):
                     continue
                 cand_rank = _get_suffix_rank(candidate)
                 if cand_rank is None:

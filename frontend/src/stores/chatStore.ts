@@ -6,7 +6,7 @@ import {
   fetchConversations,
   fetchMessages,
 } from "@/api/client"
-import { isTauri, getSidecarWsUrl } from "@/api/sidecarBridge"
+import { isTauri, getSidecarWsUrl, sidecarWsQuery } from "@/api/sidecarBridge"
 
 interface ChatState {
   // Panel state
@@ -23,6 +23,12 @@ interface ChatState {
   streaming: boolean
   streamingContent: string
   streamingSources: number[]
+  // Latest agent forensic step (issue #26 agent QA status frames); cleared
+  // on first token / done / error
+  streamingStatus: string
+  // Conversation the in-flight stream belongs to (issue #55: stream state
+  // must not leak into other conversations when the user switches mid-stream)
+  streamingConversationId: string | null
 
   // WebSocket
   ws: WebSocket | null
@@ -76,6 +82,8 @@ export const useChatStore = create<ChatState>((set, get) => ({
   streaming: false,
   streamingContent: "",
   streamingSources: [],
+  streamingStatus: "",
+  streamingConversationId: null,
   ws: null,
   wsConnected: false,
 
@@ -99,7 +107,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
     set((s) => ({ messages: [...s.messages, msg] }))
   },
 
-  clearMessages: () => set({ messages: [], activeConversationId: null, streaming: false, streamingContent: "" }),
+  clearMessages: () => set({ messages: [], activeConversationId: null, streaming: false, streamingContent: "", streamingStatus: "", streamingConversationId: null }),
 
   loadConversations: async (novelId) => {
     try {
@@ -156,7 +164,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
     const wsBase = isTauri
       ? getSidecarWsUrl()
       : `${window.location.protocol === "https:" ? "wss:" : "ws:"}//${window.location.host}`
-    const ws = new WebSocket(`${wsBase}/ws/chat/${sessionId}`)
+    const ws = new WebSocket(`${wsBase}/ws/chat/${sessionId}${sidecarWsQuery()}`)
 
     ws.onopen = () => {
       set({ wsConnected: true })
@@ -167,7 +175,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
         const payload = _pendingPayload
         _pendingPayload = null
         ws.send(payload)
-        set({ streaming: true, streamingContent: "", streamingSources: [] })
+        set({ streaming: true, streamingContent: "", streamingSources: [], streamingStatus: "" })
       }
     }
 
@@ -197,41 +205,53 @@ export const useChatStore = create<ChatState>((set, get) => ({
           case "token":
             get()._appendStreamToken(msg.content)
             break
+          case "status":
+            // Agent forensic step (issue #26) — shown in the thinking bubble
+            set({ streamingStatus: msg.content })
+            break
           case "sources":
             // Sources received before "done"
             set({ streamingSources: msg.chapters })
             break
           case "done": {
             const state = get()
-            const assistantMsg: ChatMessage = {
-              id: nextMsgId(),
-              conversation_id: state.activeConversationId ?? "",
-              role: "assistant",
-              content: state.streamingContent,
-              sources: state.streamingSources,
-              created_at: new Date().toISOString(),
-            }
+            const streamConvId = state.streamingConversationId
             state._finishStream(state.streamingSources)
-            state._addMessage(assistantMsg)
+            // Only append to the visible list if the user is still on the
+            // conversation this stream belongs to; otherwise the message is
+            // already persisted by the backend and will load on re-select.
+            if (streamConvId && streamConvId === state.activeConversationId) {
+              const assistantMsg: ChatMessage = {
+                id: nextMsgId(),
+                conversation_id: streamConvId,
+                role: "assistant",
+                content: state.streamingContent,
+                sources: state.streamingSources,
+                created_at: new Date().toISOString(),
+              }
+              state._addMessage(assistantMsg)
+            }
+            set({ streamingConversationId: null, streamingStatus: "" })
             break
           }
           case "error": {
             const errContent = msg.message || "请求出错，请稍后重试"
             const state = get()
-            // Show error as an assistant message so user sees feedback
-            const errMsg: ChatMessage = {
-              id: nextMsgId(),
-              conversation_id: state.activeConversationId ?? "",
-              role: "assistant",
-              content: `[错误] ${errContent}`,
-              sources: [],
-              created_at: new Date().toISOString(),
+            const streamConvId = state.streamingConversationId
+            // Show error as an assistant message so user sees feedback —
+            // but only on the conversation the failed stream belongs to.
+            if (!streamConvId || streamConvId === state.activeConversationId) {
+              const errMsg: ChatMessage = {
+                id: nextMsgId(),
+                conversation_id: streamConvId ?? state.activeConversationId ?? "",
+                role: "assistant",
+                content: `[错误] ${errContent}`,
+                sources: [],
+                created_at: new Date().toISOString(),
+              }
+              set((s) => ({ messages: [...s.messages, errMsg] }))
             }
-            set((s) => ({
-              streaming: false,
-              streamingContent: "",
-              messages: [...s.messages, errMsg],
-            }))
+            set({ streaming: false, streamingContent: "", streamingConversationId: null, streamingStatus: "" })
             break
           }
         }
@@ -285,6 +305,8 @@ export const useChatStore = create<ChatState>((set, get) => ({
         streaming: true,
         streamingContent: "",
         streamingSources: [],
+        streamingStatus: "",
+        streamingConversationId: activeConversationId,
       }))
       // Force reconnect
       _reconnectAttempt = 0
@@ -297,15 +319,17 @@ export const useChatStore = create<ChatState>((set, get) => ({
       streaming: true,
       streamingContent: "",
       streamingSources: [],
+      streamingStatus: "",
+      streamingConversationId: activeConversationId,
     }))
 
     ws.send(payload)
   },
 
   _appendStreamToken: (token) =>
-    set((s) => ({ streamingContent: s.streamingContent + token })),
+    set((s) => ({ streamingContent: s.streamingContent + token, streamingStatus: "" })),
 
-  _finishStream: (_sources) =>
+  _finishStream: () =>
     set({ streaming: false }),
 
   _addMessage: (msg) =>

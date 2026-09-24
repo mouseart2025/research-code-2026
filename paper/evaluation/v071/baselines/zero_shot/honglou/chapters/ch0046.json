@@ -1,0 +1,197 @@
+{
+  "characters": [
+    {
+      "name": "凤姐儿",
+      "description": "贾府管家，精明能干，善于理财和管理"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐儿的丫鬟，受到凤姐儿抚恤"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三小姐，诗社发起人之一"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四小姐，擅长绘画"
+    },
+    {
+      "name": "李纨",
+      "description": "寡嫂，大嫂子，月钱十两银子，负责带领姑娘们"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，常与姊妹们一起，帮助惜春绘画"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家女儿，住在贾府，关心黛玉的健康"
+    },
+    {
+      "name": "黛玉",
+      "description": "林家女儿，寄居贾府，体弱多病，善作诗"
+    },
+    {
+      "name": "赖嬷嬷",
+      "description": "贾府老仆人，孙子刚选官"
+    },
+    {
+      "name": "赖大家的",
+      "description": "赖嬷嬷的媳妇"
+    },
+    {
+      "name": "周瑞家的",
+      "description": "太太的陪房，儿子犯错"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的丫鬟"
+    },
+    {
+      "name": "北静王",
+      "description": "王爷，曾送给宝玉蓑衣斗笠"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "后头楼",
+      "type": "楼房",
+      "parent": "贾府"
+    },
+    {
+      "name": "蘅芜苑",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "惜春房间",
+      "type": "房间",
+      "parent": "大观园"
+    },
+    {
+      "name": "黛玉房间",
+      "type": "房间",
+      "parent": "大观园"
+    },
+    {
+      "name": "凤姐儿房间",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾母处",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人处",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "东府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "赖家花园",
+      "type": "私人花园",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "凤姐儿",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "探春",
+      "relation_type": "嫂子与小姑"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "黛玉",
+      "relation_type": "姊妹情谊"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "赖嬷嬷",
+      "person_b": "赖大家的",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "周瑞家的",
+      "person_b": "凤姐儿",
+      "relation_type": "下属"
+    },
+    {
+      "person_a": "北静王",
+      "person_b": "宝玉",
+      "relation_type": "王爷与贵公子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园林位于府内"
+    },
+    {
+      "source": "蘅芜苑",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "院落位于园中"
+    },
+    {
+      "source": "惜春房间",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "房间位于园中"
+    },
+    {
+      "source": "黛玉房间",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "房间位于园中"
+    },
+    {
+      "source": "后头楼",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "楼房位于府内"
+    },
+    {
+      "source": "贾母处",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "房间位于府内"
+    },
+    {
+      "source": "王夫人处",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "房间位于府内"
+    }
+  ],
+  "_chapter": 46,
+  "_input_tokens": 9573,
+  "_output_tokens": 1340
+}

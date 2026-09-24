@@ -1,0 +1,216 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣/孙悟空/行者",
+      "description": "唐僧的大徒弟，会筋斗云，有火眼金睛，使金箍棒，法力高强"
+    },
+    {
+      "name": "唐长老/三藏/师父",
+      "description": "东土大唐钦差，前往西天取经的僧人，孙悟空等人的师父"
+    },
+    {
+      "name": "八戒/猪八戒/猪悟能",
+      "description": "唐僧的二徒弟，原为天蓬元帅，使九齿钉钯"
+    },
+    {
+      "name": "沙僧/沙悟净",
+      "description": "唐僧的三徒弟，使用宝杖"
+    },
+    {
+      "name": "太上老君/老君/老祖",
+      "description": "居住在兜率宫的神仙，炼制九转还魂丹"
+    },
+    {
+      "name": "乌鸡国王/国王/皇帝/陛下",
+      "description": "被妖怪害死推入井中，后被孙悟空救活的真正国王"
+    },
+    {
+      "name": "妖精/魔王/怪物",
+      "description": "变成道士模样害死国王，冒充国王统治乌鸡国的青毛狮子精"
+    },
+    {
+      "name": "太子",
+      "description": "乌鸡国王的儿子，在朝堂上劝阻假国王"
+    },
+    {
+      "name": "文殊菩萨",
+      "description": "前来收服狮子精的菩萨，狮子精原为其坐骑"
+    },
+    {
+      "name": "唐王/李世民",
+      "description": "大唐皇帝，唐僧的兄长"
+    },
+    {
+      "name": "魏徵",
+      "description": "唐王手下丞相，曾梦斩泾河老龙"
+    }
+  ],
+  "locations": [
+    {
+      "name": "宝林寺",
+      "type": "寺庙",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "兜率宫/兜率院",
+      "type": "仙宫",
+      "parent": "离恨天"
+    },
+    {
+      "name": "离恨天",
+      "type": "天界",
+      "parent": "三十三天"
+    },
+    {
+      "name": "南天门",
+      "type": "天界门户",
+      "parent": "天界"
+    },
+    {
+      "name": "乌鸡国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "金銮殿",
+      "type": "宫殿",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "八角琉璃井",
+      "type": "水井",
+      "parent": "花园"
+    },
+    {
+      "name": "花园",
+      "type": "园林",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "东土大唐",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "西天/西域天竺国",
+      "type": "地域",
+      "parent": null
+    },
+    {
+      "name": "五台山",
+      "type": "山脉",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐长老",
+      "person_b": "孙悟空",
+      "relation_type": "师父-徒弟"
+    },
+    {
+      "person_a": "唐长老",
+      "person_b": "八戒",
+      "relation_type": "师父-徒弟"
+    },
+    {
+      "person_a": "唐长老",
+      "person_b": "沙僧",
+      "relation_type": "师父-徒弟"
+    },
+    {
+      "person_a": "太子",
+      "person_b": "乌鸡国王",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "太子",
+      "person_b": "妖精",
+      "relation_type": "误认为父子"
+    },
+    {
+      "person_a": "唐长老",
+      "person_b": "唐王",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "文殊菩萨",
+      "person_b": "妖精",
+      "relation_type": "主人-坐骑"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "三十三天",
+      "target": "离恨天",
+      "relation_type": "contains",
+      "value": "离恨天位于三十三天之上"
+    },
+    {
+      "source": "离恨天",
+      "target": "兜率宫",
+      "relation_type": "contains",
+      "value": "兜率宫位于离恨天中"
+    },
+    {
+      "source": "乌鸡国",
+      "target": "宝林寺",
+      "relation_type": "contains",
+      "value": "宝林寺在乌鸡国境内"
+    },
+    {
+      "source": "乌鸡国",
+      "target": "金銮殿",
+      "relation_type": "contains",
+      "value": "金銮殿是乌鸡国的宫殿"
+    },
+    {
+      "source": "花园",
+      "target": "八角琉璃井",
+      "relation_type": "contains",
+      "value": "井位于花园中"
+    },
+    {
+      "source": "乌鸡国",
+      "target": "花园",
+      "relation_type": "contains",
+      "value": "花园在乌鸡国宫中"
+    },
+    {
+      "source": "宝林寺",
+      "target": "乌鸡国",
+      "relation_type": "direction",
+      "value": "寺庙距离城池四十里"
+    },
+    {
+      "source": "东土大唐",
+      "target": "乌鸡国",
+      "relation_type": "direction",
+      "value": "乌鸡国位于大唐西方"
+    },
+    {
+      "source": "乌鸡国",
+      "target": "西天",
+      "relation_type": "direction",
+      "value": "西天在乌鸡国更西方"
+    }
+  ],
+  "_chapter": 39,
+  "_input_tokens": 9189,
+  "_output_tokens": 1663
+}

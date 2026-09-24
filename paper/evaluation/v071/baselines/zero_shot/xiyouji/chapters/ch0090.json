@@ -1,0 +1,294 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣",
+      "description": "孙悟空，齐天大圣，手持金箍棒，有七十二变和筋斗云本领，保护唐僧西天取经"
+    },
+    {
+      "name": "八戒",
+      "description": "猪八戒，持九齿钉钯，性格莽撞，被妖精俘获后被救"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙和尚，持降妖杖，与孙悟空一同作战"
+    },
+    {
+      "name": "唐僧",
+      "description": "唐三藏，西天取经的师父，被妖精俘获后被救"
+    },
+    {
+      "name": "九头狮子",
+      "description": "九灵元圣，老妖精，有九个头，太乙救苦天尊的坐骑"
+    },
+    {
+      "name": "黄狮精",
+      "description": "金毛狮怪，领头的狮子精，最后被打死"
+    },
+    {
+      "name": "太乙救苦天尊",
+      "description": "东极妙岩宫的天尊，九头狮子的主人"
+    },
+    {
+      "name": "玉华王",
+      "description": "玉华州的老王，有三个王子"
+    },
+    {
+      "name": "大王子",
+      "description": "玉华王的长子，学习武艺"
+    },
+    {
+      "name": "二王子",
+      "description": "玉华王的次子，学习武艺"
+    },
+    {
+      "name": "三王子",
+      "description": "玉华王的小儿子，学习武艺"
+    },
+    {
+      "name": "王妃",
+      "description": "玉华王的妻子，王后"
+    },
+    {
+      "name": "狻猊狮",
+      "description": "狮子精之一，使用闷棍，被捉住"
+    },
+    {
+      "name": "白泽狮",
+      "description": "狮子精之一，使用铜锤，被捉住"
+    },
+    {
+      "name": "抟象狮",
+      "description": "狮子精之一，使用钢枪"
+    },
+    {
+      "name": "伏狸狮",
+      "description": "狮子精之一，使用钺斧"
+    },
+    {
+      "name": "猱狮",
+      "description": "狮子精之一，使用铁蒺藜"
+    },
+    {
+      "name": "雪狮",
+      "description": "狮子精之一，使用三楞简"
+    },
+    {
+      "name": "青脸儿怪",
+      "description": "妖精手下，执锦锈团花宝幢"
+    },
+    {
+      "name": "刁钻古怪儿",
+      "description": "妖精手下之一"
+    },
+    {
+      "name": "古怪刁钻儿",
+      "description": "妖精手下之一"
+    },
+    {
+      "name": "狮奴",
+      "description": "太乙救苦天尊的狮奴，负责看管九头狮子"
+    }
+  ],
+  "locations": [
+    {
+      "name": "玉华州",
+      "type": "州城",
+      "parent": null
+    },
+    {
+      "name": "豹头山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "虎口洞",
+      "type": "洞穴",
+      "parent": "豹头山"
+    },
+    {
+      "name": "竹节山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "九曲盘桓洞",
+      "type": "洞穴",
+      "parent": "竹节山"
+    },
+    {
+      "name": "万灵竹节山",
+      "type": "完整山名",
+      "parent": null
+    },
+    {
+      "name": "坎宫",
+      "type": "方位地",
+      "parent": null
+    },
+    {
+      "name": "锦云窝",
+      "type": "居所",
+      "parent": "九曲盘桓洞"
+    },
+    {
+      "name": "东极妙岩宫",
+      "type": "仙宫",
+      "parent": null
+    },
+    {
+      "name": "东天门",
+      "type": "天界门户",
+      "parent": null
+    },
+    {
+      "name": "大千甘露殿",
+      "type": "殿堂",
+      "parent": "东极妙岩宫"
+    },
+    {
+      "name": "暴纱亭",
+      "type": "亭阁",
+      "parent": "玉华州"
+    },
+    {
+      "name": "王府",
+      "type": "宫殿",
+      "parent": "玉华州"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙大圣",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "玉华王",
+      "person_b": "大王子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "玉华王",
+      "person_b": "二王子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "玉华王",
+      "person_b": "三王子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "玉华王",
+      "person_b": "王妃",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "太乙救苦天尊",
+      "person_b": "九头狮子",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "太乙救苦天尊",
+      "person_b": "狮奴",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "九头狮子",
+      "person_b": "黄狮精",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "大王子",
+      "person_b": "孙大圣",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "二王子",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三王子",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "豹头山",
+      "target": "玉华州",
+      "relation_type": "direction",
+      "value": "城北"
+    },
+    {
+      "source": "虎口洞",
+      "target": "豹头山",
+      "relation_type": "contains",
+      "value": "洞在山中"
+    },
+    {
+      "source": "九曲盘桓洞",
+      "target": "竹节山",
+      "relation_type": "contains",
+      "value": "洞在山中"
+    },
+    {
+      "source": "锦云窝",
+      "target": "九曲盘桓洞",
+      "relation_type": "contains",
+      "value": "窝在洞内"
+    },
+    {
+      "source": "暴纱亭",
+      "target": "玉华州",
+      "relation_type": "contains",
+      "value": "亭在州城内"
+    },
+    {
+      "source": "王府",
+      "target": "玉华州",
+      "relation_type": "contains",
+      "value": "府在州城内"
+    },
+    {
+      "source": "大千甘露殿",
+      "target": "东极妙岩宫",
+      "relation_type": "contains",
+      "value": "殿在宫内"
+    },
+    {
+      "source": "坎宫",
+      "target": "玉华州",
+      "relation_type": "direction",
+      "value": "城外战场"
+    }
+  ],
+  "_chapter": 90,
+  "_input_tokens": 8168,
+  "_output_tokens": 2071
+}

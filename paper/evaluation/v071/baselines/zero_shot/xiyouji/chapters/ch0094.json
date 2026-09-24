@@ -1,0 +1,290 @@
+{
+  "characters": [
+    {
+      "name": "孙行者",
+      "description": "唐僧的大徒弟，祖居东胜神洲傲来国花果山水帘洞，石猴出生，曾官拜齐天大圣，被困五行山下五百年，法讳悟空，有火眼金睛，能识别真假善恶"
+    },
+    {
+      "name": "猪八戒",
+      "description": "唐僧的二徒弟，原为天蓬元帅，因蟠桃会醉酒戏弄嫦娥被贬下凡，错投猪胎，住福陵山，法讳悟能，生性贪吃好色"
+    },
+    {
+      "name": "沙和尚",
+      "description": "唐僧的三徒弟，原为卷帘大将，因蟠桃会失手打破玻璃盏被贬流沙河，法讳悟净，性格稳重"
+    },
+    {
+      "name": "唐僧",
+      "description": "东土大唐僧人，西天取经的主角，被国王招为驸马，善于作诗"
+    },
+    {
+      "name": "国王",
+      "description": "天竺国国王，要将公主嫁给唐僧为驸马"
+    },
+    {
+      "name": "公主",
+      "description": "天竺国公主，抛绣球选择唐僧为夫婿，害怕见到唐僧的三个徒弟"
+    },
+    {
+      "name": "正宫娘娘",
+      "description": "天竺国王后"
+    },
+    {
+      "name": "三宫皇后六院嫔妃",
+      "description": "天竺国后宫妃嫔"
+    },
+    {
+      "name": "阴阳官",
+      "description": "负责选择婚期的官员"
+    },
+    {
+      "name": "宣召官",
+      "description": "负责传召的宫廷官员"
+    },
+    {
+      "name": "黄门官",
+      "description": "宫廷传奏官员"
+    },
+    {
+      "name": "当驾官",
+      "description": "负责安排事务的官员"
+    },
+    {
+      "name": "仪制司官",
+      "description": "负责礼仪制度的官员"
+    },
+    {
+      "name": "光禄寺官",
+      "description": "负责宴席安排的官员"
+    },
+    {
+      "name": "内宫官",
+      "description": "内宫事务官员"
+    },
+    {
+      "name": "驿丞",
+      "description": "驿站管理人员"
+    }
+  ],
+  "locations": [
+    {
+      "name": "午门",
+      "type": "宫门",
+      "parent": "皇宫"
+    },
+    {
+      "name": "皇宫",
+      "type": "宫殿建筑群",
+      "parent": "天竺国都城"
+    },
+    {
+      "name": "御花园",
+      "type": "皇家园林",
+      "parent": "皇宫"
+    },
+    {
+      "name": "永镇华夷阁",
+      "type": "楼阁",
+      "parent": "御花园"
+    },
+    {
+      "name": "留春亭",
+      "type": "亭台",
+      "parent": "御花园"
+    },
+    {
+      "name": "昭阳宫",
+      "type": "宫殿",
+      "parent": "皇宫"
+    },
+    {
+      "name": "鳷鹊宫",
+      "type": "宫殿",
+      "parent": "皇宫"
+    },
+    {
+      "name": "东胜神洲",
+      "type": "大洲",
+      "parent": null
+    },
+    {
+      "name": "傲来国",
+      "type": "国家",
+      "parent": "东胜神洲"
+    },
+    {
+      "name": "花果山",
+      "type": "山脉",
+      "parent": "傲来国"
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞府",
+      "parent": "花果山"
+    },
+    {
+      "name": "五行山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "福陵山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "流沙河",
+      "type": "河流",
+      "parent": null
+    },
+    {
+      "name": "天竺国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "驿站",
+      "type": "建筑",
+      "parent": "天竺国都城"
+    },
+    {
+      "name": "会同馆",
+      "type": "建筑",
+      "parent": "天竺国都城"
+    },
+    {
+      "name": "朝门",
+      "type": "宫门",
+      "parent": "皇宫"
+    },
+    {
+      "name": "丹墀",
+      "type": "宫廷区域",
+      "parent": "皇宫"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙行者",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙和尚",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "公主",
+      "relation_type": "父女关系"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "唐僧",
+      "relation_type": "翁婿关系"
+    },
+    {
+      "person_a": "公主",
+      "person_b": "唐僧",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "正宫娘娘",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "三宫皇后六院嫔妃",
+      "relation_type": "夫妻关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "皇宫",
+      "target": "午门",
+      "relation_type": "contains",
+      "value": "午门位于皇宫外"
+    },
+    {
+      "source": "皇宫",
+      "target": "御花园",
+      "relation_type": "contains",
+      "value": "御花园在皇宫内"
+    },
+    {
+      "source": "御花园",
+      "target": "永镇华夷阁",
+      "relation_type": "contains",
+      "value": "阁楼位于花园内"
+    },
+    {
+      "source": "御花园",
+      "target": "留春亭",
+      "relation_type": "contains",
+      "value": "亭台位于花园内"
+    },
+    {
+      "source": "皇宫",
+      "target": "昭阳宫",
+      "relation_type": "contains",
+      "value": "后宫宫殿"
+    },
+    {
+      "source": "皇宫",
+      "target": "鳷鹊宫",
+      "relation_type": "contains",
+      "value": "举办合卺宴的宫殿"
+    },
+    {
+      "source": "东胜神洲",
+      "target": "傲来国",
+      "relation_type": "contains",
+      "value": "傲来国位于东胜神洲"
+    },
+    {
+      "source": "傲来国",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "花果山位于傲来国"
+    },
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "水帘洞位于花果山"
+    },
+    {
+      "source": "天竺国都城",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "皇宫位于都城内"
+    },
+    {
+      "source": "天竺国都城",
+      "target": "驿站",
+      "relation_type": "contains",
+      "value": "驿站位于城内"
+    },
+    {
+      "source": "皇宫",
+      "target": "朝门",
+      "relation_type": "contains",
+      "value": "朝门是皇宫出入口"
+    },
+    {
+      "source": "皇宫",
+      "target": "丹墀",
+      "relation_type": "contains",
+      "value": "丹墀是宫廷区域"
+    }
+  ],
+  "_chapter": 94,
+  "_input_tokens": 7078,
+  "_output_tokens": 2108
+}

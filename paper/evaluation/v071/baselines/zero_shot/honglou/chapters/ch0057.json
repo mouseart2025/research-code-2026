@@ -1,0 +1,275 @@
+{
+  "characters": [
+    {
+      "name": "平儿",
+      "description": "凤姐儿的贴身丫鬟，伺候凤姐儿用餐盥洗，为人机智圆滑，善于处理人际关系"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "王熙凤，贾府当家奶奶，管理家务，多病多痛"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三姑娘，聪明能干，正在协助管理家务，有改革创新的想法"
+    },
+    {
+      "name": "李纨",
+      "description": "大奶奶，寡妇，协助管理家务"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，寄居贾府的表姑娘，博学多才，善于引经据典"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太，地位尊崇，疼爱孙辈"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府太太"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，贾府公子，性情特殊，不爱读书"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，贾府亲戚，正在生病"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的丫鬟"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "叶妈",
+      "description": "茗烟的娘，怡红院的老嬷嬷"
+    },
+    {
+      "name": "老祝妈",
+      "description": "管理竹子的老嬷嬷"
+    },
+    {
+      "name": "老田妈",
+      "description": "种庄稼的老嬷嬷"
+    },
+    {
+      "name": "林之孝家的",
+      "description": "管事的媳妇"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "探春的生母，经常生事"
+    }
+  ],
+  "locations": [
+    {
+      "name": "探春处",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "厅中",
+      "type": "房间",
+      "parent": "探春处"
+    },
+    {
+      "name": "大观园",
+      "type": "花园",
+      "parent": "贾府"
+    },
+    {
+      "name": "蘅芜苑",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "稻香村",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "聚锦门",
+      "type": "门",
+      "parent": "大观园"
+    },
+    {
+      "name": "西南角",
+      "type": "位置",
+      "parent": "大观园"
+    },
+    {
+      "name": "贾府",
+      "type": "宅邸",
+      "parent": null
+    },
+    {
+      "name": "赖大家",
+      "type": "宅邸",
+      "parent": null
+    },
+    {
+      "name": "甄府",
+      "type": "宅邸",
+      "parent": "江南"
+    },
+    {
+      "name": "江南",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "京城",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "南京",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "长安",
+      "type": "城市",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "赵姨娘",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "麝月",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "莺儿",
+      "person_b": "宝钗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "茗烟",
+      "person_b": "叶妈",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "茗烟",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "莺儿",
+      "person_b": "叶妈",
+      "relation_type": "干母女"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "湘云",
+      "relation_type": "表兄妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "探春处",
+      "relation_type": "contains",
+      "value": "探春居住的院落"
+    },
+    {
+      "source": "探春处",
+      "target": "厅中",
+      "relation_type": "contains",
+      "value": "会客议事的房间"
+    },
+    {
+      "source": "大观园",
+      "target": "蘅芜苑",
+      "relation_type": "contains",
+      "value": "宝钗居住的院落"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "宝玉居住的院落"
+    },
+    {
+      "source": "大观园",
+      "target": "稻香村",
+      "relation_type": "contains",
+      "value": "李纨居住的院落"
+    },
+    {
+      "source": "大观园",
+      "target": "聚锦门",
+      "relation_type": "contains",
+      "value": "园中的门"
+    },
+    {
+      "source": "聚锦门",
+      "target": "西南角",
+      "relation_type": "adjacent",
+      "value": "聚锦门位于西南角"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "贾府内的花园"
+    },
+    {
+      "source": "江南",
+      "target": "甄府",
+      "relation_type": "contains",
+      "value": "甄家在江南的府邸"
+    },
+    {
+      "source": "怡红院",
+      "target": "大镜子",
+      "relation_type": "contains",
+      "value": "宝玉房中的大镜子对着床"
+    }
+  ],
+  "_chapter": 57,
+  "_input_tokens": 10436,
+  "_output_tokens": 1809
+}

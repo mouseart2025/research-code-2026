@@ -1,0 +1,265 @@
+{
+  "characters": [
+    {
+      "name": "王夫人",
+      "description": "贾府长辈，宝玉的母亲"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家女儿，宝玉的妻子"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，主要人物，与和尚有缘分"
+    },
+    {
+      "name": "李贵",
+      "description": "贾府家人，负责看门"
+    },
+    {
+      "name": "和尚",
+      "description": "神秘僧人，来取宝玉的玉，满头癞疮破烂"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，极力阻止宝玉还玉"
+    },
+    {
+      "name": "紫鹃",
+      "description": "丫鬟，帮助袭人拦阻宝玉"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府二爷，因父病要远行"
+    },
+    {
+      "name": "平儿",
+      "description": "贾琏的妾室，照顾巧姐"
+    },
+    {
+      "name": "巧姐",
+      "description": "贾琏的女儿，十三四岁"
+    },
+    {
+      "name": "秋桐",
+      "description": "贾琏家人，被送回娘家"
+    },
+    {
+      "name": "贾芸",
+      "description": "贾府族人，负责看家"
+    },
+    {
+      "name": "贾蔷",
+      "description": "贾府族人，与贾芸一起看家"
+    },
+    {
+      "name": "贾环",
+      "description": "宝玉的弟弟，行为不端"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四小姐，执意要出家"
+    },
+    {
+      "name": "贾兰",
+      "description": "李纨之子，专心读书"
+    },
+    {
+      "name": "李纨",
+      "description": "贾兰的母亲，性格沉静"
+    },
+    {
+      "name": "邢大舅",
+      "description": "邢夫人的哥哥"
+    },
+    {
+      "name": "王仁",
+      "description": "王夫人的兄弟"
+    },
+    {
+      "name": "妙玉",
+      "description": "栊翠庵的尼姑，已失踪"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍的妻子，惜春的嫂子"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "前头",
+      "type": "区域",
+      "parent": "贾府"
+    },
+    {
+      "name": "外面",
+      "type": "区域",
+      "parent": "贾府"
+    },
+    {
+      "name": "宝玉院内",
+      "type": "居所",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人处",
+      "type": "居所",
+      "parent": "贾府"
+    },
+    {
+      "name": "太虚幻境",
+      "type": "虚幻之地",
+      "parent": null
+    },
+    {
+      "name": "大荒山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "青埂峰",
+      "type": "山峰",
+      "parent": "大荒山"
+    },
+    {
+      "name": "园里",
+      "type": "花园",
+      "parent": "贾府"
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "园里"
+    },
+    {
+      "name": "外书房",
+      "type": "书房",
+      "parent": "贾府"
+    },
+    {
+      "name": "三门口",
+      "type": "门口",
+      "parent": "贾府"
+    },
+    {
+      "name": "三法司衙门",
+      "type": "官府",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "宝玉",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "巧姐",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "贾琏",
+      "relation_type": "妾室"
+    },
+    {
+      "person_a": "贾芸",
+      "person_b": "贾蔷",
+      "relation_type": "族兄弟"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾环",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "贾兰",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "惜春",
+      "person_b": "尤氏",
+      "relation_type": "姑嫂"
+    },
+    {
+      "person_a": "邢大舅",
+      "person_b": "王仁",
+      "relation_type": "亲家"
+    },
+    {
+      "person_a": "和尚",
+      "person_b": "宝玉",
+      "relation_type": "师徒"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "前头",
+      "relation_type": "contains",
+      "value": "包含前院区域"
+    },
+    {
+      "source": "贾府",
+      "target": "宝玉院内",
+      "relation_type": "contains",
+      "value": "包含宝玉的居所"
+    },
+    {
+      "source": "贾府",
+      "target": "园里",
+      "relation_type": "contains",
+      "value": "包含花园区域"
+    },
+    {
+      "source": "园里",
+      "target": "栊翠庵",
+      "relation_type": "contains",
+      "value": "庵堂位于园中"
+    },
+    {
+      "source": "大荒山",
+      "target": "青埂峰",
+      "relation_type": "contains",
+      "value": "山中有峰"
+    },
+    {
+      "source": "贾府",
+      "target": "外书房",
+      "relation_type": "contains",
+      "value": "书房在府内"
+    },
+    {
+      "source": "贾府",
+      "target": "三门口",
+      "relation_type": "contains",
+      "value": "府内门口"
+    },
+    {
+      "source": "宝玉院内",
+      "target": "王夫人处",
+      "relation_type": "adjacent",
+      "value": "相邻居所"
+    }
+  ],
+  "_chapter": 118,
+  "_input_tokens": 9255,
+  "_output_tokens": 1710
+}

@@ -1,0 +1,340 @@
+{
+  "characters": [
+    {
+      "name": "薛姨妈",
+      "description": "薛蟠的母亲，薛蝌的姑妈，王夫人的妹妹"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛蟠的弟弟，从外地寄来书信并处理薛蟠人命案"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛姨妈的儿子，因打死人而被关押"
+    },
+    {
+      "name": "小厮",
+      "description": "薛家的仆人，向薛姨妈汇报薛蟠的情况"
+    },
+    {
+      "name": "蒋玉菡",
+      "description": "戏子，与薛蟠相识"
+    },
+    {
+      "name": "王夫人",
+      "description": "薛姨妈的姐姐，贾政的妻子"
+    },
+    {
+      "name": "贾政",
+      "description": "王夫人的丈夫，贾府当家人"
+    },
+    {
+      "name": "李祥",
+      "description": "薛蝌的随从"
+    },
+    {
+      "name": "吴良",
+      "description": "与薛蟠一起喝酒的朋友"
+    },
+    {
+      "name": "张三",
+      "description": "被薛蟠打死的当槽儿"
+    },
+    {
+      "name": "张王氏",
+      "description": "张三的母亲"
+    },
+    {
+      "name": "李二",
+      "description": "李家店的掌柜"
+    },
+    {
+      "name": "知县",
+      "description": "审理薛蟠案件的县官"
+    },
+    {
+      "name": "仵作",
+      "description": "验尸官"
+    },
+    {
+      "name": "张二",
+      "description": "张三的叔叔"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛姨妈的女儿，薛蟠的妹妹"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太"
+    },
+    {
+      "name": "李纨",
+      "description": "贾府的大奶奶"
+    },
+    {
+      "name": "探春",
+      "description": "贾府小姐"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府小姐"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子"
+    },
+    {
+      "name": "黛玉",
+      "description": "贾府小姐，林黛玉"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "元妃",
+      "description": "贾府的贵妃娘娘"
+    },
+    {
+      "name": "周贵妃",
+      "description": "已故的贵妃"
+    }
+  ],
+  "locations": [
+    {
+      "name": "南京",
+      "type": "城市",
+      "parent": ""
+    },
+    {
+      "name": "西京",
+      "type": "城市",
+      "parent": ""
+    },
+    {
+      "name": "城南",
+      "type": "地区",
+      "parent": ""
+    },
+    {
+      "name": "铺子",
+      "type": "商店",
+      "parent": ""
+    },
+    {
+      "name": "当铺",
+      "type": "商店",
+      "parent": ""
+    },
+    {
+      "name": "监牢",
+      "type": "建筑",
+      "parent": ""
+    },
+    {
+      "name": "衙门",
+      "type": "官府",
+      "parent": ""
+    },
+    {
+      "name": "贾府",
+      "type": "宅邸",
+      "parent": ""
+    },
+    {
+      "name": "李家店",
+      "type": "客店",
+      "parent": ""
+    },
+    {
+      "name": "客房",
+      "type": "房间",
+      "parent": "李家店"
+    },
+    {
+      "name": "柜台",
+      "type": "设施",
+      "parent": "李家店"
+    },
+    {
+      "name": "老太太套间",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "书房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "大书架",
+      "type": "设施",
+      "parent": "书房"
+    },
+    {
+      "name": "扬州",
+      "type": "城市",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛蟠",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛蝌",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "王夫人",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛蝌",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "宝钗",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾政",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "蒋玉菡",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "吴良",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "张王氏",
+      "person_b": "张三",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "张二",
+      "person_b": "张三",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "薛蝌",
+      "person_b": "李祥",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "城南",
+      "target": "薛家所在城市",
+      "relation_type": "direction",
+      "value": "二百多地"
+    },
+    {
+      "source": "客房",
+      "target": "李家店",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "柜台",
+      "target": "李家店",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "老太太套间",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "潇湘馆",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "书房",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大书架",
+      "target": "书房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "陵寝",
+      "target": "县城",
+      "relation_type": "adjacent",
+      "value": "不远"
+    },
+    {
+      "source": "层楼",
+      "target": "抚琴场所",
+      "relation_type": "contains",
+      "value": "上头"
+    },
+    {
+      "source": "林石",
+      "target": "抚琴场所",
+      "relation_type": "contains",
+      "value": "里面"
+    },
+    {
+      "source": "山巅",
+      "target": "抚琴场所",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "水涯",
+      "target": "抚琴场所",
+      "relation_type": "contains",
+      "value": ""
+    }
+  ],
+  "_chapter": 87,
+  "_input_tokens": 7518,
+  "_output_tokens": 2053
+}

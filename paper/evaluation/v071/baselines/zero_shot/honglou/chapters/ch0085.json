@@ -1,0 +1,294 @@
+{
+  "characters": [
+    {
+      "name": "薛姨妈",
+      "description": "薛家母亲，因金桂怄气而肝气上逆左肋作痛"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛姨妈之女，性格温厚和平，有涵养，现已搬回家中"
+    },
+    {
+      "name": "金桂",
+      "description": "薛蟠之妻，撒泼成性，与宝钗怄气"
+    },
+    {
+      "name": "秋菱",
+      "description": "薛家丫鬟，原名香菱，被金桂改名"
+    },
+    {
+      "name": "元妃",
+      "description": "贵妃娘娘，疾愈后赏赐家中"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老太太，疼爱宝玉，关心其终身大事"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾家大老爷"
+    },
+    {
+      "name": "贾政",
+      "description": "贾家二老爷，宝玉父亲，关心宝玉学业"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，正在读书学文章，十分想念宝钗"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻，宝玉母亲"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，贾琏之妻"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政庶子，不小心打翻药铞子"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾环母亲，贾政妾室"
+    },
+    {
+      "name": "巧姐",
+      "description": "凤姐之女，患惊风病"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，心重身体不大结实"
+    },
+    {
+      "name": "探春",
+      "description": "贾家三小姐"
+    },
+    {
+      "name": "代儒",
+      "description": "宝玉的师父"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛姨妈之子，金桂之夫"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐之夫"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "李贵",
+      "description": "宝玉的仆人"
+    },
+    {
+      "name": "焙茗",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "王尔调",
+      "description": "贾政门客，善下棋，提议张家亲事"
+    },
+    {
+      "name": "詹光",
+      "description": "贾政门客"
+    }
+  ],
+  "locations": [
+    {
+      "name": "薛家",
+      "type": "住宅",
+      "parent": null
+    },
+    {
+      "name": "贾府",
+      "type": "住宅",
+      "parent": null
+    },
+    {
+      "name": "贾母房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "内书房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "穿廊月洞门",
+      "type": "建筑结构",
+      "parent": "贾府"
+    },
+    {
+      "name": "凤姐院",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "凤姐房",
+      "type": "房间",
+      "parent": "凤姐院"
+    },
+    {
+      "name": "学房",
+      "type": "教室",
+      "parent": null
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "外间屋子",
+      "type": "房间",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛蟠",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "金桂",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "邢夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "巧姐",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾环",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "贾环",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "代儒",
+      "person_b": "宝玉",
+      "relation_type": "师生"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "贾母房",
+      "relation_type": "contains",
+      "value": "贾母房位于贾府内"
+    },
+    {
+      "source": "贾府",
+      "target": "内书房",
+      "relation_type": "contains",
+      "value": "内书房位于贾府内"
+    },
+    {
+      "source": "贾府",
+      "target": "凤姐院",
+      "relation_type": "contains",
+      "value": "凤姐院位于贾府内"
+    },
+    {
+      "source": "凤姐院",
+      "target": "凤姐房",
+      "relation_type": "contains",
+      "value": "凤姐房位于凤姐院内"
+    },
+    {
+      "source": "贾府",
+      "target": "穿廊月洞门",
+      "relation_type": "contains",
+      "value": "穿廊月洞门位于贾府内"
+    },
+    {
+      "source": "内书房",
+      "target": "穿廊月洞门",
+      "relation_type": "adjacent",
+      "value": "内书房与穿廊月洞门相邻"
+    },
+    {
+      "source": "穿廊月洞门",
+      "target": "贾母房",
+      "relation_type": "direction",
+      "value": "从内书房经过穿廊月洞门可到贾母房"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "大观园位于贾府内"
+    }
+  ],
+  "_chapter": 85,
+  "_input_tokens": 9368,
+  "_output_tokens": 2007
+}

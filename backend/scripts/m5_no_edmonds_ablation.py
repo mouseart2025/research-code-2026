@@ -39,7 +39,7 @@ Usage:
     M5_DATA_DIR=/tmp/m5-data uv run python scripts/m5_no_edmonds_ablation.py --refresh
 
 Output:
-    ../evaluation/v071/baselines/m5-no-edmonds.json
+    ../../arbor-internal/paper/evaluation/v071/baselines/m5-no-edmonds.json
 """
 
 from __future__ import annotations
@@ -57,7 +57,7 @@ from pathlib import Path
 _BACKEND_DIR = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, str(_BACKEND_DIR))
 
-_REAL_DATA_DIR = Path(os.environ.get("AI_READER_DATA_DIR", Path.home() / ".ai-reader-v2"))
+_REAL_DATA_DIR = Path(os.environ.get("AI_READER_DATA_DIR", Path.home() / ".arbor-v2"))
 _SCRATCH_DIR = Path(os.environ.get("M5_DATA_DIR", "/tmp/m5-data"))
 
 if _SCRATCH_DIR.resolve() == _REAL_DATA_DIR.resolve():
@@ -97,7 +97,8 @@ NOVELS = [
 ]
 
 OUT_PATH = (
-    _BACKEND_DIR / ".." / "evaluation" / "v071" / "baselines" / "m5-no-edmonds.json"
+    _BACKEND_DIR / ".." / ".." / "arbor-internal" / "paper" / "evaluation"
+    / "v071" / "baselines" / "m5-no-edmonds.json"
 ).resolve()
 
 

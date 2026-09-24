@@ -1,0 +1,251 @@
+{
+  "characters": [
+    {
+      "name": "贾琏",
+      "description": "凤姐的丈夫，因公务在外约两个月"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾琏之妻，精明能干，善于谋略，表面贤良实则心机深沉"
+    },
+    {
+      "name": "尤二姐",
+      "description": "被贾琏私娶的二房，美貌温和，性格软弱"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟，打扮不凡，举止品貌不俗"
+    },
+    {
+      "name": "丰儿",
+      "description": "凤姐带的丫鬟之一"
+    },
+    {
+      "name": "周瑞媳妇",
+      "description": "跟随凤姐的仆妇"
+    },
+    {
+      "name": "旺儿媳妇",
+      "description": "跟随凤姐的仆妇"
+    },
+    {
+      "name": "兴儿",
+      "description": "引路的仆人"
+    },
+    {
+      "name": "鲍二家的",
+      "description": "为尤二姐开门的仆妇"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府的老太太"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府的太太"
+    },
+    {
+      "name": "李纨",
+      "description": "大观园中的寡妇，收养尤二姐"
+    },
+    {
+      "name": "善姐",
+      "description": "凤姐派给尤二姐使唤的丫头，后来怠慢尤二姐"
+    },
+    {
+      "name": "张华",
+      "description": "尤二姐原来的未婚夫，十九岁，嫖赌成性"
+    },
+    {
+      "name": "尤婆",
+      "description": "尤二姐的母亲"
+    },
+    {
+      "name": "旺儿",
+      "description": "贾府家人，受凤姐指使"
+    },
+    {
+      "name": "王信",
+      "description": "负责打点官府的人"
+    },
+    {
+      "name": "王子腾",
+      "description": "与都察院相好的官员"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子，参与了贾琏私娶之事"
+    },
+    {
+      "name": "贾珍",
+      "description": "贾蓉之父，知晓此事"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻，尤二姐的姐姐"
+    },
+    {
+      "name": "庆儿",
+      "description": "凤姐差遣打听消息的人"
+    },
+    {
+      "name": "平安节度",
+      "description": "在外巡边的官员"
+    }
+  ],
+  "locations": [
+    {
+      "name": "下处",
+      "type": "临时住所",
+      "parent": null
+    },
+    {
+      "name": "东厢房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "姑子庙",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "尤二姐住所",
+      "type": "住宅",
+      "parent": null
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "李纨处",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "都察院",
+      "type": "官府",
+      "parent": null
+    },
+    {
+      "name": "赌钱厂",
+      "type": "场所",
+      "parent": null
+    },
+    {
+      "name": "西府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "东府",
+      "type": "府邸",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "尤二姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "尤二姐",
+      "person_b": "张华",
+      "relation_type": "原定夫妻"
+    },
+    {
+      "person_a": "张华",
+      "person_b": "尤婆",
+      "relation_type": "原定婆媳"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "尤氏",
+      "person_b": "尤二姐",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "善姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "旺儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王子腾",
+      "person_b": "都察院",
+      "relation_type": "相好关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "东厢房",
+      "relation_type": "contains",
+      "value": "三间"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园林"
+    },
+    {
+      "source": "大观园",
+      "target": "李纨处",
+      "relation_type": "contains",
+      "value": "住所"
+    },
+    {
+      "source": "大观园",
+      "target": "后门",
+      "relation_type": "contains",
+      "value": "入口"
+    },
+    {
+      "source": "贾府",
+      "target": "后门",
+      "relation_type": "contains",
+      "value": "入口"
+    },
+    {
+      "source": "贾府",
+      "target": "大门",
+      "relation_type": "contains",
+      "value": "正门"
+    }
+  ],
+  "_chapter": 69,
+  "_input_tokens": 9207,
+  "_output_tokens": 1617
+}

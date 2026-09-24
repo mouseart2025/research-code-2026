@@ -1,0 +1,290 @@
+{
+  "characters": [
+    {
+      "name": "唐三藏",
+      "description": "取经的和尚，师父，一念虔诚，容易被妖精假象迷惑"
+    },
+    {
+      "name": "孙悟空",
+      "description": "行者，神通广大，手持金箍棒，能识破妖精假象但师父不听劝告"
+    },
+    {
+      "name": "猪八戒",
+      "description": "呆子，使钉钯，容易被假象迷惑，跟随师父拜假佛"
+    },
+    {
+      "name": "沙和尚",
+      "description": "沙僧，执宝杖，性格谨慎，建议先走路再判断"
+    },
+    {
+      "name": "黄眉老佛",
+      "description": "妖王，又称黄眉大王、黄眉爷爷，假装佛祖，拥有搭包等宝贝，设小雷音寺诱骗唐僧师徒"
+    },
+    {
+      "name": "玉帝",
+      "description": "天庭统治者，派遣二十八宿救援孙悟空"
+    },
+    {
+      "name": "亢金龙",
+      "description": "二十八宿之一，用角尖帮助孙悟空脱困"
+    },
+    {
+      "name": "金头揭谛",
+      "description": "五方揭谛之一，护法神"
+    },
+    {
+      "name": "真武",
+      "description": "北方真武，号曰荡魔天尊，现在武当山"
+    }
+  ],
+  "locations": [
+    {
+      "name": "小雷音寺",
+      "type": "寺院",
+      "parent": "小西天"
+    },
+    {
+      "name": "小西天",
+      "type": "山头",
+      "parent": null
+    },
+    {
+      "name": "高山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "山崖",
+      "type": "地形",
+      "parent": "高山"
+    },
+    {
+      "name": "岭头",
+      "type": "地形",
+      "parent": "高山"
+    },
+    {
+      "name": "西平处",
+      "type": "地形",
+      "parent": "高山"
+    },
+    {
+      "name": "山门",
+      "type": "建筑",
+      "parent": "小雷音寺"
+    },
+    {
+      "name": "如来大殿",
+      "type": "建筑",
+      "parent": "小雷音寺"
+    },
+    {
+      "name": "宝台",
+      "type": "建筑",
+      "parent": "如来大殿"
+    },
+    {
+      "name": "灵台",
+      "type": "建筑",
+      "parent": "如来大殿"
+    },
+    {
+      "name": "莲台",
+      "type": "建筑",
+      "parent": "如来大殿"
+    },
+    {
+      "name": "南天门",
+      "type": "建筑",
+      "parent": "天庭"
+    },
+    {
+      "name": "灵霄宝殿",
+      "type": "建筑",
+      "parent": "天庭"
+    },
+    {
+      "name": "天庭",
+      "type": "仙界",
+      "parent": null
+    },
+    {
+      "name": "武当山",
+      "type": "山脉",
+      "parent": "南赡部洲"
+    },
+    {
+      "name": "南赡部洲",
+      "type": "大陆",
+      "parent": null
+    },
+    {
+      "name": "东山顶",
+      "type": "地形",
+      "parent": null
+    },
+    {
+      "name": "西山坡",
+      "type": "地形",
+      "parent": null
+    },
+    {
+      "name": "地窖子",
+      "type": "建筑",
+      "parent": "小雷音寺"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐三藏",
+      "person_b": "孙悟空",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "猪八戒",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "沙和尚",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "黄眉老佛",
+      "person_b": "唐三藏",
+      "relation_type": "敌对"
+    },
+    {
+      "person_a": "黄眉老佛",
+      "person_b": "孙悟空",
+      "relation_type": "敌对"
+    },
+    {
+      "person_a": "玉帝",
+      "person_b": "金头揭谛",
+      "relation_type": "上下级"
+    },
+    {
+      "person_a": "玉帝",
+      "person_b": "亢金龙",
+      "relation_type": "上下级"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "高山",
+      "target": "天空",
+      "relation_type": "direction",
+      "value": "接天"
+    },
+    {
+      "source": "山崖",
+      "target": "高山",
+      "relation_type": "contains",
+      "value": "山脚部分"
+    },
+    {
+      "source": "岭头",
+      "target": "高山",
+      "relation_type": "contains",
+      "value": "山顶部分"
+    },
+    {
+      "source": "西平处",
+      "target": "岭头",
+      "relation_type": "direction",
+      "value": "下西"
+    },
+    {
+      "source": "小雷音寺",
+      "target": "西平处",
+      "relation_type": "contains",
+      "value": "位于"
+    },
+    {
+      "source": "小西天",
+      "target": "小雷音寺",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "山门",
+      "target": "小雷音寺",
+      "relation_type": "contains",
+      "value": "入口"
+    },
+    {
+      "source": "如来大殿",
+      "target": "山门",
+      "relation_type": "direction",
+      "value": "内侧"
+    },
+    {
+      "source": "宝台",
+      "target": "如来大殿",
+      "relation_type": "contains",
+      "value": "殿门外"
+    },
+    {
+      "source": "灵台",
+      "target": "如来大殿",
+      "relation_type": "contains",
+      "value": "殿内"
+    },
+    {
+      "source": "南天门",
+      "target": "天庭",
+      "relation_type": "contains",
+      "value": "入口"
+    },
+    {
+      "source": "灵霄宝殿",
+      "target": "天庭",
+      "relation_type": "contains",
+      "value": "中心建筑"
+    },
+    {
+      "source": "武当山",
+      "target": "南赡部洲",
+      "relation_type": "contains",
+      "value": "位于"
+    },
+    {
+      "source": "地窖子",
+      "target": "小雷音寺",
+      "relation_type": "contains",
+      "value": "地下"
+    },
+    {
+      "source": "西山坡",
+      "target": "小雷音寺",
+      "relation_type": "adjacent",
+      "value": "山坡下"
+    },
+    {
+      "source": "东山顶",
+      "target": "小雷音寺",
+      "relation_type": "direction",
+      "value": "东侧"
+    }
+  ],
+  "_chapter": 65,
+  "_input_tokens": 8025,
+  "_output_tokens": 1893
+}

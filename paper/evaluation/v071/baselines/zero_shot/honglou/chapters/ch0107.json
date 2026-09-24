@@ -1,0 +1,408 @@
+{
+  "characters": [
+    {
+      "name": "贾母",
+      "description": "八十多岁的老太太，贾家的最高长辈，关爱家人，为家族祸事忧心忡忡"
+    },
+    {
+      "name": "贾政",
+      "description": "贾家二老爷，工部员外郎，为人正直但不善理家，对家族败落深感忧虑"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻，贾母的儿媳妇"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的贴身丫鬟"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾家大老爷，贾政的哥哥，现被关押在锦衣府"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾赦之子，曾管理家务，现已革去职衔但免罪释放"
+    },
+    {
+      "name": "王熙凤",
+      "description": "贾琏之妻，精明能干但现病重垂危，曾参与放账等事务"
+    },
+    {
+      "name": "平儿",
+      "description": "王熙凤的陪房丫鬟，忠心耿耿照顾凤姐"
+    },
+    {
+      "name": "秋桐",
+      "description": "贾琏的妾，对凤姐有怨言"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁国府当家，贾政的侄子，现被关押在锦衣府"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子，现被关押在锦衣府"
+    },
+    {
+      "name": "北静王",
+      "description": "王爷，帮助贾家向皇帝求情"
+    },
+    {
+      "name": "西平郡王",
+      "description": "王爷，与北静王一同为贾家求情"
+    },
+    {
+      "name": "长史",
+      "description": "北静王府的官员，传达好消息给贾政"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾政之子，性格疯傻，无志气，常陪伴贾母"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝玉之妻，薛家女儿，为哥哥薛蟠的事忧心"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻，宁国府当家奶奶，现寄居荣国府"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻，贾家大太太"
+    },
+    {
+      "name": "孙绍祖",
+      "description": "贾家女儿的丈夫，人品不好，趁机要债"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛家人，来报告贾赦贾珍的消息"
+    },
+    {
+      "name": "史湘云",
+      "description": "史侯家的姑娘，即将出嫁，贾母的娘家人"
+    },
+    {
+      "name": "巧姐",
+      "description": "贾琏和王熙凤的女儿"
+    },
+    {
+      "name": "惜春",
+      "description": "贾家四小姐"
+    },
+    {
+      "name": "赖大",
+      "description": "贾家的管家"
+    },
+    {
+      "name": "吴新登",
+      "description": "贾家管事"
+    },
+    {
+      "name": "戴良",
+      "description": "贾家管事"
+    },
+    {
+      "name": "周瑞",
+      "description": "管账务的家人"
+    },
+    {
+      "name": "旺儿",
+      "description": "管账务的家人"
+    },
+    {
+      "name": "鲍二",
+      "description": "贾家家奴，曾在宁府和荣府之间调动，涉及告发主家事件"
+    },
+    {
+      "name": "佩凤",
+      "description": "尤氏的丫鬟"
+    },
+    {
+      "name": "偕鸾",
+      "description": "尤氏的丫鬟"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "珍珠",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "彩云",
+      "description": "丫鬟"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的丫鬟"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "宁国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "锦衣府",
+      "type": "官署",
+      "parent": null
+    },
+    {
+      "name": "北静王府",
+      "type": "王府",
+      "parent": null
+    },
+    {
+      "name": "西平王府",
+      "type": "王府",
+      "parent": null
+    },
+    {
+      "name": "内廷",
+      "type": "宫廷",
+      "parent": null
+    },
+    {
+      "name": "工部",
+      "type": "官署",
+      "parent": null
+    },
+    {
+      "name": "贾母房间",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "贾政书房",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "凤姐房间",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "耳房",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "佛堂",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "院中",
+      "type": "庭院",
+      "parent": "荣国府"
+    },
+    {
+      "name": "大厨房",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "账房",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "惜春房间",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "史侯家",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "东省",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "东庄",
+      "type": "庄园",
+      "parent": "东省"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾政",
+      "person_b": "贾母",
+      "relation_type": "儿子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾赦",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "贾赦",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "王熙凤",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "秋桐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王熙凤",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王熙凤",
+      "person_b": "巧姐",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾政",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "贾珍",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "邢夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "史湘云",
+      "person_b": "贾母",
+      "relation_type": "外祖母孙女"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "莺儿",
+      "person_b": "宝钗",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "荣国府",
+      "target": "贾母房间",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "荣国府",
+      "target": "贾政书房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "荣国府",
+      "target": "凤姐房间",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "凤姐房间",
+      "target": "耳房",
+      "relation_type": "adjacent",
+      "value": "相邻"
+    },
+    {
+      "source": "荣国府",
+      "target": "佛堂",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "荣国府",
+      "target": "院中",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "荣国府",
+      "target": "大厨房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "荣国府",
+      "target": "账房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "荣国府",
+      "target": "惜春房间",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "尤氏房间",
+      "target": "惜春房间",
+      "relation_type": "adjacent",
+      "value": "间壁"
+    },
+    {
+      "source": "东省",
+      "target": "东庄",
+      "relation_type": "contains",
+      "value": "包含"
+    }
+  ],
+  "_chapter": 107,
+  "_input_tokens": 7162,
+  "_output_tokens": 2736
+}

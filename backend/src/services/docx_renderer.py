@@ -10,8 +10,8 @@ import io
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.shared import Inches, Pt, RGBColor
 from docx.oxml.ns import qn
+from docx.shared import Inches, Pt, RGBColor
 
 from src.services.series_bible_service import SeriesBibleData
 
@@ -261,7 +261,7 @@ def _render_locations(doc: Document, locations: list[dict]) -> None:
         visitors = loc.get("visitors", [])
         if visitors:
             visitor_names = [
-                f"{v['name']}{'(常驻)' if v.get('is_resident') else ''}"
+                f"{v['name']}{'(多次出现)' if v.get('is_resident') else ''}"
                 for v in visitors[:8]
             ]
             _add_field(doc, "到访者", ", ".join(visitor_names))

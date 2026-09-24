@@ -18,17 +18,17 @@ Key features:
 from __future__ import annotations
 
 import hashlib
-import json
 import logging
 import math
 import re
-from pathlib import Path
+from typing import ClassVar
 
 import numpy as np
 from scipy.optimize import differential_evolution
-from scipy.spatial import Voronoi, Delaunay
+from scipy.spatial import Delaunay, Voronoi
 
 from src.infra.config import DATA_DIR
+from src.models.chapter_fact import classify_spatial_relation
 
 logger = logging.getLogger(__name__)
 
@@ -290,7 +290,6 @@ def _layout_regions(
 
     # Build Voronoi with mirror points
     pts = np.array(seeds, dtype=np.float64)
-    n_orig = len(pts)
     mirrored = np.vstack([
         pts,
         np.column_stack([-pts[:, 0], pts[:, 1]]),
@@ -537,7 +536,6 @@ def generate_voronoi_boundaries(
     points = list(centers)
     cw = float(canvas_width)
     ch = float(canvas_height)
-    n_orig = len(points)
 
     # Add 4 mirror points per seed, reflected across canvas boundaries
     for cx, cy in centers:
@@ -802,12 +800,9 @@ def compute_layered_layout(
     if not layers:
         return {}
 
-    # Build location lookup
-    loc_by_name: dict[str, dict] = {loc["name"]: loc for loc in all_locations}
 
     # Partition locations by layer
     layer_locations: dict[str, list[dict]] = {layer["layer_id"]: [] for layer in layers}
-    unassigned: list[dict] = []
 
     for loc in all_locations:
         name = loc["name"]
@@ -943,7 +938,7 @@ def _solve_overworld_by_region(
         canonical_groups.setdefault(canon, []).append(r)
 
     deduped: list[dict] = []
-    for canon, group in canonical_groups.items():
+    for _canon, group in canonical_groups.items():
         # Pick the variant with the most locations
         best = max(group, key=lambda g: region_loc_count.get(g.get("name", ""), 0))
         # Merge cardinal_direction from any variant
@@ -1302,7 +1297,7 @@ def _detect_and_remove_conflicts(
             non_direction.append(c)
 
     kept_directions = []
-    for key, group in direction_map.items():
+    for _key, group in direction_map.items():
         if len(group) == 1:
             kept_directions.append(group[0])
             continue
@@ -1350,9 +1345,7 @@ def _are_opposing(c1: dict, c2: dict) -> bool:
         if c1["source"] == c2["target"] and c1["target"] == c2["source"]:
             return True
     # Same direction but reversed pair: A north_of B AND B north_of A
-    if v1 == v2 and c1["source"] == c2["target"] and c1["target"] == c2["source"]:
-        return True
-    return False
+    return bool(v1 == v2 and c1["source"] == c2["target"] and c1["target"] == c2["source"])
 
 
 # ── Constraint Solver ──────────────────────────────
@@ -1413,9 +1406,7 @@ def _detect_narrative_axis(
             return True
         if any(kw in loc_type for kw in _MACRO_TYPE_KW):
             return True
-        if any(kw in name for kw in _MACRO_TYPE_KW):
-            return True
-        return False
+        return bool(any(kw in name for kw in _MACRO_TYPE_KW))
 
     east_chapters: list[int] = []
     west_chapters: list[int] = []
@@ -1453,7 +1444,7 @@ def _detect_narrative_axis(
     earliest_names = {name for _, name in earliest_locs}
 
     for c in constraints:
-        if c["relation_type"] != "contains":
+        if classify_spatial_relation(c["relation_type"]) != "hierarchy":
             continue
         parent_name = c["source"]
         child_name = c["target"]
@@ -2032,7 +2023,7 @@ class ConstraintSolver:
                 e += self._e_direction(coords, si, ti, value) * weight
             elif rtype == "distance":
                 e += self._e_distance(coords, si, ti, value, c.get("distance_class")) * weight
-            elif rtype == "contains":
+            elif classify_spatial_relation(rtype) == "hierarchy":
                 e += self._e_contains(coords, si, ti) * weight
             elif rtype == "adjacent":
                 e += self._e_adjacent(coords, si, ti) * weight
@@ -2228,7 +2219,7 @@ class ConstraintSolver:
         return penalty
 
     # distance_class → target canvas distance mapping
-    _DC_TARGET: dict[str, float] = {
+    _DC_TARGET: ClassVar[dict[str, float]] = {
         "near": 60,      # DEFAULT_NEAR_DIST
         "medium": 150,
         "far": 300,       # DEFAULT_FAR_DIST
@@ -2326,9 +2317,7 @@ class ConstraintSolver:
         dy = coords[si, 1] - coords[ti, 1]
         if vec[0] != 0 and vec[0] * dx < -DIRECTION_MARGIN:
             return False
-        if vec[1] != 0 and vec[1] * dy < -DIRECTION_MARGIN:
-            return False
-        return True
+        return not (vec[1] != 0 and vec[1] * dy < -DIRECTION_MARGIN)
 
     def _is_satisfied_distance(
         self, coords: np.ndarray, si: int, ti: int, value: str,
@@ -2404,7 +2393,7 @@ class ConstraintSolver:
                 satisfied = self._is_satisfied_direction(coords_2d, si, ti, c["value"])
             elif rtype == "distance":
                 satisfied = self._is_satisfied_distance(coords_2d, si, ti, c["value"], c.get("distance_class"))
-            elif rtype == "contains":
+            elif classify_spatial_relation(rtype) == "hierarchy":
                 satisfied = self._is_satisfied_contains(coords_2d, si, ti)
             elif rtype == "adjacent":
                 satisfied = self._is_satisfied_adjacent(coords_2d, si, ti)
@@ -2464,7 +2453,7 @@ class ConstraintSolver:
         return float(np.sum(violations ** 2))
 
     # Cardinal direction → canvas position (normalized 0-1 coords)
-    _CARDINAL_POS: dict[str, tuple[float, float]] = {
+    _CARDINAL_POS: ClassVar[dict[str, tuple[float, float]]] = {
         "east":  (0.80, 0.50),
         "west":  (0.20, 0.50),
         "north": (0.50, 0.20),
@@ -2641,7 +2630,7 @@ class ConstraintSolver:
                     continue
                 direction = diff / dist
 
-                if rtype == "contains":
+                if classify_spatial_relation(rtype) == "hierarchy":
                     # Pull child toward parent if too far
                     radius = self._get_parent_radius(si)
                     if dist > radius:
@@ -2907,8 +2896,8 @@ def generate_terrain(
     Final image is Gaussian-blurred for smooth, painterly transitions.
     """
     try:
-        from PIL import Image
         from opensimplex import OpenSimplex
+        from PIL import Image
     except ImportError:
         logger.warning("Pillow or opensimplex not installed, skipping terrain generation")
         return None
@@ -2974,7 +2963,7 @@ def generate_terrain(
     paper_noise = OpenSimplex(seed=seed_base + 31337)
 
     # ── Sparse-sample + upsample helper ──
-    from scipy.ndimage import zoom, gaussian_filter
+    from scipy.ndimage import gaussian_filter, zoom
 
     def _sparse_noise(gen, freq: float, step: int = 4) -> np.ndarray:
         """Sample noise at sparse grid, then bilinear upsample."""
@@ -3252,7 +3241,7 @@ def _trace_river(
     """
     path = [(sx, sy)]
     x, y = sx, sy
-    for i in range(max_steps):
+    for _i in range(max_steps):
         cur_e = elevation_fn(x, y)
         best_x, best_y, best_e = x, y, cur_e
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1),
@@ -3374,8 +3363,8 @@ def generate_rivers(
         _fh, _fw = _fmask.shape
         land_sources = []
         for sx, sy in sources:
-            gi = int(round(sx / _fcs))
-            gj = int(round(sy / _fcs))
+            gi = round(sx / _fcs)
+            gj = round(sy / _fcs)
             if 0 <= gj < _fh and 0 <= gi < _fw and _fmask[gj, gi]:
                 land_sources.append((sx, sy))
         sources = land_sources
@@ -3388,8 +3377,8 @@ def generate_rivers(
         _mh, _mw = _mask.shape
 
         def is_land_fn(x: float, y: float) -> bool:
-            gi = int(round(x / _cs))
-            gj = int(round(y / _cs))
+            gi = round(x / _cs)
+            gj = round(y / _cs)
             if 0 <= gj < _mh and 0 <= gi < _mw:
                 return bool(_mask[gj, gi])
             return False
@@ -3514,8 +3503,8 @@ def generate_roads(
             t = i / n_samples
             sx = ax + t * (bx - ax)
             sy = ay + t * (by - ay)
-            gx = int(round(sx / _cell_sz))
-            gy = int(round(sy / _cell_sz))
+            gx = round(sx / _cell_sz)
+            gy = round(sy / _cell_sz)
             if 0 <= gy < grid_h and 0 <= gx < grid_w:
                 if not _land_mask[gy, gx]:
                     return True
@@ -3531,7 +3520,7 @@ def generate_roads(
             land_edges[key] = dist
 
     roads = []
-    for (a, b), dist in sorted(land_edges.items(), key=lambda x: x[1]):
+    for (a, b), _dist in sorted(land_edges.items(), key=lambda x: x[1]):
         if _union(a, b):
             roads.append({
                 "from": names[a],
@@ -3560,6 +3549,56 @@ _OCEAN_TYPE_EXCLUDE = ("海榴", "海棠", "海市")  # false positives (place n
 _ISLAND_TYPE_KEYWORDS = ("岛",)
 
 
+def _point_in_polygon_scalar(px: float, py: float, poly: list[tuple[float, float]]) -> bool:
+    """Ray casting point-in-polygon test (scalar reference implementation).
+
+    Kept for equivalence tests against the vectorized ``_points_in_polygon``.
+    """
+    n_ = len(poly)
+    inside = False
+    j = n_ - 1
+    for i in range(n_):
+        xi, yi = poly[i]
+        xj, yj = poly[j]
+        if ((yi > py) != (yj > py)) and (px < (xj - xi) * (py - yi) / (yj - yi) + xi):
+            inside = not inside
+        j = i
+    return inside
+
+
+def _points_in_polygon(
+    points: np.ndarray | list[tuple[float, float]],
+    poly: np.ndarray | list[tuple[float, float]],
+) -> np.ndarray:
+    """Vectorized ray casting: batch-test many points against one polygon ring.
+
+    Returns a bool array; element-wise identical to ``_point_in_polygon_scalar``
+    (same expression, same float operation order per edge).
+    """
+    pts = np.asarray(points, dtype=np.float64).reshape(-1, 2)
+    n_pts = len(pts)
+    if n_pts == 0:
+        return np.zeros(0, dtype=bool)
+    poly_arr = np.asarray(poly, dtype=np.float64)
+    if len(poly_arr) < 3:
+        return np.zeros(n_pts, dtype=bool)
+    xi = poly_arr[:, 0]
+    yi = poly_arr[:, 1]
+    xj = np.roll(xi, 1)  # edge (j, i) with j = i - 1, matching the scalar loop
+    yj = np.roll(yi, 1)
+    inside = np.zeros(n_pts, dtype=bool)
+    chunk = 2048  # bound the (points × edges) broadcast temporaries
+    with np.errstate(divide="ignore", invalid="ignore"):
+        for start in range(0, n_pts, chunk):
+            px = pts[start:start + chunk, 0:1]
+            py = pts[start:start + chunk, 1:2]
+            crosses = ((yi > py) != (yj > py)) & (
+                px < (xj - xi) * (py - yi) / (yj - yi) + xi
+            )
+            inside[start:start + chunk] = np.count_nonzero(crosses, axis=1) % 2 == 1
+    return inside
+
+
 def generate_landmasses(
     locations: list[dict],
     layout_data: list[dict],
@@ -3575,7 +3614,7 @@ def generate_landmasses(
     contour coordinate arrays).
     """
     from opensimplex import OpenSimplex
-    from scipy.ndimage import binary_opening, binary_closing
+    from scipy.ndimage import binary_closing, binary_opening
     from scipy.spatial import KDTree
 
     # Build coord + tier lookup from layout_data
@@ -3712,10 +3751,10 @@ def generate_landmasses(
     # After morphological cleanup, some edge locations may fall outside the mask.
     # Grow small circles around uncovered land points to guarantee they're on land.
     _uncovered = 0
-    _patch_r = max(3, int(round(threshold * 0.15)))
+    _patch_r = max(3, round(threshold * 0.15))
     for px, py in all_points:
-        gxi = int(round(px / cell_size))
-        gyi = int(round(py / cell_size))
+        gxi = round(px / cell_size)
+        gyi = round(py / cell_size)
         if 0 <= gyi < grid_h and 0 <= gxi < grid_w and not land_mask[gyi, gxi]:
             _uncovered += 1
             y_lo = max(0, gyi - _patch_r)
@@ -3735,10 +3774,10 @@ def generate_landmasses(
     # Carve small guaranteed ocean circles at each ocean position.
     # These create visible "inner sea" holes even when oceans are misplaced.
     if ocean_pts:
-        ocean_r = max(int(round(threshold * 0.2)), 3)
+        ocean_r = max(round(threshold * 0.2), 3)
         for ox, oy in ocean_pts:
-            gxi = int(round(ox / cell_size))
-            gyi = int(round(oy / cell_size))
+            gxi = round(ox / cell_size)
+            gyi = round(oy / cell_size)
             y_lo = max(0, gyi - ocean_r)
             y_hi = min(grid_h, gyi + ocean_r + 1)
             x_lo = max(0, gxi - ocean_r)
@@ -3865,19 +3904,6 @@ def generate_landmasses(
             area -= poly[j][0] * poly[i][1]
         return abs(area) / 2.0
 
-    def _point_in_polygon(px: float, py: float, poly: list[tuple[float, float]]) -> bool:
-        """Ray casting point-in-polygon test."""
-        n_ = len(poly)
-        inside = False
-        j = n_ - 1
-        for i in range(n_):
-            xi, yi = poly[i]
-            xj, yj = poly[j]
-            if ((yi > py) != (yj > py)) and (px < (xj - xi) * (py - yi) / (yj - yi) + xi):
-                inside = not inside
-            j = i
-        return inside
-
     # Convert grid coords to canvas coords
     def _grid_to_canvas(contour: list[tuple[int, int]]) -> list[tuple[float, float]]:
         return [(float(gx[min(c[0], len(gx) - 1)]), float(gy[min(c[1], len(gy) - 1)]))
@@ -3891,17 +3917,13 @@ def generate_landmasses(
     outer_areas = [_unsigned_area(c) for c in canvas_outers]
     canvas_holes = [_grid_to_canvas(c) for c in hole_contours_raw]
 
-    # Count locations inside each outer ring
+    # Count locations inside each outer ring (vectorized ray casting)
     def _count_locations_inside(poly: list[tuple[float, float]]) -> int:
-        count = 0
-        for pt in all_points:
-            if _point_in_polygon(pt[0], pt[1], poly):
-                count += 1
-        return count
+        return int(np.count_nonzero(_points_in_polygon(points_arr, poly)))
 
     # Filter small outer rings (unless they contain locations)
     filtered_outers: list[tuple[list[tuple[float, float]], float, int]] = []
-    for contour, area in zip(canvas_outers, outer_areas):
+    for contour, area in zip(canvas_outers, outer_areas, strict=False):
         loc_count = _count_locations_inside(contour)
         if area >= min_outer_area or loc_count > 0:
             filtered_outers.append((contour, area, loc_count))
@@ -3926,7 +3948,7 @@ def generate_landmasses(
         hx = sum(p[0] for p in hole_contour) / len(hole_contour)
         hy = sum(p[1] for p in hole_contour) / len(hole_contour)
         for oi, (outer_c, _, _) in enumerate(filtered_outers):
-            if _point_in_polygon(hx, hy, outer_c):
+            if _point_in_polygon_scalar(hx, hy, outer_c):
                 hole_map[oi].append(hole_contour)
                 break
 
@@ -4040,18 +4062,20 @@ def generate_landmasses(
         coast = lm["coastline"]
         if len(coast) < 3:
             continue
-        # Find non-ocean points outside this landmass
+        # Find non-ocean points outside this landmass (vectorized ray casting)
+        outside = points_arr[~_points_in_polygon(points_arr, coast)]
+        if len(outside) == 0:
+            continue
+        # Keep only points near this coastline (within expand_margin * 3).
+        # Squared distances avoid sqrt; chunked to bound temporaries.
+        coast_arr = np.asarray(coast, dtype=np.float64)
+        near_limit_sq = (_expand_margin * 3) ** 2
         uncovered_pts: list[tuple[float, float]] = []
-        for pt in all_points:
-            if _point_in_polygon(pt[0], pt[1], coast):
-                continue
-            # Check if near this coastline (within expand_margin * 3)
-            min_dist = min(
-                math.sqrt((pt[0] - c[0]) ** 2 + (pt[1] - c[1]) ** 2)
-                for c in coast
-            )
-            if min_dist < _expand_margin * 3:
-                uncovered_pts.append(pt)
+        for start in range(0, len(outside), 256):
+            blk = outside[start:start + 256]
+            min_dist_sq = ((blk[:, None, :] - coast_arr[None, :, :]) ** 2).sum(axis=2).min(axis=1)
+            for k in np.nonzero(min_dist_sq < near_limit_sq)[0]:
+                uncovered_pts.append((float(blk[k][0]), float(blk[k][1])))
 
         if not uncovered_pts:
             continue

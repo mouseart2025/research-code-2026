@@ -1,0 +1,346 @@
+{
+  "characters": [
+    {
+      "name": "宝钗",
+      "description": "薛家女儿，品行端正，深受贾母喜爱"
+    },
+    {
+      "name": "林黛玉",
+      "description": "寄居贾府的女子，多愁善感，体弱多病"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，因病卧床，性格温和"
+    },
+    {
+      "name": "李宫裁",
+      "description": "贾家媳妇"
+    },
+    {
+      "name": "迎春",
+      "description": "贾家二小姐"
+    },
+    {
+      "name": "探春",
+      "description": "贾家三小姐"
+    },
+    {
+      "name": "惜春",
+      "description": "贾家四小姐"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "贾家管家，口才伶俐，深得贾母喜爱"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太，地位最尊贵"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾家大太太"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾家二太太，宝玉的母亲"
+    },
+    {
+      "name": "周姨娘",
+      "description": "贾家姨娘"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝钗的母亲"
+    },
+    {
+      "name": "紫鹃",
+      "description": "林黛玉的贴身丫鬟"
+    },
+    {
+      "name": "雪雁",
+      "description": "林黛玉的丫鬟"
+    },
+    {
+      "name": "薛蟠",
+      "description": "宝钗的哥哥，性格鲁莽"
+    },
+    {
+      "name": "香菱",
+      "description": "薛蟠的妾"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的贴身丫鬟，姓黄，十六岁"
+    },
+    {
+      "name": "玉钏儿",
+      "description": "王夫人身边的丫鬟，已故金钏儿的妹妹"
+    },
+    {
+      "name": "史湘云",
+      "description": "贾家亲戚，史家女儿"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐儿的陪房丫头"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "喜儿",
+      "description": "丫鬟"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾家姨娘，推病未出席"
+    },
+    {
+      "name": "傅试",
+      "description": "贾政的门生，通判，有妹妹傅秋芳"
+    },
+    {
+      "name": "傅秋芳",
+      "description": "傅试的妹妹，二十三岁未嫁，才貌俱全"
+    },
+    {
+      "name": "金钏儿",
+      "description": "已故，玉钏儿的姐姐"
+    }
+  ],
+  "locations": [
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "薛家",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "抱厦",
+      "type": "建筑",
+      "parent": "怡红院"
+    },
+    {
+      "name": "回廊",
+      "type": "建筑",
+      "parent": "怡红院"
+    },
+    {
+      "name": "月洞窗",
+      "type": "窗户",
+      "parent": "潇湘馆"
+    },
+    {
+      "name": "厨房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "茶房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "上房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "山石",
+      "type": "景观",
+      "parent": "大观园"
+    },
+    {
+      "name": "桥",
+      "type": "建筑",
+      "parent": "大观园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛蟠",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "莺儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "香菱",
+      "relation_type": "夫妾"
+    },
+    {
+      "person_a": "玉钏儿",
+      "person_b": "金钏儿",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "玉钏儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐儿",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "傅试",
+      "person_b": "傅秋芳",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "王夫人",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "邢夫人",
+      "relation_type": "婆媳"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "园内院落"
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "园内院落"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "府内园林"
+    },
+    {
+      "source": "怡红院",
+      "target": "抱厦",
+      "relation_type": "contains",
+      "value": "院内建筑"
+    },
+    {
+      "source": "怡红院",
+      "target": "回廊",
+      "relation_type": "contains",
+      "value": "院内建筑"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "月洞窗",
+      "relation_type": "contains",
+      "value": "室内设施"
+    },
+    {
+      "source": "贾府",
+      "target": "厨房",
+      "relation_type": "contains",
+      "value": "府内房间"
+    },
+    {
+      "source": "贾府",
+      "target": "茶房",
+      "relation_type": "contains",
+      "value": "府内房间"
+    },
+    {
+      "source": "贾府",
+      "target": "上房",
+      "relation_type": "contains",
+      "value": "府内房间"
+    },
+    {
+      "source": "大观园",
+      "target": "山石",
+      "relation_type": "contains",
+      "value": "园内景观"
+    },
+    {
+      "source": "大观园",
+      "target": "桥",
+      "relation_type": "contains",
+      "value": "园内建筑"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "怡红院",
+      "relation_type": "direction",
+      "value": "可远望"
+    },
+    {
+      "source": "大观园",
+      "target": "贾府",
+      "relation_type": "adjacent",
+      "value": "园外府内"
+    }
+  ],
+  "_chapter": 35,
+  "_input_tokens": 9950,
+  "_output_tokens": 2238
+}

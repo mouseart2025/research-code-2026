@@ -1,0 +1,194 @@
+{
+  "characters": [
+    {
+      "name": "沙僧",
+      "description": "唐僧的徒弟，被妖怪捆住，在审问中保护公主，后被松绑锁住"
+    },
+    {
+      "name": "公主",
+      "description": "宝象国三公主，被妖怪掳走，与妖怪成亲，曾暗中帮助唐僧"
+    },
+    {
+      "name": "老妖/老怪",
+      "description": "碗子山波月洞的妖怪，能变化成俊俏男子，自称公主的夫婿"
+    },
+    {
+      "name": "唐僧",
+      "description": "取经僧人，被妖怪用法术变成斑斓猛虎，被关在铁笼中"
+    },
+    {
+      "name": "国王",
+      "description": "宝象国国王，公主的父亲，被妖怪欺骗"
+    },
+    {
+      "name": "小龙/白马",
+      "description": "西海龙王之子，变化为白马驮唐僧，能化龙身作战"
+    },
+    {
+      "name": "猪八戒",
+      "description": "唐僧的徒弟，从草科里睡醒后回城，后被派去花果山请孙悟空"
+    },
+    {
+      "name": "孙行者/孙悟空",
+      "description": "被唐僧赶回花果山的大师兄，在花果山当猴王"
+    }
+  ],
+  "locations": [
+    {
+      "name": "碗子山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "波月洞",
+      "type": "洞府",
+      "parent": "碗子山"
+    },
+    {
+      "name": "宝象国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "朝房",
+      "type": "宫殿建筑",
+      "parent": "宝象国"
+    },
+    {
+      "name": "银安殿",
+      "type": "宫殿",
+      "parent": "宝象国"
+    },
+    {
+      "name": "金亭馆驿",
+      "type": "驿站",
+      "parent": "宝象国"
+    },
+    {
+      "name": "御水河",
+      "type": "河流",
+      "parent": "宝象国"
+    },
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞府",
+      "parent": "花果山"
+    },
+    {
+      "name": "波月庄",
+      "type": "庄园",
+      "parent": "碗子山"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "公主",
+      "person_b": "老妖",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "公主",
+      "person_b": "国王",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "小龙",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "老妖",
+      "person_b": "国王",
+      "relation_type": "驸马岳父"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "孙行者",
+      "relation_type": "师兄弟"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "波月洞",
+      "target": "碗子山",
+      "relation_type": "contains",
+      "value": "洞府位于山中"
+    },
+    {
+      "source": "碗子山",
+      "target": "宝象国",
+      "relation_type": "direction",
+      "value": "距离三百里"
+    },
+    {
+      "source": "银安殿",
+      "target": "宝象国",
+      "relation_type": "contains",
+      "value": "宫殿在国都内"
+    },
+    {
+      "source": "朝房",
+      "target": "宝象国",
+      "relation_type": "contains",
+      "value": "朝房在宫廷内"
+    },
+    {
+      "source": "金亭馆驿",
+      "target": "宝象国",
+      "relation_type": "contains",
+      "value": "驿站在国都内"
+    },
+    {
+      "source": "御水河",
+      "target": "宝象国",
+      "relation_type": "contains",
+      "value": "河流流经国都"
+    },
+    {
+      "source": "水帘洞",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "洞府在山中"
+    },
+    {
+      "source": "花果山",
+      "target": "宝象国",
+      "relation_type": "direction",
+      "value": "在东方，需过东洋大海"
+    },
+    {
+      "source": "波月庄",
+      "target": "碗子山",
+      "relation_type": "contains",
+      "value": "庄园在山中"
+    }
+  ],
+  "_chapter": 30,
+  "_input_tokens": 9496,
+  "_output_tokens": 1729
+}

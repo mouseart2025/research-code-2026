@@ -1,0 +1,223 @@
+{
+  "characters": [
+    {
+      "name": "祭赛国王",
+      "description": "祭赛国的国王，对唐僧师徒十分敬重"
+    },
+    {
+      "name": "孙大圣",
+      "description": "齐天大圣，唐僧的大徒弟，曾大闹天宫，使金箍棒"
+    },
+    {
+      "name": "八戒",
+      "description": "猪八戒，唐僧的二徒弟，原为天蓬元帅，使钉钯"
+    },
+    {
+      "name": "三藏",
+      "description": "唐僧，西天取经的僧人，孙悟空等人的师父"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧的三徒弟，原为卷帘大将"
+    },
+    {
+      "name": "万圣龙王",
+      "description": "乱石山碧波潭的龙王，被孙悟空打死"
+    },
+    {
+      "name": "九头驸马",
+      "description": "九头虫，万圣龙王的女婿，使月牙铲，最后被二郎神的细犬咬掉一头"
+    },
+    {
+      "name": "万圣宫主",
+      "description": "龙王之女，九头虫之妻，偷取了王母娘娘的九叶灵芝草"
+    },
+    {
+      "name": "二郎显圣",
+      "description": "二郎神，带领梅山六兄弟协助孙悟空降妖"
+    },
+    {
+      "name": "梅山六兄弟",
+      "description": "康、张、姚、李、郭、直六位神将，二郎神的兄弟"
+    },
+    {
+      "name": "黑鱼怪",
+      "description": "万圣龙王手下的小妖，被割掉耳朵"
+    },
+    {
+      "name": "鲇鱼精",
+      "description": "万圣龙王手下的小妖，被割掉下唇"
+    },
+    {
+      "name": "龙婆",
+      "description": "万圣龙王之妻，最后被锁在塔心柱上看塔"
+    }
+  ],
+  "locations": [
+    {
+      "name": "祭赛国",
+      "type": "国家",
+      "parent": ""
+    },
+    {
+      "name": "金光寺",
+      "type": "寺庙",
+      "parent": "祭赛国"
+    },
+    {
+      "name": "乱石山",
+      "type": "山脉",
+      "parent": ""
+    },
+    {
+      "name": "碧波潭",
+      "type": "水域",
+      "parent": "乱石山"
+    },
+    {
+      "name": "万圣龙宫",
+      "type": "宫殿",
+      "parent": "碧波潭"
+    },
+    {
+      "name": "宝塔",
+      "type": "建筑",
+      "parent": "金光寺"
+    },
+    {
+      "name": "花果山",
+      "type": "山脉",
+      "parent": ""
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞穴",
+      "parent": "花果山"
+    },
+    {
+      "name": "天宫",
+      "type": "仙界",
+      "parent": ""
+    },
+    {
+      "name": "灵霄殿",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "伏龙寺",
+      "type": "寺庙",
+      "parent": "祭赛国"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "孙大圣",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "万圣龙王",
+      "person_b": "万圣宫主",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "九头驸马",
+      "person_b": "万圣宫主",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "万圣龙王",
+      "person_b": "九头驸马",
+      "relation_type": "岳父"
+    },
+    {
+      "person_a": "万圣龙王",
+      "person_b": "龙婆",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "二郎显圣",
+      "person_b": "梅山六兄弟",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "二郎显圣",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "万圣龙王",
+      "person_b": "黑鱼怪",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "万圣龙王",
+      "person_b": "鲇鱼精",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "乱石山",
+      "target": "碧波潭",
+      "relation_type": "contains",
+      "value": "山下有潭"
+    },
+    {
+      "source": "碧波潭",
+      "target": "万圣龙宫",
+      "relation_type": "contains",
+      "value": "潭底有龙宫"
+    },
+    {
+      "source": "祭赛国",
+      "target": "金光寺",
+      "relation_type": "contains",
+      "value": "国内有寺"
+    },
+    {
+      "source": "金光寺",
+      "target": "宝塔",
+      "relation_type": "contains",
+      "value": "寺内有塔"
+    },
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "天宫",
+      "target": "灵霄殿",
+      "relation_type": "contains",
+      "value": "天宫内有殿"
+    },
+    {
+      "source": "祭赛国",
+      "target": "乱石山",
+      "relation_type": "adjacent",
+      "value": "国境附近"
+    },
+    {
+      "source": "金光寺",
+      "target": "伏龙寺",
+      "relation_type": "contains",
+      "value": "改名后的同一寺庙"
+    }
+  ],
+  "_chapter": 63,
+  "_input_tokens": 8439,
+  "_output_tokens": 1648
+}

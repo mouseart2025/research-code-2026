@@ -1,0 +1,237 @@
+{
+  "characters": [
+    {
+      "name": "孙行者",
+      "description": "孙大圣，执铁棒，保护唐僧西天取经的徒弟，面貌丑陋，性格刚猛"
+    },
+    {
+      "name": "三藏",
+      "description": "唐三藏，东土大唐差来西天取经的和尚，师父"
+    },
+    {
+      "name": "猪八戒",
+      "description": "挑行李的徒弟，嘴脸丑陋"
+    },
+    {
+      "name": "沙和尚",
+      "description": "拢马头的徒弟，又称沙僧"
+    },
+    {
+      "name": "僧官",
+      "description": "宝林寺的管家老师父，负责接待客人"
+    },
+    {
+      "name": "道人",
+      "description": "宝林寺扫地撞钟打勤劳的僧人"
+    },
+    {
+      "name": "众僧",
+      "description": "宝林寺的五百个有度牒的和尚"
+    }
+  ],
+  "locations": [
+    {
+      "name": "长安城",
+      "type": "城市",
+      "parent": "东土大唐"
+    },
+    {
+      "name": "高山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "宝林寺",
+      "type": "寺庙",
+      "parent": "高山"
+    },
+    {
+      "name": "山门",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "大雄宝殿",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "方丈",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "禅堂",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "万佛阁",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "如来殿",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "朝阳楼",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "大雄门",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "七层塔",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "文殊台",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "伽蓝舍",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "弥勒殿",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "大慈厅",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "看山楼",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "步虚阁",
+      "type": "建筑",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "三十里店",
+      "type": "店铺",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "孙行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙和尚",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "僧官",
+      "person_b": "道人",
+      "relation_type": "上下级"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "高山",
+      "target": "宝林寺",
+      "relation_type": "contains",
+      "value": "山中有寺"
+    },
+    {
+      "source": "宝林寺",
+      "target": "山门",
+      "relation_type": "contains",
+      "value": "寺院入口"
+    },
+    {
+      "source": "宝林寺",
+      "target": "大雄宝殿",
+      "relation_type": "contains",
+      "value": "主要殿堂"
+    },
+    {
+      "source": "宝林寺",
+      "target": "方丈",
+      "relation_type": "contains",
+      "value": "住持居所"
+    },
+    {
+      "source": "宝林寺",
+      "target": "禅堂",
+      "relation_type": "contains",
+      "value": "修行场所"
+    },
+    {
+      "source": "万佛阁",
+      "target": "如来殿",
+      "relation_type": "adjacent",
+      "value": "相对而立"
+    },
+    {
+      "source": "朝阳楼",
+      "target": "大雄门",
+      "relation_type": "adjacent",
+      "value": "相应而建"
+    },
+    {
+      "source": "文殊台",
+      "target": "伽蓝舍",
+      "relation_type": "adjacent",
+      "value": "相对而立"
+    },
+    {
+      "source": "弥勒殿",
+      "target": "大慈厅",
+      "relation_type": "adjacent",
+      "value": "靠近"
+    },
+    {
+      "source": "看山楼",
+      "target": "步虚阁",
+      "relation_type": "adjacent",
+      "value": "外有青光，上有紫云"
+    },
+    {
+      "source": "三十里店",
+      "target": "宝林寺",
+      "relation_type": "direction",
+      "value": "正西四五里"
+    }
+  ],
+  "_chapter": 36,
+  "_input_tokens": 8440,
+  "_output_tokens": 1536
+}

@@ -1,0 +1,224 @@
+{
+  "characters": [
+    {
+      "name": "黛玉",
+      "description": "病重中的女子，曾有自戕念头，后因误会解除而病情好转"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的贴身丫鬟，忠心照顾主子"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉的丫鬟，曾传话造成误会"
+    },
+    {
+      "name": "侍书",
+      "description": "探春的丫鬟，负责传递消息"
+    },
+    {
+      "name": "贾母",
+      "description": "府中老太太，对宝玉黛玉的婚姻有主见"
+    },
+    {
+      "name": "王夫人",
+      "description": "府中夫人"
+    },
+    {
+      "name": "李纨",
+      "description": "府中奶奶"
+    },
+    {
+      "name": "凤姐",
+      "description": "二奶奶，管理府中事务"
+    },
+    {
+      "name": "宝玉",
+      "description": "府中公子，与黛玉青梅竹马"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家女儿，被贾母认为是宝玉合适的配偶"
+    },
+    {
+      "name": "探春",
+      "description": "府中姑娘，侍书的主人"
+    },
+    {
+      "name": "邢岫烟",
+      "description": "邢姑娘，住在园中，家境贫寒"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家太太"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛蟠的弟弟，与邢岫烟有婚约"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛蝌的哥哥，在外惹事"
+    },
+    {
+      "name": "金桂",
+      "description": "薛蟠的妻子，性格泼辣"
+    },
+    {
+      "name": "宝蟾",
+      "description": "金桂的丫鬟"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "丰儿",
+      "description": "凤姐身边的丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "紫菱洲",
+      "type": "园中景点",
+      "parent": "大观园"
+    },
+    {
+      "name": "贾母房",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "黛玉居所",
+      "type": "居室",
+      "parent": "大观园"
+    },
+    {
+      "name": "邢岫烟房",
+      "type": "居室",
+      "parent": "大观园"
+    },
+    {
+      "name": "凤姐房",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "薛家",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "薛蝌房",
+      "type": "居室",
+      "parent": "薛家"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "紫鹃",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "雪雁",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "侍书",
+      "person_b": "探春",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "宝玉",
+      "relation_type": "青梅竹马"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛蝌",
+      "person_b": "邢岫烟",
+      "relation_type": "婚约"
+    },
+    {
+      "person_a": "薛蝌",
+      "person_b": "薛蟠",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "薛蝌",
+      "person_b": "薛姨妈",
+      "relation_type": "侄子"
+    },
+    {
+      "person_a": "金桂",
+      "person_b": "薛蟠",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝蟾",
+      "person_b": "金桂",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "丰儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园林位于府中"
+    },
+    {
+      "source": "紫菱洲",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "景点位于园中"
+    },
+    {
+      "source": "黛玉居所",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "居室在园中"
+    },
+    {
+      "source": "邢岫烟房",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "居室在园中"
+    },
+    {
+      "source": "薛蝌房",
+      "target": "薛家",
+      "relation_type": "contains",
+      "value": "房间在薛家宅院中"
+    }
+  ],
+  "_chapter": 91,
+  "_input_tokens": 7846,
+  "_output_tokens": 1511
+}

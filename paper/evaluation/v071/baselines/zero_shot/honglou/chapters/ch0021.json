@@ -1,0 +1,280 @@
+{
+  "characters": [
+    {
+      "name": "史湘云",
+      "description": "年轻女性，性格活泼，与林黛玉有争执，住在黛玉房中"
+    },
+    {
+      "name": "林黛玉",
+      "description": "年轻女性，性格敏感，与史湘云发生冲突，后来和解"
+    },
+    {
+      "name": "宝玉",
+      "description": "主要男性角色，调解纠纷，关心姊妹们，喜欢读书写字"
+    },
+    {
+      "name": "宝钗",
+      "description": "年轻女性，善于劝解，观察力敏锐"
+    },
+    {
+      "name": "王夫人",
+      "description": "长辈女性"
+    },
+    {
+      "name": "李纨",
+      "description": "长辈女性"
+    },
+    {
+      "name": "凤姐",
+      "description": "管家女性，有女儿大姐，性格泼辣精明"
+    },
+    {
+      "name": "迎春",
+      "description": "年轻女性"
+    },
+    {
+      "name": "探春",
+      "description": "年轻女性"
+    },
+    {
+      "name": "惜春",
+      "description": "年轻女性"
+    },
+    {
+      "name": "贾母",
+      "description": "家族长辈"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，善于劝导"
+    },
+    {
+      "name": "紫鹃",
+      "description": "林黛玉的丫鬟"
+    },
+    {
+      "name": "翠缕",
+      "description": "史湘云的丫鬟"
+    },
+    {
+      "name": "雪雁",
+      "description": "丫鬟"
+    },
+    {
+      "name": "麝月",
+      "description": "丫鬟，与袭人关系亲密"
+    },
+    {
+      "name": "蕙香",
+      "description": "小丫头，后被宝玉改名为四儿，聪明乖巧"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐的丈夫，好色之徒"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟，聪明机智"
+    },
+    {
+      "name": "多官",
+      "description": "厨子，绰号多浑虫，性格懦弱"
+    },
+    {
+      "name": "多姑娘儿",
+      "description": "多官的媳妇，美貌轻浮"
+    },
+    {
+      "name": "大姐",
+      "description": "凤姐的女儿，生病出痘疹"
+    }
+  ],
+  "locations": [
+    {
+      "name": "林黛玉房中",
+      "type": "卧室",
+      "parent": "贾府"
+    },
+    {
+      "name": "宝玉房中",
+      "type": "卧室",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾母这边",
+      "type": "住所",
+      "parent": "贾府"
+    },
+    {
+      "name": "前边",
+      "type": "区域",
+      "parent": "贾府"
+    },
+    {
+      "name": "上房",
+      "type": "正房",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人处",
+      "type": "住所",
+      "parent": "贾府"
+    },
+    {
+      "name": "外书房",
+      "type": "书房",
+      "parent": "贾府"
+    },
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "镜台",
+      "type": "家具",
+      "parent": "林黛玉房中"
+    },
+    {
+      "name": "炕",
+      "type": "家具",
+      "parent": "宝玉房中"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "史湘云",
+      "person_b": "林黛玉",
+      "relation_type": "姊妹/同住"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "关系亲密"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "史湘云",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "林黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "翠缕",
+      "person_b": "史湘云",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "麝月",
+      "relation_type": "同僚/亲密"
+    },
+    {
+      "person_a": "蕙香",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "多官",
+      "person_b": "多姑娘儿",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "多姑娘儿",
+      "relation_type": "私通"
+    },
+    {
+      "person_a": "大姐",
+      "person_b": "凤姐",
+      "relation_type": "母女"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "林黛玉房中",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "宝玉房中",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "贾母这边",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "上房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "外书房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "林黛玉房中",
+      "target": "镜台",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "宝玉房中",
+      "target": "炕",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "宝玉房中",
+      "target": "林黛玉房中",
+      "relation_type": "adjacent",
+      "value": "相邻"
+    },
+    {
+      "source": "外书房",
+      "target": "卧室",
+      "relation_type": "direction",
+      "value": "分离隔开"
+    }
+  ],
+  "_chapter": 21,
+  "_input_tokens": 7730,
+  "_output_tokens": 1819
+}

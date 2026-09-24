@@ -15,12 +15,7 @@ from pydantic import BaseModel
 
 from src.infra.config import (
     CONTEXT_WINDOW_SIZE,
-    LLM_API_KEY,
-    LLM_BASE_URL,
-    LLM_MAX_TOKENS,
-    LLM_PROVIDER,
     OLLAMA_BASE_URL,
-    OLLAMA_MODEL,
     get_model_name,
 )
 
@@ -363,16 +358,12 @@ async def get_model_recommendations():
         if model["min_ram_gb"] > ram_gb and ram_gb > 0:
             continue
         recommended = False
-        if ram_gb >= 32 and model["name"] == "qwen3:14b":
-            recommended = True
-        elif 16 <= ram_gb < 32 and model["name"] == "qwen3:8b":
-            recommended = True
-        elif ram_gb < 16 and model["name"] == "qwen3:4b":
+        if (ram_gb >= 32 and model["name"] == "qwen3:14b") or (16 <= ram_gb < 32 and model["name"] == "qwen3:8b") or (ram_gb < 16 and model["name"] == "qwen3:4b"):
             recommended = True
 
         installed = any(
-            n == model["name"] or n.startswith(model["name"].split(":")[0] + ":")
-            and n.endswith(model["name"].split(":")[1])
+            n == model["name"] or (n.startswith(model["name"].split(":")[0] + ":")
+            and n.endswith(model["name"].split(":")[1]))
             for n in installed_names
         )
 
@@ -394,12 +385,11 @@ async def pull_ollama_model(req: PullModelRequest):
 
     async def event_stream():
         try:
-            async with httpx.AsyncClient(timeout=None) as client:
-                async with client.stream(
-                    "POST",
-                    f"{OLLAMA_BASE_URL}/api/pull",
-                    json={"name": req.model, "stream": True},
-                ) as resp:
+            async with httpx.AsyncClient(timeout=None) as client, client.stream(
+                "POST",
+                f"{OLLAMA_BASE_URL}/api/pull",
+                json={"name": req.model, "stream": True},
+            ) as resp:
                     async for line in resp.aiter_lines():
                         if not line.strip():
                             continue
@@ -722,17 +712,27 @@ async def restore_defaults():
 
 @router.get("/budget")
 async def get_budget():
-    """Get monthly budget and current month usage."""
-    from src.services.cost_service import get_monthly_budget, get_monthly_usage
+    """Get monthly budget and current month usage (一审/二审分账)。"""
+    from src.services.cost_service import (
+        SCOPE_SOURCE_PASS,
+        get_monthly_budget,
+        get_monthly_usage,
+    )
 
     budget = await get_monthly_budget()
     usage = await get_monthly_usage()
+    pass_usage = await get_monthly_usage(scope=SCOPE_SOURCE_PASS)
     return {
         "monthly_budget_cny": budget,
         "monthly_used_cny": usage.get("cny", 0.0),
         "monthly_used_usd": usage.get("usd", 0.0),
         "monthly_input_tokens": usage.get("input_tokens", 0),
         "monthly_output_tokens": usage.get("output_tokens", 0),
+        # 二审(source pass)独立月度分账,不含在上方一审合计里
+        "monthly_pass_used_cny": pass_usage.get("cny", 0.0),
+        "monthly_pass_used_usd": pass_usage.get("usd", 0.0),
+        "monthly_pass_input_tokens": pass_usage.get("input_tokens", 0),
+        "monthly_pass_output_tokens": pass_usage.get("output_tokens", 0),
     }
 
 
@@ -926,10 +926,10 @@ async def run_model_benchmark():
         _load_system_prompt,
     )
     from src.infra import config as _cfg
-    from src.infra.context_budget import get_budget
-    from src.infra.llm_client import get_llm_client, LLMError
-    from src.infra.openai_client import OpenAICompatibleClient
     from src.infra.anthropic_client import AnthropicClient
+    from src.infra.context_budget import get_budget
+    from src.infra.llm_client import LLMError, get_llm_client
+    from src.infra.openai_client import OpenAICompatibleClient
 
     model = _cfg.get_model_name()      # dynamic read
     provider = _cfg.LLM_PROVIDER       # dynamic read
@@ -937,7 +937,7 @@ async def run_model_benchmark():
     try:
         client = get_llm_client()
     except Exception as e:
-        raise HTTPException(status_code=503, detail=str(e))
+        raise HTTPException(status_code=503, detail=str(e)) from e
 
     is_cloud = isinstance(client, (OpenAICompatibleClient, AnthropicClient))
     budget = get_budget()
@@ -995,9 +995,9 @@ async def run_model_benchmark():
             num_ctx=budget.extraction_num_ctx,
         )
     except LLMError as e:
-        raise HTTPException(status_code=503, detail=f"模型调用失败: {e}")
+        raise HTTPException(status_code=503, detail=f"模型调用失败: {e}") from e
     except Exception as e:
-        raise HTTPException(status_code=503, detail=f"未知错误: {e}")
+        raise HTTPException(status_code=503, detail=f"未知错误: {e}") from e
 
     elapsed_ms = int((time.time() - start) * 1000)
     output_tokens = usage.completion_tokens

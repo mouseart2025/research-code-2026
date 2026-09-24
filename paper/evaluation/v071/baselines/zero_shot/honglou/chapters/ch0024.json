@@ -1,0 +1,373 @@
+{
+  "characters": [
+    {
+      "name": "林黛玉",
+      "description": "主要女性角色，正自情思萦逗"
+    },
+    {
+      "name": "香菱",
+      "description": "丫头，从背后拍了林黛玉一掌"
+    },
+    {
+      "name": "紫鹃",
+      "description": "林黛玉的丫鬟，在找林黛玉"
+    },
+    {
+      "name": "凤姐",
+      "description": "琏二奶奶，送茶叶给林黛玉"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，主要男性角色"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "歪在床上看袭人的针线，穿水红绫子袄儿"
+    },
+    {
+      "name": "贾母",
+      "description": "老太太，等着宝玉"
+    },
+    {
+      "name": "贾琏",
+      "description": "琏二爷，请安回来"
+    },
+    {
+      "name": "贾芸",
+      "description": "后廊上住的五嫂子的儿子，十八岁，生得斯文清秀"
+    },
+    {
+      "name": "贾赦",
+      "description": "大老爷，偶感风寒"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦的妻子，在后面上房"
+    },
+    {
+      "name": "贾琮",
+      "description": "来问宝玉好"
+    },
+    {
+      "name": "贾环",
+      "description": "与贾兰一起来"
+    },
+    {
+      "name": "贾兰",
+      "description": "与贾环小叔侄关系"
+    },
+    {
+      "name": "卜世仁",
+      "description": "贾芸的母舅，开香料铺"
+    },
+    {
+      "name": "倪二",
+      "description": "醉金刚，泼皮，专放重利债"
+    },
+    {
+      "name": "周瑞家的",
+      "description": "从门里出来叫小厮们"
+    },
+    {
+      "name": "焙茗",
+      "description": "宝玉的小厮，在下象棋"
+    },
+    {
+      "name": "锄药",
+      "description": "宝玉的小厮，在下象棋"
+    },
+    {
+      "name": "小红",
+      "description": "本姓林，小名红玉，十六七岁，宝玉房里的丫头"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房里的丫鬟"
+    },
+    {
+      "name": "碧痕",
+      "description": "宝玉房里的丫鬟"
+    },
+    {
+      "name": "引泉",
+      "description": "小厮"
+    },
+    {
+      "name": "扫花",
+      "description": "小厮"
+    },
+    {
+      "name": "挑云",
+      "description": "小厮"
+    },
+    {
+      "name": "伴鹤",
+      "description": "小厮"
+    },
+    {
+      "name": "檀云",
+      "description": "因母亲生日接了出去"
+    },
+    {
+      "name": "麝月",
+      "description": "在家中养病"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "烦袭人去打结子"
+    },
+    {
+      "name": "彩明",
+      "description": "走了出来，单要了领票进去"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾母、王夫人等"
+    },
+    {
+      "name": "丰儿",
+      "description": "凤姐命其接过贾芸的东西"
+    }
+  ],
+  "locations": [
+    {
+      "name": "潇湘馆",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "荣国府"
+    },
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "绮霰斋书房",
+      "type": "书房",
+      "parent": "荣国府"
+    },
+    {
+      "name": "贾赦居所",
+      "type": "居所",
+      "parent": "荣国府"
+    },
+    {
+      "name": "上房",
+      "type": "房间",
+      "parent": "贾赦居所"
+    },
+    {
+      "name": "后廊",
+      "type": "建筑部分",
+      "parent": "荣国府"
+    },
+    {
+      "name": "香料铺",
+      "type": "商铺",
+      "parent": null
+    },
+    {
+      "name": "北静王府",
+      "type": "王府",
+      "parent": null
+    },
+    {
+      "name": "银库",
+      "type": "库房",
+      "parent": "荣国府"
+    },
+    {
+      "name": "西门",
+      "type": "城门",
+      "parent": null
+    },
+    {
+      "name": "南门",
+      "type": "城门",
+      "parent": null
+    },
+    {
+      "name": "土山",
+      "type": "山丘",
+      "parent": "大观园"
+    },
+    {
+      "name": "后院子",
+      "type": "院落",
+      "parent": "怡红院"
+    },
+    {
+      "name": "家庙",
+      "type": "庙宇",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "林黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙关系"
+    },
+    {
+      "person_a": "贾芸",
+      "person_b": "贾琏",
+      "relation_type": "叔侄关系"
+    },
+    {
+      "person_a": "贾环",
+      "person_b": "贾兰",
+      "relation_type": "小叔侄关系"
+    },
+    {
+      "person_a": "贾芸",
+      "person_b": "卜世仁",
+      "relation_type": "外甥舅舅关系"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "小红",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "焙茗",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "秋纹",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "碧痕",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "邢夫人",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "宝玉",
+      "relation_type": "长辈晚辈关系"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾芸",
+      "relation_type": "婶侄关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "园内居所"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "园内居所"
+    },
+    {
+      "source": "荣国府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "府内园林"
+    },
+    {
+      "source": "荣国府",
+      "target": "绮霰斋书房",
+      "relation_type": "contains",
+      "value": "仪门外"
+    },
+    {
+      "source": "荣国府",
+      "target": "贾赦居所",
+      "relation_type": "contains",
+      "value": "府内居所"
+    },
+    {
+      "source": "贾赦居所",
+      "target": "上房",
+      "relation_type": "contains",
+      "value": "后面"
+    },
+    {
+      "source": "荣国府",
+      "target": "后廊",
+      "relation_type": "contains",
+      "value": "府内建筑"
+    },
+    {
+      "source": "荣国府",
+      "target": "银库",
+      "relation_type": "contains",
+      "value": "府内库房"
+    },
+    {
+      "source": "怡红院",
+      "target": "后院子",
+      "relation_type": "contains",
+      "value": "院内区域"
+    },
+    {
+      "source": "大观园",
+      "target": "土山",
+      "relation_type": "contains",
+      "value": "园内地形"
+    },
+    {
+      "source": "绮霰斋书房",
+      "target": "贾母",
+      "relation_type": "direction",
+      "value": "往贾母那边"
+    },
+    {
+      "source": "城内",
+      "target": "西门",
+      "relation_type": "contains",
+      "value": "城门位置"
+    },
+    {
+      "source": "城内",
+      "target": "南门",
+      "relation_type": "contains",
+      "value": "城门位置"
+    }
+  ],
+  "_chapter": 24,
+  "_input_tokens": 10464,
+  "_output_tokens": 2386
+}

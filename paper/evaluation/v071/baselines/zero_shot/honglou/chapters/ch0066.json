@@ -1,0 +1,213 @@
+{
+  "characters": [
+    {
+      "name": "贾琏",
+      "description": "贾府二爷，与尤二姐结为夫妻，有正妻王熙凤"
+    },
+    {
+      "name": "贾珍",
+      "description": "贾府大爷，贾琏的兄长，与贾琏共同安排尤氏姐妹事宜"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子，参与商议安排事务"
+    },
+    {
+      "name": "尤老",
+      "description": "尤氏姐妹的母亲，寡妇"
+    },
+    {
+      "name": "尤二姐",
+      "description": "被贾琏娶为二房，温柔和顺，容貌标致"
+    },
+    {
+      "name": "尤三姐",
+      "description": "尤二姐的妹妹，性格泼辣，风流标致，善于操控男人"
+    },
+    {
+      "name": "王熙凤",
+      "description": "贾琏的正妻，被称为夜叉婆，性格刁钻利害"
+    },
+    {
+      "name": "鲍二",
+      "description": "贾琏安排的仆人，负责照料尤氏母女"
+    },
+    {
+      "name": "鲍二家的",
+      "description": "鲍二的妻子，在厨下做事"
+    },
+    {
+      "name": "平姑娘",
+      "description": "王熙凤身边的丫鬟，为人良善"
+    },
+    {
+      "name": "兴儿",
+      "description": "贾琏的心腹小厮，善于言谈"
+    },
+    {
+      "name": "隆儿",
+      "description": "贾琏的心腹小童"
+    },
+    {
+      "name": "喜儿",
+      "description": "贾珍的小厮"
+    },
+    {
+      "name": "寿儿",
+      "description": "贾珍的小厮"
+    },
+    {
+      "name": "林黛玉",
+      "description": "贾府姑太太的女儿，体弱多病，才华横溢"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "贾府姨太太的女儿，容貌出众"
+    }
+  ],
+  "locations": [
+    {
+      "name": "新房",
+      "type": "住宅",
+      "parent": ""
+    },
+    {
+      "name": "洞房",
+      "type": "房间",
+      "parent": "新房"
+    },
+    {
+      "name": "东府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "铁槛寺",
+      "type": "寺庙",
+      "parent": ""
+    },
+    {
+      "name": "西院",
+      "type": "院落",
+      "parent": "新房"
+    },
+    {
+      "name": "卧房",
+      "type": "房间",
+      "parent": "新房"
+    },
+    {
+      "name": "厨下",
+      "type": "厨房",
+      "parent": "新房"
+    },
+    {
+      "name": "马棚",
+      "type": "马厩",
+      "parent": "新房"
+    },
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "家庙",
+      "type": "庙宇",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾琏",
+      "person_b": "贾珍",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "尤二姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "王熙凤",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "尤二姐",
+      "person_b": "尤三姐",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "尤老",
+      "person_b": "尤二姐",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "尤老",
+      "person_b": "尤三姐",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "鲍二",
+      "person_b": "鲍二家的",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "王熙凤",
+      "person_b": "平姑娘",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "兴儿",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "新房",
+      "target": "洞房",
+      "relation_type": "contains",
+      "value": "包含卧室"
+    },
+    {
+      "source": "新房",
+      "target": "西院",
+      "relation_type": "contains",
+      "value": "包含院落"
+    },
+    {
+      "source": "新房",
+      "target": "厨下",
+      "relation_type": "contains",
+      "value": "包含厨房"
+    },
+    {
+      "source": "新房",
+      "target": "马棚",
+      "relation_type": "contains",
+      "value": "包含马厩"
+    },
+    {
+      "source": "西院",
+      "target": "卧房",
+      "relation_type": "adjacent",
+      "value": "相邻位置"
+    },
+    {
+      "source": "铁槛寺",
+      "target": "新房",
+      "relation_type": "direction",
+      "value": "贾珍从寺庙回到新房"
+    }
+  ],
+  "_chapter": 66,
+  "_input_tokens": 8691,
+  "_output_tokens": 1436
+}

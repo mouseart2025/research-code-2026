@@ -12,6 +12,7 @@ import type {
   EntityDictionaryResponse,
   EntitySummary,
   EntityOverride,
+  EntityType,
   EnvironmentCheck,
   HierarchyRebuildResult,
   ImportPreview,
@@ -27,7 +28,7 @@ import type {
   WorldStructureData,
   WorldStructureOverride,
 } from "./types"
-import { isTauri, getSidecarBaseUrl } from "./sidecarBridge"
+import { isTauri, getSidecarBaseUrl, sidecarAuthHeaders } from "./sidecarBridge"
 
 function getBase(): string {
   if (isTauri) return `${getSidecarBaseUrl()}/api`
@@ -36,8 +37,12 @@ function getBase(): string {
 
 export async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${getBase()}${path}`, {
-    headers: { "Content-Type": "application/json" },
     ...init,
+    headers: {
+      "Content-Type": "application/json",
+      ...sidecarAuthHeaders(),
+      ...(init?.headers as Record<string, string> | undefined),
+    },
   })
   if (!res.ok) {
     throw new Error(`API error: ${res.status} ${res.statusText}`)
@@ -62,6 +67,7 @@ export async function uploadNovel(file: File): Promise<UploadPreviewResponse> {
   form.append("file", file)
   const res = await fetch(`${getBase()}/novels/upload`, {
     method: "POST",
+    headers: { ...sidecarAuthHeaders() },
     body: form,
   })
   if (!res.ok) {
@@ -107,6 +113,10 @@ export function uploadNovelWithProgress(
     xhr.addEventListener("abort", () => reject(new Error("上传已取消")))
 
     xhr.open("POST", `${getBase()}/novels/upload`)
+    // V-01：XHR 不会经过 apiFetch，需显式附带 sidecar 令牌（issue #68）
+    for (const [k, v] of Object.entries(sidecarAuthHeaders())) {
+      xhr.setRequestHeader(k, v)
+    }
     xhr.send(form)
   })
 }
@@ -141,7 +151,7 @@ export function pullOllamaModel(
   const controller = new AbortController()
   fetch(`${getBase()}/settings/ollama/pull`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...sidecarAuthHeaders() },
     body: JSON.stringify({ model }),
     signal: controller.signal,
   })
@@ -396,6 +406,44 @@ export function deleteBookmark(bookmarkId: number): Promise<{ ok: boolean }> {
   return apiFetch(`/bookmarks/${bookmarkId}`, { method: "DELETE" })
 }
 
+// ── Annotations ───────────────────────────────
+
+export function fetchAnnotations(novelId: string): Promise<import("./types").Annotation[]> {
+  return apiFetch<{ annotations: import("./types").Annotation[] }>(`/novels/${novelId}/annotations`)
+    .then((r) => r.annotations)
+}
+
+export function createAnnotation(
+  novelId: string,
+  data: {
+    chapter_num: number
+    start_offset: number
+    end_offset: number
+    anchor_text: string
+    color: string
+    note: string
+  },
+): Promise<import("./types").Annotation> {
+  return apiFetch(`/novels/${novelId}/annotations`, {
+    method: "POST",
+    body: JSON.stringify(data),
+  })
+}
+
+export function updateAnnotation(
+  annotationId: number,
+  data: { color?: string; note?: string },
+): Promise<import("./types").Annotation> {
+  return apiFetch(`/annotations/${annotationId}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  })
+}
+
+export function deleteAnnotation(annotationId: number): Promise<{ ok: boolean }> {
+  return apiFetch(`/annotations/${annotationId}`, { method: "DELETE" })
+}
+
 // ── Novel Stats ─────────────────────────────────
 
 export interface NovelStats {
@@ -450,8 +498,12 @@ export function fetchEntityProfile(
 /** POST/DELETE that surfaces the backend's Chinese `detail` message on failure. */
 async function overrideRequest<T>(path: string, init: RequestInit): Promise<T> {
   const res = await fetch(`${getBase()}${path}`, {
-    headers: { "Content-Type": "application/json" },
     ...init,
+    headers: {
+      "Content-Type": "application/json",
+      ...sidecarAuthHeaders(),
+      ...(init.headers as Record<string, string> | undefined),
+    },
   })
   if (!res.ok) {
     let detail = `${res.status}`
@@ -522,6 +574,20 @@ export function conceptDelete(novelId: string, name: string) {
   return overrideRequest<{ status: string; override_id: number }>(
     `/novels/${novelId}/entity-overrides/concept-delete`,
     { method: "POST", body: JSON.stringify({ name }) },
+  )
+}
+
+export function hideEntity(novelId: string, name: string) {
+  return overrideRequest<{ status: string; override_id: number }>(
+    `/novels/${novelId}/entity-overrides/hide`,
+    { method: "POST", body: JSON.stringify({ name }) },
+  )
+}
+
+export function retypeEntity(novelId: string, name: string, to: EntityType) {
+  return overrideRequest<{ status: string; override_id: number }>(
+    `/novels/${novelId}/entity-overrides/retype`,
+    { method: "POST", body: JSON.stringify({ name, to }) },
   )
 }
 
@@ -602,7 +668,7 @@ export function rebuildHierarchy(
   return new Promise((resolve, reject) => {
     fetch(`${getBase()}/novels/${novelId}/world-structure/rebuild-hierarchy-v2`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", ...sidecarAuthHeaders() },
     })
       .then(async (res) => {
         if (!res.ok) throw new Error(`API error: ${res.status} ${res.statusText}`)
@@ -612,7 +678,7 @@ export function rebuildHierarchy(
         let buffer = ""
         let done_received = false
         let result: HierarchyRebuildResult | null = null
-        // eslint-disable-next-line no-constant-condition
+         
         while (true) {
           const { done, value } = await reader.read()
           if (done) break
@@ -668,7 +734,7 @@ export function spatialCompletion(
   return new Promise((resolve, reject) => {
     fetch(`${getBase()}/novels/${novelId}/world-structure/spatial-completion`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", ...sidecarAuthHeaders() },
     })
       .then(async (res) => {
         if (!res.ok) throw new Error(`API error: ${res.status} ${res.statusText}`)
@@ -677,7 +743,7 @@ export function spatialCompletion(
         const decoder = new TextDecoder()
         let buffer = ""
         let result: { relations_added: number; layer_changes: number } | null = null
-        // eslint-disable-next-line no-constant-condition
+         
         while (true) {
           const { done, value } = await reader.read()
           if (done) break
@@ -839,6 +905,90 @@ export function fetchAnalysisRecords(): Promise<{
   return apiFetch(`/settings/analysis-records`)
 }
 
+// ── Analysis Passes (独立二审, multi-pass MVP) ──────
+
+export function fetchPasses(
+  novelId: string,
+): Promise<{ passes: import("./types").AnalysisPass[] }> {
+  return apiFetch(`/novels/${novelId}/passes`)
+}
+
+export function startPass(
+  novelId: string,
+  req?: { model_override?: string | null },
+): Promise<{ pass_id: string; status: string }> {
+  return overrideRequest(`/novels/${novelId}/passes`, {
+    method: "POST",
+    body: JSON.stringify(req ?? {}),
+  })
+}
+
+export function fetchPassDiff(
+  novelId: string,
+  passId: string,
+  chapter: number,
+): Promise<import("./types").PassChapterDiff> {
+  return apiFetch(
+    `/novels/${novelId}/passes/${passId}/diff?chapter=${chapter}`,
+  )
+}
+
+export function pausePass(
+  novelId: string,
+  passId: string,
+): Promise<{ pass_id: string; status: string }> {
+  return overrideRequest(`/novels/${novelId}/passes/${passId}/pause`, {
+    method: "POST",
+  })
+}
+
+export function resumePass(
+  novelId: string,
+  passId: string,
+): Promise<{ pass_id: string; status: string }> {
+  return overrideRequest(`/novels/${novelId}/passes/${passId}/resume`, {
+    method: "POST",
+  })
+}
+
+export function cancelPass(
+  novelId: string,
+  passId: string,
+): Promise<{ pass_id: string; status: string }> {
+  return overrideRequest(`/novels/${novelId}/passes/${passId}/cancel`, {
+    method: "POST",
+  })
+}
+
+export function deletePass(
+  novelId: string,
+  passId: string,
+): Promise<{ status: string }> {
+  return overrideRequest(`/novels/${novelId}/passes/${passId}`, {
+    method: "DELETE",
+  })
+}
+
+/** 人工裁决一条 diff:只写 history 埋点,不改正式分析结果。 */
+export function submitAdjudication(
+  novelId: string,
+  passId: string,
+  req: {
+    chapter: number
+    entry_id: string
+    verdict: import("./types").AdjudicationVerdict
+  },
+): Promise<{
+  status: string
+  chapter: number
+  adjudication: { confirmed: number; rejected: number; neither?: number }
+}> {
+  return overrideRequest(`/novels/${novelId}/passes/${passId}/adjudications`, {
+    method: "POST",
+    body: JSON.stringify(req),
+  })
+}
+
 // ── Prescan Dictionary ──────────────────────────
 
 export function fetchPrescanStatus(
@@ -954,7 +1104,7 @@ export async function exportSeriesBible(
 ): Promise<void> {
   const res = await fetch(`${getBase()}/novels/${novelId}/series-bible/export`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...sidecarAuthHeaders() },
     body: JSON.stringify(req ?? {}),
   })
   if (!res.ok) {
@@ -1004,6 +1154,7 @@ export async function previewImport(file: File): Promise<ImportPreview> {
   form.append("file", file)
   const res = await fetch(`${getBase()}/novels/import/preview`, {
     method: "POST",
+    headers: { ...sidecarAuthHeaders() },
     body: form,
   })
   if (!res.ok) {
@@ -1021,7 +1172,7 @@ export async function confirmDataImport(
   form.append("file", file)
   const res = await fetch(
     `${getBase()}/novels/import/confirm?overwrite=${overwrite}`,
-    { method: "POST", body: form },
+    { method: "POST", headers: { ...sidecarAuthHeaders() }, body: form },
   )
   if (!res.ok) {
     const body = await res.json().catch(() => null)
@@ -1037,7 +1188,7 @@ export function backupExportUrl(): string {
 }
 
 export async function downloadBackupExport(): Promise<void> {
-  const res = await fetch(backupExportUrl())
+  const res = await fetch(backupExportUrl(), { headers: { ...sidecarAuthHeaders() } })
   if (!res.ok) throw new Error(`备份导出失败: ${res.status}`)
   const blob = await res.blob()
   const url = URL.createObjectURL(blob)
@@ -1059,6 +1210,7 @@ export async function previewBackupImport(
   form.append("file", file)
   const res = await fetch(`${getBase()}/backup/import/preview`, {
     method: "POST",
+    headers: { ...sidecarAuthHeaders() },
     body: form,
   })
   if (!res.ok) {
@@ -1076,7 +1228,7 @@ export async function confirmBackupImport(
   form.append("file", file)
   const res = await fetch(
     `${getBase()}/backup/import/confirm?conflict_mode=${conflictMode}`,
-    { method: "POST", body: form },
+    { method: "POST", headers: { ...sidecarAuthHeaders() }, body: form },
   )
   if (!res.ok) {
     const body = await res.json().catch(() => null)

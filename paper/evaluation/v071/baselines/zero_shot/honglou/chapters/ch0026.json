@@ -1,0 +1,250 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾府公子，养病三十三天后身体强壮，住在大观园怡红院"
+    },
+    {
+      "name": "红玉",
+      "description": "怡红院丫鬟，心中有心事，对贾芸有情愫"
+    },
+    {
+      "name": "贾芸",
+      "description": "贾府族人，负责种树，曾照顾生病的宝玉"
+    },
+    {
+      "name": "佳蕙",
+      "description": "大观园小丫头，红玉的朋友"
+    },
+    {
+      "name": "林姑娘",
+      "description": "即林黛玉，住在潇湘馆，体弱多病"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房中主要丫鬟，细挑身材，穿银红袄儿"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中丫鬟，脾气较大"
+    },
+    {
+      "name": "绮霰",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "坠儿",
+      "description": "小丫头，负责传话带路"
+    },
+    {
+      "name": "李嬷嬷",
+      "description": "宝玉的奶娘"
+    },
+    {
+      "name": "紫鹃",
+      "description": "林黛玉的丫鬟"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛姨妈之子，宝钗的哥哥"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛姨妈的女儿，住在蘅芜苑"
+    },
+    {
+      "name": "焙茗",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "贾兰",
+      "description": "贾府后辈，练习骑射"
+    },
+    {
+      "name": "冯紫英",
+      "description": "神武将军冯唐之子，宝玉的朋友"
+    },
+    {
+      "name": "詹光",
+      "description": "薛蟠聚会的客人"
+    },
+    {
+      "name": "程日兴",
+      "description": "古董行商人"
+    },
+    {
+      "name": "胡斯来",
+      "description": "薛蟠聚会的客人"
+    },
+    {
+      "name": "单聘仁",
+      "description": "薛蟠聚会的客人"
+    },
+    {
+      "name": "碧痕",
+      "description": "宝玉房中丫鬟，与晴雯拌嘴"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": ""
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "蘅芜苑",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "沁芳亭",
+      "type": "亭子",
+      "parent": "大观园"
+    },
+    {
+      "name": "沁芳溪",
+      "type": "溪流",
+      "parent": "大观园"
+    },
+    {
+      "name": "蜂腰桥",
+      "type": "桥梁",
+      "parent": "大观园"
+    },
+    {
+      "name": "沁芳桥",
+      "type": "桥梁",
+      "parent": "大观园"
+    },
+    {
+      "name": "铁网山",
+      "type": "山",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "红玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾芸",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "红玉",
+      "person_b": "佳蕙",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "红玉",
+      "person_b": "贾芸",
+      "relation_type": "情愫"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "李嬷嬷",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "薛蟠",
+      "relation_type": "表兄弟"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "宝钗",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "冯紫英",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "碧痕",
+      "relation_type": "同事"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "蘅芜苑",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "沁芳亭",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "沁芳溪",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "沁芳亭",
+      "target": "蘅芜苑",
+      "relation_type": "direction",
+      "value": "附近"
+    },
+    {
+      "source": "怡红院",
+      "target": "沁芳桥",
+      "relation_type": "direction",
+      "value": "外"
+    },
+    {
+      "source": "蜂腰桥",
+      "target": "蘅芜苑",
+      "relation_type": "direction",
+      "value": "门前"
+    }
+  ],
+  "_chapter": 26,
+  "_input_tokens": 9149,
+  "_output_tokens": 1679
+}

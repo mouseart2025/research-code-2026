@@ -1,0 +1,266 @@
+{
+  "characters": [
+    {
+      "name": "唐长老/三藏",
+      "description": "师父，被妖精擒获，身体凡胎，不能驾云，需要徒弟保护"
+    },
+    {
+      "name": "孙悟空/行者/大圣",
+      "description": "大徒弟，会七十二变，筋斗云，曾闹天宫，有金箍棒"
+    },
+    {
+      "name": "猪八戒/悟能",
+      "description": "二徒弟，武器是钉钯，身体肥胖，耳朵大，怕死贪生"
+    },
+    {
+      "name": "沙和尚/沙僧/悟净",
+      "description": "三徒弟，武器是宝杖，性格老实"
+    },
+    {
+      "name": "老魔/狮王",
+      "description": "三个妖魔中的老大，武器是钢刀，本体是青狮"
+    },
+    {
+      "name": "二魔/象王",
+      "description": "三个妖魔中的老二，武器是长枪，本体是白象"
+    },
+    {
+      "name": "三魔/大鹏",
+      "description": "三个妖魔中的老三，武器是方天戟，本体是大鹏金翅雕，翅膀一扇九万里"
+    },
+    {
+      "name": "如来佛祖",
+      "description": "佛教领袖，端坐九品宝莲台，有慧眼，能收妖魔"
+    },
+    {
+      "name": "文殊菩萨",
+      "description": "菩萨，青狮的主人，居住在五台山"
+    },
+    {
+      "name": "普贤菩萨",
+      "description": "菩萨，白象的主人，居住在峨眉山"
+    },
+    {
+      "name": "北海龙王敖顺",
+      "description": "龙王，被孙悟空召唤来护持师父"
+    },
+    {
+      "name": "阿傩",
+      "description": "佛祖身边的尊者"
+    },
+    {
+      "name": "迦叶",
+      "description": "佛祖身边的尊者"
+    }
+  ],
+  "locations": [
+    {
+      "name": "狮驼山",
+      "type": "山",
+      "parent": ""
+    },
+    {
+      "name": "狮驼洞",
+      "type": "洞穴",
+      "parent": "狮驼山"
+    },
+    {
+      "name": "狮驼国/狮驼城",
+      "type": "城池",
+      "parent": "狮驼山"
+    },
+    {
+      "name": "城东半山",
+      "type": "山地",
+      "parent": "狮驼城"
+    },
+    {
+      "name": "金銮殿",
+      "type": "宫殿",
+      "parent": "狮驼城"
+    },
+    {
+      "name": "正阳门",
+      "type": "城门",
+      "parent": "狮驼城"
+    },
+    {
+      "name": "后宰门",
+      "type": "城门",
+      "parent": "狮驼城"
+    },
+    {
+      "name": "锦香亭",
+      "type": "亭子",
+      "parent": "狮驼城"
+    },
+    {
+      "name": "灵山",
+      "type": "山",
+      "parent": "天竺"
+    },
+    {
+      "name": "雷音宝刹",
+      "type": "寺院",
+      "parent": "灵山"
+    },
+    {
+      "name": "鹫峰",
+      "type": "山峰",
+      "parent": "灵山"
+    },
+    {
+      "name": "五台山",
+      "type": "山",
+      "parent": ""
+    },
+    {
+      "name": "峨眉山",
+      "type": "山",
+      "parent": ""
+    },
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": ""
+    },
+    {
+      "name": "天竺",
+      "type": "国家",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐长老",
+      "person_b": "孙悟空",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "唐长老",
+      "person_b": "猪八戒",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "唐长老",
+      "person_b": "沙和尚",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟关系"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟关系"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟关系"
+    },
+    {
+      "person_a": "老魔",
+      "person_b": "二魔",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "老魔",
+      "person_b": "三魔",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "二魔",
+      "person_b": "三魔",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "文殊菩萨",
+      "person_b": "老魔",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "普贤菩萨",
+      "person_b": "二魔",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "如来佛祖",
+      "person_b": "三魔",
+      "relation_type": "亲戚关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "狮驼山",
+      "target": "狮驼洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "狮驼山",
+      "target": "狮驼城",
+      "relation_type": "contains",
+      "value": "山中有城"
+    },
+    {
+      "source": "狮驼城",
+      "target": "城东半山",
+      "relation_type": "contains",
+      "value": "城东有半山"
+    },
+    {
+      "source": "狮驼城",
+      "target": "金銮殿",
+      "relation_type": "contains",
+      "value": "城中有宫殿"
+    },
+    {
+      "source": "狮驼城",
+      "target": "正阳门",
+      "relation_type": "contains",
+      "value": "城有正门"
+    },
+    {
+      "source": "狮驼城",
+      "target": "后宰门",
+      "relation_type": "contains",
+      "value": "城有后门"
+    },
+    {
+      "source": "狮驼城",
+      "target": "锦香亭",
+      "relation_type": "contains",
+      "value": "城中有亭子"
+    },
+    {
+      "source": "灵山",
+      "target": "鹫峰",
+      "relation_type": "contains",
+      "value": "山有峰"
+    },
+    {
+      "source": "灵山",
+      "target": "雷音宝刹",
+      "relation_type": "contains",
+      "value": "山有寺院"
+    },
+    {
+      "source": "天竺",
+      "target": "灵山",
+      "relation_type": "contains",
+      "value": "国中有山"
+    },
+    {
+      "source": "狮驼城",
+      "target": "灵山",
+      "relation_type": "direction",
+      "value": "西去方向"
+    }
+  ],
+  "_chapter": 77,
+  "_input_tokens": 9637,
+  "_output_tokens": 2410
+}

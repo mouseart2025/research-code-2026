@@ -1,0 +1,309 @@
+{
+  "characters": [
+    {
+      "name": "柳家的",
+      "description": "厨房管事的婆子，负责调停分派菜馔"
+    },
+    {
+      "name": "小厮",
+      "description": "看门的小厮，与柳家的有说笑关系"
+    },
+    {
+      "name": "五儿",
+      "description": "柳家的女儿，曾生病，被怀疑偷盗"
+    },
+    {
+      "name": "司棋",
+      "description": "迎春房里的大丫头，性格强势"
+    },
+    {
+      "name": "迎春",
+      "description": "二姑娘，司棋伺候的主子"
+    },
+    {
+      "name": "莲花儿",
+      "description": "迎春房里的小丫头"
+    },
+    {
+      "name": "芳官",
+      "description": "宝玉屋里的人，与五儿有来往"
+    },
+    {
+      "name": "小燕",
+      "description": "怡红院的小丫头"
+    },
+    {
+      "name": "林之孝家的",
+      "description": "管事婆子，负责查案"
+    },
+    {
+      "name": "小蝉",
+      "description": "丫头，参与指证五儿"
+    },
+    {
+      "name": "李纨",
+      "description": "大奶奶，因兰哥儿生病不理事务"
+    },
+    {
+      "name": "探春",
+      "description": "三姑娘，当时在管理家务"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的心腹丫头，办事得力"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "琏二奶奶，当家奶奶"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的大丫头"
+    },
+    {
+      "name": "宝玉",
+      "description": "宝二爷，愿意为他人承担责任"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉屋里的丫头"
+    },
+    {
+      "name": "彩云",
+      "description": "太太屋里的丫头，实际偷盗者"
+    },
+    {
+      "name": "玉钏儿",
+      "description": "太太屋里的丫头，与彩云有矛盾"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "姨奶奶，指使彩云偷东西"
+    },
+    {
+      "name": "环哥儿",
+      "description": "赵姨娘的儿子"
+    },
+    {
+      "name": "秦显的女人",
+      "description": "园里南角子上夜的，司棋的婶娘"
+    },
+    {
+      "name": "兰哥儿",
+      "description": "李纨的儿子，生病了"
+    },
+    {
+      "name": "待书",
+      "description": "探春房里的丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "柳家厨房",
+      "type": "厨房",
+      "parent": "大观园"
+    },
+    {
+      "name": "迎春房",
+      "type": "居住区",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "茶房",
+      "type": "功能房间",
+      "parent": "大观园"
+    },
+    {
+      "name": "蓼溆",
+      "type": "园林景点",
+      "parent": "大观园"
+    },
+    {
+      "name": "太太耳房",
+      "type": "房间",
+      "parent": "太太居所"
+    },
+    {
+      "name": "凤姐儿那边",
+      "type": "居住区",
+      "parent": "大观园"
+    },
+    {
+      "name": "议事厅",
+      "type": "厅堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "园里南角子",
+      "type": "区域",
+      "parent": "大观园"
+    },
+    {
+      "name": "上夜房",
+      "type": "值班房",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "前头",
+      "type": "区域",
+      "parent": "贾府"
+    },
+    {
+      "name": "庄子",
+      "type": "农庄",
+      "parent": ""
+    },
+    {
+      "name": "二门",
+      "type": "门户",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "柳家的",
+      "person_b": "五儿",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "司棋",
+      "person_b": "迎春",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "莲花儿",
+      "person_b": "迎春",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "芳官",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "彩云",
+      "person_b": "赵姨娘",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "环哥儿",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "兰哥儿",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "司棋",
+      "person_b": "秦显的女人",
+      "relation_type": "侄女叔婶"
+    },
+    {
+      "person_a": "待书",
+      "person_b": "探春",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "五儿",
+      "person_b": "芳官",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "彩云",
+      "person_b": "玉钏儿",
+      "relation_type": "同事"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "柳家厨房",
+      "relation_type": "contains",
+      "value": "厨房位于园内"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "院落位于园内"
+    },
+    {
+      "source": "大观园",
+      "target": "迎春房",
+      "relation_type": "contains",
+      "value": "居住区位于园内"
+    },
+    {
+      "source": "大观园",
+      "target": "蓼溆",
+      "relation_type": "contains",
+      "value": "景点位于园内"
+    },
+    {
+      "source": "怡红院",
+      "target": "蓼溆",
+      "relation_type": "adjacent",
+      "value": "五儿从怡红院走向蓼溆一带"
+    },
+    {
+      "source": "太太居所",
+      "target": "太太耳房",
+      "relation_type": "contains",
+      "value": "耳房属于太太居所"
+    },
+    {
+      "source": "大观园",
+      "target": "园里南角子",
+      "relation_type": "contains",
+      "value": "南角子是园内区域"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园林位于府内"
+    },
+    {
+      "source": "贾府",
+      "target": "前头",
+      "relation_type": "contains",
+      "value": "前头区域位于府内"
+    },
+    {
+      "source": "大观园",
+      "target": "议事厅",
+      "relation_type": "contains",
+      "value": "厅堂位于园内"
+    }
+  ],
+  "_chapter": 62,
+  "_input_tokens": 8175,
+  "_output_tokens": 2034
+}

@@ -1,0 +1,492 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "主要人物，听说贾母等回来后前去见过，关心春燕等人"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府长辈，因每日辛苦要早些歇息，坐驮轿送灵"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母身边的丫鬟，负责打点贾母之物，不随去只看屋子"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾母身边的丫鬟，忙着打点贾母之物"
+    },
+    {
+      "name": "翡翠",
+      "description": "贾母身边的丫鬟，忙着打点贾母之物"
+    },
+    {
+      "name": "玻璃",
+      "description": "贾母身边的丫鬟，忙着打点贾母之物"
+    },
+    {
+      "name": "玉钏",
+      "description": "王夫人身边的丫鬟，打叠王夫人之物，不随去只看屋子"
+    },
+    {
+      "name": "彩云",
+      "description": "王夫人身边的丫鬟，打叠王夫人之物"
+    },
+    {
+      "name": "彩霞",
+      "description": "王夫人身边的丫鬟，打叠王夫人之物"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府重要人物，坐驮轿送灵"
+    },
+    {
+      "name": "贾珍",
+      "description": "骑马率领众家丁护卫"
+    },
+    {
+      "name": "蓉妻",
+      "description": "与贾母同坐一乘驮轿"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "率领诸人送至大门外"
+    },
+    {
+      "name": "尤氏",
+      "description": "与薛姨妈一起率领诸人送至大门外"
+    },
+    {
+      "name": "贾琏",
+      "description": "打发父母起身，自己随后带领家丁押后跟来"
+    },
+    {
+      "name": "赖大",
+      "description": "荣府管事，添派人丁上夜"
+    },
+    {
+      "name": "林之孝之妻",
+      "description": "每日进来带领婆子上夜"
+    },
+    {
+      "name": "宝钗",
+      "description": "春困已醒，与湘云等人一起，住在蘅芜苑"
+    },
+    {
+      "name": "湘云",
+      "description": "两腮作痒，恐又犯了杏癍癣，向宝钗要蔷薇硝"
+    },
+    {
+      "name": "黛玉",
+      "description": "住在潇湘馆，正晨妆，收到莺儿送的花篮"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗身边的丫鬟，手巧能编花篮，去给湘云取蔷薇硝"
+    },
+    {
+      "name": "蕊官",
+      "description": "戏子出身的丫鬟，与莺儿同去，顺便瞧瞧藕官"
+    },
+    {
+      "name": "藕官",
+      "description": "戏子出身的丫鬟，与蕊官关系很好，认了春燕的姨妈"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉身边的丫鬟，帮忙包硝药"
+    },
+    {
+      "name": "春燕",
+      "description": "何婆的小女，在怡红院当差，被娘和姨妈打"
+    },
+    {
+      "name": "何婆",
+      "description": "春燕的娘，为芳官洗头之事和芳官吵架"
+    },
+    {
+      "name": "春燕的姨妈",
+      "description": "春燕的姨妈，藕官认的干娘，因烧纸之事与藕官有矛盾"
+    },
+    {
+      "name": "芳官",
+      "description": "戏子出身的丫鬟，认了春燕的妈为干娘，因洗头之事吵架"
+    },
+    {
+      "name": "小鸠儿",
+      "description": "春燕的妹妹"
+    },
+    {
+      "name": "袭人",
+      "description": "怡红院的大丫鬟，有权势地位，春燕向其求救"
+    },
+    {
+      "name": "麝月",
+      "description": "怡红院的丫鬟，在海棠下晾手巾"
+    },
+    {
+      "name": "晴雯",
+      "description": "怡红院的丫鬟，态度较为强硬"
+    },
+    {
+      "name": "平儿",
+      "description": "王熙凤屋里的大丫鬟，有管事权威，被叫来管事"
+    },
+    {
+      "name": "林大娘",
+      "description": "管事人员，负责在角门外执行惩罚"
+    },
+    {
+      "name": "珍大奶奶",
+      "description": "与平儿一起算账的人"
+    }
+  ],
+  "locations": [
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "朝中",
+      "type": "朝廷",
+      "parent": null
+    },
+    {
+      "name": "大门",
+      "type": "门户",
+      "parent": "荣府"
+    },
+    {
+      "name": "西边小角门",
+      "type": "门户",
+      "parent": "荣府"
+    },
+    {
+      "name": "仪门",
+      "type": "门户",
+      "parent": "荣府"
+    },
+    {
+      "name": "园中",
+      "type": "园林",
+      "parent": "荣府"
+    },
+    {
+      "name": "前后东西角门",
+      "type": "门户",
+      "parent": "园中"
+    },
+    {
+      "name": "王夫人大房之后常系他姊妹出入之门",
+      "type": "门户",
+      "parent": "园中"
+    },
+    {
+      "name": "东边通薛姨妈的角门",
+      "type": "门户",
+      "parent": "园中"
+    },
+    {
+      "name": "内院",
+      "type": "院落",
+      "parent": "园中"
+    },
+    {
+      "name": "上房",
+      "type": "房间",
+      "parent": "内院"
+    },
+    {
+      "name": "下房",
+      "type": "房间",
+      "parent": "内院"
+    },
+    {
+      "name": "穿堂",
+      "type": "建筑",
+      "parent": "荣府"
+    },
+    {
+      "name": "蘅芜苑",
+      "type": "院落",
+      "parent": "园中"
+    },
+    {
+      "name": "柳叶渚",
+      "type": "水边地名",
+      "parent": "园中"
+    },
+    {
+      "name": "柳堤",
+      "type": "堤岸",
+      "parent": "柳叶渚"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "园中"
+    },
+    {
+      "name": "紫鹃房",
+      "type": "房间",
+      "parent": "潇湘馆"
+    },
+    {
+      "name": "梨香院",
+      "type": "院落",
+      "parent": "园中"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "园中"
+    },
+    {
+      "name": "海棠下",
+      "type": "具体位置",
+      "parent": "怡红院"
+    },
+    {
+      "name": "角门外",
+      "type": "门外区域",
+      "parent": "荣府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "琥珀",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "翡翠",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "玻璃",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "玉钏",
+      "person_b": "王夫人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "彩云",
+      "person_b": "王夫人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "彩霞",
+      "person_b": "王夫人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "莺儿",
+      "person_b": "宝钗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "蕊官",
+      "person_b": "藕官",
+      "relation_type": "好友"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "春燕",
+      "person_b": "何婆",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "春燕",
+      "person_b": "春燕的姨妈",
+      "relation_type": "姨甥"
+    },
+    {
+      "person_a": "春燕",
+      "person_b": "小鸠儿",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "何婆",
+      "person_b": "春燕的姨妈",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "藕官",
+      "person_b": "春燕的姨妈",
+      "relation_type": "干母女"
+    },
+    {
+      "person_a": "芳官",
+      "person_b": "何婆",
+      "relation_type": "干母女"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "麝月",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "王熙凤",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "林之孝之妻",
+      "person_b": "林大娘",
+      "relation_type": "可能同一人"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "蓉妻",
+      "relation_type": "长幼"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "湘云",
+      "relation_type": "姐妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "荣府",
+      "target": "大门",
+      "relation_type": "contains",
+      "value": "府邸包含大门"
+    },
+    {
+      "source": "荣府",
+      "target": "西边小角门",
+      "relation_type": "contains",
+      "value": "府邸包含小角门"
+    },
+    {
+      "source": "荣府",
+      "target": "仪门",
+      "relation_type": "contains",
+      "value": "府邸包含仪门"
+    },
+    {
+      "source": "荣府",
+      "target": "园中",
+      "relation_type": "contains",
+      "value": "府邸包含园林"
+    },
+    {
+      "source": "园中",
+      "target": "前后东西角门",
+      "relation_type": "contains",
+      "value": "园中有各个角门"
+    },
+    {
+      "source": "园中",
+      "target": "内院",
+      "relation_type": "contains",
+      "value": "园中包含内院"
+    },
+    {
+      "source": "园中",
+      "target": "蘅芜苑",
+      "relation_type": "contains",
+      "value": "园中包含蘅芜苑"
+    },
+    {
+      "source": "园中",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "园中包含潇湘馆"
+    },
+    {
+      "source": "园中",
+      "target": "梨香院",
+      "relation_type": "contains",
+      "value": "园中包含梨香院"
+    },
+    {
+      "source": "园中",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "园中包含怡红院"
+    },
+    {
+      "source": "园中",
+      "target": "柳叶渚",
+      "relation_type": "contains",
+      "value": "园中包含柳叶渚"
+    },
+    {
+      "source": "柳叶渚",
+      "target": "柳堤",
+      "relation_type": "contains",
+      "value": "柳叶渚包含柳堤"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "紫鹃房",
+      "relation_type": "contains",
+      "value": "潇湘馆包含紫鹃房间"
+    },
+    {
+      "source": "怡红院",
+      "target": "海棠下",
+      "relation_type": "contains",
+      "value": "怡红院包含海棠树下"
+    },
+    {
+      "source": "内院",
+      "target": "上房",
+      "relation_type": "contains",
+      "value": "内院包含上房"
+    },
+    {
+      "source": "内院",
+      "target": "下房",
+      "relation_type": "contains",
+      "value": "内院包含下房"
+    },
+    {
+      "source": "蘅芜苑",
+      "target": "潇湘馆",
+      "relation_type": "adjacent",
+      "value": "同在园中，有道路相通"
+    },
+    {
+      "source": "东边通薛姨妈的角门",
+      "target": "内院",
+      "relation_type": "adjacent",
+      "value": "角门连接内院"
+    },
+    {
+      "source": "王夫人大房之后常系他姊妹出入之门",
+      "target": "内院",
+      "relation_type": "adjacent",
+      "value": "门户连接内院"
+    }
+  ],
+  "_chapter": 60,
+  "_input_tokens": 6309,
+  "_output_tokens": 3587
+}

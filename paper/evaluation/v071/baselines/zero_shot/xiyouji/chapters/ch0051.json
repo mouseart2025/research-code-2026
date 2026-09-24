@@ -1,0 +1,263 @@
+{
+  "characters": [
+    {
+      "name": "齐天大圣/孙悟空/行者",
+      "description": "保护唐僧取经的猴子，会七十二变，有火眼金睛，持金箍棒"
+    },
+    {
+      "name": "唐僧/师父",
+      "description": "西天取经的高僧，被妖怪抓到洞中"
+    },
+    {
+      "name": "兕怪/妖魔/魔王",
+      "description": "金皘洞中的妖怪，有白森森圈子法宝，神通广大"
+    },
+    {
+      "name": "广目天王",
+      "description": "镇守南天门的天王"
+    },
+    {
+      "name": "马赵温关四大元帅",
+      "description": "天庭的四位元帅"
+    },
+    {
+      "name": "张道陵",
+      "description": "四天师之一"
+    },
+    {
+      "name": "葛仙翁",
+      "description": "四天师之一"
+    },
+    {
+      "name": "许旌阳",
+      "description": "四天师之一"
+    },
+    {
+      "name": "丘弘济",
+      "description": "四天师之一"
+    },
+    {
+      "name": "玉皇大帝/玉帝",
+      "description": "天庭之主"
+    },
+    {
+      "name": "可韩丈人真君",
+      "description": "负责查勘天庭星宿的真君"
+    },
+    {
+      "name": "李天王/托塔李天王",
+      "description": "天庭武将，持宝塔，哪吒之父"
+    },
+    {
+      "name": "哪吒太子",
+      "description": "李天王第三子，三头六臂，有降妖法力和六般兵器"
+    },
+    {
+      "name": "邓化",
+      "description": "雷公之一"
+    },
+    {
+      "name": "张蕃",
+      "description": "雷公之一"
+    },
+    {
+      "name": "火德星君/南方三噹火德星君",
+      "description": "掌管火部的星君"
+    },
+    {
+      "name": "多闻天王",
+      "description": "镇守北天门的天王"
+    },
+    {
+      "name": "庞刘苟毕四大天将",
+      "description": "天庭的四位天将"
+    },
+    {
+      "name": "水德星君",
+      "description": "掌管水部的星君"
+    },
+    {
+      "name": "黄河水伯",
+      "description": "黄河之神，有白玉盂法宝"
+    }
+  ],
+  "locations": [
+    {
+      "name": "金皘山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "金皘洞",
+      "type": "洞穴",
+      "parent": "金皘山"
+    },
+    {
+      "name": "南天门",
+      "type": "天门",
+      "parent": "天庭"
+    },
+    {
+      "name": "灵霄殿",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "彤华宫",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "乌浩宫",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "北天门",
+      "type": "天门",
+      "parent": "天庭"
+    },
+    {
+      "name": "天庭",
+      "type": "仙界",
+      "parent": null
+    },
+    {
+      "name": "三微垣",
+      "type": "天界区域",
+      "parent": "天庭"
+    },
+    {
+      "name": "三十三天",
+      "type": "天界区域",
+      "parent": "天庭"
+    },
+    {
+      "name": "九天府",
+      "type": "官府",
+      "parent": "天庭"
+    },
+    {
+      "name": "山南坡",
+      "type": "地形",
+      "parent": "金皘山"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙悟空",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "哪吒太子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "邓化",
+      "person_b": "张蕃",
+      "relation_type": "同事"
+    },
+    {
+      "person_a": "张道陵",
+      "person_b": "葛仙翁",
+      "relation_type": "同事"
+    },
+    {
+      "person_a": "张道陵",
+      "person_b": "许旌阳",
+      "relation_type": "同事"
+    },
+    {
+      "person_a": "张道陵",
+      "person_b": "丘弘济",
+      "relation_type": "同事"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "玉皇大帝",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "玉皇大帝",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "火德星君",
+      "person_b": "玉皇大帝",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "水德星君",
+      "person_b": "黄河水伯",
+      "relation_type": "上下级"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "金皘山",
+      "target": "金皘洞",
+      "relation_type": "contains",
+      "value": "山中间"
+    },
+    {
+      "source": "天庭",
+      "target": "南天门",
+      "relation_type": "contains",
+      "value": "入口"
+    },
+    {
+      "source": "天庭",
+      "target": "北天门",
+      "relation_type": "contains",
+      "value": "入口"
+    },
+    {
+      "source": "天庭",
+      "target": "灵霄殿",
+      "relation_type": "contains",
+      "value": "中心宫殿"
+    },
+    {
+      "source": "天庭",
+      "target": "彤华宫",
+      "relation_type": "contains",
+      "value": "火部宫殿"
+    },
+    {
+      "source": "天庭",
+      "target": "乌浩宫",
+      "relation_type": "contains",
+      "value": "水部宫殿"
+    },
+    {
+      "source": "金皘山",
+      "target": "山南坡",
+      "relation_type": "contains",
+      "value": "南侧坡地"
+    },
+    {
+      "source": "南天门",
+      "target": "灵霄殿",
+      "relation_type": "direction",
+      "value": "南天门内直至灵霄殿"
+    },
+    {
+      "source": "天庭",
+      "target": "三微垣",
+      "relation_type": "contains",
+      "value": "天庭内部区域"
+    },
+    {
+      "source": "天庭",
+      "target": "三十三天",
+      "relation_type": "contains",
+      "value": "天庭内部区域"
+    }
+  ],
+  "_chapter": 51,
+  "_input_tokens": 8290,
+  "_output_tokens": 1740
+}

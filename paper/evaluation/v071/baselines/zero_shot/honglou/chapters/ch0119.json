@@ -1,0 +1,301 @@
+{
+  "characters": [
+    {
+      "name": "邢王二夫人",
+      "description": "贾府中的夫人"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾府中的女性"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府的夫人，宝玉的母亲"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四小姐，要修行出家"
+    },
+    {
+      "name": "妙玉",
+      "description": "带发修行的尼姑，已离开"
+    },
+    {
+      "name": "李纨",
+      "description": "贾府的大嫂"
+    },
+    {
+      "name": "彩屏",
+      "description": "服侍惜春的丫鬟"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，主要人物"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝玉的妻子"
+    },
+    {
+      "name": "紫鹃",
+      "description": "原本服侍林黛玉，后要跟随惜春修行"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，已故"
+    },
+    {
+      "name": "贾兰",
+      "description": "李纨之子，贾府子弟"
+    },
+    {
+      "name": "贾环",
+      "description": "贾府三公子"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，在外地"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老祖宗，已故"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三小姐，嫁到外地"
+    },
+    {
+      "name": "赖尚荣",
+      "description": "赖家的儿子，做官"
+    },
+    {
+      "name": "贾蔷",
+      "description": "贾府子弟"
+    },
+    {
+      "name": "贾芸",
+      "description": "贾府子弟"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾环的母亲"
+    },
+    {
+      "name": "王仁",
+      "description": "王夫人的兄弟"
+    },
+    {
+      "name": "邢大舅",
+      "description": "邢夫人的兄弟"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾府大夫人"
+    },
+    {
+      "name": "巧姐",
+      "description": "贾琏和王熙凤的女儿"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府二公子，不在家"
+    },
+    {
+      "name": "平儿",
+      "description": "王熙凤的丫鬟，照顾巧姐"
+    },
+    {
+      "name": "李婶娘",
+      "description": "李纨的母亲"
+    },
+    {
+      "name": "李绮",
+      "description": "李纨的妹妹"
+    },
+    {
+      "name": "甄宝玉",
+      "description": "甄家的公子"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的丫鬟"
+    },
+    {
+      "name": "五儿",
+      "description": "宝玉房中的丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "大宅院",
+      "parent": null
+    },
+    {
+      "name": "惜春房间",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "静室",
+      "type": "修行房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "宝玉房间",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人房间",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "河道",
+      "type": "水路",
+      "parent": null
+    },
+    {
+      "name": "赖尚荣任所",
+      "type": "官署",
+      "parent": null
+    },
+    {
+      "name": "外藩公馆",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "前面屋里",
+      "type": "客厅",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "贾兰",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾环",
+      "person_b": "赵姨娘",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "王仁",
+      "person_b": "王夫人",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "邢大舅",
+      "person_b": "邢夫人",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "巧姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "李婶娘",
+      "person_b": "李纨",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "莺儿",
+      "person_b": "宝钗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "彩屏",
+      "person_b": "惜春",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "惜春房间",
+      "relation_type": "contains",
+      "value": "居住区域"
+    },
+    {
+      "source": "贾府",
+      "target": "静室",
+      "relation_type": "contains",
+      "value": "修行场所"
+    },
+    {
+      "source": "贾府",
+      "target": "宝玉房间",
+      "relation_type": "contains",
+      "value": "居住区域"
+    },
+    {
+      "source": "贾府",
+      "target": "王夫人房间",
+      "relation_type": "contains",
+      "value": "居住区域"
+    },
+    {
+      "source": "贾府",
+      "target": "前面屋里",
+      "relation_type": "contains",
+      "value": "会客区域"
+    },
+    {
+      "source": "宝玉房间",
+      "target": "静室",
+      "relation_type": "adjacent",
+      "value": "同一区域"
+    },
+    {
+      "source": "静室",
+      "target": "宝玉房间",
+      "relation_type": "adjacent",
+      "value": "相邻房间"
+    }
+  ],
+  "_chapter": 119,
+  "_input_tokens": 9342,
+  "_output_tokens": 1883
+}

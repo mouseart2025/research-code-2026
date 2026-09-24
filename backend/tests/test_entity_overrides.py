@@ -7,8 +7,9 @@ Covers:
   and the 沙僧/八戒 over-merge correction (Story 1.2 / SC5).
 """
 
-import pytest
 from unittest.mock import patch
+
+import pytest
 
 from src.db import entity_override_store
 from src.services import alias_resolver
@@ -314,6 +315,142 @@ async def test_invalidate_clears_conflicts():
     assert NOVEL not in alias_resolver._alias_override_targets
 
 
+# ── LLM 决策 (llm_merge) 与手动 override 优先级 (Epic 2, FR-2.4) ──
+
+
+@pytest.mark.asyncio
+async def test_llm_merge_applies_like_manual_merge():
+    """llm_merge 与手动 alias_merge 走同一 override 通道。"""
+    invalidate_alias_cache(NOVEL)
+    ov = [{
+        "override_type": "llm_merge",
+        "override_key": "观音菩萨",
+        "override_json": {
+            "members": ["观音菩萨", "南海观世音"],
+            "canonical": "观音菩萨",
+            "reason": "同一人物的不同尊称",
+            "prompt_version": "er-cluster-v1",
+        },
+    }]
+    with _patch_overrides(ov):
+        out = await _apply_user_overrides(NOVEL, {})
+    assert out["南海观世音"] == "观音菩萨"
+    assert "观音菩萨" not in out  # canonical 不自映射
+
+
+@pytest.mark.asyncio
+async def test_manual_split_overrides_llm_merge():
+    """FR-2.4: 手动 split 优先级高于 LLM 合并决策(无论写入顺序)。"""
+    invalidate_alias_cache(NOVEL)
+    # LLM 决策写入时间晚于手动 split,但手动仍然胜出。
+    ov = [
+        {
+            "override_type": "alias_split",
+            "override_key": "观音菩萨→观世音",
+            "override_json": {"source": "观音菩萨", "aliases": ["南海观世音"],
+                              "to": "观世音"},
+        },
+        {
+            "override_type": "llm_merge",
+            "override_key": "观音菩萨",
+            "override_json": {"members": ["观音菩萨", "南海观世音"],
+                              "canonical": "观音菩萨"},
+        },
+    ]
+    with _patch_overrides(ov):
+        out = await _apply_user_overrides(NOVEL, {})
+    # 手动 split 是 last writer:南海观世音 不并入 观音菩萨
+    assert out["南海观世音"] == "观世音"
+
+
+@pytest.mark.asyncio
+async def test_manual_merge_locks_canonical_over_llm_decision():
+    """FR-2.4: 手动 merge 选择的 canonical 覆盖 LLM 决策的 canonical。"""
+    invalidate_alias_cache(NOVEL)
+    ov = [
+        {
+            "override_type": "llm_merge",
+            "override_key": "观音",
+            "override_json": {"members": ["观音菩萨", "南海观世音", "观音"],
+                              "canonical": "观音"},
+        },
+        {
+            "override_type": "alias_merge",
+            "override_key": "观音菩萨",
+            "override_json": {"members": ["观音菩萨", "南海观世音", "观音"],
+                              "canonical": "观音菩萨"},
+        },
+    ]
+    with _patch_overrides(ov):
+        out = await _apply_user_overrides(NOVEL, {})
+    assert out["南海观世音"] == "观音菩萨"
+    assert out["观音"] == "观音菩萨"
+    assert "观音菩萨" not in out
+
+
+@pytest.mark.asyncio
+async def test_llm_merge_survives_rebuild():
+    """llm_merge 存于 entity_overrides,每次 build 重新应用 — survives-rebuild。"""
+    invalidate_alias_cache(NOVEL)
+    ov = [{
+        "override_type": "llm_merge",
+        "override_key": "观音菩萨",
+        "override_json": {"members": ["观音菩萨", "南海观世音"],
+                          "canonical": "观音菩萨"},
+    }]
+    with _patch_overrides(ov):
+        first = await _apply_user_overrides(NOVEL, {})
+        # 模拟 rebuild:自动层结果变化,override 重新应用结果不变
+        second = await _apply_user_overrides(NOVEL, {"齐天大圣": "孙悟空"})
+    assert first["南海观世音"] == "观音菩萨"
+    assert second["南海观世音"] == "观音菩萨"
+    assert second["齐天大圣"] == "孙悟空"  # 自动层结果保留
+
+
+@pytest.mark.asyncio
+async def test_llm_merge_absorbs_auto_canonical_leftovers():
+    """llm_merge 重选 canonical 后,未列入 members 的旧簇成员不得断链(issue #70)。
+
+    自动簇 {宝玉, 宝二爷, 宝哥哥} → 贾宝玉;LLM 决策 members=[贾宝玉, 宝玉, 宝二爷]
+    且重选简称「宝玉」为 canonical。修复前「宝哥哥」仍指向旧 canonical「贾宝玉」,
+    形成 宝哥哥→贾宝玉→宝玉 二级链,单跳消费方(阅读高亮增补)断链、簇被劈开。
+    """
+    invalidate_alias_cache(NOVEL)
+    auto = {"宝玉": "贾宝玉", "宝二爷": "贾宝玉", "宝哥哥": "贾宝玉"}
+    ov = [{
+        "override_type": "llm_merge",
+        "override_key": "宝玉",
+        "override_json": {"members": ["贾宝玉", "宝玉", "宝二爷"],
+                          "canonical": "宝玉"},
+    }]
+    with _patch_overrides(ov):
+        out = await _apply_user_overrides(NOVEL, dict(auto))
+    # 全簇直达最终 canonical,无链无环
+    assert out["宝哥哥"] == "宝玉"
+    assert out["贾宝玉"] == "宝玉"
+    assert out["宝二爷"] == "宝玉"
+    assert "宝玉" not in out  # canonical 不自映射
+    for alias, canon in out.items():
+        assert canon not in out, f"断链: {alias} → {canon} → {out.get(canon)}"
+
+
+@pytest.mark.asyncio
+async def test_chained_manual_merges_flatten():
+    """两次手动 merge 形成 甲→乙→丙 链时,收敛为直达(同一机制,手动路径)。"""
+    invalidate_alias_cache(NOVEL)
+    ovs = [
+        {"override_type": "alias_merge", "override_key": "乙",
+         "override_json": {"members": ["甲", "乙"], "canonical": "乙"}},
+        {"override_type": "alias_merge", "override_key": "丙",
+         "override_json": {"members": ["乙", "丙"], "canonical": "丙"}},
+    ]
+    with _patch_overrides(ovs):
+        out = await _apply_user_overrides(NOVEL, {})
+    assert out["甲"] == "丙"
+    assert out["乙"] == "丙"
+    assert "丙" not in out
+
+
 # ── Edit markers on profiles (Story 2.2) ────────────────────────
 
 
@@ -416,6 +553,7 @@ async def test_route_merge_happy_path():
 @pytest.mark.asyncio
 async def test_route_merge_rejects_canonical_not_in_members():
     from fastapi import HTTPException
+
     from src.api.routes.entity_overrides import MergeRequest, merge_aliases
 
     patches = _patch_route()
@@ -433,6 +571,7 @@ async def test_route_merge_rejects_canonical_not_in_members():
 @pytest.mark.asyncio
 async def test_route_split_rejects_to_equals_source():
     from fastapi import HTTPException
+
     from src.api.routes.entity_overrides import SplitRequest, split_aliases
 
     patches = _patch_route()
@@ -467,7 +606,11 @@ async def test_load_concept_overrides_parses_types():
 
 @pytest.mark.asyncio
 async def test_route_concept_rename_and_delete():
-    from src.api.routes.entity_overrides import ConceptEditRequest, concept_rename, concept_delete
+    from src.api.routes.entity_overrides import (
+        ConceptEditRequest,
+        concept_delete,
+        concept_rename,
+    )
 
     async def _get_novel(_n):
         return {"id": _n}
@@ -494,6 +637,7 @@ async def test_route_concept_rename_and_delete():
 @pytest.mark.asyncio
 async def test_route_concept_rename_rejects_same_name():
     from fastapi import HTTPException
+
     from src.api.routes.entity_overrides import ConceptEditRequest, concept_rename
 
     async def _get_novel(_n):
@@ -522,6 +666,7 @@ async def test_route_rename_happy_path():
 @pytest.mark.asyncio
 async def test_route_rename_rejects_same_name():
     from fastapi import HTTPException
+
     from src.api.routes.entity_overrides import RenameRequest, rename_entity
 
     patches = _patch_route()
@@ -549,3 +694,270 @@ async def test_route_split_happy_path():
         for p in patches:
             p.stop()
     assert res == {"status": "ok", "override_id": 9}
+
+
+# ── 实体级 override:entity_hide / entity_retype(issue #66 Epic 1)──
+
+
+@pytest.mark.asyncio
+async def test_store_hide_and_retype_roundtrip(memory_db):
+    """新 override_type 走同一 (novel_id, type, key) UPSERT 契约。"""
+
+    class _NonClosing:
+        def __init__(self, conn):
+            self._conn = conn
+
+        def __getattr__(self, name):
+            return getattr(self._conn, name)
+
+        async def close(self):
+            pass
+
+    async def _proxy_factory():
+        return _NonClosing(memory_db)
+
+    await memory_db.execute(
+        "INSERT INTO novels (id, title) VALUES (?, ?)", (NOVEL, "西游记"),
+    )
+    await memory_db.commit()
+
+    with patch("src.db.entity_override_store.get_connection", _proxy_factory):
+        await entity_override_store.save_override(
+            NOVEL, "entity_hide", "那道人", {"auto_snapshot": {"type": "person"}},
+        )
+        await entity_override_store.save_override(
+            NOVEL, "entity_retype", "花果山",
+            {"from": "location", "to": "org", "auto_snapshot": {"type": "location"}},
+        )
+        rows = await entity_override_store.load_overrides(NOVEL)
+        assert [r["override_type"] for r in rows] == ["entity_hide", "entity_retype"]
+        assert rows[1]["override_json"]["to"] == "org"
+
+        # 同 key UPSERT 改型,不重复
+        await entity_override_store.save_override(
+            NOVEL, "entity_retype", "花果山",
+            {"from": "location", "to": "concept"},
+        )
+        rows = await entity_override_store.load_overrides(NOVEL)
+        assert len(rows) == 2
+        assert rows[1]["override_json"]["to"] == "concept"
+
+
+@pytest.mark.asyncio
+async def test_retype_marks_entity_edited_in_targets():
+    """entity_retype 不改 alias_map,只把实体标记为 edited(FR6)。"""
+    invalidate_alias_cache(NOVEL)
+    amap = {"猴王": "孙悟空"}
+    ov = [{
+        "override_type": "entity_retype",
+        "override_key": "花果山",
+        "override_json": {"from": "location", "to": "org"},
+    }]
+    with _patch_overrides(ov):
+        out = await _apply_user_overrides(NOVEL, dict(amap))
+    assert out == amap  # alias_map 逐字节不变
+    assert "花果山" in alias_resolver._alias_override_targets[NOVEL].get("花果山", set())
+
+
+def _patch_visibility_route(saved_id=7, auto_entities=(), retype_map=None):
+    """Patch hide/retype 端点的依赖:novel 检查、alias_map、自动类型、存储、缓存。"""
+    from src.models.entity_profiles import EntitySummary
+
+    async def _get_novel(_n):
+        return {"id": _n}
+
+    async def _build_map(_n):
+        return {}
+
+    async def _all_entities(_n, *, apply_visibility=True):
+        return [
+            EntitySummary(name=n, type=t, chapter_count=2, first_chapter=1)
+            for n, t in auto_entities
+        ]
+
+    async def _save(*_a, **_k):
+        return saved_id
+
+    async def _vis(_n):
+        return set(), (retype_map or {})
+
+    async def _noop_invalidate(_n):
+        return None
+
+    return [
+        patch("src.db.novel_store.get_novel", _get_novel),
+        patch("src.api.routes.entity_overrides.build_alias_map", _build_map),
+        patch("src.api.routes.entity_overrides.entity_aggregator.get_all_entities", _all_entities),
+        patch("src.api.routes.entity_overrides.entity_override_store.save_override", _save),
+        patch("src.api.routes.entity_overrides.entity_aggregator.invalidate_cache", lambda _n: None),
+        patch(
+            "src.api.routes.entity_overrides.visualization_service.invalidate_map_response_cache",
+            _noop_invalidate,
+        ),
+        patch("src.services.entity_visibility.get_visibility_overrides", _vis),
+    ]
+
+
+@pytest.mark.asyncio
+async def test_route_hide_happy_path():
+    from src.api.routes.entity_overrides import HideRequest, hide_entity
+
+    patches = _patch_visibility_route(saved_id=21, auto_entities=[("那道人", "person")])
+    for p in patches:
+        p.start()
+    try:
+        res = await hide_entity(NOVEL, HideRequest(name="那道人"))
+    finally:
+        for p in patches:
+            p.stop()
+    assert res == {"status": "ok", "override_id": 21}
+
+
+@pytest.mark.asyncio
+async def test_route_hide_rejects_unknown_entity():
+    from fastapi import HTTPException
+
+    from src.api.routes.entity_overrides import HideRequest, hide_entity
+
+    patches = _patch_visibility_route(auto_entities=[("孙悟空", "person")])
+    for p in patches:
+        p.start()
+    try:
+        with pytest.raises(HTTPException) as exc:
+            await hide_entity(NOVEL, HideRequest(name="不存在的人"))
+        assert exc.value.status_code == 400
+    finally:
+        for p in patches:
+            p.stop()
+
+
+@pytest.mark.asyncio
+async def test_route_retype_happy_path():
+    from src.api.routes.entity_overrides import RetypeRequest, retype_entity
+
+    patches = _patch_visibility_route(saved_id=33, auto_entities=[("花果山", "location")])
+    for p in patches:
+        p.start()
+    try:
+        res = await retype_entity(NOVEL, RetypeRequest(name="花果山", to="org"))
+    finally:
+        for p in patches:
+            p.stop()
+    assert res == {"status": "ok", "override_id": 33}
+
+
+@pytest.mark.asyncio
+async def test_route_retype_rejects_invalid_type():
+    from fastapi import HTTPException
+
+    from src.api.routes.entity_overrides import RetypeRequest, retype_entity
+
+    patches = _patch_visibility_route(auto_entities=[("花果山", "location")])
+    for p in patches:
+        p.start()
+    try:
+        with pytest.raises(HTTPException) as exc:
+            await retype_entity(NOVEL, RetypeRequest(name="花果山", to="alien"))
+        assert exc.value.status_code == 400
+    finally:
+        for p in patches:
+            p.stop()
+
+
+@pytest.mark.asyncio
+async def test_route_retype_rejects_same_effective_type():
+    """与当前生效类型(含已存在的改型)相同 → 400,不重复写入。"""
+    from fastapi import HTTPException
+
+    from src.api.routes.entity_overrides import RetypeRequest, retype_entity
+
+    patches = _patch_visibility_route(
+        auto_entities=[("花果山", "location")], retype_map={"花果山": "org"},
+    )
+    for p in patches:
+        p.start()
+    try:
+        with pytest.raises(HTTPException) as exc:
+            await retype_entity(NOVEL, RetypeRequest(name="花果山", to="org"))
+        assert exc.value.status_code == 400
+    finally:
+        for p in patches:
+            p.stop()
+
+
+@pytest.mark.asyncio
+async def test_list_overrides_flags_retype_drift():
+    """FR7 式漂移标记:自动类型与快照 from 不一致 → conflict=True(非破坏)。"""
+    from src.api.routes.entity_overrides import list_overrides
+    from src.models.entity_profiles import EntitySummary
+
+    async def _get_novel(_n):
+        return {"id": _n}
+
+    async def _load(_n):
+        return [{
+            "id": 1, "override_type": "entity_retype", "override_key": "花果山",
+            "override_json": {"from": "location", "to": "org"},
+            "created_at": "2026-08-30",
+        }]
+
+    async def _build_map(_n):
+        return {}
+
+    async def _all_entities(_n, *, apply_visibility=True):
+        # 重建后自动识别已变成 org — 与快照 from=location 漂移
+        return [EntitySummary(name="花果山", type="org", chapter_count=3, first_chapter=1)]
+
+    patches = [
+        patch("src.db.novel_store.get_novel", _get_novel),
+        patch("src.api.routes.entity_overrides.entity_override_store.load_overrides", _load),
+        patch("src.api.routes.entity_overrides.build_alias_map", _build_map),
+        patch("src.api.routes.entity_overrides.entity_aggregator.get_all_entities", _all_entities),
+    ]
+    for p in patches:
+        p.start()
+    try:
+        res = await list_overrides(NOVEL)
+    finally:
+        for p in patches:
+            p.stop()
+    ov = res["overrides"][0]
+    assert ov["conflict"] is True
+    assert "org" in ov["conflict_reason"]
+
+
+@pytest.mark.asyncio
+async def test_list_overrides_flags_vanished_entity():
+    """隐藏目标在重建后不存在 → conflict=True,override 不静默失效。"""
+    from src.api.routes.entity_overrides import list_overrides
+
+    async def _get_novel(_n):
+        return {"id": _n}
+
+    async def _load(_n):
+        return [{
+            "id": 2, "override_type": "entity_hide", "override_key": "那道人",
+            "override_json": {"auto_snapshot": {"type": "person"}},
+            "created_at": "2026-08-30",
+        }]
+
+    async def _build_map(_n):
+        return {}
+
+    async def _all_entities(_n, *, apply_visibility=True):
+        return []
+
+    patches = [
+        patch("src.db.novel_store.get_novel", _get_novel),
+        patch("src.api.routes.entity_overrides.entity_override_store.load_overrides", _load),
+        patch("src.api.routes.entity_overrides.build_alias_map", _build_map),
+        patch("src.api.routes.entity_overrides.entity_aggregator.get_all_entities", _all_entities),
+    ]
+    for p in patches:
+        p.start()
+    try:
+        res = await list_overrides(NOVEL)
+    finally:
+        for p in patches:
+            p.stop()
+    assert res["overrides"][0]["conflict"] is True

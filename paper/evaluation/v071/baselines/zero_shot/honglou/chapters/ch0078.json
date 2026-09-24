@@ -1,0 +1,294 @@
+{
+  "characters": [
+    {
+      "name": "王夫人",
+      "description": "贾府的主要女性，宝玉的母亲，性格严厉，主管家务"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾府的管家媳妇，中秋后病情有所好转"
+    },
+    {
+      "name": "彩云",
+      "description": "王夫人身边的丫鬟"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾府的另一位夫人"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府的老太太，辈分最高"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母身边的重要丫鬟"
+    },
+    {
+      "name": "周瑞家的",
+      "description": "贾府的管事媳妇"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家的女儿，聪明懂事"
+    },
+    {
+      "name": "司棋",
+      "description": "迎春的大丫鬟，因私情被撵出"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府的姑娘，性格软弱"
+    },
+    {
+      "name": "王善保家的",
+      "description": "管事媳妇，司棋的外祖母"
+    },
+    {
+      "name": "绣桔",
+      "description": "迎春身边的丫鬟"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府的公子，性格敏感多情"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中的丫鬟，生得美貌但被撵出"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房中的首席丫鬟，谨慎稳重"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "四儿",
+      "description": "宝玉房中的丫鬟，与宝玉同日生日"
+    },
+    {
+      "name": "芳官",
+      "description": "唱戏的女孩子，后出家为尼"
+    },
+    {
+      "name": "蕊官",
+      "description": "唱戏的女孩子，后出家为尼"
+    },
+    {
+      "name": "藕官",
+      "description": "唱戏的女孩子，后出家为尼"
+    },
+    {
+      "name": "多浑虫",
+      "description": "晴雯的姑舅哥哥，嗜酒"
+    },
+    {
+      "name": "灯姑娘",
+      "description": "多浑虫的妻子，性格风流"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，严厉的家长"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政的儿子，宝玉的弟弟"
+    },
+    {
+      "name": "贾兰",
+      "description": "贾政的侄子"
+    },
+    {
+      "name": "智通",
+      "description": "水月庵的尼姑"
+    },
+    {
+      "name": "圆心",
+      "description": "地藏庵的尼姑"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "迎春房",
+      "type": "房间",
+      "parent": "大观园"
+    },
+    {
+      "name": "沁芳亭",
+      "type": "亭子",
+      "parent": "大观园"
+    },
+    {
+      "name": "后角门",
+      "type": "门",
+      "parent": "大观园"
+    },
+    {
+      "name": "晴雯家",
+      "type": "民居",
+      "parent": null
+    },
+    {
+      "name": "水月庵",
+      "type": "庵堂",
+      "parent": null
+    },
+    {
+      "name": "地藏庵",
+      "type": "庵堂",
+      "parent": null
+    },
+    {
+      "name": "薛姨妈家",
+      "type": "居所",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "彩云",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "王夫人",
+      "relation_type": "姨甥"
+    },
+    {
+      "person_a": "迎春",
+      "person_b": "司棋",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "晴雯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "四儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "多浑虫",
+      "relation_type": "姑舅"
+    },
+    {
+      "person_a": "多浑虫",
+      "person_b": "灯姑娘",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾环",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "芳官",
+      "person_b": "智通",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "蕊官",
+      "person_b": "圆心",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "藕官",
+      "person_b": "圆心",
+      "relation_type": "师徒"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "大观园位于贾府内"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "怡红院是大观园中的院落"
+    },
+    {
+      "source": "大观园",
+      "target": "迎春房",
+      "relation_type": "contains",
+      "value": "迎春房位于大观园内"
+    },
+    {
+      "source": "大观园",
+      "target": "沁芳亭",
+      "relation_type": "contains",
+      "value": "沁芳亭是大观园中的建筑"
+    },
+    {
+      "source": "大观园",
+      "target": "后角门",
+      "relation_type": "contains",
+      "value": "后角门是大观园的出入口"
+    },
+    {
+      "source": "晴雯家",
+      "target": "贾府",
+      "relation_type": "direction",
+      "value": "晴雯家在贾府外"
+    },
+    {
+      "source": "水月庵",
+      "target": "贾府",
+      "relation_type": "direction",
+      "value": "水月庵在贾府外"
+    },
+    {
+      "source": "地藏庵",
+      "target": "贾府",
+      "relation_type": "direction",
+      "value": "地藏庵在贾府外"
+    }
+  ],
+  "_chapter": 78,
+  "_input_tokens": 12828,
+  "_output_tokens": 1986
+}

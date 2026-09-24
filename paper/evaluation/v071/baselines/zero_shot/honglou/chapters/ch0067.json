@@ -1,0 +1,205 @@
+{
+  "characters": [
+    {
+      "name": "鲍二家的",
+      "description": "贾府仆人"
+    },
+    {
+      "name": "尤二姐",
+      "description": "贾琏的二房妻子，尤老的女儿"
+    },
+    {
+      "name": "尤三姐",
+      "description": "尤二姐的妹妹，性格刚烈，喜欢柳湘莲"
+    },
+    {
+      "name": "兴儿",
+      "description": "贾府仆人，负责传话"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，不喜读书，在丫头群中玩耍"
+    },
+    {
+      "name": "林姑娘",
+      "description": "林黛玉，宝玉的表妹，多病"
+    },
+    {
+      "name": "隆儿",
+      "description": "贾府仆人"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府二爷，尤二姐的丈夫"
+    },
+    {
+      "name": "柳湘莲",
+      "description": "戏班小生，尤三姐心仪之人，性格冷面冷心"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛家公子，与柳湘莲结为兄弟"
+    },
+    {
+      "name": "尤老",
+      "description": "尤二姐和尤三姐的母亲"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾琏的正室妻子"
+    },
+    {
+      "name": "贾珍",
+      "description": "贾府东府当家"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛蟠的母亲"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛家人"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "跏腿道士",
+      "description": "破庙中的道士"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "宅邸",
+      "parent": null
+    },
+    {
+      "name": "东府",
+      "type": "宅邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "平安州",
+      "type": "州郡",
+      "parent": null
+    },
+    {
+      "name": "尤二姐住处",
+      "type": "房屋",
+      "parent": null
+    },
+    {
+      "name": "绣房",
+      "type": "房间",
+      "parent": "尤二姐住处"
+    },
+    {
+      "name": "酒店",
+      "type": "客栈",
+      "parent": null
+    },
+    {
+      "name": "破庙",
+      "type": "庙宇",
+      "parent": null
+    },
+    {
+      "name": "太虚幻境",
+      "type": "仙境",
+      "parent": null
+    },
+    {
+      "name": "京城",
+      "type": "城市",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "尤二姐",
+      "person_b": "尤三姐",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "尤二姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "尤二姐",
+      "person_b": "尤老",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "尤三姐",
+      "person_b": "尤老",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "尤三姐",
+      "person_b": "柳湘莲",
+      "relation_type": "心仪"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "林姑娘",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "柳湘莲",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "柳湘莲",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛姨妈",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "茗烟",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "东府",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "东府属于贾府"
+    },
+    {
+      "source": "绣房",
+      "target": "尤二姐住处",
+      "relation_type": "contains",
+      "value": "绣房在尤二姐住处内"
+    },
+    {
+      "source": "平安州",
+      "target": "京城",
+      "relation_type": "direction",
+      "value": "贾琏从京城前往平安州"
+    },
+    {
+      "source": "破庙",
+      "target": "酒店",
+      "relation_type": "adjacent",
+      "value": "柳湘莲从酒店到破庙"
+    }
+  ],
+  "_chapter": 67,
+  "_input_tokens": 6339,
+  "_output_tokens": 1351
+}

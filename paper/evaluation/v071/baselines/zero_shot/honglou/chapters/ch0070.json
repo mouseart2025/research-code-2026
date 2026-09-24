@@ -1,0 +1,305 @@
+{
+  "characters": [
+    {
+      "name": "尤二姐",
+      "description": "花为肠肚雪作肌肤的女子，贾琏的二房，后因受人欺凌而服金自杀"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，贾琏的正妻，表面贤良实则狠毒，设计陷害尤二姐"
+    },
+    {
+      "name": "尤氏",
+      "description": "尤二姐的姐姐，贾珍的妻子"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗，尤二姐称其为太婆婆"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐的丈夫，尤二姐的丈夫，后来又纳秋桐为妾"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦的妻子"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政的妻子"
+    },
+    {
+      "name": "张华",
+      "description": "曾与尤二姐有婚约的男子，后被贿赂离开"
+    },
+    {
+      "name": "王信",
+      "description": "负责处理张华案件的人"
+    },
+    {
+      "name": "庆儿",
+      "description": "替张华打点事务的人"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍的儿子，尤氏的继子"
+    },
+    {
+      "name": "贾珍",
+      "description": "贾蓉的父亲，尤氏的丈夫，后赴军前效力"
+    },
+    {
+      "name": "旺儿",
+      "description": "凤姐的手下"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾琏的父亲，将秋桐赏给贾琏"
+    },
+    {
+      "name": "秋桐",
+      "description": "十七岁的丫鬟，被贾赦赏给贾琏为妾"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟，同情尤二姐"
+    },
+    {
+      "name": "李纨",
+      "description": "大观园中的人"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府的小姐"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府的小姐"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉"
+    },
+    {
+      "name": "宝黛",
+      "description": "宝玉和黛玉"
+    },
+    {
+      "name": "尤三姐",
+      "description": "尤二姐的妹妹，已故，在梦中劝尤二姐"
+    },
+    {
+      "name": "胡君荣",
+      "description": "太医，误诊导致尤二姐流产后逃走"
+    },
+    {
+      "name": "王太医",
+      "description": "太医，已赴军前效力"
+    },
+    {
+      "name": "天文生",
+      "description": "负责丧事安排的阴阳先生"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾母房中",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "厢房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "新房",
+      "type": "房间",
+      "parent": ""
+    },
+    {
+      "name": "洒泪亭",
+      "type": "亭子",
+      "parent": ""
+    },
+    {
+      "name": "园中",
+      "type": "园林",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "宅院",
+      "parent": ""
+    },
+    {
+      "name": "京口",
+      "type": "地名",
+      "parent": ""
+    },
+    {
+      "name": "梨香院",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "铁槛寺",
+      "type": "寺庙",
+      "parent": ""
+    },
+    {
+      "name": "内子墙",
+      "type": "墙",
+      "parent": "贾府"
+    },
+    {
+      "name": "北界墙",
+      "type": "墙",
+      "parent": "大观园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "尤二姐",
+      "person_b": "尤氏",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "尤二姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "尤二姐",
+      "person_b": "贾母",
+      "relation_type": "孙媳妇"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "琥珀",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "邢夫人",
+      "person_b": "贾赦",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "贾赦",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "秋桐",
+      "person_b": "贾琏",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "贾珍",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "尤氏",
+      "person_b": "贾珍",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "旺儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "尤三姐",
+      "person_b": "尤二姐",
+      "relation_type": "姐妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "贾母房中",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "厢房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "园中",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "梨香院",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "内子墙",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "北界墙",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "梨香院",
+      "target": "铁槛寺",
+      "relation_type": "direction",
+      "value": "尤二姐灵柩要从梨香院移至铁槛寺"
+    },
+    {
+      "source": "内子墙",
+      "target": "梨香院",
+      "relation_type": "direction",
+      "value": "从内子墙抬灵柩至梨香院"
+    }
+  ],
+  "_chapter": 70,
+  "_input_tokens": 9062,
+  "_output_tokens": 2034
+}

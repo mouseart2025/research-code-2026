@@ -1,0 +1,539 @@
+% ARR October 2026 cycle (target NAACL 2027 / COLING 2027) — anonymized submission — v15.13c
+% v15.13c changes: tab:cross + Anna Karenina (psychological realism, boundary case) row;
+% cross-genre boundary-case sentence; Limitations sparse-locations now validated; Ethics six→seven.
+% v15.13b changes: tab:cross + Fanren Xiuzhuan (2,451-ch xianxia web serial) row;
+% cross-genre/Ethics "five"→"six"; Limitations web-fiction sentence scoped.
+% v15.13 changes: (A) number refresh to release v0.78 with pinned pure-extraction start state
+% (tab:fair, tab:main, tab:ablation headline; frozen-provenance footnotes where no refresh exists);
+% (B) external expert review items: ARBOR naming note, Ming-Qing vernacular terminology,
+% abstract contribution sentence, 4-dimension reorder, homonym disambiguation paragraph,
+% RE positioning + 3 citations, Limitations (textual versions / scope / uber-root footnote),
+% annotation versioning.
+\documentclass[11pt]{article}
+\usepackage[review,hyperref]{acl}  % 'review' MUST be explicit — acl.sty defaults to [final] (no line numbers). This omission caused the #4359 desk reject. Switch to [final] only for camera-ready.
+\hypersetup{pdfauthor={}, pdftitle={}, pdfsubject={}, pdfcreator={}, pdfproducer={}, pdfkeywords={}}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{iftex}
+\ifPDFTeX
+\usepackage{CJKutf8}  % Overleaf/pdfLaTeX path (submission target)
+\else
+% Local tectonic/XeTeX fallback: CJKutf8+gbsn is pdfTeX-only; emulate the
+% CJK environment with xeCJK so local compiles render Chinese glyphs.
+\usepackage{xeCJK}
+\setCJKmainfont{Songti SC}
+\newenvironment{CJK}[2]{}{}
+\fi
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{algorithm}
+\providecommand{\algorithmautorefname}{Algorithm}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+% Thin frame around UI screenshots (white-background shots blend into the page)
+\setlength{\fboxsep}{0pt}
+\newcommand{\uiframe}[1]{\fbox{\includegraphics[width=\dimexpr\columnwidth-2\fboxrule\relax]{#1}}}
+
+% Tighten float spacing to help fit the 8-page ARR long-paper content limit
+% (carried over from the earlier demo-track draft; keep — load-bearing for pagination).
+\setlength{\textfloatsep}{4pt plus 2pt minus 2pt}
+\setlength{\intextsep}{4pt plus 2pt minus 2pt}
+\setlength{\floatsep}{4pt plus 1pt minus 1pt}
+\setlength{\dbltextfloatsep}{5pt plus 2pt minus 2pt}
+\setlength{\dblfloatsep}{4pt plus 1pt minus 1pt}
+\setlength{\abovecaptionskip}{2pt}
+\setlength{\belowcaptionskip}{1pt}
+\setlength{\abovedisplayskip}{4pt plus 1pt minus 1pt}
+\setlength{\belowdisplayskip}{4pt plus 1pt minus 1pt}
+
+% Double-blind: DO NOT enable \aclfinalcopy before acceptance
+% \aclfinalcopy
+
+\title{ARBOR: Structural Guarantees for LLM-Extracted Narrative Hierarchies via Maximum Weight Arborescence}
+
+\author{Anonymous ARR submission}
+
+\begin{document}
+\maketitle
+
+% ============================================================
+\begin{abstract}
+We present \textbf{ARBOR}\footnote{ARBOR: Latin \emph{arbor} (``tree''), after the \emph{arborescence} at the core of our method.}, an open-source system that extracts structured narrative knowledge from Chinese long-form fiction and produces four interactive views (relationship graph, procedural world map, timeline, character encyclopedia). Per-chapter LLM extraction at novel scale produces per-node assignments that are mostly correct, yet the aggregate hierarchy still \textbf{collapses structurally}: greedy vote aggregation accumulates up to 203 children under a single parent, produces cycles, and fragments single locations into duplicate nodes across surface variants. We argue that what long-document extraction needs is not higher per-node accuracy, but \textbf{structural guarantees} that greedy aggregation cannot provide. We pair per-chapter LLM extraction with an \textbf{Edmonds-augmented hybrid algorithm} that preserves reliable LLM-local parent judgments and applies Chu-Liu/Edmonds maximum-weight arborescence to fill structural gaps ($\sim$130\,ms, no LLM dependency); complement it with a composable \textsc{SuffixNormalizer} skill merging 60+ surface variants on the most alias-rich novel; and report three-layer symbolic validation. On a benchmark of five Ming--Qing classical vernacular novels (4{,}941 expert-reviewed nodes), ARBOR's pipeline \textbf{preserves per-node accuracy} relative to greedy voting on the shared node set (fair comparison: 0.9101 vs.\ 0.9062 average Overall, per-novel differences within $\pm$0.01) while delivering qualitatively different structural guarantees: single-root acyclic trees, max fan-out reduced from 203 to 57 on the most severe case (72\% reduction), and 60+ variant merges on the most affected novel. An additional LLM single-shot CoT baseline, given the same vote evidence Edmonds sees plus pretrained knowledge, also fails --- dropping 1--6 input locations, hallucinating 3--10, with unstable fan-out (74/143). These guarantees are algorithmic properties of the aggregation layer, not artifacts of prompt engineering. We release the pipeline, the 4{,}941-node gold, and the evaluation harness at \url{https://anonymous.4open.science/r/arbor-x9k3a}.
+\end{abstract}
+
+% ============================================================
+\section{Introduction}
+
+Long-form fiction analysis --- extracting characters, relationships, locations, and events into queryable knowledge --- has traditionally required weeks of manual scholarly effort. LLM-based information extraction \cite{wei2024zeroshot,wadhwa2023revisiting} succeeds at passage scale but exposes qualitatively new failure modes when scaled to novel length (100--2{,}500 chapters, 0.5--8M characters). Pretrained LLMs can recognize \begin{CJK}{UTF8}{gbsn}孙悟空\end{CJK} or \begin{CJK}{UTF8}{gbsn}贾宝玉\end{CJK} in isolation, yet the \textit{aggregation} of their per-chapter outputs into a coherent narrative knowledge graph fails along four dimensions:
+
+\textbf{(i) Entity drift.} Generic terms (\begin{CJK}{UTF8}{gbsn}土地\end{CJK} earth god, \begin{CJK}{UTF8}{gbsn}小妖\end{CJK} minor demon) are surfaced as named characters, though each refers to different individuals per chapter.
+\textbf{(ii) Historical semantic ambiguity.} The suffix \begin{CJK}{UTF8}{gbsn}州\end{CJK} denotes a province in \textit{Three Kingdoms} but a prefecture in \textit{Water Margin} (Song dynasty); no existing system adapts to narrative era.
+\textbf{(iii) Spatial inversion.} Containment direction is frequently reversed, e.g.\ \begin{CJK}{UTF8}{gbsn}水帘洞\end{CJK} (Water Curtain Cave) \textit{contains} \begin{CJK}{UTF8}{gbsn}花果山\end{CJK} (Flower Fruit Mountain); 30.8\% of extracted containment relations in \textit{Dream of the Red Chamber} had incorrect direction.
+\textbf{(iv) Structural collapse.} Per-node parent voting accumulates 203 children under a single catch-all parent in \textit{Journey to the West}; cycles emerge; same-location surface variants (\begin{CJK}{UTF8}{gbsn}乌斯藏/乌斯藏国/乌斯藏国界\end{CJK}) fragment into spurious duplicate nodes.
+
+The four dimensions follow the logic of knowledge-graph construction itself: entities surfaced and resolved (i), names interpreted against historical semantics (ii), spatial containment organized (iii), and the aggregate assembled (iv). We argue that (i)--(iv) constitute a \textbf{different category} of extraction failure than those addressed by standard IE benchmarks. Per-node accuracy metrics fail to penalize an aggregate graph with 203 children under one node or with cycles; what is needed is \textbf{structural guarantees on the aggregate} --- single root, acyclicity, reduced fan-out, merged variants --- that greedy aggregation cannot provide.
+
+\noindent\textbf{Contributions.} (1) A \textbf{hybrid LLM-base + Edmonds-augmented aggregation pipeline} \cite{chu1965,edmonds1967} for narrative location hierarchy from noisy per-chapter LLM extractions: it preserves reliable per-chapter LLM parent judgments while using maximum-weight arborescence on residual orphans plus post-pass structural repair, completing aggregation in 130\,ms; the hybrid design empirically outperforms pure MWA on this data (\autoref{tab:pure-mwa-ablation}), reduces max fan-out from 203 (greedy voting) to 57 (72\%) with provable acyclicity and single-rootedness, and parallels non-projective dependency parsing \cite{mcdonald2005}. (2) \textsc{SuffixNormalizer}, a composable post-Edmonds skill merging Chinese location surface variants (60+ merges per novel in \textit{Journey} alone), and \textbf{dynasty-aware place-name classification}. (3) A \textbf{fair per-node ablation} on the intersection of nodes produced by both pipelines: our full pipeline matches greedy voting within $\pm$0.01 Overall on all five novels (5-novel avg 0.9101 vs.\ 0.9062), demonstrating that the structural improvements come at no accuracy cost. (4) \textbf{LLM aggregation baselines} (per-chapter zero-shot and single-shot CoT, Claude Sonnet 4) that receive the same vote evidence Edmonds sees; both exhibit the structural failure modes guarantees prevent, including pretraining knowledge of one novel leaking into another's hierarchy. (5) A \textbf{5-novel errata benchmark} (4{,}941 expert-reviewed nodes, five dimensions, partially validated IAA) and an \textbf{open-source end-to-end pipeline} (four narrative-knowledge views) with an evaluation harness that regenerates every tabular claim in this paper from the released JSON.
+
+% ============================================================
+\section{System}
+\label{sec:system}
+
+ARBOR processes a novel through four stages: chapter splitting (adaptive regex over 15+ heading patterns) and entity pre-scanning (jieba + LLM classification); per-chapter LLM extraction with a Scene-Graph Chain-of-Thought spatial-reasoning guide; cross-chapter validation (\S\ref{sec:validation}); and visualization (Appendix~\ref{app:views}). Main extraction uses temperature 0.1; relation-subtype classification uses temperature 0.7 with majority-of-3 self-consistency voting; other decoding parameters follow provider defaults.
+
+\subsection{Three-Layer Validation}
+\label{sec:validation}
+
+We organize post-extraction validation into three layers of increasing cost.
+\textbf{Layer 1: structural features.} Rule-based checks on graph structure: phantom-parent detection (low-mention hubs), zero-evidence node flagging, tier-inversion detection, disambiguation prefix co-existence.
+
+\textbf{Layer 2: domain knowledge.} Morphological suffix ranking (110+ suffixes $\rightarrow$ 7 ranks) reverses rank-violating containment; dynasty-aware classification determines \begin{CJK}{UTF8}{gbsn}州\end{CJK} as kingdom or city by era; curated prefix/verb lists disambiguate \begin{CJK}{UTF8}{gbsn}府\end{CJK}/\begin{CJK}{UTF8}{gbsn}处\end{CJK}.
+
+\textbf{Layer 3: text verification.} Direct substring search in the full novel ($<$0.5\,s per novel) with a \texttt{TextVerifier.context()} returning 5 windowed snippets per occurrence. Nodes with mc$=$0 but text presence reveal LLM recall gaps; we found 392 such cases across \textit{Journey} and \textit{Red Chamber}.
+
+\subsection{Global Hierarchy as Edmonds-Augmented LLM Base Assignment}
+\label{sec:hierarchy}
+
+\paragraph{Problem formulation.}
+We model location hierarchy as a constrained arborescence induction problem
+over a candidate edge graph. Let $V$ be the set of unique locations observed
+across all chapter extractions, augmented with a virtual uber-root\footnote{The uber-root (\begin{CJK}{UTF8}{gbsn}天下\end{CJK}) is an engineering container, not a humanities-concept claim: \begin{CJK}{UTF8}{gbsn}天下\end{CJK} (Huaxia-centric politico-cultural order), \begin{CJK}{UTF8}{gbsn}世界\end{CJK} (Buddhist-introduced spatio-temporal notion), and \begin{CJK}{UTF8}{gbsn}主世界\end{CJK} (``overworld'' in game/web-novel usage) have distinct concept histories; the system treats them uniformly without claiming conceptual analysis.}
+$r \notin V_{\text{obs}}$. Let $E \subseteq V \times V$ be the set of candidate
+parent--child edges (a directed edge $u \rightarrow v$ encodes ``$u$ is a
+candidate parent of $v$''), and let $w(u \rightarrow v) \in \mathbb{R}_{\geq 0}$
+be the edge weight. An \emph{arborescence} rooted at $r$ is a set of edges
+$T \subseteq E$ such that every $v \in V \setminus \{r\}$ has exactly one
+incoming edge in $T$ and no cycles exist. The unconstrained maximum-weight
+arborescence is
+\begin{equation}
+T^*_{\text{MWA}} = \arg\max_{T \in \mathcal{T}(V, r)} \sum_{(u \rightarrow v) \in T} w(u \rightarrow v),
+\label{eq:mwa}
+\end{equation}
+where $\mathcal{T}(V, r)$ is the set of all valid arborescences. However,
+direct optimization of \autoref{eq:mwa} is \emph{not} the algorithm we deploy:
+pure MWA on $(V, E, w)$ overrides reliable per-chapter LLM parent judgments
+whenever the global weight sum favors a different assignment, and provides
+no fan-out control (\autoref{tab:pure-mwa-ablation}).
+
+\paragraph{Algorithm: LLM-base + Edmonds-augmented repair.}
+The deployed pipeline (\autoref{alg:edmonds-hybrid}) preserves LLM-extracted
+parents as a base assignment and applies Chu-Liu/Edmonds
+\cite{chu1965,edmonds1967} surgically to fill structural gaps:
+
+\begin{algorithm}[h]
+\caption{Edmonds-Augmented Hierarchy Resolution}
+\label{alg:edmonds-hybrid}
+\scriptsize
+\textbf{Input:} candidate graph $G = (V \cup \{r\}, E, w)$, LLM-extracted base
+parents $B: V \rightarrow V \cup \{\bot\}$ \\
+\textbf{Parameters:} prior-override threshold $\tau = 15.0$, target fan-out
+$K = 30$ (best-effort)
+\begin{enumerate}
+\item \textbf{Base + targeted overrides.}\quad
+  $P \leftarrow B$. For each $v \in V$: if $\exists u$ with
+  $\text{prefix}(u) \subset \text{prefix}(v)$ (Chinese
+  name-containment heuristic), set $P[v] \leftarrow u$. Then
+  for each $v$, if $\exists u$ with $w(u \rightarrow v) \geq \tau$
+  (high-confidence prior or vote), set $P[v] \leftarrow u$.
+\item \textbf{Edmonds on orphans.}\quad
+  Solve \autoref{eq:mwa} via Chu-Liu/Edmonds on the full graph $G$ to obtain
+  $T^*$. For each $v \in V$ with $P[v] = \bot$: set $P[v] \leftarrow$
+  parent of $v$ in $T^*$.
+\item \textbf{Cycle repair.}\quad
+  Detect cycles in $P$ via DFS. For each cycle, break the weakest edge
+  $(u_{\min} \rightarrow v_{\min})$ and reassign $P[v_{\min}]$ to its
+  next-best-weighted parent.
+\item \textbf{Phantom-parent lift.}\quad
+  For each $u$ with mention-count $\leq 3$ and $|\text{children}(u)| \geq 5$
+  and $|\text{children}(u)| / \max(\text{mc}(u), 1) \geq 3$ (phantom
+  catch-all detection): lift weakest children
+  (mention-count $\leq 1$) to $u$'s parent until $|\text{children}(u)| \leq 3$.
+\item \textbf{Degree balancing (best-effort).}\quad
+  Reassign children of any $u$ with $|\text{children}(u)| > K$
+  to larger-tier siblings with spare capacity, while absorbers remain.
+\end{enumerate}
+\textbf{Output:} parent assignment $P: V \rightarrow V \cup \{r\}$
+\end{algorithm}
+
+\paragraph{Why hybrid, not pure MWA.}
+Three design forces motivate the hybrid over direct \autoref{eq:mwa}:
+\textbf{(i) LLM local judgment is reliable} (68--81\% per-chapter parent
+accuracy on the 5-novel gold); pure MWA discards this signal whenever global
+weights favor a different assignment.
+\textbf{(ii) Edmonds-only output lacks fan-out control.} A fan-out
+target ($K = 30$) keeps downstream visualization layout stable; encoding it
+inside \autoref{eq:mwa} would make optimization NP-hard, so it is applied
+as a best-effort post-pass.
+\textbf{(iii) Cycle prevention is cheaper post-hoc} than as an optimization constraint ($O(n)$ DFS repair).
+Step 2 dominates the runtime: $O(mn)$ via textbook Chu-Liu/Edmonds (NetworkX's
+\texttt{maximum\_spanning\_arborescence}, verified on a 1000-graph random
+harness); on the 5-novel corpus ($n \leq 1{,}700$, $m \leq 8{,}000$) the full
+hybrid completes in 83--131\,ms per novel.
+
+\paragraph{Edge weight sources.}
+$w(u \rightarrow v)$ accumulates from four additive channels:
+\begin{itemize}
+\item \textbf{Per-chapter votes}: each chapter extraction $u \rightarrow v$ contributes $1 \cdot \text{decay}(t)$, $\text{decay}(t) = 1.0 + 0.5 \cdot (t / T_{\max})$ slightly favoring later chapters.
+\item \textbf{Spatial-relation extractions}: ``contains'' relations with rank-validated direction contribute $+0.5$ to $+2.0$ weighted by LLM confidence.
+\item \textbf{Name-containment} ($+25$): if $v$'s surface form is a substring of $u$'s (e.g.\ \begin{CJK}{UTF8}{gbsn}梁山泊\end{CJK} $\supset$ \begin{CJK}{UTF8}{gbsn}梁山\end{CJK}).
+\item \textbf{Knowledge priors} ($+20$): 399 curated edges across three novels grounding well-known geographic facts.
+\end{itemize}
+Name-containment and priors thus dominate vote evidence wherever they apply, encoding our design prior that they are more reliable than noisy co-occurrence aggregation.
+
+\paragraph{What the algorithm provides vs.\ what preprocessing provides.}
+We distinguish properties guaranteed by the algorithm from those enforced by pre/post-processing:
+
+\begin{itemize}
+\item \textbf{Acyclicity} (Steps 3--5): repair-and-verify --- cycle breaking iterates to a fixpoint (each round rewires one cycle's weakest edge and creates none); since Steps 4--5 may reintroduce cycles, the same fixpoint pass runs once more after them. The output is acyclic on every input.
+\item \textbf{Connectedness to root} (preprocessing): fallback edges $(r, v)$ with weight $\epsilon$ are injected for each $v$ lacking incoming edges, so Edmonds always returns an arborescence; single-rootedness arises from this augmentation, not from the Edmonds objective.
+\item \textbf{Fan-out reduction} (Step 5): best-effort post-pass redistribution onto larger-tier siblings with spare capacity --- an engineering objective orthogonal to the optimization; on flat geographies residual fan-out $> K$ can remain.
+\end{itemize}
+
+The hard properties hold on every input; fan-out reduction is best-effort (72\% on the worst case, \autoref{tab:ablation}). Greedy voting and LLM-CoT baselines lack mechanisms for any of them (§\ref{sec:llm-baselines}); the hybrid delivers them regardless of extraction quality.
+
+\paragraph{Composable skill pipeline.}
+The pipeline is implemented as composable \textbf{Geographic Agent Skills}
+(\textsc{TierClassifier}, \textsc{VoteBuilder}, \textsc{KnowledgePrior},
+\textsc{EdmondsResolver}, \textsc{SuffixNormalizer}), each consuming an
+immutable snapshot and producing a delta; the version chain enables
+rollback, skill-subset ablation (\autoref{tab:pure-mwa-ablation}), and
+bit-identical re-analysis of frozen extractions (same-input double runs
+differ by zero edges).
+\textsc{SuffixNormalizer} (run after \autoref{alg:edmonds-hybrid}) applies
+a two-pass approach: an explicit synonym table curated per novel
+(\begin{CJK}{UTF8}{gbsn}乌斯藏\end{CJK} $\equiv$
+\begin{CJK}{UTF8}{gbsn}乌斯藏国\end{CJK} $\equiv$
+\begin{CJK}{UTF8}{gbsn}乌斯藏国界\end{CJK}), plus a suffix-stripping pass
+that merges variants whose stripped form exists as another node. This
+reduces 60+ spurious nodes in \textit{Journey} alone while preserving
+arborescence validity.
+
+\paragraph{Ablation: hybrid vs.\ pure MWA.}
+\autoref{tab:pure-mwa-ablation} compares pure MWA (\autoref{eq:mwa} only,
+no Steps 1, 3, 4, 5) against the hybrid on the same candidate graph for
+three novels. Both produce arborescences over the identical node set, but pure MWA yields
+\textbf{1.34--2.11$\times$ larger maximum fan-out} (90/134/99 vs.\ 67/76/47
+on \textit{Journey}/\textit{Red Chamber}/\textit{Water Margin}), concentrated
+under high-frequency uber-root and capital-city nodes.
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrl}
+\toprule
+\textbf{Method} & \textbf{max\_ch} & \textbf{cycles} & \textbf{roots} & \textbf{Valid?} \\
+\midrule
+\multicolumn{5}{l}{\textit{Journey to the West} ($n = 556$)} \\
+\quad (a) Pure MWA & 90 & 0 & 1 & \cmark$^\dagger$ \\
+\quad (b) Hybrid & \textbf{67} & 0 & 1 & \cmark \\
+\midrule
+\multicolumn{5}{l}{\textit{Dream of the Red Chamber} ($n = 637$)} \\
+\quad (a) Pure MWA & 134 & 0 & 1 & \cmark$^\dagger$ \\
+\quad (b) Hybrid & \textbf{76} & 0 & 1 & \cmark \\
+\midrule
+\multicolumn{5}{l}{\textit{Water Margin} ($n = 1{,}234$)} \\
+\quad (a) Pure MWA & 99 & 0 & 1 & \cmark$^\dagger$ \\
+\quad (b) Hybrid & \textbf{47} & 0 & 1 & \cmark \\
+\bottomrule
+\end{tabular}
+\caption{Pure MWA (a, \autoref{eq:mwa} only) vs.\ hybrid Edmonds-augmented pipeline (b, \autoref{alg:edmonds-hybrid}), same candidate graph for both. Pure MWA produces $1.34\times$, $1.76\times$, and $2.11\times$ larger maximum fan-out than the hybrid, motivating Step 5 (degree balancing).
+$^\dagger$ Pure MWA satisfies arborescence validity but not the fan-out target downstream visualization requires. Measured on the frozen v0.71.x evaluation snapshot (current release: v0.78); the hybrid row corresponds to Edmonds+Priors in \autoref{tab:ablation} (65 vs.\ 67 on \textit{Journey}: post-evaluation hardening).}
+\label{tab:pure-mwa-ablation}
+\end{table}
+
+% ============================================================
+\section{Evaluation}
+\label{sec:eval}
+
+\paragraph{Datasets.} Five Ming--Qing classical vernacular Chinese novels (\begin{CJK}{UTF8}{gbsn}古典白话长篇小说\end{CJK}) spanning four eras and genres (Table~\ref{tab:data}); \textbf{4{,}941 expert-reviewed gold nodes} across five dimensions (entity precision, name accuracy, tier accuracy, parent precision, structural health).
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrl}
+\toprule
+\textbf{Novel} & \textbf{Ch.} & \textbf{Gold} & \textbf{Era/Genre} \\
+\midrule
+Journey to the West & 100 & 1{,}205 & Fantasy \\
+Dream of the Red Chamber & 122 & 1{,}000 & Qing \\
+Water Margin & 121 & 1{,}383 & Song \\
+Three Kingdoms & 120 & 1{,}120 & Sanguo \\
+Investiture of the Gods & 90 & 233 & Shang-Zhou \\
+\midrule
+\textbf{Total} & \textbf{553} & \textbf{4{,}941} & \\
+\bottomrule
+\end{tabular}
+\caption{Five-novel evaluation corpus. \textit{Red Chamber} has 122 chapters in our segmented source text (commonly printed editions have 120).}
+\label{tab:data}
+\end{table}
+
+\paragraph{Annotation \& IAA.} Gold was produced by the first author iteratively: initial output reviewed, five error categories assigned, corrections committed as per-novel errata JSON (released). The errata are versioned; each entry carries a canonical name, and corrections contributed by external expert review are merged with provenance records. The gold, errata, and evaluation harness ship with the paper and are updated by version. For inter-annotator reliability, three annotators independently labeled a random 200-node sample (100 per novel, \textit{Journey to the West} + \textit{Red Chamber}) on entity validity; 144 nodes received all three labels. Because Cohen's/Fleiss' $\kappa$ collapses under high class prevalence \cite{byrt1993bias,gwet2008kappa}, we report Gwet's AC1 as primary with Fleiss' $\kappa$ alongside. Agreement is \textbf{near-perfect on characters} (AC1 = 0.985, $\kappa$ = 0.793) and \textbf{moderate on locations} (AC1 = 0.410, $\kappa$ = 0.408), giving AC1 = 0.633 in aggregate. The location gap is not noise but a \emph{systematic definitional difference}: one annotator applies a stricter ``specific proper place'' criterion that flags generic references (\begin{CJK}{UTF8}{gbsn}天下\end{CJK}, \begin{CJK}{UTF8}{gbsn}贼营\end{CJK}, \begin{CJK}{UTF8}{gbsn}梦中花园\end{CJK}) that the first author retained (see Limitations).
+
+\paragraph{LLM contamination.} The five evaluation novels are canonical classics present in modern LLM pretraining corpora, creating a \textit{ceiling effect}: the LLM knows the novels' entities and aliases before seeing any chapter. Our numbers therefore measure the \textbf{pipeline's ability to post-process and structure} LLM output, not unaided entity recognition on unseen texts.
+
+\subsection{Per-Node Accuracy (Full Pipeline)}
+
+Table~\ref{tab:main} reports per-node accuracy on the 5-novel errata gold. Overall (an \emph{errata-closure rate} against the reviewed gold) $= 1 - \frac{\text{unresolved-error nodes}}{\text{total gold nodes}}$, where a gold-error node counts as resolved if the system removed it or corrected the flagged error type.
+
+\begin{table*}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrrr}
+\toprule
+\textbf{Novel} & \textbf{Overall} & \textbf{Entity P} & \textbf{Name Acc} & \textbf{Tier Acc} & \textbf{Parent P} & \textbf{Struct.} & \textbf{Errors} \\
+\midrule
+Journey to the West & \textbf{0.9851} & 1.000 & 1.000 & 0.988 & 0.998 & 0.998 & 18/1205 \\
+Dream of the Red Chamber & \textbf{0.9780} & 1.000 & 1.000 & 0.981 & 0.995 & 0.998 & 22/1000 \\
+Investiture of the Gods & \textbf{0.9485} & 0.996 & 1.000 & 0.961 & 0.983 & 1.000 & 12/233 \\
+Water Margin & 0.8908 & 1.000 & 1.000 & 0.891 & 1.000 & 1.000 & 151/1383 \\
+Three Kingdoms & 0.8804 & 0.999 & 1.000 & 0.882 & 0.998 & 0.999 & 134/1120 \\
+\midrule
+\textbf{5-novel average} & \textbf{0.9365} & 0.999 & 1.000 & 0.941 & 0.995 & 0.999 & \textbf{337/4941} \\
+\bottomrule
+\end{tabular}
+\caption{Per-node accuracy on the 5-novel errata gold, refreshed with release v0.78 at a pinned pure-extraction start state (same-input double runs are bit-identical). Bottom row: arithmetic mean across novels. Reported for context --- the primary contributions are structural (Tables~\ref{tab:fair}, \ref{tab:ablation}).}
+\label{tab:main}
+\end{table*}
+
+Per-node Overall averages 0.9365. The 151/134 tier errors on \textit{Water Margin}/\textit{Three Kingdoms} concentrate in a single failure mode: Song \begin{CJK}{UTF8}{gbsn}路名\end{CJK} (administrative paths) and Han \begin{CJK}{UTF8}{gbsn}州名\end{CJK} (prefectures) carry era-specific tier semantics handled inconsistently by gold and classifier alike. \textbf{Crucially, these per-node numbers are \emph{not} our primary contribution} --- §\ref{sec:fair-baseline} shows a greedy-voting baseline reaches near-identical per-node accuracy. Our contribution lies in the \emph{structural guarantees} reported in §\ref{sec:structural}, which greedy voting cannot provide.
+
+\subsection{Fair Per-Node Baseline: Voting vs.\ Pipeline}
+\label{sec:fair-baseline}
+
+A naive comparison of our pipeline against per-chapter majority voting is confounded: voting produces fewer nodes than the full pipeline (which adds synthetic parents via TierClassifier, merges variants via SuffixNormalizer, and inserts priors), and gold-flagged error nodes \textit{absent} from voting's output count as ``resolved'' --- up to 48\% / 31\% artificial score boost on \textit{Red Chamber} / \textit{Three Kingdoms}. To correct for this, we evaluate both systems \textbf{on the intersection of nodes they both produce} (Table~\ref{tab:fair}). Per-novel differences between the full pipeline and voting are all within $\pm$0.01 Overall (averages 0.9101 / 0.9062, +0.39\,pp) --- statistically indistinguishable. On the frozen v0.71 snapshot, the pooled full-pipeline Overall has bootstrap 95\% CI [0.9213, 0.9354] (10{,}000 novel-level replications), and re-extraction across temperatures 0.0--1.0 shifts per-node metrics by std $\leq 0.2$\,pp. This small gap is not our main claim; rather, Table~\ref{tab:fair} establishes that the structural guarantees of \S\ref{sec:structural} come \textbf{at no accuracy cost}.
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Novel} & \textbf{Full} & \textbf{Voting} & \textbf{$\Delta$} \\
+\midrule
+Journey to the West & 0.9681 & \textbf{0.9707} & $-0.0027$ \\
+Dream of the Red Chamber & \textbf{0.9738} & 0.9705 & $+0.0033$ \\
+Water Margin & \textbf{0.8440} & 0.8346 & $+0.0094$ \\
+Three Kingdoms & \textbf{0.8333} & 0.8313 & $+0.0021$ \\
+Investiture of the Gods & \textbf{0.9313} & 0.9237 & $+0.0076$ \\
+\midrule
+\textbf{Average} & \textbf{0.9101} & 0.9062 & $+0.0039$ \\
+\bottomrule
+\end{tabular}
+\caption{Fair per-node comparison on the intersection of produced nodes (release v0.78, pinned pure-extraction start; same-input double runs bit-identical). All five differences lie within $\pm$0.01; the full pipeline leads on four novels. The pipeline's value is structural (Table~\ref{tab:ablation}), not per-node accuracy.}
+\label{tab:fair}
+\end{table}
+
+\subsection{Structural Guarantees (Primary Contribution)}
+\label{sec:structural}
+
+Table~\ref{tab:ablation} reports the structural properties where our pipeline departs qualitatively from greedy voting (release v0.78, pinned pure-extraction start state). On the pathological case (\textit{Journey to the West}), voting produces a tree whose root has \textbf{203 children} --- a flat catch-all accumulating all unanchored locations; the full pipeline (Edmonds + priors + SuffixNormalizer) cuts this to 57, a 72\% reduction (the frozen v0.71 snapshot read 279 $\rightarrow$ 63, 77\%). On a 5-novel average, the full pipeline's max\_children is 74, versus voting's 143; on the frozen snapshot voting additionally left an average of 25 disjoint roots per novel and cycles on 2 of 5 novels (\textit{Dream of the Red Chamber}, \textit{Three Kingdoms}). Beyond fan-out, the hybrid pipeline yields single-root acyclic trees \textbf{by construction} (cycle-repair plus uber-root fallback augmentation, \autoref{alg:edmonds-hybrid}); voting provides no such property. Priors contribute structurally near-neutrally on \textit{Journey} (64 $\rightarrow$ 65 $\rightarrow$ 63 max\_ch on the frozen snapshot; \S\ref{sec:priors}). A no-Edmonds ablation (voting + repair passes only, orphans forced to the uber-root; frozen snapshot) still yields a valid tree with max\_ch 80: most fan-out reduction comes from the post-passes, while Edmonds' distinct contribution is global-optimal placement of the 283 vote-less orphans that voting leaves as disjoint roots.
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrc}
+\toprule
+\textbf{Method} & \textbf{depth} & \textbf{max\_ch} & \textbf{Valid?} \\
+\midrule
+Raw chapter LLM & 2.07$^\dagger$ & 155$^\dagger$ & \xmark \\
+Voting (greedy) & 4.09$^\dagger$ & \textbf{203} & \xmark \\
+Edmonds (no priors) & 2.91$^\dagger$ & 64$^\dagger$ & \cmark$^\dagger$ \\
+Edmonds + Priors & 2.91$^\dagger$ & 65$^\dagger$ & \cmark$^\dagger$ \\
+\textbf{Full (+ SuffixNormalizer)} & \textbf{4.91} & \textbf{57} & \cmark \\
+\midrule
+\textit{5-novel avg, Voting} & \textit{--} & \textit{143} & \xmark \\
+\textit{5-novel avg, Full} & \textit{5.92} & \textit{74} & \cmark \\
+\bottomrule
+\end{tabular}
+\caption{Structural metrics, \textit{Journey to the West}; bottom rows: 5-novel averages. Refreshed values: release v0.78, pinned pure-extraction start state (Full: roots $=1$, cycles $=0$ on all five novels; double runs bit-identical). $^\dagger$ Frozen v0.71 snapshot (stage snapshots not comparable under v0.78: root closure moved into the apply layer). ``Valid?'': acyclic single-rooted tree (guaranteed by \autoref{alg:edmonds-hybrid} for our rows); \xmark\ means cycles or multiple roots can occur.}
+\label{tab:ablation}
+\end{table}
+
+\subsection{Cross-Genre Validation}
+\label{sec:cross-genre}
+
+Six additional novels without gold (Table~\ref{tab:cross}, Appendix~\ref{app:cross}) transfer without retuning (five at max\_children $\leq 97$): the 2{,}451-chapter xianxia serial \begin{CJK}{UTF8}{gbsn}凡人修仙传\end{CJK} (3{,}247 locations, single-root and acyclic); \textit{The Lord of the Rings} is an outlier at 137 because our SuffixNormalizer table is Chinese-specific --- a \textit{naming-morphology}, not \textit{genre}, boundary. Psychological realism bounds the method too: 9\% of \begin{CJK}{UTF8}{gbsn}安娜·卡列尼娜\end{CJK} chapters name no location, yet the tree stays single-root and acyclic.
+
+\subsection{LLM Aggregation Baselines}
+\label{sec:llm-baselines}
+
+A natural question is whether the collapse of per-chapter voting (\S\ref{sec:structural}) is specific to \textit{voting}, or whether a capable LLM --- per-chapter zero-shot, or given the full vote evidence in one chain-of-thought call --- aggregates better (Claude Sonnet 4, matching the main pipeline's LLM to isolate the aggregation variable; Table~\ref{tab:llm-baselines}).
+Two findings. \textbf{(a) Structural inconsistency.} LLM-CoT --- given the same location set and per-location parent-candidate counts Edmonds sees, plus pretraining knowledge of the two novels --- produces trees with max fan-out 74/143 (spread 69); Edmonds + priors + SuffixNormalizer stays at 63/76 (spread 13).\footnote{Reference values 63/76: frozen v0.71 evaluation DB; pure-start v0.78 values in \autoref{tab:ablation}.} On \textit{Red Chamber} specifically, LLM-CoT collapses into 6 disjoint roots, defeating single-rootedness. \textbf{(b) Data corruption.} LLM-CoT drops 6 / 1 input locations (\textit{Journey} / \textit{Red Chamber}) and hallucinates 10 / 3 names not in the input; a particularly striking failure places \textit{Journey to the West}'s four continents (\begin{CJK}{UTF8}{gbsn}东胜神洲/西牛贺洲/南赡部洲/北俱芦洲\end{CJK}) as top-level roots in the \textit{Red Chamber} hierarchy --- pretraining contamination as hallucination source. Zero-shot per-chapter aggregation is worse still: 101 disjoint roots on \textit{Journey}, 56 on \textit{Red Chamber}, parent\_P degrading to 62.2\% / 48.8\%. \textbf{The GraphRAG-style community-detection baseline} --- hierarchical Louvain on the entity co-occurrence graph with the same extraction as full pipeline --- fails differently: it collapses \textit{Red Chamber} into 3 disjoint top-level communities and \textit{Journey} into 7, because community structure captures \emph{co-occurrence affinity} rather than \emph{part-whole containment} (parent precision 19.6\% / 11.1\%). These baselines establish that the structural guarantees reported in \S\ref{sec:structural} are algorithmic properties unavailable from prompt engineering alone. A cross-LLM check reproduces the pattern with a different extractor: on a DeepSeek V3 extraction of \textit{Journey} (100 chapters, 537 locations), voting again yields an invalid tree (5 disjoint roots, max\_ch 56) while the full pipeline returns a valid one (single root, max\_ch 46)\footnote{Input extractions not archived; these numbers are contemporary experimental records, not re-verifiable with the released harness.} --- the failure mode belongs to the aggregation algorithm, not to one LLM.
+
+\begin{table*}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrc}
+\toprule
+\textbf{Novel} & \textbf{Method} & \textbf{max\_children} & \textbf{roots} & \textbf{Valid?} \\
+\midrule
+\multirow{4}{*}{Journey to the West}
+ & Zero-shot per-chapter LLM & 26 & 101 & \xmark \\
+ & LLM-CoT one-shot & 74 & 2 & \xmark \\
+ & GraphRAG-style (Louvain) & 56 & 7 & \xmark \\
+ & \textbf{Full pipeline (Edmonds+Prior+Suffix)} & \textbf{63}$^\dagger$ & \textbf{1} & \cmark \\
+\midrule
+\multirow{4}{*}{Dream of the Red Chamber}
+ & Zero-shot per-chapter LLM & 142 & 56 & \xmark \\
+ & LLM-CoT one-shot & 143 & 6 & \xmark \\
+ & GraphRAG-style (Louvain) & 48 & 3 & \xmark \\
+ & \textbf{Full pipeline (Edmonds+Prior+Suffix)} & \textbf{76}$^\dagger$ & \textbf{1} & \cmark \\
+\bottomrule
+\end{tabular}
+\caption{Aggregation baselines vs.\ full pipeline --- \emph{structural properties only}. All methods use the same per-chapter LLM extraction; differences isolate the \textit{aggregation algorithm}. GraphRAG-style: hierarchical Louvain (resolutions 0.5--4.0) on the co-occurrence graph, parent = weighted-degree-maximal representative of the coarser community \cite{edge2024graphrag}. Only Full pipeline yields a valid tree (single root, acyclic) \emph{by construction}. $^\dagger$ Frozen v0.71 evaluation DB; pure-start v0.78 values in \autoref{tab:ablation}.}
+\label{tab:llm-baselines}
+\end{table*}
+
+\paragraph{Where priors matter.}
+\label{sec:priors}
+Ablating the KnowledgePrior skill (399 curated entries) shows it contributes \textbf{effectively zero to per-node Overall} on the 5-novel gold (average delta $-0.0003$), but drives \textbf{canonical-name correctness} (alias-group accuracy on the ten largest groups: 52.2\% $\rightarrow$ 100\% on \textit{Journey}/\textit{Red Chamber}). Hand-curated priors are worth the labor for specific failure modes but do not generalize across all dimensions.
+
+\subsection{Contamination-Free Validation}
+\label{sec:contamination-free}
+
+A natural objection to Table~\ref{tab:main} is that Claude \emph{knows} all five novels (\S\ref{sec:eval}). To isolate structuring ability from memorization, we generated a fully synthetic 29-chapter xianxia novel \textit{Star-Dust Calamity} (\begin{CJK}{UTF8}{gbsn}星尘劫\end{CJK}, 95K CJK characters) with DeepSeek V3, with all 42 locations, 15 characters, and 23 relations pre-specified in a ground-truth bible. It postdates all training cutoffs; forbidden-name scanning finds zero leakage, and generator and extractor are different LLMs.
+
+Running the full pipeline on this unseen corpus (Table~\ref{tab:contamination}, Appendix~\ref{app:contamination}) yields \textbf{Overall = 0.751}, with the $\sim$0.15 gap vs seen novels concentrated in parent precision. The \textbf{structural guarantees hold completely}: single root, acyclic, max\_children = 10 (tighter than any seen novel). Character alias resolution is perfect on this 15-character cast (real-novel alias under-merging is discussed in Limitations); location recall is 97.6\% (41/42). The parent-precision gap is driven largely by a semantic tie --- our pipeline defaults to the generic uber-root \begin{CJK}{UTF8}{gbsn}天下\end{CJK} while the bible uses the novel-specific \begin{CJK}{UTF8}{gbsn}九曜天\end{CJK}. \textbf{This is consistent with the pipeline's structural contribution being orthogonal to LLM pretraining}: on unseen text the aggregation still produces a valid tree with extraction recall above 97\%.
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Why structural guarantees matter beyond benchmark scores.} Our headline contribution is not higher per-node accuracy but \textit{unconditional structural properties}: downstream consumers of a narrative knowledge graph --- visualization layout, graph-traversal queries --- require well-formed tree inputs by contract. A 203-sibling catch-all (greedy voting, §\ref{sec:structural}) makes force-directed layout unstable; cycles break transitive queries; multi-root outputs fragment character encyclopedias. We do not empirically validate downstream-task performance.
+\textbf{When MWA is not applicable.} Our formulation assumes (i) every non-root location has exactly one parent (tree, not DAG), and (ii) the narrative has a single top-level world. (i) breaks for overlapping jurisdictions; (ii) for multi-world narratives (\S\ref{sec:cross-genre}). The underlying \emph{LLM-as-extractor, algorithm-as-aggregator} pattern --- noisy local decisions to the LLM, global combinatorial decisions to an algorithm with formal guarantees --- transfers wherever per-document extractions must be reconciled into a well-formed global structure.
+
+% ============================================================
+\section{Related Work}
+\label{sec:related}
+
+\textbf{Narrative and book-scale IE.} BookNLP \cite{bamman2014bayesian} pioneered character identification and quote attribution for English fiction but does not address Chinese honorifics, fictional geography, or cross-chapter entity resolution \cite{bagga1998entity,cattan2021crossdoc}. LiSCU \cite{brahman2021plot} targets character-centric narrative understanding; Labatut and Bost \cite{labatut2019fictional} survey fictional character network extraction. NarrativeQA, NovelQA, and BookSum \cite{kocisky2018narrativeqa,wang2025novelqa,kryscinski2022booksum} benchmark comprehension and summarization on full books. None of these works produce a hierarchical geography-of-the-story artifact nor address the distinctive challenges of classical vernacular novels: morphological rank cues in place names (\begin{CJK}{UTF8}{gbsn}界/洲/国/城/谷/洞/殿\end{CJK}) and cross-chapter entity drift at the 100--2{,}500-chapter scale.
+
+\textbf{LLM-based information extraction.} Recent LLM-based IE \cite{wei2024zeroshot,wadhwa2023revisiting} succeeds at passage scale; GoLLIE \cite{sainz2024gollie} and UniversalNER \cite{zhou2024universalner} improve zero-shot extraction via guideline-aware schemas and targeted distillation. These works establish single-document competence, not cross-chapter aggregation, where the qualitative failure modes emerge (\S\ref{sec:structural}, \S\ref{sec:llm-baselines}). In terms of extraction scope, open-domain RE discovers relation types freely, while restricted-domain work pre-specifies a schema --- e.g.\ restricted-domain RE over ancient Chinese books \cite{liu2025guji} and dialogue-based character-relation extraction from novels \cite{yan2025novelre}; GenWebNovel \cite{zhao2025genwebnovel} documents the genre-adaptation difficulty of entity annotation on Chinese web novels. Our setting is a hybrid: entities are pre-specified (locations and characters), while containment relations are discovered openly from per-chapter evidence.
+
+\textbf{Taxonomy induction via spanning trees.} MST- and arborescence-based hierarchy induction has a long lineage \cite{kozareva2010taxonomy,velardi2013ontolearn,bansal2014taxonomy}. Crucially, these works induce \textit{hypernym} (is-a) taxonomies from lexical patterns \cite{hearst1992hyponyms} or distributional statistics. We transfer the arborescence-optimization methodology to a substantively different setting: \textit{part-whole} hierarchies over fictional geography, induced from noisy per-chapter LLM extractions, with a Chinese morphological suffix rank (110+ suffixes, 7 tiers) as a prior unavailable in general taxonomy induction. McDonald et al.\ \cite{mcdonald2005} first applied Chu-Liu/Edmonds to non-projective dependency parsing; we establish an analogous formulation at a coarser unit (locations as nodes, weighted candidate-parent edges, optimal arborescence as best-supported containment hierarchy).
+
+\textbf{Graph construction and long-context alternatives.} GraphRAG \cite{edge2024graphrag} builds entity--relation graphs via LLM community summarization; applied to our extraction, its algorithmic core yields parent precision below 20\% (\S\ref{sec:llm-baselines}). Long-context models \cite{liu2023lost} ingest whole novels but degrade mid-context.
+\textbf{Spatial and Chinese NLP.} SpatialEval \cite{yamada2024spatial} documents LLM spatial-reasoning weaknesses at the sentence level; we extend this to narrative-scale containment inference (\S1 (iii)). Chinese NER \cite{zhang2018chinesener} and RE \cite{lin2019fewrel} target newswire and few-shot settings; neither addresses classical-fiction phenomena such as alias systems or fictional place names.
+
+\textbf{Geoparsing and spatial humanities.} Geoparsing \cite{gritta2018geoparsing} grounds location mentions in real-world gazetteers; fictional geography has no external referent and must be induced from the narrative itself. Literary cartography \cite{moretti1998atlas,piatti2011cartographies,bodenhamer2010spatial} maps fictional space manually; we automate its structural layer; CHGIS/CBDB \cite{chgis,cbdb} motivate our knowledge priors.
+% ============================================================
+\section*{Limitations}
+
+\textbf{Annotator strictness gap.} The three-annotator IAA study (\S\ref{sec:eval}) shows the first-author errata applied a looser ``valid location'' criterion than the strictest of the three annotators: generic references like \begin{CJK}{UTF8}{gbsn}天下\end{CJK} or \begin{CJK}{UTF8}{gbsn}梦中花园\end{CJK} are retained by the first author but flagged as non-specific under that stricter reading. Structural guarantees (\S\ref{sec:structural}) are \emph{invariant} to this gap by construction, but per-node scores (Table~\ref{tab:main}) should be read with a $\pm$3--5pp confidence band pending guideline refinement.
+\textbf{Unevaluated components.} Character alias resolution and fine-grained relation classification are supporting components of the pipeline but are \emph{not evaluated against gold standards} in this paper. Internal spot checks surface two recurring issues: (i) a non-trivial share of main-character alias groups remain under-merged across chapters (e.g., \begin{CJK}{UTF8}{gbsn}南海观世音\end{CJK} / \begin{CJK}{UTF8}{gbsn}观音菩萨\end{CJK} in \textit{Journey to the West}); (ii) the 6-category relation taxonomy exhibits boundary ambiguity for culturally-specific Chinese relations (e.g., \begin{CJK}{UTF8}{gbsn}结拜兄弟\end{CJK} sworn brotherhood, \begin{CJK}{UTF8}{gbsn}师兄弟\end{CJK} fellow-disciple), whose placement among \emph{intimate} / \emph{social} / \emph{hierarchical} is a taxonomy-design choice on which annotators disagree, and which also manifests as weak type-level classification on \textit{Water Margin}. Neither issue affects the structural guarantees reported in \S\ref{sec:structural}.
+\textbf{Textual versions.} \textit{Dream of the Red Chamber} circulates in multiple recensions (Chengjia/Chengyi print editions, Gengchen manuscript); our benchmark uses a single electronic edition (the 122-chapter segmented source, Table~\ref{tab:data}), and entity or location differences induced by textual variants are unmodeled. Treating recensions as multiple evidence sources within the same vote-and-arborescence framework is a natural extension we leave to future work.
+\textbf{Homonymous place names.} Historical Chinese geography reuses toponyms across regions, so we separate two disambiguation layers: \emph{intra-textual} (a node's position is decided by contextual evidence within the novel itself) and \emph{external linking} to real-world gazetteers. A case surfaced by external expert review of the released errata illustrates the boundary: for \textit{Water Margin}'s \begin{CJK}{UTF8}{gbsn}盖州\end{CJK} (Gaizhou), the intra-textual layer attaches the node under the Hedong/Shanxi-side campaign geography described by the novel, while the external layer's default gazetteer candidate --- the modern Gaizhou in Liaoning, a different historical place --- was intercepted by our validation gate. External linking thus requires dual-source evidence; when text and gazetteer disagree, the node stays unlinked rather than mis-grounded.
+\textbf{Scope.} The gold benchmark covers five Ming--Qing classical vernacular novels, and the cross-genre sample shares their strong plot-driven narrative mode; sparse-location psychological fiction is now covered (\S\ref{sec:cross-genre}). Generalization to other languages, genres, and contemporary fiction is untested. Main experiments use a single LLM family (Claude Sonnet 4); a DeepSeek V3 cross-check (\S\ref{sec:llm-baselines}) reproduces the structural pattern, but systematic cross-model evaluation remains open. Evaluation spans 90--122-chapter classical novels and, in the cross-genre sample, a 2{,}451-chapter xianxia serial; other web-fiction subgenres (e.g., the steampunk-occult \begin{CJK}{UTF8}{gbsn}诡秘之主\end{CJK}, \textit{Lord of the Mysteries}) remain untested, and our single-parent model does not distinguish physical containment from administrative jurisdiction. The synthetic contamination-free test (\S\ref{sec:contamination-free}) addresses the primary pretraining-memorization concern, but a human-authored post-2024 corpus would strengthen ecological validity. Future work: \begin{CJK}{UTF8}{gbsn}道\end{CJK}/\begin{CJK}{UTF8}{gbsn}府\end{CJK}/\begin{CJK}{UTF8}{gbsn}郡\end{CJK} administrative-suffix extension, a human-authored post-2024 corpus, and a tightened ``proper place'' guideline followed by third-annotator replication.
+
+% ============================================================
+\section*{Ethics Statement}
+
+The five evaluation novels are public-domain classical Chinese texts; the released benchmark and code contain annotations and system outputs derived only from these public-domain works. The seven contemporary novels used for cross-genre validation (Table~\ref{tab:cross}) were analyzed locally for internal structural validation; no text or derived data from them is released.
+
+% ============================================================
+% NOTE: no \bibliographystyle here — acl.sty already issues it (line 195);
+% a second one triggers BibTeX "Illegal, another \bibstyle command".
+\bibliography{references}
+
+\appendix
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A.\arabic{figure}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A.\arabic{table}}
+
+\section{System Views}
+\label{app:views}
+
+\begin{figure}[H]
+\centering
+\uiframe{fig-graph.png}
+\caption{Graph view on \textit{Journey to the West} / \textit{Red Chamber}: force-directed graph with 6-category edges and chapter-threshold filtering.}
+\label{fig:views}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\uiframe{fig-map.png}
+\caption{Map view: procedural world map with distance-field landmasses, Whittaker biomes, hand-drawn coastlines, and animated trajectories.}
+\label{fig:views-map}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\uiframe{fig-timeline.png}
+\caption{Timeline view: event timeline with 9 event types and character swimlanes.}
+\label{fig:views-timeline}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\uiframe{fig-encyclopedia.png}
+\caption{Encyclopedia view: cross-chapter relationship chains and mini-maps.}
+\label{fig:views-enc}
+\end{figure}
+
+\section{Contamination-Free Evaluation}
+\label{app:contamination}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lr}
+\toprule
+\textbf{Metric} & \textbf{Value} \\
+\midrule
+Overall & \textbf{0.751} \\
+Entity recall (locations) & 0.976 (41/42) \\
+Name accuracy (characters) & 1.000 (15/15) \\
+Tier accuracy & 0.854 \\
+Parent precision & 0.575 \\
+Structural health & \textbf{1.000} \\
+Relation pair recall & 0.870 (20/23) \\
+\midrule
+Cycle / root count / max\_ch & \cmark\ 0 / 1 / 10 \\
+Generation + analysis cost & \$0.14 + \$0.15 \\
+\bottomrule
+\end{tabular}
+\caption{Contamination-free evaluation on synthetic \textit{Star-Dust Calamity} (DeepSeek V3 generated, 29 ch., 42 gold locations). Structural guarantees hold --- max\_children = 10 is \emph{tighter than the 5-novel Full-pipeline average} (74, Table~\ref{tab:ablation}); per-node accuracy softens primarily via an uber-root naming tie (\begin{CJK}{UTF8}{gbsn}天下\end{CJK} vs \begin{CJK}{UTF8}{gbsn}九曜天\end{CJK}).}
+\label{tab:contamination}
+\end{table}
+
+\section{Cross-Genre Validation}
+\label{app:cross}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Novel (Genre)} & \textbf{Ch.} & \textbf{Locs} & \textbf{dep.} & \textbf{max} \\
+\midrule
+Three-Body 1 (sci-fi) & 38 & 208 & 3.45 & 30 \\
+Condor Heroes (wuxia) & 48 & 687 & 4.86 & 32 \\
+Demi-Gods (wuxia) & 53 & 727 & 4.64 & 32 \\
+LOTR (trans.\ fantasy) & 82 & 791 & 4.90 & \textbf{137} \\
+Ordinary World (realism) & 171 & 792 & 5.65 & 37 \\
+\begin{CJK}{UTF8}{gbsn}凡人修仙传\end{CJK} (xianxia web novel) & 2451 & 3247 & 8.67 & 97 \\
+\begin{CJK}{UTF8}{gbsn}安娜·卡列尼娜\end{CJK} (psychol.\ realism) & 85 & 486 & 4.21 & 52 \\
+\bottomrule
+\end{tabular}
+\caption{Cross-genre structural validation (no gold).}
+\label{tab:cross}
+\end{table}
+
+\end{document}

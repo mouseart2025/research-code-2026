@@ -1,0 +1,313 @@
+{
+  "characters": [
+    {
+      "name": "黛玉",
+      "description": "四更将阑才渐渐睡去的女子"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "贾琏之妻，能言善辩，处事精明"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻，禀性愚弱，只知奉承贾赦"
+    },
+    {
+      "name": "贾赦",
+      "description": "大老爷，看上了鸳鸯，想要其为妾"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "老太太屋里的丫头，蜂腰削背，鸭蛋脸，乌油头发，坚决拒绝做妾"
+    },
+    {
+      "name": "贾母",
+      "description": "老太太，疼爱鸳鸯"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐儿的丫鬟，与鸳鸯是好友"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟，与鸳鸯等人从小相识"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，贾母疼爱的孙子"
+    },
+    {
+      "name": "琥珀",
+      "description": "老太太身边的丫鬟"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐儿的丈夫，贾赦之子"
+    },
+    {
+      "name": "金文翔",
+      "description": "鸳鸯的哥哥，老太太的买办"
+    },
+    {
+      "name": "金文翔媳妇",
+      "description": "鸳鸯的嫂子，老太太那边浆洗上的头儿"
+    },
+    {
+      "name": "金彩",
+      "description": "鸳鸯的父亲，在南京看房子"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻，被贾母误怪后又被澄清"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "王夫人的妹妹"
+    },
+    {
+      "name": "李纨",
+      "description": "贾珠之妻"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，薛姨妈之女"
+    },
+    {
+      "name": "探春",
+      "description": "有心机的女孩，为王夫人辩解"
+    },
+    {
+      "name": "迎春",
+      "description": "老实的女孩"
+    },
+    {
+      "name": "惜春",
+      "description": "年纪较小的女孩"
+    }
+  ],
+  "locations": [
+    {
+      "name": "邢夫人房内",
+      "type": "室内",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾母处",
+      "type": "室内",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人屋里",
+      "type": "室内",
+      "parent": "贾府"
+    },
+    {
+      "name": "鸳鸯的卧房",
+      "type": "室内",
+      "parent": "贾府"
+    },
+    {
+      "name": "凤姐儿屋里",
+      "type": "室内",
+      "parent": "贾府"
+    },
+    {
+      "name": "园子",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "枫树底下",
+      "type": "户外",
+      "parent": "园子"
+    },
+    {
+      "name": "山石背后",
+      "type": "户外",
+      "parent": "园子"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "园子"
+    },
+    {
+      "name": "四姑娘房里",
+      "type": "室内",
+      "parent": "贾府"
+    },
+    {
+      "name": "林姑娘家",
+      "type": "室内",
+      "parent": "贾府"
+    },
+    {
+      "name": "外书房",
+      "type": "室内",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "建筑",
+      "parent": "贾府"
+    },
+    {
+      "name": "南京",
+      "type": "城市",
+      "parent": ""
+    },
+    {
+      "name": "贾府",
+      "type": "宅院",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "凤姐儿",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "邢夫人",
+      "person_b": "贾赦",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "琥珀",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "贾赦",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "金文翔",
+      "person_b": "鸳鸯",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "金文翔媳妇",
+      "person_b": "鸳鸯",
+      "relation_type": "嫂妹"
+    },
+    {
+      "person_a": "金彩",
+      "person_b": "鸳鸯",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "薛姨妈",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "平儿",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "袭人",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "袭人",
+      "relation_type": "朋友"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "邢夫人房内",
+      "relation_type": "contains",
+      "value": "包含关系"
+    },
+    {
+      "source": "贾府",
+      "target": "贾母处",
+      "relation_type": "contains",
+      "value": "包含关系"
+    },
+    {
+      "source": "贾府",
+      "target": "园子",
+      "relation_type": "contains",
+      "value": "包含关系"
+    },
+    {
+      "source": "园子",
+      "target": "枫树底下",
+      "relation_type": "contains",
+      "value": "包含关系"
+    },
+    {
+      "source": "园子",
+      "target": "山石背后",
+      "relation_type": "contains",
+      "value": "包含关系"
+    },
+    {
+      "source": "园子",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "包含关系"
+    },
+    {
+      "source": "贾母处",
+      "target": "王夫人屋里",
+      "relation_type": "adjacent",
+      "value": "后屋门相通"
+    },
+    {
+      "source": "王夫人屋里",
+      "target": "鸳鸯的卧房",
+      "relation_type": "adjacent",
+      "value": "从后屋门出去经过"
+    },
+    {
+      "source": "山石背后",
+      "target": "枫树底下",
+      "relation_type": "adjacent",
+      "value": "山石背后可听到枫树下的谈话"
+    },
+    {
+      "source": "贾府",
+      "target": "外书房",
+      "relation_type": "contains",
+      "value": "包含关系"
+    },
+    {
+      "source": "贾府",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": "包含关系"
+    }
+  ],
+  "_chapter": 47,
+  "_input_tokens": 10112,
+  "_output_tokens": 2115
+}

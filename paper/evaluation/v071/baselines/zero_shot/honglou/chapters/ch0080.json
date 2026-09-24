@@ -1,0 +1,237 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾家公子，与林黛玉讨论祭文，后因病卧床一月"
+    },
+    {
+      "name": "林黛玉",
+      "description": "聪慧女子，帮宝玉修改祭文，与宝玉关系亲密"
+    },
+    {
+      "name": "晴雯",
+      "description": "已故丫鬟，宝玉为其写祭文"
+    },
+    {
+      "name": "紫鹃",
+      "description": "林黛玉的丫鬟"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲，派人传话让宝玉去贾赦处"
+    },
+    {
+      "name": "贾赦",
+      "description": "宝玉的大伯父，决定迎春的婚事"
+    },
+    {
+      "name": "迎春",
+      "description": "贾家二姑娘，被贾赦许配给孙绍祖"
+    },
+    {
+      "name": "孙绍祖",
+      "description": "大同府人氏，军官出身，现袭指挥之职，年纪未满三十，家资饶富"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗，对迎春婚事不十分称意，照看生病的宝玉"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，深恶孙家"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻，负责迎春出嫁事宜"
+    },
+    {
+      "name": "香菱",
+      "description": "薛蟠的妾，聪慧美貌，与宝玉对话后心生误会"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛家公子，娶夏金桂为妻"
+    },
+    {
+      "name": "夏金桂",
+      "description": "夏家小姐，17岁，有姿色识字，性格娇纵跋扈，薛蟠之妻"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛蟠和薛宝钗的母亲"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "薛家姑娘，学问好，能应变金桂的挑衅"
+    },
+    {
+      "name": "王熙凤",
+      "description": "琏二奶奶，香菱要寻找的人"
+    }
+  ],
+  "locations": [
+    {
+      "name": "花影中",
+      "type": "园林区域",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": null
+    },
+    {
+      "name": "紫菱洲",
+      "type": "水景区域",
+      "parent": "大观园"
+    },
+    {
+      "name": "稻香村",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "贾赦那边",
+      "type": "住所",
+      "parent": null
+    },
+    {
+      "name": "大同府",
+      "type": "府城",
+      "parent": null
+    },
+    {
+      "name": "长安城",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "桂花夏家",
+      "type": "宅第",
+      "parent": "长安城"
+    },
+    {
+      "name": "薛家",
+      "type": "宅第",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "表兄妹/恋人"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "晴雯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾赦",
+      "relation_type": "侄子"
+    },
+    {
+      "person_a": "迎春",
+      "person_b": "孙绍祖",
+      "relation_type": "未婚夫妻"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "迎春",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "夏金桂",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "香菱",
+      "relation_type": "主妾"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛姨妈",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "迎春",
+      "person_b": "孙绍祖",
+      "relation_type": "世交"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "花影中",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "大观园",
+      "target": "紫菱洲",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "大观园",
+      "target": "稻香村",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "长安城",
+      "target": "桂花夏家",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "紫菱洲",
+      "target": "怡红院",
+      "relation_type": "adjacent",
+      "value": "相邻区域"
+    },
+    {
+      "source": "宝玉",
+      "target": "贾赦那边",
+      "relation_type": "direction",
+      "value": "需要前往"
+    }
+  ],
+  "_chapter": 80,
+  "_input_tokens": 6157,
+  "_output_tokens": 1674
+}

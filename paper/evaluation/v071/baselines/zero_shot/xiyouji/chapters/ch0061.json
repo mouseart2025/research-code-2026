@@ -1,0 +1,232 @@
+{
+  "characters": [
+    {
+      "name": "牛魔王",
+      "description": "大力王，会七十二变，法力无边，使双刃剑和铁棍，是孙大圣的敌手"
+    },
+    {
+      "name": "孙大圣",
+      "description": "孙悟空，齐天大圣，使金箍棒，会七十二变，唐僧的大徒弟"
+    },
+    {
+      "name": "八戒",
+      "description": "猪精，唐僧的二徒弟，使九齿钉钯，长嘴大耳"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙流精，唐僧的三徒弟，又称悟净、卷帘将军"
+    },
+    {
+      "name": "唐僧",
+      "description": "唐三藏，西天取经的和尚，孙悟空等的师父"
+    },
+    {
+      "name": "罗刹女",
+      "description": "牛魔王的妻子，拥有芭蕉扇，后来归顺修行得正果"
+    },
+    {
+      "name": "玉面公主",
+      "description": "牛魔王的爱妾，玉面狸精，被八戒筑死"
+    },
+    {
+      "name": "哪吒太子",
+      "description": "三头六臂，使斩妖剑和火轮，托塔李天王之子"
+    },
+    {
+      "name": "托塔李天王",
+      "description": "天王，持照妖镜和缚妖索，哪吒之父"
+    },
+    {
+      "name": "火焰山土地",
+      "description": "火焰山的土地神，帮助唐僧师徒"
+    }
+  ],
+  "locations": [
+    {
+      "name": "火焰山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "积雷山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "摩云洞",
+      "type": "洞府",
+      "parent": "积雷山"
+    },
+    {
+      "name": "翠云山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "芭蕉洞",
+      "type": "洞府",
+      "parent": "翠云山"
+    },
+    {
+      "name": "乱石山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "碧波潭",
+      "type": "水域",
+      "parent": "乱石山"
+    },
+    {
+      "name": "五台山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "秘魔岩",
+      "type": "岩石",
+      "parent": "五台山"
+    },
+    {
+      "name": "峨眉山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "清凉洞",
+      "type": "洞府",
+      "parent": "峨眉山"
+    },
+    {
+      "name": "须弥山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "摩耳崖",
+      "type": "山崖",
+      "parent": "须弥山"
+    },
+    {
+      "name": "昆仑山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "金霞岭",
+      "type": "山岭",
+      "parent": "昆仑山"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "牛魔王",
+      "person_b": "罗刹女",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "玉面公主",
+      "relation_type": "情侣"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "孙大圣",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "托塔李天王",
+      "person_b": "哪吒太子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "牛魔王",
+      "person_b": "孙大圣",
+      "relation_type": "敌人"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "摩云洞",
+      "target": "积雷山",
+      "relation_type": "contains",
+      "value": "洞府位于山中"
+    },
+    {
+      "source": "芭蕉洞",
+      "target": "翠云山",
+      "relation_type": "contains",
+      "value": "洞府位于山中"
+    },
+    {
+      "source": "碧波潭",
+      "target": "乱石山",
+      "relation_type": "contains",
+      "value": "潭底位于山中"
+    },
+    {
+      "source": "秘魔岩",
+      "target": "五台山",
+      "relation_type": "contains",
+      "value": "岩石位于山中"
+    },
+    {
+      "source": "清凉洞",
+      "target": "峨眉山",
+      "relation_type": "contains",
+      "value": "洞府位于山中"
+    },
+    {
+      "source": "摩耳崖",
+      "target": "须弥山",
+      "relation_type": "contains",
+      "value": "山崖位于山中"
+    },
+    {
+      "source": "金霞岭",
+      "target": "昆仑山",
+      "relation_type": "contains",
+      "value": "山岭位于山中"
+    },
+    {
+      "source": "积雷山",
+      "target": "火焰山",
+      "relation_type": "direction",
+      "value": "东方"
+    },
+    {
+      "source": "翠云山",
+      "target": "积雷山",
+      "relation_type": "adjacent",
+      "value": "相邻山脉"
+    }
+  ],
+  "_chapter": 61,
+  "_input_tokens": 9263,
+  "_output_tokens": 1619
+}

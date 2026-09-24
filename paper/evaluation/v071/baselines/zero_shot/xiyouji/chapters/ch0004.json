@@ -1,0 +1,316 @@
+{
+  "characters": [
+    {
+      "name": "太白金星",
+      "description": "天宫仙官，奉玉帝旨意招安悟空"
+    },
+    {
+      "name": "美猴王/悟空/孙悟空",
+      "description": "花果山水帘洞主，被封为弼马温后自立为齐天大圣"
+    },
+    {
+      "name": "增长天王",
+      "description": "天门守将，率天兵把守南天门"
+    },
+    {
+      "name": "玉帝",
+      "description": "天宫最高统治者，封悟空官职"
+    },
+    {
+      "name": "武曲星君",
+      "description": "天宫文武仙卿，建议封悟空为弼马温"
+    },
+    {
+      "name": "木德星君",
+      "description": "奉命送悟空到御马监上任"
+    },
+    {
+      "name": "监丞",
+      "description": "御马监官员"
+    },
+    {
+      "name": "监副",
+      "description": "御马监官员"
+    },
+    {
+      "name": "典簿",
+      "description": "御马监官员，管征备草料"
+    },
+    {
+      "name": "力士官",
+      "description": "御马监官员，管刷洗马匹"
+    },
+    {
+      "name": "四健将",
+      "description": "悟空手下的猴将"
+    },
+    {
+      "name": "独角鬼王",
+      "description": "拜见悟空，献赭黄袍，被封为前部总督先锋"
+    },
+    {
+      "name": "张天师",
+      "description": "天宫仙官，向玉帝汇报悟空叛逃"
+    },
+    {
+      "name": "托塔李天王/李靖",
+      "description": "被封为降魔大元帅，率兵征讨悟空"
+    },
+    {
+      "name": "哪吒三太子",
+      "description": "李天王之子，被封为三坛海会大神"
+    },
+    {
+      "name": "巨灵神",
+      "description": "天将，李天王部下先锋，被悟空击败"
+    },
+    {
+      "name": "牛魔王",
+      "description": "悟空结拜兄弟，自称平天大圣"
+    },
+    {
+      "name": "蛟魔王",
+      "description": "悟空结拜兄弟，自称覆海大圣"
+    },
+    {
+      "name": "鹏魔王",
+      "description": "悟空结拜兄弟，自称混天大圣"
+    },
+    {
+      "name": "狮犭它王",
+      "description": "悟空结拜兄弟，自称移山大圣"
+    },
+    {
+      "name": "猕猴王",
+      "description": "悟空结拜兄弟，自称通风大圣"
+    },
+    {
+      "name": "犭狨王",
+      "description": "悟空结拜兄弟，自称驱神大圣"
+    },
+    {
+      "name": "五斗星君",
+      "description": "奉命送悟空到齐天大圣府上任"
+    }
+  ],
+  "locations": [
+    {
+      "name": "洞天",
+      "type": "仙境",
+      "parent": "花果山"
+    },
+    {
+      "name": "花果山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞府",
+      "parent": "花果山"
+    },
+    {
+      "name": "南天门",
+      "type": "天门",
+      "parent": "天宫"
+    },
+    {
+      "name": "天宫",
+      "type": "仙界",
+      "parent": null
+    },
+    {
+      "name": "灵霄宝殿",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "御马监",
+      "type": "官署",
+      "parent": "天宫"
+    },
+    {
+      "name": "齐天大圣府",
+      "type": "官府",
+      "parent": "天宫"
+    },
+    {
+      "name": "蟠桃园",
+      "type": "园林",
+      "parent": "天宫"
+    },
+    {
+      "name": "安静司",
+      "type": "官署",
+      "parent": "齐天大圣府"
+    },
+    {
+      "name": "宁神司",
+      "type": "官署",
+      "parent": "齐天大圣府"
+    },
+    {
+      "name": "遣云宫",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "毗沙宫",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "朝会殿",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "凌虚殿",
+      "type": "宫殿",
+      "parent": "天宫"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "太白金星",
+      "person_b": "孙悟空",
+      "relation_type": "招安使者"
+    },
+    {
+      "person_a": "玉帝",
+      "person_b": "孙悟空",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "哪吒三太子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "李天王",
+      "person_b": "巨灵神",
+      "relation_type": "主将与先锋"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "牛魔王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "蛟魔王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "鹏魔王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "狮犭它王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猕猴王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "犭狨王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "四健将",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "独角鬼王",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "监丞",
+      "person_b": "孙悟空",
+      "relation_type": "下属"
+    },
+    {
+      "person_a": "监副",
+      "person_b": "孙悟空",
+      "relation_type": "下属"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "花果山",
+      "target": "洞天",
+      "relation_type": "contains",
+      "value": "深处"
+    },
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "天宫",
+      "target": "南天门",
+      "relation_type": "contains",
+      "value": "入口"
+    },
+    {
+      "source": "天宫",
+      "target": "灵霄宝殿",
+      "relation_type": "contains",
+      "value": "正中"
+    },
+    {
+      "source": "天宫",
+      "target": "御马监",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "蟠桃园",
+      "target": "齐天大圣府",
+      "relation_type": "adjacent",
+      "value": "右侧"
+    },
+    {
+      "source": "齐天大圣府",
+      "target": "安静司",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "齐天大圣府",
+      "target": "宁神司",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "洞天",
+      "target": "南天门",
+      "relation_type": "direction",
+      "value": "下方"
+    },
+    {
+      "source": "花果山",
+      "target": "天宫",
+      "relation_type": "direction",
+      "value": "下界"
+    },
+    {
+      "source": "灵霄宝殿",
+      "target": "御马监",
+      "relation_type": "adjacent",
+      "value": "宫内"
+    }
+  ],
+  "_chapter": 4,
+  "_input_tokens": 8320,
+  "_output_tokens": 2147
+}

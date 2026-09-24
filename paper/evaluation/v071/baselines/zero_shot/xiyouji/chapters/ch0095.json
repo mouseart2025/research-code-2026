@@ -1,0 +1,244 @@
+{
+  "characters": [
+    {
+      "name": "唐僧",
+      "description": "取经的和尚，师父，身居锦绣心无爱，足步琼瑶意不迷"
+    },
+    {
+      "name": "行者/孙行者/孙大圣",
+      "description": "唐僧的徒弟，火眼金睛，使用金箍棒，能腾云驾雾"
+    },
+    {
+      "name": "国王",
+      "description": "天竺国国王，爱花，有公主"
+    },
+    {
+      "name": "公主",
+      "description": "天竺国真公主，实为月宫素娥仙子投胎"
+    },
+    {
+      "name": "假公主",
+      "description": "玉兔变化，欲配唐僧破其元阳"
+    },
+    {
+      "name": "皇后",
+      "description": "天竺国王后，公主之母"
+    },
+    {
+      "name": "八戒/猪八戒",
+      "description": "唐僧徒弟，村泼呆子，动淫心"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧徒弟"
+    },
+    {
+      "name": "太阴星君",
+      "description": "月宫主人，来收玉兔"
+    },
+    {
+      "name": "姮娥仙子",
+      "description": "月宫仙女"
+    },
+    {
+      "name": "玉兔",
+      "description": "广寒宫捣药玉兔，怀恨素娥变假公主"
+    },
+    {
+      "name": "老僧",
+      "description": "给孤布金寺百岁老僧，收留真公主"
+    },
+    {
+      "name": "土地",
+      "description": "毛颖山土地神"
+    },
+    {
+      "name": "山神",
+      "description": "毛颖山山神"
+    }
+  ],
+  "locations": [
+    {
+      "name": "天竺国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "后宫",
+      "type": "宫殿",
+      "parent": "天竺国"
+    },
+    {
+      "name": "鳷鹊宫",
+      "type": "宫殿",
+      "parent": "后宫"
+    },
+    {
+      "name": "御花园",
+      "type": "花园",
+      "parent": "天竺国"
+    },
+    {
+      "name": "土地庙",
+      "type": "庙宇",
+      "parent": "御花园"
+    },
+    {
+      "name": "西天门",
+      "type": "天界门户",
+      "parent": "天界"
+    },
+    {
+      "name": "广寒宫",
+      "type": "月宫",
+      "parent": "月界"
+    },
+    {
+      "name": "蟾宫",
+      "type": "月宫",
+      "parent": "月界"
+    },
+    {
+      "name": "毛颖山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "给孤布金寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "布金旧园",
+      "type": "园林",
+      "parent": "给孤布金寺"
+    },
+    {
+      "name": "留春亭",
+      "type": "亭子",
+      "parent": "天竺国"
+    },
+    {
+      "name": "华夷楼",
+      "type": "楼阁",
+      "parent": "天竺国"
+    },
+    {
+      "name": "宝华山",
+      "type": "山脉",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "公主",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "皇后",
+      "person_b": "公主",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "皇后",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "太阴星君",
+      "person_b": "玉兔",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "太阴星君",
+      "person_b": "姮娥仙子",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "玉兔",
+      "person_b": "公主",
+      "relation_type": "仇敌"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "天竺国",
+      "target": "后宫",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "后宫",
+      "target": "鳷鹊宫",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "天竺国",
+      "target": "御花园",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "御花园",
+      "target": "土地庙",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "毛颖山",
+      "target": "天竺国",
+      "relation_type": "direction",
+      "value": "正南"
+    },
+    {
+      "source": "给孤布金寺",
+      "target": "天竺国",
+      "relation_type": "direction",
+      "value": "六十里路"
+    },
+    {
+      "source": "给孤布金寺",
+      "target": "布金旧园",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "天竺国",
+      "target": "留春亭",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "天竺国",
+      "target": "华夷楼",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "毛颖山",
+      "target": "宝华山",
+      "relation_type": "direction",
+      "value": "改名为"
+    }
+  ],
+  "_chapter": 95,
+  "_input_tokens": 7748,
+  "_output_tokens": 1555
+}

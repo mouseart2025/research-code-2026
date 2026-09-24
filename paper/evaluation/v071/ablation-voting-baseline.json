@@ -1,0 +1,158 @@
+{
+  "_description": "Voting-only baseline (no validator, no Edmonds, no SuffixNormalizer). Raw LLM output aggregated via per-node majority vote only.",
+  "full_pipeline": {
+    "xiyouji": 0.9809128630705394,
+    "honglou": 0.972,
+    "shuihu": 0.8900939985538684,
+    "sanguo": 0.8767857142857143,
+    "fengshen": 0.9484978540772532
+  },
+  "voting_only": {
+    "xiyouji": {
+      "novel": "xiyouji",
+      "total_nodes": 1205,
+      "correct_count": 436,
+      "suspect_count": 68,
+      "error_count": 17,
+      "entity_precision": 1.0,
+      "name_accuracy": 0.9991701244813278,
+      "tier_accuracy": 0.9900414937759336,
+      "parent_precision": 0.9966804979253112,
+      "structural_health": 0.9983402489626556,
+      "overall": 0.9858921161825727,
+      "category_errors": {
+        "A": 0,
+        "B": 1,
+        "C": 12,
+        "D": 4,
+        "E": 2
+      },
+      "error_type_counts": {
+        "C-tier错误": 11,
+        "B-字形错误": 1,
+        "D-parent名错": 1,
+        "E-投票高冲突": 1,
+        "E-疑似重复": 1,
+        "C-tier可疑": 1,
+        "D-parent错误": 3,
+        "E-消歧重复": 1
+      },
+      "_resolved_count": 77
+    },
+    "honglou": {
+      "novel": "honglou",
+      "total_nodes": 1000,
+      "correct_count": 405,
+      "suspect_count": 10,
+      "error_count": 25,
+      "entity_precision": 0.998,
+      "name_accuracy": 1.0,
+      "tier_accuracy": 0.98,
+      "parent_precision": 0.995,
+      "structural_health": 0.998,
+      "overall": 0.975,
+      "category_errors": {
+        "A": 2,
+        "B": 0,
+        "C": 20,
+        "D": 5,
+        "E": 2
+      },
+      "error_type_counts": {
+        "C-tier错误": 20,
+        "A-方位泛称": 1,
+        "E-消歧重复": 2,
+        "D-parent错误": 5,
+        "A-描述性短语": 1
+      },
+      "_resolved_count": 40
+    },
+    "shuihu": {
+      "novel": "shuihu",
+      "total_nodes": 1383,
+      "correct_count": 673,
+      "suspect_count": 7,
+      "error_count": 158,
+      "entity_precision": 1.0,
+      "name_accuracy": 1.0,
+      "tier_accuracy": 0.8864786695589298,
+      "parent_precision": 1.0,
+      "structural_health": 0.9985538684020245,
+      "overall": 0.8857556037599421,
+      "category_errors": {
+        "A": 0,
+        "B": 0,
+        "C": 157,
+        "D": 0,
+        "E": 2
+      },
+      "error_type_counts": {
+        "C-tier错误": 157,
+        "E-幻觉父节点": 2
+      },
+      "_resolved_count": 27
+    },
+    "sanguo": {
+      "novel": "sanguo",
+      "total_nodes": 1120,
+      "correct_count": 623,
+      "suspect_count": 2,
+      "error_count": 134,
+      "entity_precision": 0.9991071428571429,
+      "name_accuracy": 1.0,
+      "tier_accuracy": 0.8830357142857143,
+      "parent_precision": 0.9982142857142857,
+      "structural_health": 0.9991071428571429,
+      "overall": 0.8803571428571428,
+      "category_errors": {
+        "A": 1,
+        "B": 0,
+        "C": 131,
+        "D": 2,
+        "E": 1
+      },
+      "error_type_counts": {
+        "C-tier错误": 130,
+        "A-描述性短语": 1,
+        "D-parent错误": 2,
+        "E-消歧重复": 1,
+        "C-tier倒置": 1
+      },
+      "_resolved_count": 25
+    },
+    "fengshen": {
+      "novel": "fengshen",
+      "total_nodes": 233,
+      "correct_count": 149,
+      "suspect_count": 3,
+      "error_count": 14,
+      "entity_precision": 0.9914163090128756,
+      "name_accuracy": 1.0,
+      "tier_accuracy": 0.9570815450643777,
+      "parent_precision": 0.9828326180257511,
+      "structural_health": 1.0,
+      "overall": 0.9399141630901288,
+      "category_errors": {
+        "A": 2,
+        "B": 0,
+        "C": 10,
+        "D": 4,
+        "E": 0
+      },
+      "error_type_counts": {
+        "A-概念非地名": 1,
+        "C-tier错误": 10,
+        "D-parent错误": 4,
+        "A-非地名": 1
+      },
+      "_resolved_count": 3
+    }
+  },
+  "delta": {
+    "xiyouji": -0.005,
+    "honglou": -0.003,
+    "shuihu": 0.0043,
+    "sanguo": -0.0036,
+    "fengshen": 0.0086
+  }
+}

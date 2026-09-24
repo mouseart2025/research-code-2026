@@ -1,0 +1,349 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "年轻男子，经历梦境，与袭人发生亲密关系"
+    },
+    {
+      "name": "袭人",
+      "description": "聪明女子，比宝玉大两岁，贾母已将其给了宝玉，照料宝玉起居"
+    },
+    {
+      "name": "秦氏",
+      "description": "听见宝玉在梦中唤其乳名，心中纳闷"
+    },
+    {
+      "name": "贾母",
+      "description": "宝玉的祖母，已将袭人给了宝玉"
+    },
+    {
+      "name": "警幻",
+      "description": "宝玉梦中遇到的仙人，传授云雨之情"
+    },
+    {
+      "name": "王夫人",
+      "description": "荣国府贾二老爷的夫人，凤姐的姑母，年纪渐长，怜贫恤老"
+    },
+    {
+      "name": "凤姐",
+      "description": "王夫人的内侄女，琏二奶奶，年纪不过二十岁，美貌聪慧，管理荣府家务"
+    },
+    {
+      "name": "狗儿",
+      "description": "王成之子，务农为业，利名心重，家境困难"
+    },
+    {
+      "name": "刘氏",
+      "description": "狗儿的嫡妻，青儿的母亲"
+    },
+    {
+      "name": "板儿",
+      "description": "狗儿的儿子，五六岁的孩子"
+    },
+    {
+      "name": "青儿",
+      "description": "狗儿和刘氏的女儿"
+    },
+    {
+      "name": "刘姥姥",
+      "description": "积年老寡妇，狗儿的岳母，为求助而到荣府"
+    },
+    {
+      "name": "周瑞",
+      "description": "荣府陪房，已往南边去了"
+    },
+    {
+      "name": "周瑞家的",
+      "description": "周瑞的妻子，王夫人陪房，负责跟太太奶奶们出门的事"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的心腹通房大丫头，穿着绫罗，花容玉貌"
+    },
+    {
+      "name": "贾蓉",
+      "description": "十七八岁少年，面目清秀身材俊俏，凤姐的侄儿，来借玻璃炕屏"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐的丈夫"
+    },
+    {
+      "name": "大姐儿",
+      "description": "贾琏和凤姐的女儿"
+    }
+  ],
+  "locations": [
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "贾母处",
+      "type": "居所",
+      "parent": "荣府"
+    },
+    {
+      "name": "城外原乡",
+      "type": "乡村",
+      "parent": ""
+    },
+    {
+      "name": "长安城",
+      "type": "城市",
+      "parent": ""
+    },
+    {
+      "name": "宁荣街",
+      "type": "街道",
+      "parent": "长安城"
+    },
+    {
+      "name": "荣府大门",
+      "type": "建筑入口",
+      "parent": "荣府"
+    },
+    {
+      "name": "角门",
+      "type": "建筑入口",
+      "parent": "荣府"
+    },
+    {
+      "name": "后门",
+      "type": "建筑入口",
+      "parent": "荣府"
+    },
+    {
+      "name": "后街",
+      "type": "街道",
+      "parent": "长安城"
+    },
+    {
+      "name": "院墙",
+      "type": "建筑结构",
+      "parent": "荣府"
+    },
+    {
+      "name": "倒厅",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "影壁",
+      "type": "建筑结构",
+      "parent": "荣府"
+    },
+    {
+      "name": "院门",
+      "type": "建筑入口",
+      "parent": "荣府"
+    },
+    {
+      "name": "正房",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "堂屋",
+      "type": "房间",
+      "parent": "正房"
+    },
+    {
+      "name": "东边屋",
+      "type": "房间",
+      "parent": "正房"
+    },
+    {
+      "name": "炕",
+      "type": "家具",
+      "parent": "东边屋"
+    },
+    {
+      "name": "楼房",
+      "type": "建筑",
+      "parent": "荣府"
+    },
+    {
+      "name": "二门",
+      "type": "建筑入口",
+      "parent": "荣府"
+    },
+    {
+      "name": "东府",
+      "type": "府邸",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆关系/情侣关系"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙关系"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "贾母",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "凤姐",
+      "relation_type": "姑侄关系"
+    },
+    {
+      "person_a": "狗儿",
+      "person_b": "刘氏",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "狗儿",
+      "person_b": "板儿",
+      "relation_type": "父子关系"
+    },
+    {
+      "person_a": "刘氏",
+      "person_b": "青儿",
+      "relation_type": "母女关系"
+    },
+    {
+      "person_a": "刘姥姥",
+      "person_b": "狗儿",
+      "relation_type": "岳母女婿关系"
+    },
+    {
+      "person_a": "刘姥姥",
+      "person_b": "刘氏",
+      "relation_type": "母女关系"
+    },
+    {
+      "person_a": "周瑞",
+      "person_b": "周瑞家的",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "周瑞家的",
+      "person_b": "王夫人",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾蓉",
+      "relation_type": "婶侄关系"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "大姐儿",
+      "person_b": "贾琏",
+      "relation_type": "父女关系"
+    },
+    {
+      "person_a": "大姐儿",
+      "person_b": "凤姐",
+      "relation_type": "母女关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "荣府",
+      "target": "宁荣街",
+      "relation_type": "located_in",
+      "value": "位于宁荣街上"
+    },
+    {
+      "source": "贾母处",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": "在荣府内部"
+    },
+    {
+      "source": "角门",
+      "target": "荣府大门",
+      "relation_type": "adjacent",
+      "value": "位于大门旁边"
+    },
+    {
+      "source": "后门",
+      "target": "后街",
+      "relation_type": "connected",
+      "value": "通向后街"
+    },
+    {
+      "source": "院墙",
+      "target": "后门",
+      "relation_type": "adjacent",
+      "value": "在后门附近"
+    },
+    {
+      "source": "倒厅",
+      "target": "影壁",
+      "relation_type": "direction",
+      "value": "影壁前方"
+    },
+    {
+      "source": "正房",
+      "target": "院门",
+      "relation_type": "direction",
+      "value": "院门内侧"
+    },
+    {
+      "source": "堂屋",
+      "target": "正房",
+      "relation_type": "contains",
+      "value": "正房的一部分"
+    },
+    {
+      "source": "东边屋",
+      "target": "堂屋",
+      "relation_type": "adjacent",
+      "value": "堂屋东侧"
+    },
+    {
+      "source": "炕",
+      "target": "东边屋",
+      "relation_type": "contains",
+      "value": "屋内家具"
+    },
+    {
+      "source": "楼房",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": "荣府建筑之一"
+    },
+    {
+      "source": "二门",
+      "target": "荣府",
+      "relation_type": "contains",
+      "value": "荣府内部门户"
+    },
+    {
+      "source": "城外原乡",
+      "target": "长安城",
+      "relation_type": "direction",
+      "value": "城外"
+    },
+    {
+      "source": "东府",
+      "target": "荣府",
+      "relation_type": "adjacent",
+      "value": "相邻府邸"
+    }
+  ],
+  "_chapter": 6,
+  "_input_tokens": 9269,
+  "_output_tokens": 2394
+}

@@ -1,0 +1,382 @@
+{
+  "characters": [
+    {
+      "name": "齐天大圣",
+      "description": "孙悟空，天地生成的灵猴，具有七十二般变化，会驾筋斗云，有火眼金睛，持如意金箍棒"
+    },
+    {
+      "name": "玉帝",
+      "description": "天宫之主，玉皇大帝，统治天庭"
+    },
+    {
+      "name": "太上老君",
+      "description": "道教最高神祇之一，拥有八卦炉和仙丹，炼丹之神"
+    },
+    {
+      "name": "二郎神",
+      "description": "二郎显圣真君，灌江口的神仙，有义兄弟七人"
+    },
+    {
+      "name": "大力鬼王",
+      "description": "天庭将领，负责执行对孙悟空的刑罚"
+    },
+    {
+      "name": "王灵官",
+      "description": "佑圣真君的佐使，持金鞭，守卫灵霄殿"
+    },
+    {
+      "name": "如来佛祖",
+      "description": "西方极乐世界释迦牟尼尊者，法力无边，最终降伏孙悟空"
+    },
+    {
+      "name": "阿傩",
+      "description": "如来佛祖的弟子尊者之一"
+    },
+    {
+      "name": "迦叶",
+      "description": "如来佛祖的弟子尊者之一"
+    },
+    {
+      "name": "王母娘娘",
+      "description": "天庭王母，蟠桃园的主人"
+    },
+    {
+      "name": "寿星",
+      "description": "南极仙翁，长头大耳短身躯的长寿之神"
+    },
+    {
+      "name": "赤脚大仙",
+      "description": "仙界大仙，赤脚而行"
+    },
+    {
+      "name": "游弈灵官",
+      "description": "天庭官员，奉命请佛"
+    },
+    {
+      "name": "翊圣真君",
+      "description": "天庭真君，与游弈灵官一同请佛"
+    },
+    {
+      "name": "佑圣真君",
+      "description": "天庭真君，王灵官的主人"
+    },
+    {
+      "name": "哪吒太子",
+      "description": "天庭太子，曾参与擒拿孙悟空"
+    },
+    {
+      "name": "李天王",
+      "description": "天庭天王，曾参与擒拿孙悟空"
+    }
+  ],
+  "locations": [
+    {
+      "name": "斩妖台",
+      "type": "刑场",
+      "parent": "天宫"
+    },
+    {
+      "name": "降妖柱",
+      "type": "刑具",
+      "parent": "斩妖台"
+    },
+    {
+      "name": "兜率宫",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "八卦炉",
+      "type": "炼丹设备",
+      "parent": "兜率宫"
+    },
+    {
+      "name": "巽宫",
+      "type": "八卦方位",
+      "parent": "八卦炉"
+    },
+    {
+      "name": "天宫",
+      "type": "仙界宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "通明殿",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "灵霄殿",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "灵霄宝殿",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "西方极乐世界",
+      "type": "佛界",
+      "parent": null
+    },
+    {
+      "name": "雷音宝刹",
+      "type": "寺庙",
+      "parent": "灵山胜境"
+    },
+    {
+      "name": "灵山胜境",
+      "type": "佛教圣地",
+      "parent": "西方极乐世界"
+    },
+    {
+      "name": "宝莲台",
+      "type": "佛座",
+      "parent": "雷音宝刹"
+    },
+    {
+      "name": "灵霄门",
+      "type": "门户",
+      "parent": "天宫"
+    },
+    {
+      "name": "西天门",
+      "type": "门户",
+      "parent": "天宫"
+    },
+    {
+      "name": "五行山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "花果山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞穴",
+      "parent": "花果山"
+    },
+    {
+      "name": "灌江口",
+      "type": "地名",
+      "parent": null
+    },
+    {
+      "name": "玉京金阙",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "太玄宝宫",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "洞阳玉馆",
+      "type": "宫殿",
+      "parent": "天宫"
+    },
+    {
+      "name": "七宝灵台",
+      "type": "佛座",
+      "parent": "天宫"
+    },
+    {
+      "name": "蟠桃园",
+      "type": "园林",
+      "parent": "天宫"
+    },
+    {
+      "name": "瑶池",
+      "type": "仙池",
+      "parent": "天宫"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "太上老君",
+      "person_b": "玉帝",
+      "relation_type": "臣属"
+    },
+    {
+      "person_a": "二郎神",
+      "person_b": "玉帝",
+      "relation_type": "臣属"
+    },
+    {
+      "person_a": "王灵官",
+      "person_b": "佑圣真君",
+      "relation_type": "佐使"
+    },
+    {
+      "person_a": "阿傩",
+      "person_b": "如来佛祖",
+      "relation_type": "弟子"
+    },
+    {
+      "person_a": "迦叶",
+      "person_b": "如来佛祖",
+      "relation_type": "弟子"
+    },
+    {
+      "person_a": "齐天大圣",
+      "person_b": "玉帝",
+      "relation_type": "敌对"
+    },
+    {
+      "person_a": "齐天大圣",
+      "person_b": "如来佛祖",
+      "relation_type": "敌对"
+    },
+    {
+      "person_a": "王母娘娘",
+      "person_b": "玉帝",
+      "relation_type": "配偶"
+    },
+    {
+      "person_a": "哪吒太子",
+      "person_b": "李天王",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "游弈灵官",
+      "person_b": "翊圣真君",
+      "relation_type": "同僚"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "天宫",
+      "target": "斩妖台",
+      "relation_type": "contains",
+      "value": "天宫内部包含斩妖台"
+    },
+    {
+      "source": "斩妖台",
+      "target": "降妖柱",
+      "relation_type": "contains",
+      "value": "斩妖台上设有降妖柱"
+    },
+    {
+      "source": "天宫",
+      "target": "兜率宫",
+      "relation_type": "contains",
+      "value": "兜率宫位于天宫内"
+    },
+    {
+      "source": "兜率宫",
+      "target": "八卦炉",
+      "relation_type": "contains",
+      "value": "八卦炉位于兜率宫内"
+    },
+    {
+      "source": "八卦炉",
+      "target": "巽宫",
+      "relation_type": "contains",
+      "value": "巽宫是八卦炉的一个方位"
+    },
+    {
+      "source": "天宫",
+      "target": "通明殿",
+      "relation_type": "contains",
+      "value": "通明殿位于天宫内"
+    },
+    {
+      "source": "天宫",
+      "target": "灵霄殿",
+      "relation_type": "contains",
+      "value": "灵霄殿位于天宫内"
+    },
+    {
+      "source": "西方极乐世界",
+      "target": "灵山胜境",
+      "relation_type": "contains",
+      "value": "灵山胜境位于西方极乐世界"
+    },
+    {
+      "source": "灵山胜境",
+      "target": "雷音宝刹",
+      "relation_type": "contains",
+      "value": "雷音宝刹位于灵山胜境"
+    },
+    {
+      "source": "雷音宝刹",
+      "target": "宝莲台",
+      "relation_type": "contains",
+      "value": "宝莲台位于雷音宝刹内"
+    },
+    {
+      "source": "天宫",
+      "target": "灵霄门",
+      "relation_type": "contains",
+      "value": "灵霄门是天宫的门户"
+    },
+    {
+      "source": "天宫",
+      "target": "西天门",
+      "relation_type": "contains",
+      "value": "西天门是天宫的门户"
+    },
+    {
+      "source": "西天门",
+      "target": "五行山",
+      "relation_type": "direction",
+      "value": "五行山位于西天门外"
+    },
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "水帘洞位于花果山中"
+    },
+    {
+      "source": "天宫",
+      "target": "玉京金阙",
+      "relation_type": "contains",
+      "value": "玉京金阙位于天宫内"
+    },
+    {
+      "source": "天宫",
+      "target": "太玄宝宫",
+      "relation_type": "contains",
+      "value": "太玄宝宫位于天宫内"
+    },
+    {
+      "source": "天宫",
+      "target": "洞阳玉馆",
+      "relation_type": "contains",
+      "value": "洞阳玉馆位于天宫内"
+    },
+    {
+      "source": "天宫",
+      "target": "七宝灵台",
+      "relation_type": "contains",
+      "value": "七宝灵台设于天宫内"
+    },
+    {
+      "source": "通明殿",
+      "target": "灵霄殿",
+      "relation_type": "adjacent",
+      "value": "通明殿与灵霄殿相邻"
+    },
+    {
+      "source": "天宫",
+      "target": "蟠桃园",
+      "relation_type": "contains",
+      "value": "蟠桃园位于天宫内"
+    },
+    {
+      "source": "天宫",
+      "target": "瑶池",
+      "relation_type": "contains",
+      "value": "瑶池位于天宫内"
+    }
+  ],
+  "_chapter": 7,
+  "_input_tokens": 6644,
+  "_output_tokens": 2766
+}

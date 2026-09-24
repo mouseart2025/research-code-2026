@@ -1,0 +1,282 @@
+{
+  "characters": [
+    {
+      "name": "香菱",
+      "description": "正在学作诗的女子，满心满意只想作诗"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，贾府小姐，擅长诗词，身体较弱"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，薛家大姑娘，贤惠聪慧"
+    },
+    {
+      "name": "李纨",
+      "description": "大奶奶，年轻守节的寡妇，贤惠"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，贾府公子，带玉而生"
+    },
+    {
+      "name": "探春",
+      "description": "三姑娘，聪明能干，诗社发起人之一"
+    },
+    {
+      "name": "岫烟",
+      "description": "邢岫烟，邢夫人的侄女，温厚可疼"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛蟠的从弟，形容举止文雅"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛宝琴，薛宝钗的妹妹，美貌出众，被贾母认作干女儿"
+    },
+    {
+      "name": "李纹",
+      "description": "李纨寡婶的大女儿"
+    },
+    {
+      "name": "李绮",
+      "description": "李纨寡婶的次女"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，挂金麒麟，爱说话，喜欢谈诗"
+    },
+    {
+      "name": "王仁",
+      "description": "凤姐之兄"
+    },
+    {
+      "name": "贾母",
+      "description": "老太太，贾府最高长辈"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府太太"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，管理贾府事务"
+    },
+    {
+      "name": "邢夫人",
+      "description": "大太太"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家母亲"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的大丫鬟"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "妙玉",
+      "description": "栊翠庵的尼姑"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "稻香村",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "芦雪庵",
+      "type": "茅屋",
+      "parent": "大观园"
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "沁芳亭",
+      "type": "亭子",
+      "parent": "大观园"
+    },
+    {
+      "name": "秋爽斋",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "藕香榭",
+      "type": "水榭",
+      "parent": "大观园"
+    },
+    {
+      "name": "蜂腰扳桥",
+      "type": "桥梁",
+      "parent": "大观园"
+    },
+    {
+      "name": "王夫人上房",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "薛蟠书房",
+      "type": "书房",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾母处",
+      "type": "居所",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "薛蝌",
+      "person_b": "宝钗",
+      "relation_type": "叔伯兄弟"
+    },
+    {
+      "person_a": "宝琴",
+      "person_b": "宝钗",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "薛蝌",
+      "person_b": "宝琴",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "岫烟",
+      "person_b": "邢夫人",
+      "relation_type": "侄女"
+    },
+    {
+      "person_a": "王仁",
+      "person_b": "凤姐",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "李纹",
+      "person_b": "李纨",
+      "relation_type": "堂妹"
+    },
+    {
+      "person_a": "李绮",
+      "person_b": "李纨",
+      "relation_type": "堂妹"
+    },
+    {
+      "person_a": "李纹",
+      "person_b": "李绮",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "宝琴",
+      "person_b": "王夫人",
+      "relation_type": "干母女"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "探春",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "琥珀",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园林位于府内"
+    },
+    {
+      "source": "芦雪庵",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "傍山临水河滩之上"
+    },
+    {
+      "source": "芦雪庵",
+      "target": "藕香榭",
+      "relation_type": "adjacent",
+      "value": "通过竹桥相连"
+    },
+    {
+      "source": "栊翠庵",
+      "target": "山坡",
+      "relation_type": "adjacent",
+      "value": "位于山脚附近"
+    },
+    {
+      "source": "沁芳亭",
+      "target": "秋爽斋",
+      "relation_type": "direction",
+      "value": "在去贾母处的路上"
+    },
+    {
+      "source": "怡红院",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "宝玉居所"
+    },
+    {
+      "source": "稻香村",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "李纨居所"
+    },
+    {
+      "source": "蜂腰扳桥",
+      "target": "芦雪庵",
+      "relation_type": "adjacent",
+      "value": "桥梁通往庵所"
+    }
+  ],
+  "_chapter": 50,
+  "_input_tokens": 9339,
+  "_output_tokens": 1901
+}

@@ -1,0 +1,255 @@
+{
+  "characters": [
+    {
+      "name": "凤姐",
+      "description": "善于说笑话、巧嘴伶俐的女性角色"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府长辈，老太太"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家长辈，姑妈"
+    },
+    {
+      "name": "黛玉",
+      "description": "已故女子，林妹妹"
+    },
+    {
+      "name": "宝玉",
+      "description": "宝兄弟，新郎，病后脚软，性格傻头傻脑但比以前明白些"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝妹妹，新媳妇，贞静和平，宝玉的妻子"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，悉心伺侯"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛宝琴，已回到薛姨妈处"
+    },
+    {
+      "name": "史湘云",
+      "description": "史侯家人，已回家并有出嫁日期"
+    },
+    {
+      "name": "邢岫烟",
+      "description": "随邢夫人居住"
+    },
+    {
+      "name": "李纨",
+      "description": "寡妇，在园内居住"
+    },
+    {
+      "name": "探春",
+      "description": "在园内居住的姊妹"
+    },
+    {
+      "name": "惜春",
+      "description": "在园内居住的姊妹"
+    },
+    {
+      "name": "贾政",
+      "description": "京官出任外省粮道，古朴忠厚，想做清官"
+    },
+    {
+      "name": "李十儿",
+      "description": "管门的家人，能言善辩，引导贾政走向腐败"
+    },
+    {
+      "name": "周琼",
+      "description": "镇守海门总制，与贾政有姻亲之约"
+    },
+    {
+      "name": "薛蟠",
+      "description": "金陵籍行商，涉嫌殴伤致死案件"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "宝玉房间",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "园里",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "居室",
+      "parent": "园里"
+    },
+    {
+      "name": "城外庵中",
+      "type": "庙宇",
+      "parent": null
+    },
+    {
+      "name": "本省",
+      "type": "行政区",
+      "parent": null
+    },
+    {
+      "name": "江西",
+      "type": "省份",
+      "parent": null
+    },
+    {
+      "name": "粮道衙门",
+      "type": "官署",
+      "parent": "江西"
+    },
+    {
+      "name": "节度衙门",
+      "type": "官署",
+      "parent": "本省"
+    },
+    {
+      "name": "公馆",
+      "type": "官邸",
+      "parent": "省城"
+    },
+    {
+      "name": "金陵",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "太平县",
+      "type": "县城",
+      "parent": null
+    },
+    {
+      "name": "李家店",
+      "type": "客栈",
+      "parent": "太平县"
+    },
+    {
+      "name": "海门",
+      "type": "军事要地",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾母",
+      "relation_type": "晚辈"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "薛姨妈",
+      "relation_type": "晚辈"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "李十儿",
+      "person_b": "贾政",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "周琼",
+      "person_b": "贾政",
+      "relation_type": "世交"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "贾政",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛姨妈",
+      "relation_type": "母子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "宝玉房间",
+      "relation_type": "contains",
+      "value": "宝玉房间在贾府内"
+    },
+    {
+      "source": "贾府",
+      "target": "园里",
+      "relation_type": "contains",
+      "value": "园林在贾府内"
+    },
+    {
+      "source": "园里",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "潇湘馆在园中"
+    },
+    {
+      "source": "江西",
+      "target": "粮道衙门",
+      "relation_type": "contains",
+      "value": "粮道衙门在江西省"
+    },
+    {
+      "source": "本省",
+      "target": "节度衙门",
+      "relation_type": "contains",
+      "value": "节度衙门在本省"
+    },
+    {
+      "source": "太平县",
+      "target": "李家店",
+      "relation_type": "contains",
+      "value": "李家店在太平县"
+    },
+    {
+      "source": "贾府",
+      "target": "城外庵中",
+      "relation_type": "direction",
+      "value": "城外庵中在贾府外"
+    },
+    {
+      "source": "京城",
+      "target": "本省",
+      "relation_type": "direction",
+      "value": "本省在京城之外"
+    },
+    {
+      "source": "海门",
+      "target": "江西",
+      "relation_type": "direction",
+      "value": "隔重洋相望"
+    }
+  ],
+  "_chapter": 100,
+  "_input_tokens": 7442,
+  "_output_tokens": 1647
+}

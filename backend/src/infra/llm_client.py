@@ -12,7 +12,10 @@ from typing import TYPE_CHECKING
 
 import httpx
 
-from src.infra.config import LLM_API_KEY, LLM_BASE_URL, LLM_MODEL, LLM_PROVIDER, OLLAMA_BASE_URL, OLLAMA_MODEL
+from src.infra.config import (
+    OLLAMA_BASE_URL,
+    OLLAMA_MODEL,
+)
 
 if TYPE_CHECKING:
     from src.infra.anthropic_client import AnthropicClient
@@ -28,6 +31,21 @@ class LlmUsage:
     prompt_tokens: int = 0
     completion_tokens: int = 0
     total_tokens: int = 0
+    # True when the model hit its output cap (finish_reason="length") and the
+    # client had to repair/stub the JSON. This is an OUTPUT-truncation signal,
+    # distinct from the INPUT truncation already tracked by
+    # ExtractionMeta.is_truncated. Per-call (not per-client) so it is safe
+    # under concurrency. Consumers MUST surface it — a repaired response is
+    # syntactically valid but silently missing trailing fields.
+    truncated: bool = False
+
+
+@dataclass
+class ToolCall:
+    """A single tool invocation requested by the model."""
+
+    name: str
+    arguments: dict = field(default_factory=dict)
 
 
 # Global semaphore to serialize Ollama calls (single GPU processes one request at a time).
@@ -263,25 +281,34 @@ class LLMClient:
         logger.debug("generate_stream() sending request (no semaphore)")
         async with httpx.AsyncClient(
             timeout=httpx.Timeout(timeout, connect=10.0)
-        ) as client:
-            async with client.stream(
-                "POST",
-                f"{self.base_url}/api/chat",
-                json=payload,
-            ) as resp:
-                resp.raise_for_status()
-                async for line in resp.aiter_lines():
-                    if not line:
-                        continue
-                    try:
-                        chunk = json.loads(line)
-                    except json.JSONDecodeError:
-                        continue
-                    token = chunk.get("message", {}).get("content", "")
-                    if token:
-                        yield token
-                    if chunk.get("done"):
-                        break
+        ) as client, client.stream(
+            "POST",
+            f"{self.base_url}/api/chat",
+            json=payload,
+        ) as resp:
+            resp.raise_for_status()
+            async for line in resp.aiter_lines():
+                if not line:
+                    continue
+                try:
+                    chunk = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                token = chunk.get("message", {}).get("content", "")
+                if token:
+                    yield token
+                if chunk.get("done"):
+                    break
+
+    async def generate_with_tools(
+        self,
+        messages: list[dict],
+        tools: list[dict],
+    ) -> tuple[str | None, list[ToolCall]]:
+        """Ollama does not support agent tool calling here — weak local models
+        produce unreliable tool calls, so agent QA falls back to the RAG
+        pipeline (agent_qa_service catches NotImplementedError)."""
+        raise NotImplementedError("Ollama provider does not support tool calling")
 
 
 # Module-level singleton

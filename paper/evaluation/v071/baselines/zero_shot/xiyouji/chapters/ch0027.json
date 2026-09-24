@@ -1,0 +1,198 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "唐僧，取经的师父，慈悯的圣僧，金蝉子化身，十世修行"
+    },
+    {
+      "name": "镇元子",
+      "description": "与孙悟空结为兄弟，安排管待师徒住了五六日"
+    },
+    {
+      "name": "行者",
+      "description": "孙悟空，孙大圣，猴王，火眼金睛，手持如意金箍棒，能识破妖精"
+    },
+    {
+      "name": "八戒",
+      "description": "猪八戒，天蓬元帅，呆子，容易被妖精迷惑，常说谗言"
+    },
+    {
+      "name": "沙僧",
+      "description": "卷帘大将，老实人，三藏的徒弟"
+    },
+    {
+      "name": "白骨夫人",
+      "description": "妖精，能变化成美貌女子、老妇人、老公公来迷惑唐僧"
+    },
+    {
+      "name": "刘伯钦",
+      "description": "曾送唐僧上路的人物"
+    },
+    {
+      "name": "观音菩萨",
+      "description": "给孙悟空受戒，指教孙悟空的菩萨"
+    }
+  ],
+  "locations": [
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞穴",
+      "parent": "花果山"
+    },
+    {
+      "name": "两界山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "白虎岭",
+      "type": "山岭",
+      "parent": null
+    },
+    {
+      "name": "蛇回兽怕",
+      "type": "地名",
+      "parent": "白虎岭"
+    },
+    {
+      "name": "南山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "山凹",
+      "type": "地形",
+      "parent": "白虎岭"
+    },
+    {
+      "name": "山坡",
+      "type": "地形",
+      "parent": "白虎岭"
+    },
+    {
+      "name": "长安",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "西天",
+      "type": "方向地点",
+      "parent": null
+    },
+    {
+      "name": "雷音",
+      "type": "地点",
+      "parent": "西天"
+    },
+    {
+      "name": "东洋大海",
+      "type": "海洋",
+      "parent": null
+    },
+    {
+      "name": "阿鼻地狱",
+      "type": "地狱",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "镇元子",
+      "person_b": "行者",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "观音菩萨",
+      "person_b": "行者",
+      "relation_type": "指导者"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "水帘洞位于花果山"
+    },
+    {
+      "source": "白虎岭",
+      "target": "蛇回兽怕",
+      "relation_type": "contains",
+      "value": "蛇回兽怕位于白虎岭"
+    },
+    {
+      "source": "白虎岭",
+      "target": "山凹",
+      "relation_type": "contains",
+      "value": "山凹位于白虎岭"
+    },
+    {
+      "source": "白虎岭",
+      "target": "山坡",
+      "relation_type": "contains",
+      "value": "山坡位于白虎岭"
+    },
+    {
+      "source": "师徒",
+      "target": "南山",
+      "relation_type": "direction",
+      "value": "正南上有一座高山"
+    },
+    {
+      "source": "白虎岭",
+      "target": "西方",
+      "relation_type": "direction",
+      "value": "白虎岭正西下面是妖精家"
+    },
+    {
+      "source": "白虎岭",
+      "target": "山北凹",
+      "relation_type": "contains",
+      "value": "山北凹里有田地"
+    },
+    {
+      "source": "此山",
+      "target": "西下",
+      "relation_type": "direction",
+      "value": "过此山西下四十里"
+    }
+  ],
+  "_chapter": 27,
+  "_input_tokens": 8328,
+  "_output_tokens": 1330
+}

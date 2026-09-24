@@ -1,0 +1,310 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣",
+      "description": "即孙行者，齐天大圣，有七十二般变化，持如意金箍棒，保护唐僧取经"
+    },
+    {
+      "name": "孙行者",
+      "description": "即孙大圣，美猴王，生就铜头铁脑，有避火诀等法术，身有三根救命毫毛"
+    },
+    {
+      "name": "小钻风",
+      "description": "妖精手下的小妖，负责巡山，被孙行者冒充"
+    },
+    {
+      "name": "青毛狮子怪",
+      "description": "三个老妖中间的一个，兽中王，凿牙锯齿，圆头方面，声吼若雷"
+    },
+    {
+      "name": "黄牙老象",
+      "description": "三个老妖左边的一个，凤目金睛，黄牙粗腿，长鼻银毛"
+    },
+    {
+      "name": "大鹏雕",
+      "description": "三个老妖右边的一个，金翅鲲头，星睛豹眼，振北图南"
+    },
+    {
+      "name": "唐僧",
+      "description": "即三藏，出家僧人，前往西天取经，功德无量"
+    },
+    {
+      "name": "三藏",
+      "description": "即唐僧，大唐出家僧，对天下洪誓愿要到西方求经"
+    },
+    {
+      "name": "猪八戒",
+      "description": "即呆子，嘴长耳大，性格冒失，手持钉钯"
+    },
+    {
+      "name": "呆子",
+      "description": "即猪八戒，性格粗夯，想要分行李散伙"
+    },
+    {
+      "name": "沙僧",
+      "description": "即沙和尚，保护唐僧的徒弟之一"
+    },
+    {
+      "name": "沙和尚",
+      "description": "即沙僧，原在流沙河"
+    },
+    {
+      "name": "观音菩萨",
+      "description": "南海菩萨，曾劝化孙行者，给了他三根救命毫毛"
+    },
+    {
+      "name": "老君",
+      "description": "太上老君，曾将孙行者放入炉中煅烧"
+    },
+    {
+      "name": "禹王",
+      "description": "大禹，金箍棒原为其定海神珍"
+    },
+    {
+      "name": "如来",
+      "description": "佛祖，曾制服孙行者五百年"
+    }
+  ],
+  "locations": [
+    {
+      "name": "洞口",
+      "type": "洞穴入口",
+      "parent": "妖怪洞府"
+    },
+    {
+      "name": "二层门",
+      "type": "洞穴内部",
+      "parent": "妖怪洞府"
+    },
+    {
+      "name": "三层门",
+      "type": "洞穴深处",
+      "parent": "妖怪洞府"
+    },
+    {
+      "name": "妖怪洞府",
+      "type": "洞穴",
+      "parent": null
+    },
+    {
+      "name": "库房",
+      "type": "储藏室",
+      "parent": "妖怪洞府"
+    },
+    {
+      "name": "三层门外",
+      "type": "洞穴区域",
+      "parent": "妖怪洞府"
+    },
+    {
+      "name": "山坡",
+      "type": "地形",
+      "parent": "高山"
+    },
+    {
+      "name": "高山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "半山",
+      "type": "山腰",
+      "parent": "高山"
+    },
+    {
+      "name": "西方大路",
+      "type": "道路",
+      "parent": null
+    },
+    {
+      "name": "涧崖石",
+      "type": "岩石",
+      "parent": "高山"
+    },
+    {
+      "name": "草里",
+      "type": "草丛",
+      "parent": "高山"
+    },
+    {
+      "name": "坡前",
+      "type": "山坡",
+      "parent": "高山"
+    },
+    {
+      "name": "旧路",
+      "type": "道路",
+      "parent": null
+    },
+    {
+      "name": "天宫",
+      "type": "仙界",
+      "parent": null
+    },
+    {
+      "name": "灵山",
+      "type": "佛界山脉",
+      "parent": null
+    },
+    {
+      "name": "流沙河",
+      "type": "河流",
+      "parent": null
+    },
+    {
+      "name": "高老庄",
+      "type": "村庄",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙行者",
+      "person_b": "唐僧",
+      "relation_type": "师徒/保护者"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "青毛狮子怪",
+      "person_b": "黄牙老象",
+      "relation_type": "兄弟/同伙"
+    },
+    {
+      "person_a": "青毛狮子怪",
+      "person_b": "大鹏雕",
+      "relation_type": "兄弟/同伙"
+    },
+    {
+      "person_a": "黄牙老象",
+      "person_b": "大鹏雕",
+      "relation_type": "兄弟/同伙"
+    },
+    {
+      "person_a": "小钻风",
+      "person_b": "青毛狮子怪",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "观音菩萨",
+      "person_b": "孙行者",
+      "relation_type": "师父/救助者"
+    },
+    {
+      "person_a": "沙和尚",
+      "person_b": "流沙河",
+      "relation_type": "原居住地"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "高老庄",
+      "relation_type": "原居住地"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "妖怪洞府",
+      "target": "洞口",
+      "relation_type": "contains",
+      "value": "入口"
+    },
+    {
+      "source": "妖怪洞府",
+      "target": "二层门",
+      "relation_type": "contains",
+      "value": "内部结构"
+    },
+    {
+      "source": "妖怪洞府",
+      "target": "三层门",
+      "relation_type": "contains",
+      "value": "深处"
+    },
+    {
+      "source": "妖怪洞府",
+      "target": "库房",
+      "relation_type": "contains",
+      "value": "储藏室"
+    },
+    {
+      "source": "洞口",
+      "target": "二层门",
+      "relation_type": "direction",
+      "value": "向内"
+    },
+    {
+      "source": "二层门",
+      "target": "三层门",
+      "relation_type": "direction",
+      "value": "七八里远近"
+    },
+    {
+      "source": "三层门",
+      "target": "三层门外",
+      "relation_type": "adjacent",
+      "value": "紧邻"
+    },
+    {
+      "source": "高山",
+      "target": "山坡",
+      "relation_type": "contains",
+      "value": "山体部分"
+    },
+    {
+      "source": "高山",
+      "target": "半山",
+      "relation_type": "contains",
+      "value": "山腰位置"
+    },
+    {
+      "source": "高山",
+      "target": "涧崖石",
+      "relation_type": "contains",
+      "value": "岩石地貌"
+    },
+    {
+      "source": "高山",
+      "target": "草里",
+      "relation_type": "contains",
+      "value": "植被区域"
+    },
+    {
+      "source": "高山",
+      "target": "坡前",
+      "relation_type": "contains",
+      "value": "山坡前方"
+    },
+    {
+      "source": "高山",
+      "target": "妖怪洞府",
+      "relation_type": "contains",
+      "value": "洞穴位于山中"
+    }
+  ],
+  "_chapter": 75,
+  "_input_tokens": 9264,
+  "_output_tokens": 2177
+}

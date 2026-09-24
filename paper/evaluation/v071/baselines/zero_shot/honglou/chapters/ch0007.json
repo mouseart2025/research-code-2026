@@ -1,0 +1,446 @@
+{
+  "characters": [
+    {
+      "name": "周瑞家的",
+      "description": "王夫人的管家媳妇，负责传话送物"
+    },
+    {
+      "name": "刘姥姥",
+      "description": "来贾府求助的乡下老妇人"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府的主母之一"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "王夫人的妹妹，薛宝钗的母亲"
+    },
+    {
+      "name": "金钏儿",
+      "description": "王夫人的丫鬟"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "薛姨妈的女儿，患有胎里带来的热毒病"
+    },
+    {
+      "name": "莺儿",
+      "description": "薛宝钗的丫鬟"
+    },
+    {
+      "name": "香菱",
+      "description": "薛家的小丫头，被拐卖而来"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府二小姐"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三小姐"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四小姐"
+    },
+    {
+      "name": "司棋",
+      "description": "迎春的丫鬟"
+    },
+    {
+      "name": "待书",
+      "description": "探春的丫鬟"
+    },
+    {
+      "name": "入画",
+      "description": "惜春的丫鬟"
+    },
+    {
+      "name": "智能儿",
+      "description": "水月庵的小姑子"
+    },
+    {
+      "name": "李纨",
+      "description": "贾珠之妻，负责照管三位小姐"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾府二奶奶王熙凤"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐的丈夫"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "丰儿",
+      "description": "凤姐房中的小丫头"
+    },
+    {
+      "name": "彩明",
+      "description": "凤姐房中的丫鬟"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府的老祖宗"
+    },
+    {
+      "name": "林黛玉",
+      "description": "林姑娘，贾母的外孙女"
+    },
+    {
+      "name": "贾宝玉",
+      "description": "贾府的宝二爷"
+    },
+    {
+      "name": "茜雪",
+      "description": "贾宝玉的丫头"
+    },
+    {
+      "name": "冷子兴",
+      "description": "周瑞的女婿，因卖古董打官司"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁府的族长"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子"
+    },
+    {
+      "name": "秦氏",
+      "description": "贾蓉之妻"
+    },
+    {
+      "name": "秦钟",
+      "description": "秦氏的弟弟，清秀俊美的少年"
+    },
+    {
+      "name": "焦大",
+      "description": "宁府的老仆人，曾有救主之恩"
+    }
+  ],
+  "locations": [
+    {
+      "name": "上房",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "东角门",
+      "type": "门",
+      "parent": "荣府"
+    },
+    {
+      "name": "东院",
+      "type": "院落",
+      "parent": "荣府"
+    },
+    {
+      "name": "梨香院",
+      "type": "院落",
+      "parent": "东院"
+    },
+    {
+      "name": "里间",
+      "type": "房间",
+      "parent": "梨香院"
+    },
+    {
+      "name": "王夫人正房",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "三间小抱厦",
+      "type": "房间",
+      "parent": "王夫人正房后"
+    },
+    {
+      "name": "夹道",
+      "type": "通道",
+      "parent": "荣府"
+    },
+    {
+      "name": "西花墙",
+      "type": "围墙",
+      "parent": "荣府"
+    },
+    {
+      "name": "西角门",
+      "type": "门",
+      "parent": "荣府"
+    },
+    {
+      "name": "凤姐院",
+      "type": "院落",
+      "parent": "荣府"
+    },
+    {
+      "name": "穿堂",
+      "type": "通道",
+      "parent": "荣府"
+    },
+    {
+      "name": "贾母处",
+      "type": "房间",
+      "parent": "荣府"
+    },
+    {
+      "name": "黛玉房",
+      "type": "房间",
+      "parent": "贾母处"
+    },
+    {
+      "name": "宝玉房",
+      "type": "房间",
+      "parent": "贾母处"
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "仪门",
+      "type": "门",
+      "parent": "宁府"
+    },
+    {
+      "name": "上房",
+      "type": "房间",
+      "parent": "宁府"
+    },
+    {
+      "name": "书房",
+      "type": "房间",
+      "parent": "宁府"
+    },
+    {
+      "name": "里间",
+      "type": "房间",
+      "parent": "宁府上房"
+    },
+    {
+      "name": "大厅",
+      "type": "厅堂",
+      "parent": "宁府"
+    },
+    {
+      "name": "丹墀",
+      "type": "台阶",
+      "parent": "宁府大厅"
+    },
+    {
+      "name": "马圈",
+      "type": "马厩",
+      "parent": "宁府"
+    },
+    {
+      "name": "祠堂",
+      "type": "祠堂",
+      "parent": "宁府"
+    },
+    {
+      "name": "水月庵",
+      "type": "庵堂",
+      "parent": null
+    },
+    {
+      "name": "于老爷府",
+      "type": "府邸",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛宝钗",
+      "person_b": "莺儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "金钏儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "周瑞家的",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "迎春",
+      "person_b": "司棋",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "待书",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "惜春",
+      "person_b": "入画",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "茜雪",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "周瑞家的",
+      "person_b": "冷子兴",
+      "relation_type": "翁婿"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾蓉",
+      "person_b": "秦氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "秦氏",
+      "person_b": "秦钟",
+      "relation_type": "姐弟"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "智能儿",
+      "person_b": "惜春",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "秦钟",
+      "relation_type": "朋友"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "东院",
+      "target": "梨香院",
+      "relation_type": "contains",
+      "value": "梨香院位于东院内"
+    },
+    {
+      "source": "荣府",
+      "target": "东角门",
+      "relation_type": "contains",
+      "value": "东角门是荣府的门"
+    },
+    {
+      "source": "梨香院",
+      "target": "里间",
+      "relation_type": "contains",
+      "value": "里间在梨香院内"
+    },
+    {
+      "source": "王夫人正房",
+      "target": "三间小抱厦",
+      "relation_type": "direction",
+      "value": "三间小抱厦在王夫人正房后"
+    },
+    {
+      "source": "荣府",
+      "target": "西角门",
+      "relation_type": "contains",
+      "value": "西角门通往凤姐院"
+    },
+    {
+      "source": "荣府",
+      "target": "凤姐院",
+      "relation_type": "contains",
+      "value": "凤姐院在荣府内"
+    },
+    {
+      "source": "荣府",
+      "target": "贾母处",
+      "relation_type": "contains",
+      "value": "贾母居所在荣府内"
+    },
+    {
+      "source": "贾母处",
+      "target": "宝玉房",
+      "relation_type": "contains",
+      "value": "宝玉房在贾母处"
+    },
+    {
+      "source": "贾母处",
+      "target": "黛玉房",
+      "relation_type": "contains",
+      "value": "黛玉房在贾母处"
+    },
+    {
+      "source": "宁府",
+      "target": "仪门",
+      "relation_type": "contains",
+      "value": "仪门是宁府的正门"
+    },
+    {
+      "source": "宁府",
+      "target": "上房",
+      "relation_type": "contains",
+      "value": "上房在宁府内"
+    },
+    {
+      "source": "宁府上房",
+      "target": "里间",
+      "relation_type": "contains",
+      "value": "里间在宁府上房内"
+    },
+    {
+      "source": "宁府",
+      "target": "书房",
+      "relation_type": "contains",
+      "value": "书房在宁府内"
+    },
+    {
+      "source": "宁府",
+      "target": "大厅",
+      "relation_type": "contains",
+      "value": "大厅在宁府内"
+    },
+    {
+      "source": "大厅",
+      "target": "丹墀",
+      "relation_type": "contains",
+      "value": "丹墀在大厅前"
+    }
+  ],
+  "_chapter": 7,
+  "_input_tokens": 9284,
+  "_output_tokens": 2817
+}

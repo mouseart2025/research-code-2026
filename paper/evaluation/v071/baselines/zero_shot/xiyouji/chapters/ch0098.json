@@ -1,0 +1,256 @@
+{
+  "characters": [
+    {
+      "name": "唐僧",
+      "description": "东土取经人，又称三藏、玄奘，穿锦襕袈裟，戴毗卢帽，手持锡杖"
+    },
+    {
+      "name": "孙悟空",
+      "description": "又称行者、大圣，火眼金睛，认路引导，保护师父"
+    },
+    {
+      "name": "猪八戒",
+      "description": "又称悟能、呆子，害怕独木桥，贪吃"
+    },
+    {
+      "name": "沙和尚",
+      "description": "又称悟净、沙僧，挑担负重，性格温和"
+    },
+    {
+      "name": "金顶大仙",
+      "description": "灵山脚下玉真观的仙人，身披锦衣手摇玉尘，接引取经人"
+    },
+    {
+      "name": "如来佛祖",
+      "description": "释迦牟尼佛，居于雷音寺大雄宝殿，掌管传经事务"
+    },
+    {
+      "name": "阿傩",
+      "description": "佛祖座下尊者，负责传经，索要人事"
+    },
+    {
+      "name": "伽叶",
+      "description": "佛祖座下尊者，负责传经，与阿傩共同管理经书"
+    },
+    {
+      "name": "接引佛祖",
+      "description": "又称南无宝幢光王佛，撑无底船渡人"
+    },
+    {
+      "name": "燃灯古佛",
+      "description": "在宝阁上的古佛，派遣白雄尊者夺取无字经"
+    },
+    {
+      "name": "白雄尊者",
+      "description": "燃灯古佛座下，奉命夺取无字经书"
+    },
+    {
+      "name": "观世音菩萨",
+      "description": "向佛祖汇报取经时日，负责监督取经进程"
+    },
+    {
+      "name": "八大金刚",
+      "description": "奉如来之命护送圣僧"
+    }
+  ],
+  "locations": [
+    {
+      "name": "玉真观",
+      "type": "道观",
+      "parent": "灵山脚下"
+    },
+    {
+      "name": "灵山",
+      "type": "佛教圣地",
+      "parent": null
+    },
+    {
+      "name": "灵鹫峰",
+      "type": "山峰",
+      "parent": "灵山"
+    },
+    {
+      "name": "雷音寺",
+      "type": "寺庙",
+      "parent": "灵山"
+    },
+    {
+      "name": "大雄宝殿",
+      "type": "殿堂",
+      "parent": "雷音寺"
+    },
+    {
+      "name": "珍楼宝阁",
+      "type": "建筑",
+      "parent": "雷音寺"
+    },
+    {
+      "name": "凌云渡",
+      "type": "桥梁",
+      "parent": "灵山"
+    },
+    {
+      "name": "独木桥",
+      "type": "桥梁",
+      "parent": "凌云渡"
+    },
+    {
+      "name": "活水",
+      "type": "河流",
+      "parent": "灵山"
+    },
+    {
+      "name": "三山门",
+      "type": "山门",
+      "parent": "雷音寺"
+    },
+    {
+      "name": "天王殿",
+      "type": "殿堂",
+      "parent": "雷音寺"
+    },
+    {
+      "name": "护法堂",
+      "type": "殿堂",
+      "parent": "雷音寺"
+    },
+    {
+      "name": "东土",
+      "type": "地域",
+      "parent": null
+    },
+    {
+      "name": "南赡部洲",
+      "type": "地域",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙和尚",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "阿傩",
+      "person_b": "伽叶",
+      "relation_type": "同门"
+    },
+    {
+      "person_a": "如来佛祖",
+      "person_b": "阿傩",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "如来佛祖",
+      "person_b": "伽叶",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "燃灯古佛",
+      "person_b": "白雄尊者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "观世音菩萨",
+      "person_b": "如来佛祖",
+      "relation_type": "弟子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "灵山",
+      "target": "玉真观",
+      "relation_type": "contains",
+      "value": "玉真观位于灵山脚下"
+    },
+    {
+      "source": "灵山",
+      "target": "雷音寺",
+      "relation_type": "contains",
+      "value": "雷音寺位于灵山之巅"
+    },
+    {
+      "source": "雷音寺",
+      "target": "大雄宝殿",
+      "relation_type": "contains",
+      "value": "大雄宝殿在雷音寺内"
+    },
+    {
+      "source": "雷音寺",
+      "target": "珍楼宝阁",
+      "relation_type": "contains",
+      "value": "珍楼宝阁在雷音寺内"
+    },
+    {
+      "source": "雷音寺",
+      "target": "三山门",
+      "relation_type": "contains",
+      "value": "三山门是雷音寺的入口"
+    },
+    {
+      "source": "灵山",
+      "target": "活水",
+      "relation_type": "contains",
+      "value": "活水在灵山中，约八里宽阔"
+    },
+    {
+      "source": "活水",
+      "target": "凌云渡",
+      "relation_type": "adjacent",
+      "value": "凌云渡横跨活水"
+    },
+    {
+      "source": "凌云渡",
+      "target": "独木桥",
+      "relation_type": "contains",
+      "value": "独木桥是凌云渡的组成部分"
+    },
+    {
+      "source": "玉真观",
+      "target": "灵山",
+      "relation_type": "direction",
+      "value": "从玉真观后门可直通灵山"
+    },
+    {
+      "source": "雷音寺",
+      "target": "天王殿",
+      "relation_type": "contains",
+      "value": "天王殿在雷音寺内"
+    },
+    {
+      "source": "雷音寺",
+      "target": "护法堂",
+      "relation_type": "contains",
+      "value": "护法堂在雷音寺内"
+    }
+  ],
+  "_chapter": 98,
+  "_input_tokens": 9019,
+  "_output_tokens": 1905
+}

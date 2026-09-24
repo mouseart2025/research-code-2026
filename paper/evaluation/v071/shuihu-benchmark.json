@@ -1,0 +1,62 @@
+{
+  "novel": "shuihu",
+  "novel_id": "4ac43c73-f67b-427c-8d6d-e766a1423977",
+  "title": "水浒传",
+  "timestamp": "2026-04-14T19:47:44.512849",
+  "gold_based": {
+    "novel": "shuihu",
+    "total_nodes": 1383,
+    "correct_count": 810,
+    "suspect_count": 8,
+    "error_count": 152,
+    "entity_precision": 1.0,
+    "name_accuracy": 1.0,
+    "tier_accuracy": 0.8900939985538684,
+    "parent_precision": 1.0,
+    "structural_health": 1.0,
+    "overall": 0.8900939985538684,
+    "category_errors": {
+      "A": 0,
+      "B": 0,
+      "C": 152,
+      "D": 0,
+      "E": 0
+    },
+    "error_type_counts": {
+      "C-tier错误": 152,
+      "C-tier倒置": 1
+    }
+  },
+  "rule_based": {
+    "novel": "shuihu",
+    "total_nodes": 1786,
+    "correct_count": 1030,
+    "suspect_count": 0,
+    "error_count": 756,
+    "entity_precision": 0.9983202687569989,
+    "name_accuracy": 1.0,
+    "tier_accuracy": 0.8622620380739081,
+    "parent_precision": 0.9804031354983203,
+    "structural_health": 0.7088465845464726,
+    "overall": 0.5767077267637177,
+    "category_errors": {
+      "A": 3,
+      "B": 0,
+      "C": 246,
+      "D": 35,
+      "E": 520
+    },
+    "error_type_counts": {
+      "C-tier倒置": 80,
+      "C-tier错误": 169,
+      "E-mc零但原文存在": 324,
+      "E-零证据有子": 60,
+      "E-原文无此名": 186,
+      "D-孤立顶层": 35,
+      "E-消歧重复": 8,
+      "A-方位泛称": 1,
+      "E-幻觉父节点": 5,
+      "A-单字通名": 2
+    }
+  }
+}

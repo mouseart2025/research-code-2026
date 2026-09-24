@@ -1,0 +1,346 @@
+{
+  "characters": [
+    {
+      "name": "探春",
+      "description": "贾府三小姐，黛玉的妹妹，关心体贴黛玉"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，贾府亲戚，探春的朋友"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，住在大观园潇湘馆，体弱多病，敏感多疑"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的贴身丫鬟，忠心照顾黛玉"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉房中的丫鬟，负责日常事务"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房中的大丫鬟，来探望黛玉"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，贾府公子，夜间心疼发病"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太，疼爱黛玉和宝玉"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母身边的大丫鬟"
+    },
+    {
+      "name": "王大夫",
+      "description": "太医，为黛玉诊病开方"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府二爷，陪同大夫看病"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，贾府二奶奶，管理家务"
+    },
+    {
+      "name": "周瑞家的",
+      "description": "贾府管事媳妇，负责传话办事"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐房中的丫鬟"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾府大老爷"
+    },
+    {
+      "name": "贾政",
+      "description": "贾府二老爷"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁国府族长"
+    },
+    {
+      "name": "元妃",
+      "description": "贾元春，贾府长女，宫中贵妃"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛家公子"
+    },
+    {
+      "name": "夏金桂",
+      "description": "薛蟠之妻，性格刁蛮"
+    },
+    {
+      "name": "宝蟾",
+      "description": "薛蟠的妾，原为金桂的丫鬟"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家母亲"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，薛家女儿"
+    },
+    {
+      "name": "香菱",
+      "description": "薛蟠房中的妾"
+    },
+    {
+      "name": "秋菱",
+      "description": "薛蟠房中的妾"
+    },
+    {
+      "name": "老婆子",
+      "description": "园中管理花果树木的仆妇"
+    },
+    {
+      "name": "翠缕",
+      "description": "湘云的丫鬟"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "贾府",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "宁国府",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "荣国府",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "宫中",
+      "type": "皇宫",
+      "parent": null
+    },
+    {
+      "name": "元妃寝宫",
+      "type": "宫殿",
+      "parent": "宫中"
+    },
+    {
+      "name": "内宫门",
+      "type": "宫门",
+      "parent": "宫中"
+    },
+    {
+      "name": "外宫门",
+      "type": "宫门",
+      "parent": "宫中"
+    },
+    {
+      "name": "西垣门",
+      "type": "宫门",
+      "parent": "宫中"
+    },
+    {
+      "name": "太医院",
+      "type": "官署",
+      "parent": null
+    },
+    {
+      "name": "薛家",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "外书房",
+      "type": "书房",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "黛玉",
+      "person_b": "探春",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "雪雁",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "黛玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "贾政",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "邢夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "元妃",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "夏金桂",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "宝蟾",
+      "relation_type": "主妾"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛蟠",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "湘云",
+      "person_b": "翠缕",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "湘云",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园林位于府中"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "黛玉居所在园中"
+    },
+    {
+      "source": "怡红院",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "宝玉居所在园中"
+    },
+    {
+      "source": "元妃寝宫",
+      "target": "宫中",
+      "relation_type": "contains",
+      "value": "寝宫在宫内"
+    },
+    {
+      "source": "内宫门",
+      "target": "宫中",
+      "relation_type": "contains",
+      "value": "内门在宫中"
+    },
+    {
+      "source": "外宫门",
+      "target": "内宫门",
+      "relation_type": "direction",
+      "value": "外门在内门外侧"
+    },
+    {
+      "source": "西垣门",
+      "target": "宫中",
+      "relation_type": "contains",
+      "value": "西垣门为宫门之一"
+    },
+    {
+      "source": "外书房",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "书房在府中"
+    }
+  ],
+  "_chapter": 84,
+  "_input_tokens": 10156,
+  "_output_tokens": 2284
+}

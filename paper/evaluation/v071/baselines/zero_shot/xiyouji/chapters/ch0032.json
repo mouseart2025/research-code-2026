@@ -1,0 +1,181 @@
+{
+  "characters": [
+    {
+      "name": "唐僧",
+      "description": "取经的和尚，师父，骑白马，胆小谨慎"
+    },
+    {
+      "name": "孙行者",
+      "description": "孙悟空，毛脸，有火眼金睛，神通广大，机智狡猾"
+    },
+    {
+      "name": "猪八戒",
+      "description": "长嘴大耳，使钉钯，贪睡懒惰，半路出家"
+    },
+    {
+      "name": "沙和尚",
+      "description": "黑长身材，挑担的徒弟"
+    },
+    {
+      "name": "樵夫",
+      "description": "报信的樵子，头戴蓝毡笠，身穿毛皂衲衣，手持钢斧"
+    },
+    {
+      "name": "日值功曹",
+      "description": "变化为樵夫报信的神仙"
+    },
+    {
+      "name": "金角大王",
+      "description": "平顶山莲花洞妖怪，与银角大王为兄弟"
+    },
+    {
+      "name": "银角大王",
+      "description": "平顶山莲花洞妖怪，使七星剑，带领小妖巡山"
+    },
+    {
+      "name": "小妖",
+      "description": "跟随银角大王的三十名妖怪手下"
+    }
+  ],
+  "locations": [
+    {
+      "name": "宝象国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "长安",
+      "type": "城市",
+      "parent": "东土"
+    },
+    {
+      "name": "平顶山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "莲花洞",
+      "type": "洞穴",
+      "parent": "平顶山"
+    },
+    {
+      "name": "绿莎坡",
+      "type": "山坡",
+      "parent": "平顶山"
+    },
+    {
+      "name": "红草坡",
+      "type": "山坡",
+      "parent": "平顶山"
+    },
+    {
+      "name": "西天",
+      "type": "目的地",
+      "parent": null
+    },
+    {
+      "name": "雷音寺",
+      "type": "寺庙",
+      "parent": "西天"
+    },
+    {
+      "name": "高老庄",
+      "type": "村庄",
+      "parent": null
+    },
+    {
+      "name": "流沙河",
+      "type": "河流",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙和尚",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "金角大王",
+      "person_b": "银角大王",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "银角大王",
+      "person_b": "小妖",
+      "relation_type": "主从"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "平顶山",
+      "target": "莲花洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "绿莎坡",
+      "target": "平顶山",
+      "relation_type": "contains",
+      "value": "山上的坡地"
+    },
+    {
+      "source": "红草坡",
+      "target": "平顶山",
+      "relation_type": "contains",
+      "value": "山凹里的坡地"
+    },
+    {
+      "source": "宝象国",
+      "target": "平顶山",
+      "relation_type": "direction",
+      "value": "从宝象国西行至平顶山"
+    },
+    {
+      "source": "长安",
+      "target": "西天",
+      "relation_type": "direction",
+      "value": "从东土长安西行至西天"
+    },
+    {
+      "source": "平顶山",
+      "target": "西天",
+      "relation_type": "direction",
+      "value": "平顶山位于西行路上"
+    },
+    {
+      "source": "平顶山",
+      "target": null,
+      "relation_type": "distance",
+      "value": "径过有六百里远近"
+    }
+  ],
+  "_chapter": 32,
+  "_input_tokens": 9460,
+  "_output_tokens": 1227
+}

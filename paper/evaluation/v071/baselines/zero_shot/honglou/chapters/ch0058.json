@@ -1,0 +1,392 @@
+{
+  "characters": [
+    {
+      "name": "贾宝玉",
+      "description": "主要男主角，心思单纯，对林黛玉情深意重"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲"
+    },
+    {
+      "name": "甄夫人",
+      "description": "甄家夫人，有一个与宝玉同名的儿子"
+    },
+    {
+      "name": "史湘云",
+      "description": "宝玉的表妹，性格爽朗直率，刚病愈"
+    },
+    {
+      "name": "林黛玉",
+      "description": "宝玉的表妹，体弱多病，与宝玉青梅竹马"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的贴身丫环，聪明伶俐"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉的丫环"
+    },
+    {
+      "name": "祝妈",
+      "description": "园中的老妈妈，负责挖笋修竿"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中的丫环"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房中的主要丫环"
+    },
+    {
+      "name": "李嬷嬷",
+      "description": "宝玉的奶妈，年老有经验"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗，疼爱宝玉和黛玉"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛宝钗的母亲，王夫人的妹妹"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "薛姨妈的女儿，与黛玉都是宝玉的表妹"
+    },
+    {
+      "name": "王太医",
+      "description": "为宝玉看病的大夫"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾母房中的丫环"
+    },
+    {
+      "name": "宋嬷嬷",
+      "description": "看护宝玉的老妈妈"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛姨妈的侄子"
+    },
+    {
+      "name": "邢岫烟",
+      "description": "邢夫人的侄女，家境贫寒，后与薛蝌订亲"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦的妻子，岫烟的姑妈"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍的妻子，宁府当家奶奶"
+    },
+    {
+      "name": "贾环",
+      "description": "宝玉的弟弟"
+    },
+    {
+      "name": "贾兰",
+      "description": "宝玉的侄子"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府二姑娘，性格懦弱"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三姑娘"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四姑娘"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，贾府管家"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾政的妾，贾环的生母"
+    },
+    {
+      "name": "玉钏",
+      "description": "王夫人房中的丫环"
+    },
+    {
+      "name": "小吉祥",
+      "description": "赵姨娘的小丫头"
+    },
+    {
+      "name": "林之孝家的",
+      "description": "贾府管事媳妇"
+    },
+    {
+      "name": "单大良家的",
+      "description": "贾府仆人"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的丫环"
+    },
+    {
+      "name": "篆儿",
+      "description": "邢岫烟的丫头"
+    },
+    {
+      "name": "香菱",
+      "description": "薛蟠的妾"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "大宅院",
+      "parent": ""
+    },
+    {
+      "name": "荣宁二府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "甄府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "回廊",
+      "type": "建筑",
+      "parent": "潇湘馆"
+    },
+    {
+      "name": "沁芳亭",
+      "type": "亭子",
+      "parent": "贾府"
+    },
+    {
+      "name": "桃花树下",
+      "type": "地点",
+      "parent": "沁芳亭"
+    },
+    {
+      "name": "山石",
+      "type": "景观",
+      "parent": "贾府"
+    },
+    {
+      "name": "石壁",
+      "type": "景观",
+      "parent": "贾府"
+    },
+    {
+      "name": "太医院",
+      "type": "官府机构",
+      "parent": ""
+    },
+    {
+      "name": "苏州",
+      "type": "城市",
+      "parent": ""
+    },
+    {
+      "name": "恒舒典",
+      "type": "当铺",
+      "parent": "鼓楼西大街"
+    },
+    {
+      "name": "鼓楼西大街",
+      "type": "街道",
+      "parent": ""
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "表兄妹/恋人"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "史湘云",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "薛宝钗",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "林黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "雪雁",
+      "person_b": "林黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "贾宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "贾宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "李嬷嬷",
+      "person_b": "贾宝玉",
+      "relation_type": "奶妈"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "林黛玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "王夫人",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "薛蝌",
+      "person_b": "邢岫烟",
+      "relation_type": "未婚夫妻"
+    },
+    {
+      "person_a": "邢夫人",
+      "person_b": "邢岫烟",
+      "relation_type": "姑侄"
+    },
+    {
+      "person_a": "薛蝌",
+      "person_b": "薛姨妈",
+      "relation_type": "姑侄"
+    },
+    {
+      "person_a": "贾环",
+      "person_b": "贾宝玉",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾兰",
+      "person_b": "贾宝玉",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "贾环",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "迎春",
+      "person_b": "探春",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "惜春",
+      "relation_type": "姐妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "潇湘馆",
+      "target": "回廊",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "沁芳亭",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "沁芳亭",
+      "target": "桃花树下",
+      "relation_type": "adjacent",
+      "value": "后面"
+    },
+    {
+      "source": "桃花树下",
+      "target": "山石",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "鼓楼西大街",
+      "target": "恒舒典",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "宁府",
+      "relation_type": "adjacent",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": ""
+    }
+  ],
+  "_chapter": 58,
+  "_input_tokens": 13871,
+  "_output_tokens": 2611
+}

@@ -1,0 +1,228 @@
+{
+  "characters": [
+    {
+      "name": "三藏",
+      "description": "唐僧，东土大唐去西天取经的和尚，十世修行的好人，胆小怕惧"
+    },
+    {
+      "name": "悟空",
+      "description": "孙行者，大圣，祖居傲来国花果山水帘洞，会七十二般变化，手持金箍棒，保护唐僧取经"
+    },
+    {
+      "name": "八戒",
+      "description": "悟能，唐僧的第二个徒弟，相貌丑陋，碓梃嘴蒲扇耳朵，性格老实但胆小"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧的徒弟，持降妖杖"
+    },
+    {
+      "name": "老者",
+      "description": "太白金星变化而成，须发皆白，手持龙头拐杖，向师徒报信"
+    },
+    {
+      "name": "太白金星",
+      "description": "李长庚，天界神仙，化作老者向师徒报告前方危险"
+    },
+    {
+      "name": "大大王",
+      "description": "狮驼洞第一个魔头，神通广大，一口曾吞十万天兵，会变化法身"
+    },
+    {
+      "name": "二大王",
+      "description": "狮驼洞第二个魔头，身高三丈，卧蚕眉丹凤眼，鼻子能卷人"
+    },
+    {
+      "name": "三大王",
+      "description": "狮驼洞第三个魔头，云程万里鹏，原住狮驼国，持阴阳二气瓶"
+    },
+    {
+      "name": "小钻风",
+      "description": "巡山小妖，身高一丈二尺，腰间悬铃手持梆子，负责巡山报信"
+    }
+  ],
+  "locations": [
+    {
+      "name": "狮驼岭",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "狮驼洞",
+      "type": "洞穴",
+      "parent": "狮驼岭"
+    },
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": "傲来国"
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞穴",
+      "parent": "花果山"
+    },
+    {
+      "name": "傲来国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "东土大唐",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "西天",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "雷音",
+      "type": "寺庙",
+      "parent": "西天"
+    },
+    {
+      "name": "狮驼国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "南岭",
+      "type": "山岭",
+      "parent": "狮驼岭"
+    },
+    {
+      "name": "北岭",
+      "type": "山岭",
+      "parent": "狮驼岭"
+    },
+    {
+      "name": "东路口",
+      "type": "路口",
+      "parent": "狮驼岭"
+    },
+    {
+      "name": "西路口",
+      "type": "路口",
+      "parent": "狮驼岭"
+    },
+    {
+      "name": "笔峰",
+      "type": "山峰",
+      "parent": "狮驼岭"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "悟空",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "悟空",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "悟空",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "大大王",
+      "person_b": "二大王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "大大王",
+      "person_b": "三大王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "二大王",
+      "person_b": "三大王",
+      "relation_type": "结拜兄弟"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "狮驼岭",
+      "target": "狮驼洞",
+      "relation_type": "contains",
+      "value": "中间有座狮驼洞"
+    },
+    {
+      "source": "傲来国",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "祖居傲来国花果山"
+    },
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "花果山水帘洞"
+    },
+    {
+      "source": "狮驼岭",
+      "target": "南岭",
+      "relation_type": "contains",
+      "value": "南岭上有五千小妖"
+    },
+    {
+      "source": "狮驼岭",
+      "target": "北岭",
+      "relation_type": "contains",
+      "value": "北岭上有五千小妖"
+    },
+    {
+      "source": "狮驼岭",
+      "target": "东路口",
+      "relation_type": "contains",
+      "value": "东路口有一万小妖"
+    },
+    {
+      "source": "狮驼岭",
+      "target": "西路口",
+      "relation_type": "contains",
+      "value": "西路口有一万小妖"
+    },
+    {
+      "source": "狮驼国",
+      "target": "狮驼岭",
+      "relation_type": "direction",
+      "value": "离此西下有四百里远近"
+    },
+    {
+      "source": "狮驼岭",
+      "target": "笔峰",
+      "relation_type": "contains",
+      "value": "山里有一座笔峰"
+    },
+    {
+      "source": "狮驼岭",
+      "target": null,
+      "relation_type": "direction",
+      "value": "八百里狮驼岭"
+    }
+  ],
+  "_chapter": 74,
+  "_input_tokens": 9081,
+  "_output_tokens": 1671
+}

@@ -1,0 +1,273 @@
+{
+  "characters": [
+    {
+      "name": "国王",
+      "description": "乌鸡国国王，原本杀僧，后皈依佛门，与群臣都剃落了头发"
+    },
+    {
+      "name": "众卿/群臣",
+      "description": "乌鸡国的文武官员，与国王一样都没了头发"
+    },
+    {
+      "name": "巡城总兵官",
+      "description": "武班官员，巡城时捉获了装在柜中的唐僧一行"
+    },
+    {
+      "name": "东城兵马使",
+      "description": "文班官员，协助总兵官捉获唐僧一行"
+    },
+    {
+      "name": "唐僧/三藏/长老",
+      "description": "东土大唐取经人，被妖精捉住绑在树上"
+    },
+    {
+      "name": "孙行者/悟空/行者/大圣",
+      "description": "唐僧的大徒弟，神通广大，曾大闹天宫"
+    },
+    {
+      "name": "猪八戒/八戒/呆子",
+      "description": "唐僧的二徒弟，原天蓬元帅，现为取经队伍成员"
+    },
+    {
+      "name": "沙和尚/沙僧/悟净",
+      "description": "唐僧的三徒弟"
+    },
+    {
+      "name": "老妖/老怪/妖精",
+      "description": "山中妖怪，使用铁杵作武器，捉走了唐僧"
+    },
+    {
+      "name": "先锋/小妖",
+      "description": "老妖手下的妖精，献计分瓣梅花计捉唐僧"
+    },
+    {
+      "name": "樵子/樵夫",
+      "description": "本山中的樵夫，被妖精捉住绑在树上，有八十三岁老母"
+    },
+    {
+      "name": "三宫妃后",
+      "description": "乌鸡国王的妃子们，也都剃落了头发"
+    }
+  ],
+  "locations": [
+    {
+      "name": "乌鸡国",
+      "type": "国家",
+      "parent": ""
+    },
+    {
+      "name": "钦法国",
+      "type": "国家",
+      "parent": ""
+    },
+    {
+      "name": "金銮宝殿",
+      "type": "宫殿",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "五凤楼",
+      "type": "楼阁",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "丹墀",
+      "type": "宫廷广场",
+      "parent": "金銮宝殿"
+    },
+    {
+      "name": "饭店",
+      "type": "客栈",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "高山",
+      "type": "山脉",
+      "parent": ""
+    },
+    {
+      "name": "山凹",
+      "type": "地形",
+      "parent": "高山"
+    },
+    {
+      "name": "草坡",
+      "type": "地形",
+      "parent": "高山"
+    },
+    {
+      "name": "妖精洞府",
+      "type": "洞穴",
+      "parent": "高山"
+    },
+    {
+      "name": "后园",
+      "type": "园林",
+      "parent": "妖精洞府"
+    },
+    {
+      "name": "狮驼岭",
+      "type": "山脉",
+      "parent": ""
+    },
+    {
+      "name": "狮驼洞",
+      "type": "洞穴",
+      "parent": "狮驼岭"
+    },
+    {
+      "name": "大路",
+      "type": "道路",
+      "parent": "高山"
+    },
+    {
+      "name": "东土大唐",
+      "type": "国家",
+      "parent": ""
+    },
+    {
+      "name": "西方天竺国",
+      "type": "国家",
+      "parent": ""
+    },
+    {
+      "name": "大雷音寺",
+      "type": "寺庙",
+      "parent": "西方天竺国"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐僧",
+      "person_b": "孙行者",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "猪八戒",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "沙和尚",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "众卿",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "三宫妃后",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "唐僧",
+      "relation_type": "君主与僧人"
+    },
+    {
+      "person_a": "老妖",
+      "person_b": "先锋",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "樵子",
+      "person_b": "樵子母亲",
+      "relation_type": "母子"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "乌鸡国",
+      "target": "钦法国",
+      "relation_type": "transformation",
+      "value": "改名"
+    },
+    {
+      "source": "金銮宝殿",
+      "target": "乌鸡国",
+      "relation_type": "contains",
+      "value": "宫殿在国中"
+    },
+    {
+      "source": "五凤楼",
+      "target": "金銮宝殿",
+      "relation_type": "adjacent",
+      "value": "朝外"
+    },
+    {
+      "source": "丹墀",
+      "target": "五凤楼",
+      "relation_type": "contains",
+      "value": "楼下"
+    },
+    {
+      "source": "高山",
+      "target": "乌鸡国",
+      "relation_type": "direction",
+      "value": "西边"
+    },
+    {
+      "source": "山凹",
+      "target": "高山",
+      "relation_type": "contains",
+      "value": "山中凹地"
+    },
+    {
+      "source": "草坡",
+      "target": "高山",
+      "relation_type": "contains",
+      "value": "山坡"
+    },
+    {
+      "source": "妖精洞府",
+      "target": "高山",
+      "relation_type": "contains",
+      "value": "山中洞穴"
+    },
+    {
+      "source": "后园",
+      "target": "妖精洞府",
+      "relation_type": "contains",
+      "value": "洞府后园"
+    },
+    {
+      "source": "大路",
+      "target": "高山",
+      "relation_type": "contains",
+      "value": "山中道路"
+    },
+    {
+      "source": "西方天竺国",
+      "target": "东土大唐",
+      "relation_type": "direction",
+      "value": "西方"
+    },
+    {
+      "source": "大雷音寺",
+      "target": "西方天竺国",
+      "relation_type": "contains",
+      "value": "寺在国中"
+    }
+  ],
+  "_chapter": 85,
+  "_input_tokens": 8979,
+  "_output_tokens": 1887
+}

@@ -1,0 +1,235 @@
+{
+  "characters": [
+    {
+      "name": "贾琏",
+      "description": "贾府中人，负责办理各种事务，称王夫人为婶子"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府女主人之一，贾琏的婶子"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家女主人，王夫人的亲戚"
+    },
+    {
+      "name": "金桂",
+      "description": "薛家大奶奶，已死，薛蟠之妻"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛姨妈的儿子，金桂的丈夫，被关在监狱中"
+    },
+    {
+      "name": "薛蝌",
+      "description": "薛家二爷，金桂暗恋的对象"
+    },
+    {
+      "name": "香菱",
+      "description": "薛家丫鬟，被怀疑下毒但后来被证明无辜"
+    },
+    {
+      "name": "宝蟾",
+      "description": "金桂的丫鬟，做汤的人"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛姨妈的女儿，薛家二奶奶"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛家人"
+    },
+    {
+      "name": "金桂的母亲",
+      "description": "夏家老太太，金桂的母亲"
+    },
+    {
+      "name": "夏家儿子",
+      "description": "金桂的过继兄弟"
+    },
+    {
+      "name": "周瑞家的",
+      "description": "贾府仆人，王夫人派来帮忙的"
+    },
+    {
+      "name": "贾雨村",
+      "description": "京兆府尹兼管税务，原为贫儒"
+    },
+    {
+      "name": "甄士隐",
+      "description": "道士的前身，曾资助过贾雨村"
+    }
+  ],
+  "locations": [
+    {
+      "name": "王夫人房间",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "部里",
+      "type": "官署",
+      "parent": "京城"
+    },
+    {
+      "name": "吏部",
+      "type": "官署",
+      "parent": "京城"
+    },
+    {
+      "name": "薛姨妈家",
+      "type": "居所",
+      "parent": "京城"
+    },
+    {
+      "name": "里间屋",
+      "type": "房间",
+      "parent": "薛姨妈家"
+    },
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": "京城"
+    },
+    {
+      "name": "刑部",
+      "type": "官署",
+      "parent": "京城"
+    },
+    {
+      "name": "夏家",
+      "type": "居所",
+      "parent": "京城"
+    },
+    {
+      "name": "监狱",
+      "type": "拘禁场所",
+      "parent": "京城"
+    },
+    {
+      "name": "知机县",
+      "type": "县城",
+      "parent": "京畿地区"
+    },
+    {
+      "name": "急流津",
+      "type": "渡口",
+      "parent": "知机县"
+    },
+    {
+      "name": "小庙",
+      "type": "庙宇",
+      "parent": "急流津村旁"
+    },
+    {
+      "name": "茅庐",
+      "type": "简陋居所",
+      "parent": "小庙后殿"
+    },
+    {
+      "name": "京城",
+      "type": "城市",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾琏",
+      "person_b": "王夫人",
+      "relation_type": "侄子-婶子"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "王夫人",
+      "relation_type": "亲戚"
+    },
+    {
+      "person_a": "金桂",
+      "person_b": "薛蟠",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "金桂",
+      "person_b": "薛姨妈",
+      "relation_type": "儿媳-婆婆"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "香菱",
+      "person_b": "薛家",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝蟾",
+      "person_b": "金桂",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "金桂",
+      "person_b": "薛蝌",
+      "relation_type": "暗恋"
+    },
+    {
+      "person_a": "金桂",
+      "person_b": "金桂的母亲",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾雨村",
+      "person_b": "甄士隐",
+      "relation_type": "受恩人-恩人"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "里间屋",
+      "target": "薛姨妈家",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "薛姨妈家",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "位于京城内"
+    },
+    {
+      "source": "荣府",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "位于京城内"
+    },
+    {
+      "source": "茅庐",
+      "target": "小庙",
+      "relation_type": "contains",
+      "value": "位于后殿翠柏下"
+    },
+    {
+      "source": "小庙",
+      "target": "急流津",
+      "relation_type": "adjacent",
+      "value": "村旁"
+    },
+    {
+      "source": "急流津",
+      "target": "知机县",
+      "relation_type": "contains",
+      "value": "县内渡口"
+    },
+    {
+      "source": "知机县",
+      "target": "京城",
+      "relation_type": "direction",
+      "value": "京城出都路上"
+    }
+  ],
+  "_chapter": 104,
+  "_input_tokens": 8584,
+  "_output_tokens": 1557
+}

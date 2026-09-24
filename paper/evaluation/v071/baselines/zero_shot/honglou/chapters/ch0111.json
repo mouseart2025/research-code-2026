@@ -1,0 +1,305 @@
+{
+  "characters": [
+    {
+      "name": "贾母",
+      "description": "贾府老祖宗，享年八十三岁，在本章中去世"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻，宝玉之母"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾母疼爱的孙子，贾政之子"
+    },
+    {
+      "name": "贾兰",
+      "description": "李纨之子，贾母的重孙"
+    },
+    {
+      "name": "李纨",
+      "description": "贾兰之母，寡妇"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，负责操办贾母丧事的内务"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的贴身丫鬟"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，宝玉之妻"
+    },
+    {
+      "name": "贾政",
+      "description": "贾母之子，宝玉之父，负责丧事对外事务"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻，贾府大太太"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾母长子，外出不在家"
+    },
+    {
+      "name": "贾环",
+      "description": "贾政庶子，宝玉异母弟弟"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐之夫，负责丧事外务"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁府当家，外出不在"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四小姐，年纪尚小"
+    },
+    {
+      "name": "史湘云",
+      "description": "史家姑娘，贾母疼爱的外孙女"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的贴身丫鬟"
+    },
+    {
+      "name": "周瑞家的",
+      "description": "荣府管家媳妇"
+    },
+    {
+      "name": "旺儿家的",
+      "description": "荣府家人媳妇"
+    },
+    {
+      "name": "玉钏",
+      "description": "王夫人房中丫鬟"
+    },
+    {
+      "name": "彩云",
+      "description": "王夫人房中丫鬟"
+    },
+    {
+      "name": "彩明",
+      "description": "负责登账的丫鬟"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛家姑娘"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝钗之母"
+    },
+    {
+      "name": "李婶娘",
+      "description": "亲戚中的长辈"
+    }
+  ],
+  "locations": [
+    {
+      "name": "荣府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "贾母房中",
+      "type": "居室",
+      "parent": "荣府"
+    },
+    {
+      "name": "正寝",
+      "type": "停灵处",
+      "parent": "荣府"
+    },
+    {
+      "name": "荣府大门",
+      "type": "门户",
+      "parent": "荣府"
+    },
+    {
+      "name": "内宅门",
+      "type": "门户",
+      "parent": "荣府"
+    },
+    {
+      "name": "孝棚",
+      "type": "灵堂建筑",
+      "parent": "荣府"
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "王夫人房",
+      "type": "居室",
+      "parent": "荣府"
+    },
+    {
+      "name": "上房",
+      "type": "居室",
+      "parent": "荣府"
+    },
+    {
+      "name": "南边坟地",
+      "type": "墓地",
+      "parent": ""
+    },
+    {
+      "name": "祖坟",
+      "type": "墓地",
+      "parent": "南边坟地"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖母-孙子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾兰",
+      "relation_type": "祖母-重孙"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "贾兰",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "宝钗",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾环",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "邢夫人",
+      "person_b": "贾赦",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "史湘云",
+      "person_b": "贾母",
+      "relation_type": "外孙女-祖母"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "荣府",
+      "target": "贾母房中",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣府",
+      "target": "正寝",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣府",
+      "target": "荣府大门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣府",
+      "target": "内宅门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣府",
+      "target": "孝棚",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣府",
+      "target": "王夫人房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣府",
+      "target": "上房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣府大门",
+      "target": "内宅门",
+      "relation_type": "direction",
+      "value": "外至内"
+    },
+    {
+      "source": "南边坟地",
+      "target": "祖坟",
+      "relation_type": "contains",
+      "value": ""
+    }
+  ],
+  "_chapter": 111,
+  "_input_tokens": 8223,
+  "_output_tokens": 1928
+}

@@ -1,0 +1,280 @@
+{
+  "characters": [
+    {
+      "name": "平儿",
+      "description": "王熙凤的丫鬟，负责管理钥匙等事务，被称赞为体面模样好但命运平常"
+    },
+    {
+      "name": "湘云",
+      "description": "贾府姑娘，与众人一起吃螃蟹"
+    },
+    {
+      "name": "李纨",
+      "description": "大奶奶，珠大爷的遗孀，称赞平儿并感叹自己的境遇"
+    },
+    {
+      "name": "凤丫头/王熙凤",
+      "description": "二奶奶，管理家务，善于理财放贷"
+    },
+    {
+      "name": "宝钗",
+      "description": "贾府姑娘，评论各人都有各自的好处"
+    },
+    {
+      "name": "宝玉",
+      "description": "二爷，关心茗玉小姐的故事，派茗烟去寻庙"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟，与平儿讨论月钱问题"
+    },
+    {
+      "name": "刘姥姥",
+      "description": "七十五岁的乡下老人，来贾府送菜，讲述乡村故事"
+    },
+    {
+      "name": "板儿",
+      "description": "刘姥姥的孙子，性格怯生"
+    },
+    {
+      "name": "张材家的",
+      "description": "陪同刘姥姥的人"
+    },
+    {
+      "name": "周瑞家的",
+      "description": "陪同刘姥姥的人，负责传话"
+    },
+    {
+      "name": "贾母",
+      "description": "老太太，最是惜老怜贫，喜欢听刘姥姥讲故事"
+    },
+    {
+      "name": "王夫人",
+      "description": "太太，与贾母一起听刘姥姥讲故事"
+    },
+    {
+      "name": "探春",
+      "description": "贾府姑娘，提议邀请诗社"
+    },
+    {
+      "name": "林黛玉",
+      "description": "贾府姑娘，调侃宝玉雪下抽柴的想法"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉的小厮，被派去寻找茗玉小姐的庙"
+    },
+    {
+      "name": "茗玉",
+      "description": "刘姥姥故事中的人物，十七岁病死的小姐"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母房里的丫鬟，负责安排刘姥姥洗澡换衣"
+    },
+    {
+      "name": "彩霞",
+      "description": "太太屋里的丫鬟，被称为老实人"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府姑娘，参与谈话"
+    }
+  ],
+  "locations": [
+    {
+      "name": "亭子",
+      "type": "建筑",
+      "parent": "贾府"
+    },
+    {
+      "name": "园门",
+      "type": "门户",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾母房中",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "宝玉房中",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "门户",
+      "parent": "贾府"
+    },
+    {
+      "name": "南院马棚",
+      "type": "建筑",
+      "parent": "贾府"
+    },
+    {
+      "name": "村庄",
+      "type": "村落",
+      "parent": null
+    },
+    {
+      "name": "小祠堂",
+      "type": "建筑",
+      "parent": "村庄"
+    },
+    {
+      "name": "破庙",
+      "type": "建筑",
+      "parent": "田埂"
+    },
+    {
+      "name": "田埂",
+      "type": "地理位置",
+      "parent": "村庄"
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "平儿",
+      "person_b": "王熙凤",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "珠大爷",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "刘姥姥",
+      "person_b": "板儿",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "彩霞",
+      "person_b": "王夫人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "茗烟",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "贾母",
+      "relation_type": "亲戚"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园林在府内"
+    },
+    {
+      "source": "大观园",
+      "target": "园门",
+      "relation_type": "contains",
+      "value": "门户在园内"
+    },
+    {
+      "source": "贾府",
+      "target": "亭子",
+      "relation_type": "contains",
+      "value": "亭子在府内"
+    },
+    {
+      "source": "贾府",
+      "target": "贾母房中",
+      "relation_type": "contains",
+      "value": "房间在府内"
+    },
+    {
+      "source": "贾府",
+      "target": "宝玉房中",
+      "relation_type": "contains",
+      "value": "房间在府内"
+    },
+    {
+      "source": "贾府",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": "门户在府内"
+    },
+    {
+      "source": "贾府",
+      "target": "南院马棚",
+      "relation_type": "contains",
+      "value": "马棚在府内"
+    },
+    {
+      "source": "村庄",
+      "target": "田埂",
+      "relation_type": "contains",
+      "value": "田埂在村庄范围内"
+    },
+    {
+      "source": "田埂",
+      "target": "小祠堂",
+      "relation_type": "contains",
+      "value": "祠堂在田埂上"
+    },
+    {
+      "source": "田埂",
+      "target": "破庙",
+      "relation_type": "contains",
+      "value": "破庙在田埂上"
+    },
+    {
+      "source": "破庙",
+      "target": "村庄",
+      "relation_type": "direction",
+      "value": "东北方向"
+    },
+    {
+      "source": "南院马棚",
+      "target": "贾母房",
+      "relation_type": "direction",
+      "value": "东南方向"
+    }
+  ],
+  "_chapter": 40,
+  "_input_tokens": 7742,
+  "_output_tokens": 1960
+}

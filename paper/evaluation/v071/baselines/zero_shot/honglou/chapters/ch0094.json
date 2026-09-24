@@ -1,0 +1,299 @@
+{
+  "characters": [
+    {
+      "name": "冯紫英",
+      "description": "前文提到的人物，已离去"
+    },
+    {
+      "name": "贾政",
+      "description": "荣国府主人，朝廷官员，有衙门公务"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾政的大哥，称大老爷"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾赦之子，负责家务管理"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾政之子，喜欢听戏，对蒋玉菡有特殊关注"
+    },
+    {
+      "name": "临安伯",
+      "description": "贵族，宴请客人听戏"
+    },
+    {
+      "name": "蒋玉菡",
+      "description": "戏班掌班，原唱小旦，现改小生，面如傅粉，唇若涂朱，未婚"
+    },
+    {
+      "name": "焙茗",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "扫红",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "锄药",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "周瑞",
+      "description": "贾府家人，当时不在家"
+    },
+    {
+      "name": "旺儿",
+      "description": "贾府家人，外出未归"
+    },
+    {
+      "name": "赖升",
+      "description": "贾府大管家"
+    },
+    {
+      "name": "包勇",
+      "description": "甄府推荐来的仆人，身长五尺有零，肩背宽肥，浓眉爆眼"
+    },
+    {
+      "name": "甄老爷",
+      "description": "甄府主人，因事获罪，现在边隅"
+    },
+    {
+      "name": "甄宝玉",
+      "description": "甄府公子，也叫宝玉，经历奇事后改变性情专心读书"
+    },
+    {
+      "name": "李德",
+      "description": "贾府门人"
+    },
+    {
+      "name": "贾芹",
+      "description": "贾府子弟，管理水月庵，风流人物"
+    },
+    {
+      "name": "赖大",
+      "description": "贾府管事"
+    },
+    {
+      "name": "芳官",
+      "description": "小女尼，真心出家"
+    },
+    {
+      "name": "沁香",
+      "description": "小沙弥，长得妖娆，与贾芹有染"
+    },
+    {
+      "name": "鹤仙",
+      "description": "女道士，长得妖娆，与贾芹有染"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾琏之妻，病中，心虚"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": "京城"
+    },
+    {
+      "name": "临安伯府",
+      "type": "府邸",
+      "parent": "京城"
+    },
+    {
+      "name": "水月庵",
+      "type": "庵堂",
+      "parent": "京城外"
+    },
+    {
+      "name": "馒头庵",
+      "type": "庵堂",
+      "parent": "未明确"
+    },
+    {
+      "name": "铁槛寺",
+      "type": "寺庙",
+      "parent": "未明确"
+    },
+    {
+      "name": "衙门",
+      "type": "官府",
+      "parent": "京城"
+    },
+    {
+      "name": "南安王府",
+      "type": "王府",
+      "parent": "京城"
+    },
+    {
+      "name": "甄府",
+      "type": "府邸",
+      "parent": "南边"
+    },
+    {
+      "name": "郝家庄",
+      "type": "庄园",
+      "parent": "京外"
+    },
+    {
+      "name": "内书房",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "宁荣两府夹道子",
+      "type": "巷道",
+      "parent": "京城"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "荣国府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾政",
+      "person_b": "贾赦",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "贾琏",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "焙茗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "扫红",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "锄药",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "包勇",
+      "person_b": "甄老爷",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "甄老爷",
+      "person_b": "甄宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾芹",
+      "person_b": "沁香",
+      "relation_type": "暧昧"
+    },
+    {
+      "person_a": "贾芹",
+      "person_b": "鹤仙",
+      "relation_type": "暧昧"
+    },
+    {
+      "person_a": "赖升",
+      "person_b": "贾政",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "赖大",
+      "person_b": "贾政",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "荣国府",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "位于京城内"
+    },
+    {
+      "source": "临安伯府",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "位于京城内"
+    },
+    {
+      "source": "水月庵",
+      "target": "京城",
+      "relation_type": "direction",
+      "value": "离城二十来里"
+    },
+    {
+      "source": "郝家庄",
+      "target": "京城",
+      "relation_type": "direction",
+      "value": "京外"
+    },
+    {
+      "source": "甄府",
+      "target": "荣国府",
+      "relation_type": "direction",
+      "value": "南边"
+    },
+    {
+      "source": "内书房",
+      "target": "荣国府",
+      "relation_type": "contains",
+      "value": "府内房间"
+    },
+    {
+      "source": "大观园",
+      "target": "荣国府",
+      "relation_type": "contains",
+      "value": "府内园林"
+    },
+    {
+      "source": "宁荣两府夹道子",
+      "target": "荣国府",
+      "relation_type": "adjacent",
+      "value": "靠近荣宁二府的夹道"
+    },
+    {
+      "source": "南安王府",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "位于京城内"
+    },
+    {
+      "source": "衙门",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "位于京城内"
+    }
+  ],
+  "_chapter": 94,
+  "_input_tokens": 7937,
+  "_output_tokens": 1964
+}

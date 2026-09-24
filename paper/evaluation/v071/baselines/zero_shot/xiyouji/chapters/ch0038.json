@@ -1,0 +1,286 @@
+{
+  "characters": [
+    {
+      "name": "乌鸡国王太子",
+      "description": "乌鸡国的太子，骑马进入后宫询问母亲关于父王的情况"
+    },
+    {
+      "name": "正宫娘娘",
+      "description": "乌鸡国王的王后，太子的母亲，坐在锦香亭上流泪，做梦梦见已故的国王"
+    },
+    {
+      "name": "嫔妃",
+      "description": "数十个嫔妃在锦香亭两边为娘娘掌扇"
+    },
+    {
+      "name": "孙行者",
+      "description": "孙悟空，齐天大圣，唐僧的大徒弟，善于降妖除怪，具有神通法力"
+    },
+    {
+      "name": "唐僧",
+      "description": "取经的圣僧，孙悟空等人的师父，慈悲为怀"
+    },
+    {
+      "name": "猪八戒",
+      "description": "天蓬元帅，唐僧的弟子，长嘴大耳，力大但贪懒"
+    },
+    {
+      "name": "沙僧",
+      "description": "唐僧的弟子"
+    },
+    {
+      "name": "乌鸡国王",
+      "description": "已死的真正国王，死在御花园八角琉璃井内，托梦给太子和王后"
+    },
+    {
+      "name": "假国王",
+      "description": "变化成国王模样的妖精，篡夺了王位三年"
+    },
+    {
+      "name": "山神土地",
+      "description": "被孙悟空召唤的神仙，帮助捕捉野兽"
+    },
+    {
+      "name": "井龙王",
+      "description": "井底水晶宫的龙王，用定颜珠保存国王尸体"
+    },
+    {
+      "name": "夜叉",
+      "description": "井龙王手下的水族"
+    },
+    {
+      "name": "太监",
+      "description": "后宰门的守卫"
+    },
+    {
+      "name": "军士",
+      "description": "跟随太子打猎的士兵"
+    },
+    {
+      "name": "和尚",
+      "description": "宝林寺中的僧人"
+    }
+  ],
+  "locations": [
+    {
+      "name": "乌鸡国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "城",
+      "type": "城市",
+      "parent": "乌鸡国"
+    },
+    {
+      "name": "朝门",
+      "type": "宫门",
+      "parent": "城"
+    },
+    {
+      "name": "后宰门",
+      "type": "宫门",
+      "parent": "城"
+    },
+    {
+      "name": "锦香亭",
+      "type": "亭子",
+      "parent": "后宫"
+    },
+    {
+      "name": "后宫",
+      "type": "宫殿区域",
+      "parent": "城"
+    },
+    {
+      "name": "前殿",
+      "type": "宫殿",
+      "parent": "城"
+    },
+    {
+      "name": "御花园",
+      "type": "花园",
+      "parent": "城"
+    },
+    {
+      "name": "八角琉璃井",
+      "type": "井",
+      "parent": "御花园"
+    },
+    {
+      "name": "宝林寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "山门",
+      "type": "寺门",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "正殿",
+      "type": "殿堂",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "禅堂",
+      "type": "僧房",
+      "parent": "宝林寺"
+    },
+    {
+      "name": "水晶宫",
+      "type": "龙宫",
+      "parent": "八角琉璃井"
+    },
+    {
+      "name": "里罗城墙",
+      "type": "城墙",
+      "parent": "城"
+    },
+    {
+      "name": "正阳门",
+      "type": "城门",
+      "parent": "城"
+    },
+    {
+      "name": "皇宫内院",
+      "type": "宫殿区域",
+      "parent": "城"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "太子",
+      "person_b": "正宫娘娘",
+      "relation_type": "母子关系"
+    },
+    {
+      "person_a": "太子",
+      "person_b": "乌鸡国王",
+      "relation_type": "父子关系"
+    },
+    {
+      "person_a": "正宫娘娘",
+      "person_b": "乌鸡国王",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "唐僧",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟关系"
+    },
+    {
+      "person_a": "太子",
+      "person_b": "孙行者",
+      "relation_type": "求助关系"
+    },
+    {
+      "person_a": "假国王",
+      "person_b": "正宫娘娘",
+      "relation_type": "冒充夫妻关系"
+    },
+    {
+      "person_a": "井龙王",
+      "person_b": "猪八戒",
+      "relation_type": "故交关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "乌鸡国",
+      "target": "城",
+      "relation_type": "contains",
+      "value": "城位于乌鸡国内"
+    },
+    {
+      "source": "城",
+      "target": "后宰门",
+      "relation_type": "contains",
+      "value": "后宰门在城内"
+    },
+    {
+      "source": "城",
+      "target": "朝门",
+      "relation_type": "contains",
+      "value": "朝门在城内"
+    },
+    {
+      "source": "后宫",
+      "target": "锦香亭",
+      "relation_type": "contains",
+      "value": "锦香亭在后宫内"
+    },
+    {
+      "source": "城",
+      "target": "御花园",
+      "relation_type": "contains",
+      "value": "御花园在城内"
+    },
+    {
+      "source": "御花园",
+      "target": "八角琉璃井",
+      "relation_type": "contains",
+      "value": "井在御花园内"
+    },
+    {
+      "source": "八角琉璃井",
+      "target": "水晶宫",
+      "relation_type": "contains",
+      "value": "水晶宫在井底"
+    },
+    {
+      "source": "宝林寺",
+      "target": "山门",
+      "relation_type": "contains",
+      "value": "山门是寺庙入口"
+    },
+    {
+      "source": "宝林寺",
+      "target": "正殿",
+      "relation_type": "contains",
+      "value": "正殿在寺内"
+    },
+    {
+      "source": "宝林寺",
+      "target": "禅堂",
+      "relation_type": "contains",
+      "value": "禅堂在寺内"
+    },
+    {
+      "source": "城",
+      "target": "宝林寺",
+      "relation_type": "adjacent",
+      "value": "宝林寺距离城四十里"
+    },
+    {
+      "source": "城",
+      "target": "里罗城墙",
+      "relation_type": "contains",
+      "value": "城墙围绕城池"
+    },
+    {
+      "source": "城",
+      "target": "正阳门",
+      "relation_type": "contains",
+      "value": "正阳门是城的主要入口"
+    }
+  ],
+  "_chapter": 38,
+  "_input_tokens": 8726,
+  "_output_tokens": 1992
+}

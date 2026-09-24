@@ -1,0 +1,308 @@
+{
+  "characters": [
+    {
+      "name": "薛蟠",
+      "description": "薛家少爷，挨了打后要跟着伙计出门做买卖躲避"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛蟠的母亲，对儿子出门既欢喜又担心"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛蟠的妹妹，劝母亲让哥哥出门历练"
+    },
+    {
+      "name": "香菱",
+      "description": "薛家的丫鬟，跟宝钗进入大观园，热衷学诗"
+    },
+    {
+      "name": "张德辉",
+      "description": "年过六十，自幼在薛家当铺揽总，要回家过年"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，住在潇湘馆，教香菱作诗"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，被父亲打了，因石呆子扇子的事"
+    },
+    {
+      "name": "平儿",
+      "description": "王熙凤的贴身丫鬟，向宝钗讲述宝玉挨打的原因"
+    },
+    {
+      "name": "探春",
+      "description": "贾探春，诗社成员，提议请香菱入社"
+    },
+    {
+      "name": "李纨",
+      "description": "贾府寡妇，诗社成员"
+    },
+    {
+      "name": "惜春",
+      "description": "贾惜春，住在暖香坞，擅长绘画"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，因扇子事件打了宝玉"
+    },
+    {
+      "name": "石呆子",
+      "description": "穷人，拥有二十把古扇，不肯出卖，被贾雨村陷害"
+    },
+    {
+      "name": "贾雨村",
+      "description": "官员，设计陷害石呆子夺取扇子"
+    },
+    {
+      "name": "紫娟",
+      "description": "黛玉的贴身丫鬟"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的丫鬟"
+    },
+    {
+      "name": "文杏",
+      "description": "宝钗的小丫鬟"
+    },
+    {
+      "name": "入画",
+      "description": "惜春的丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "薛家",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "书房",
+      "type": "房间",
+      "parent": "薛家"
+    },
+    {
+      "name": "后廊",
+      "type": "走廊",
+      "parent": "薛家"
+    },
+    {
+      "name": "仪门",
+      "type": "门",
+      "parent": "薛家"
+    },
+    {
+      "name": "贾宅",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾宅"
+    },
+    {
+      "name": "蘅芜苑",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "暖香坞",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "藕香榭",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "沁芳亭",
+      "type": "亭子",
+      "parent": "大观园"
+    },
+    {
+      "name": "东角门",
+      "type": "门",
+      "parent": "大观园"
+    },
+    {
+      "name": "池边",
+      "type": "水边",
+      "parent": "大观园"
+    },
+    {
+      "name": "山石",
+      "type": "假山",
+      "parent": "大观园"
+    },
+    {
+      "name": "山坡",
+      "type": "地形",
+      "parent": "大观园"
+    },
+    {
+      "name": "阶前竹下",
+      "type": "庭院",
+      "parent": "潇湘馆"
+    },
+    {
+      "name": "西楼",
+      "type": "建筑",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛姨妈",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "宝钗",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "香菱",
+      "person_b": "薛蟠",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "香菱",
+      "person_b": "宝钗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "张德辉",
+      "person_b": "薛蟠",
+      "relation_type": "伙计与少主"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "香菱",
+      "relation_type": "师生"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "宝钗",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "紫娟",
+      "person_b": "黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "莺儿",
+      "person_b": "宝钗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "入画",
+      "person_b": "惜春",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "薛家",
+      "target": "贾宅",
+      "relation_type": "adjacent",
+      "value": "邻近"
+    },
+    {
+      "source": "书房",
+      "target": "薛家",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "后廊",
+      "target": "书房",
+      "relation_type": "adjacent",
+      "value": "相邻"
+    },
+    {
+      "source": "大观园",
+      "target": "贾宅",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "蘅芜苑",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "暖香坞",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "藕香榭",
+      "target": "暖香坞",
+      "relation_type": "direction",
+      "value": "路径上"
+    },
+    {
+      "source": "沁芳亭",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "东角门",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园门"
+    },
+    {
+      "source": "池边",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园内水景"
+    },
+    {
+      "source": "山坡",
+      "target": "池边",
+      "relation_type": "adjacent",
+      "value": "远远相望"
+    },
+    {
+      "source": "阶前竹下",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "庭院内"
+    }
+  ],
+  "_chapter": 49,
+  "_input_tokens": 8195,
+  "_output_tokens": 2009
+}

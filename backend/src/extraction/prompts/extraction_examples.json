@@ -60,7 +60,10 @@
         "relation_type": "兄弟",
         "is_new": true,
         "previous_type": null,
-        "evidence": "在他身边紧挨着的另一人，是二哥韩铸"
+        "evidence": "在他身边紧挨着的另一人，是二哥韩铸",
+        "polarity": "positive",
+        "rel_subtype": "辈分-亲属",
+        "closeness": "close"
       },
       {
         "person_a": "韩立",
@@ -68,7 +71,10 @@
         "relation_type": "叔侄",
         "is_new": true,
         "previous_type": null,
-        "evidence": "这位贵客，是跟他血缘很近的一位至亲——他的亲三叔"
+        "evidence": "这位贵客，是跟他血缘很近的一位至亲——他的亲三叔",
+        "polarity": "positive",
+        "rel_subtype": "辈分-亲属",
+        "closeness": "close"
       },
       {
         "person_a": "韩立",
@@ -76,7 +82,10 @@
         "relation_type": "父子",
         "is_new": true,
         "previous_type": null,
-        "evidence": "韩父反复嘱咐韩立，做人要老实"
+        "evidence": "韩父反复嘱咐韩立，做人要老实",
+        "polarity": "positive",
+        "rel_subtype": "辈分-亲属",
+        "closeness": "close"
       },
       {
         "person_a": "韩立",
@@ -84,7 +93,10 @@
         "relation_type": "母子",
         "is_new": true,
         "previous_type": null,
-        "evidence": "韩母则要他多注意身体，要吃好睡好"
+        "evidence": "韩母则要他多注意身体，要吃好睡好",
+        "polarity": "positive",
+        "rel_subtype": "辈分-亲属",
+        "closeness": "close"
       }
     ],
     "locations": [
@@ -118,7 +130,8 @@
           "三叔",
           "韩父"
         ],
-        "location": "山村"
+        "location": "山村",
+        "evidence": "三叔一进门便同韩父说起，七玄门今年要招收内门弟子，想带韩立去试一试"
       },
       {
         "summary": "韩父犹豫后同意让韩立去七玄门",
@@ -128,7 +141,8 @@
           "韩父",
           "三叔"
         ],
-        "location": "山村"
+        "location": "山村",
+        "evidence": "韩父沉吟了半晌，终于点了点头，算是应允了此事"
       },
       {
         "summary": "三叔一个多月后接走韩立，韩立第一次出远门与父母分别",
@@ -140,7 +154,8 @@
           "韩父",
           "韩母"
         ],
-        "location": "山村"
+        "location": "山村",
+        "evidence": "一个多月后，三叔如约而至，韩立拜别父母，第一次离开了生养他的小山村"
       }
     ],
     "new_concepts": [
@@ -279,7 +294,8 @@
         "participants": [
           "韩立"
         ],
-        "location": "七玄门"
+        "location": "七玄门",
+        "evidence": "韩立只觉丹田之内隐隐有一股阴寒之气盘踞，连服了数剂清灵散也不见起色"
       }
     ],
     "new_concepts": [
@@ -396,7 +412,8 @@
         "participants": [
           "韩立"
         ],
-        "location": "天星城"
+        "location": "天星城",
+        "evidence": "韩立收拾好行囊，辞别落云宗诸位同门，独自一人往天星城而去"
       }
     ],
     "new_concepts": [],
@@ -484,7 +501,10 @@
         "relation_type": "君臣",
         "is_new": true,
         "previous_type": null,
-        "evidence": "众猴拜石猴为王，赤尻马猴等为臣"
+        "evidence": "众猴拜石猴为王，赤尻马猴等为臣",
+        "polarity": "neutral",
+        "rel_subtype": "君臣-上下级",
+        "closeness": "close"
       },
       {
         "person_a": "石猴",
@@ -492,7 +512,10 @@
         "relation_type": "君臣",
         "is_new": true,
         "previous_type": null,
-        "evidence": "众猴拜石猴为王，通背猿猴等为臣"
+        "evidence": "众猴拜石猴为王，通背猿猴等为臣",
+        "polarity": "neutral",
+        "rel_subtype": "君臣-上下级",
+        "closeness": "close"
       },
       {
         "person_a": "玉皇大帝",
@@ -500,7 +523,10 @@
         "relation_type": "君臣",
         "is_new": true,
         "previous_type": null,
-        "evidence": "玉帝差千里眼、顺风耳开南天门观看"
+        "evidence": "玉帝差千里眼、顺风耳开南天门观看",
+        "polarity": "neutral",
+        "rel_subtype": "君臣-上下级",
+        "closeness": "distant"
       },
       {
         "person_a": "玉皇大帝",
@@ -508,7 +534,10 @@
         "relation_type": "君臣",
         "is_new": true,
         "previous_type": null,
-        "evidence": "玉帝差千里眼、顺风耳开南天门观看"
+        "evidence": "玉帝差千里眼、顺风耳开南天门观看",
+        "polarity": "neutral",
+        "rel_subtype": "君臣-上下级",
+        "closeness": "distant"
       }
     ],
     "locations": [
@@ -621,7 +650,8 @@
           "千里眼",
           "顺风耳"
         ],
-        "location": "花果山"
+        "location": "花果山",
+        "evidence": "那座仙石轰然迸裂，产出一石猴，双目金光直冲斗府，惊动了天庭"
       },
       {
         "summary": "石猴跳入瀑布发现水帘洞，众猴拜其为美猴王",
@@ -632,7 +662,8 @@
           "赤尻马猴",
           "通背猿猴"
         ],
-        "location": "水帘洞"
+        "location": "水帘洞",
+        "evidence": "石猴纵身跳入瀑布泉中，见里面竟是一座天造地设的家当，众猴遂拜他为王"
       }
     ],
     "new_concepts": [],
@@ -825,7 +856,8 @@
         "participants": [
           "孙少平"
         ],
-        "location": "县立高中"
+        "location": "县立高中",
+        "evidence": "孙少平缩在队伍的末尾，等轮到他时，菜盆里早已见了底，只能领两个黑面馍"
       }
     ],
     "new_concepts": [],

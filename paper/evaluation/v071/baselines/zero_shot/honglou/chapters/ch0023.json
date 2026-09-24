@@ -1,0 +1,275 @@
+{
+  "characters": [
+    {
+      "name": "贾元春",
+      "description": "贾家长女，已入宫为妃嫔，下谕命众人进大观园居住"
+    },
+    {
+      "name": "贾政",
+      "description": "贾家二老爷，宝玉之父"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻，宝玉之母"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老太太，宝玉祖母"
+    },
+    {
+      "name": "贾宝玉",
+      "description": "贾家二公子，十二三岁，喜爱诗词文学"
+    },
+    {
+      "name": "林黛玉",
+      "description": "宝玉表妹，住潇湘馆，善诗文"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "宝玉表姐，住蘅芜苑"
+    },
+    {
+      "name": "贾迎春",
+      "description": "贾家姐妹之一，住缀锦楼"
+    },
+    {
+      "name": "贾探春",
+      "description": "贾家姐妹之一，住秋爽斋"
+    },
+    {
+      "name": "贾惜春",
+      "description": "贾家姐妹之一，住蓼风轩"
+    },
+    {
+      "name": "李氏",
+      "description": "贾珠之妻，住稻香村"
+    },
+    {
+      "name": "贾环",
+      "description": "宝玉异母弟弟"
+    },
+    {
+      "name": "王熙凤",
+      "description": "贾琏之妻，管家"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾家长房长孙"
+    },
+    {
+      "name": "贾芹",
+      "description": "贾家族人，被派管理小和尚道士"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "金钏",
+      "description": "王夫人房中丫鬟"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "夏守忠",
+      "description": "太监，传达元春谕旨"
+    },
+    {
+      "name": "周氏",
+      "description": "贾芹之母"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾政妾室"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "荣国府"
+    },
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "潇湘馆",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "蘅芜苑",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "缀锦楼",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "秋爽斋",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "蓼风轩",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "稻香村",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "沁芳闸桥",
+      "type": "桥梁",
+      "parent": "大观园"
+    },
+    {
+      "name": "梨香院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "铁槛寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "玉皇庙",
+      "type": "庙宇",
+      "parent": "大观园"
+    },
+    {
+      "name": "达摩庵",
+      "type": "庵堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "绛芸轩",
+      "type": "轩",
+      "parent": "大观园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾政",
+      "person_b": "贾宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "贾宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "薛宝钗",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "贾环",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾元春",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "王熙凤",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "周氏",
+      "person_b": "贾芹",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "茗烟",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "荣国府",
+      "relation_type": "contains",
+      "value": "园林位于府邸内"
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "住所在园中"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "住所在园中"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "怡红院",
+      "relation_type": "adjacent",
+      "value": "两处相近"
+    },
+    {
+      "source": "大观园",
+      "target": "沁芳闸桥",
+      "relation_type": "contains",
+      "value": "桥在园中"
+    },
+    {
+      "source": "沁芳闸桥",
+      "target": "桃花",
+      "relation_type": "adjacent",
+      "value": "桥边有桃花"
+    },
+    {
+      "source": "梨香院",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "院在园中"
+    },
+    {
+      "source": "大观园",
+      "target": "东北角",
+      "relation_type": "direction",
+      "value": "园子东北角要种松柏"
+    }
+  ],
+  "_chapter": 23,
+  "_input_tokens": 7022,
+  "_output_tokens": 1802
+}

@@ -1,0 +1,345 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾府公子，与秦钟为同窗好友"
+    },
+    {
+      "name": "秦钟",
+      "description": "秦业之子，体弱多病，与智能私情，最终病逝"
+    },
+    {
+      "name": "智能",
+      "description": "水月庵的小尼姑，与秦钟有私情"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，贾琏之妻，善于理家"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉之父，朝廷官员"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太"
+    },
+    {
+      "name": "夏守忠",
+      "description": "六宫都太监，传达圣旨"
+    },
+    {
+      "name": "元春",
+      "description": "贾政之女，封为凤藻宫尚书贤德妃"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，刚从江南回京"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐之夫，刚从江南回京"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的贴身丫鬟"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾政之兄"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁府当家"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子"
+    },
+    {
+      "name": "贾蔷",
+      "description": "贾府子弟，被派往姑苏采买"
+    },
+    {
+      "name": "秦业",
+      "description": "秦钟之父，因智能之事气死"
+    },
+    {
+      "name": "赵嬷嬷",
+      "description": "贾琏的乳母"
+    },
+    {
+      "name": "香菱",
+      "description": "薛蟠的妾室"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛姨妈之子"
+    },
+    {
+      "name": "贾雨村",
+      "description": "官员，与贾琏同行回京"
+    },
+    {
+      "name": "林如海",
+      "description": "黛玉之父，已故"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "李贵",
+      "description": "宝玉的跟班"
+    }
+  ],
+  "locations": [
+    {
+      "name": "外书房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "郊外",
+      "type": "地区",
+      "parent": ""
+    },
+    {
+      "name": "水月庵",
+      "type": "庵堂",
+      "parent": ""
+    },
+    {
+      "name": "宁荣二处",
+      "type": "府邸",
+      "parent": ""
+    },
+    {
+      "name": "临敬殿",
+      "type": "宫殿",
+      "parent": "宫中"
+    },
+    {
+      "name": "临敬门",
+      "type": "门",
+      "parent": "宫中"
+    },
+    {
+      "name": "东宫",
+      "type": "宫殿",
+      "parent": "宫中"
+    },
+    {
+      "name": "凤藻宫",
+      "type": "宫殿",
+      "parent": "宫中"
+    },
+    {
+      "name": "大堂廊下",
+      "type": "廊下",
+      "parent": "贾府"
+    },
+    {
+      "name": "会芳园",
+      "type": "花园",
+      "parent": "宁府"
+    },
+    {
+      "name": "荣府东大院",
+      "type": "院落",
+      "parent": "荣府"
+    },
+    {
+      "name": "姑苏",
+      "type": "城市",
+      "parent": "江南"
+    },
+    {
+      "name": "扬州",
+      "type": "城市",
+      "parent": "江南"
+    },
+    {
+      "name": "江南",
+      "type": "地区",
+      "parent": ""
+    },
+    {
+      "name": "大书房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "二门",
+      "type": "门",
+      "parent": "贾府"
+    },
+    {
+      "name": "内室",
+      "type": "房间",
+      "parent": "秦家"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "秦钟",
+      "relation_type": "同窗好友"
+    },
+    {
+      "person_a": "秦钟",
+      "person_b": "智能",
+      "relation_type": "恋人"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "元春",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "秦业",
+      "person_b": "秦钟",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "贾政",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾政",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "邢夫人",
+      "person_b": "贾赦",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "赵嬷嬷",
+      "person_b": "贾琏",
+      "relation_type": "乳母"
+    },
+    {
+      "person_a": "香菱",
+      "person_b": "薛蟠",
+      "relation_type": "妾室"
+    },
+    {
+      "person_a": "林如海",
+      "person_b": "黛玉",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "茗烟",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "外书房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "宁府",
+      "target": "会芳园",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "荣府",
+      "target": "荣府东大院",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "会芳园",
+      "target": "荣府东大院",
+      "relation_type": "adjacent",
+      "value": "通过拆墙连接"
+    },
+    {
+      "source": "宫中",
+      "target": "临敬殿",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "宫中",
+      "target": "凤藻宫",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "宫中",
+      "target": "东宫",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "江南",
+      "target": "姑苏",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "江南",
+      "target": "扬州",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "大书房",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "二门",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "宁荣二处",
+      "target": "小巷",
+      "relation_type": "contains",
+      "value": "中间相隔"
+    }
+  ],
+  "_chapter": 16,
+  "_input_tokens": 9579,
+  "_output_tokens": 2081
+}

@@ -5,8 +5,8 @@ Usage:
     ./arbor-sidecar --port 12345   (after PyInstaller bundling)
 """
 
-import sys
 import multiprocessing
+import sys
 
 # CRITICAL: freeze_support() must be called at module level before any other
 # imports on Windows, otherwise PyInstaller child processes crash immediately.
@@ -14,6 +14,7 @@ if getattr(sys, "frozen", False):
     multiprocessing.freeze_support()
 
 import argparse
+import contextlib
 import os
 from pathlib import Path
 
@@ -47,20 +48,25 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="ARBOR Backend Sidecar")
     parser.add_argument("--port", type=int, default=8000, help="HTTP 监听端口")
     parser.add_argument("--host", type=str, default="127.0.0.1", help="绑定地址")
+    parser.add_argument("--token", type=str, default=None,
+                        help="API 访问令牌（备用通道；Tauri 宿主一般经 AI_READER_SIDECAR_TOKEN 环境变量传入）")
     args = parser.parse_args()
+
+    # 令牌写入环境变量，供 src.infra.config 读取；env 已存在时优先
+    if args.token:
+        os.environ.setdefault("AI_READER_SIDECAR_TOKEN", args.token)
 
     # Signal the port to the parent process (Tauri reads this line from stdout)
     print(f"PORT:{args.port}", flush=True)
 
     try:
         import uvicorn
+
         from src.api.main import app
 
         # Clear crash log on successful startup
-        try:
+        with contextlib.suppress(Exception):
             crash_log.unlink(missing_ok=True)
-        except Exception:
-            pass
 
         uvicorn.run(
             app,

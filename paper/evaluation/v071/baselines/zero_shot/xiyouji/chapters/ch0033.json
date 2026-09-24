@@ -1,0 +1,284 @@
+{
+  "characters": [
+    {
+      "name": "八戒",
+      "description": "被妖怪抓住，关在净水池中腌制的和尚"
+    },
+    {
+      "name": "老魔",
+      "description": "莲花洞中的大妖怪，八戒和二魔的大哥"
+    },
+    {
+      "name": "二魔",
+      "description": "莲花洞中的妖怪，能使用移山倒海的法术"
+    },
+    {
+      "name": "三藏",
+      "description": "唐僧，金蝉长老临凡十世修行的好人，头上有祥云照顶"
+    },
+    {
+      "name": "行者",
+      "description": "孙悟空，神通广大，使用如意金箍棒，被称为齐天大圣"
+    },
+    {
+      "name": "沙僧",
+      "description": "又称沙和尚，使用降妖棒，被称为卷帘将"
+    },
+    {
+      "name": "精细鬼",
+      "description": "小妖，持有红葫芦宝贝"
+    },
+    {
+      "name": "伶俐虫",
+      "description": "小妖，持有玉净瓶宝贝"
+    },
+    {
+      "name": "山神",
+      "description": "管理山岭的神灵，被妖魔驱使当值"
+    },
+    {
+      "name": "土地",
+      "description": "管理土地的神灵，被妖魔驱使当值"
+    },
+    {
+      "name": "哪吒三太子",
+      "description": "天庭神仙，帮助孙悟空借天装天"
+    },
+    {
+      "name": "玉帝",
+      "description": "天庭最高统治者"
+    },
+    {
+      "name": "真武",
+      "description": "北天门神灵，拥有皂雕旗"
+    }
+  ],
+  "locations": [
+    {
+      "name": "莲花洞",
+      "type": "洞穴",
+      "parent": "山中"
+    },
+    {
+      "name": "净水池",
+      "type": "水池",
+      "parent": "莲花洞"
+    },
+    {
+      "name": "坡前",
+      "type": "地形",
+      "parent": "山野"
+    },
+    {
+      "name": "山野",
+      "type": "地形",
+      "parent": null
+    },
+    {
+      "name": "山顶",
+      "type": "地形",
+      "parent": "高山"
+    },
+    {
+      "name": "高山",
+      "type": "地形",
+      "parent": "山野"
+    },
+    {
+      "name": "大路",
+      "type": "道路",
+      "parent": "山野"
+    },
+    {
+      "name": "东廊",
+      "type": "建筑",
+      "parent": "莲花洞"
+    },
+    {
+      "name": "西边",
+      "type": "方位",
+      "parent": "莲花洞"
+    },
+    {
+      "name": "中间",
+      "type": "方位",
+      "parent": "莲花洞"
+    },
+    {
+      "name": "槽",
+      "type": "建筑",
+      "parent": "莲花洞"
+    },
+    {
+      "name": "清幽观",
+      "type": "道观",
+      "parent": "山西"
+    },
+    {
+      "name": "天庭",
+      "type": "仙界",
+      "parent": null
+    },
+    {
+      "name": "南天门",
+      "type": "门户",
+      "parent": "天庭"
+    },
+    {
+      "name": "北天门",
+      "type": "门户",
+      "parent": "天庭"
+    },
+    {
+      "name": "灵霄殿",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "蓬莱山",
+      "type": "仙山",
+      "parent": "海岛"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "老魔",
+      "person_b": "二魔",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "精细鬼",
+      "person_b": "伶俐虫",
+      "relation_type": "同伴"
+    },
+    {
+      "person_a": "精细鬼",
+      "person_b": "老魔",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "伶俐虫",
+      "person_b": "二魔",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "山神",
+      "person_b": "土地",
+      "relation_type": "同僚"
+    },
+    {
+      "person_a": "哪吒三太子",
+      "person_b": "玉帝",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "哪吒三太子",
+      "relation_type": "合作"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "莲花洞",
+      "target": "净水池",
+      "relation_type": "contains",
+      "value": "后边"
+    },
+    {
+      "source": "莲花洞",
+      "target": "东廊",
+      "relation_type": "contains",
+      "value": "东侧"
+    },
+    {
+      "source": "莲花洞",
+      "target": "西边",
+      "relation_type": "contains",
+      "value": "西侧"
+    },
+    {
+      "source": "莲花洞",
+      "target": "中间",
+      "relation_type": "contains",
+      "value": "中央"
+    },
+    {
+      "source": "山野",
+      "target": "坡前",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "高山",
+      "target": "山顶",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "山野",
+      "target": "高山",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "山野",
+      "target": "大路",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "清幽观",
+      "target": "山西",
+      "relation_type": "direction",
+      "value": "西去"
+    },
+    {
+      "source": "天庭",
+      "target": "南天门",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "天庭",
+      "target": "北天门",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "天庭",
+      "target": "灵霄殿",
+      "relation_type": "contains",
+      "value": null
+    },
+    {
+      "source": "行者",
+      "target": "三座山",
+      "relation_type": "direction",
+      "value": "被压在山下"
+    },
+    {
+      "source": "蓬莱山",
+      "target": "海岛",
+      "relation_type": "direction",
+      "value": "海上仙山"
+    }
+  ],
+  "_chapter": 33,
+  "_input_tokens": 9145,
+  "_output_tokens": 1749
+}

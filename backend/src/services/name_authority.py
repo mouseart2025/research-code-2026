@@ -7,10 +7,17 @@ instead of maintaining independent logic.
 
 Created v0.70.3 to eliminate logic duplication that caused recurring
 regressions (e.g., NameResolver picking 陈玄奘 over 唐僧).
+
+v0.72 Phase 1: added is_generic_person() — the single entry for generic-person
+filtering, merging the ex-fact_validator logic (GENERIC_PERSON_WORDS /
+PURE_TITLE_WORDS / pattern rules) with the authoritative sets (KINSHIP_TERMS /
+GENERIC_PERSON_ALIASES / CANONICAL_BLOCKLIST). CANONICAL_BLOCKLIST was expanded
+to cover every list-based generic person term.
 """
 
 from __future__ import annotations
 
+import re
 
 # ═══════════════════════════════════════════════════════════════
 # SECTION 1: GENERIC TERM CONSTANTS
@@ -87,7 +94,7 @@ GENERIC_PERSON_ALIASES = frozenset({
     # Classical Chinese deictics
     "那厮", "这厮", "那泼贼", "那贼", "泼贼", "贼人", "贼子",
     "那泼怪", "那泼物", "泼才",
-    "这位", "那位", "此人", "这人", "那人",
+    "这位", "那位", "这人",
     # Collective/vague
     "众人", "其他人", "旁人", "大家", "孩子", "孩子们", "娃娃",
     "老干部", "妇女主任",
@@ -100,12 +107,11 @@ GENERIC_PERSON_ALIASES = frozenset({
     "女婿", "上仙", "大仙", "仙长", "真人",
     "孽畜", "畜生",
     # Xianxia address terms
-    "前辈", "晚辈", "小友", "道友", "仙子", "仙师",
+    "前辈", "小友", "道友", "仙子", "仙师",
     "公子", "少爷", "大爷", "老大",
-    "老夫", "妾身", "本人", "在下", "小生", "老奴",
+    "老夫", "妾身", "本人", "老奴",
     "仁兄", "兄台", "阁下", "对方",
-    "此子", "此女", "此人", "那人",
-    "逆徒", "小徒", "弟子", "记名弟子",
+    "此子", "此女", "逆徒", "小徒", "弟子", "记名弟子",
     "主人", "夫君", "圣子",
     "师叔", "师侄", "师伯",
     # Pronouns / deictics
@@ -126,29 +132,31 @@ GENERIC_PERSON_ALIASES = frozenset({
     "令尊", "令堂", "令兄", "令弟", "令妹", "令郎", "令爱",
     # Buddhist/Daoist titles
     "菩萨", "天王", "金星", "真君", "元帅", "星君", "星官",
-    "罗汉", "尊者", "法师", "禅师", "国师",
+    "罗汉", "尊者", "法师", "禅师",
     # Shared nicknames that bridge unrelated characters
     "大刀", "混世魔王", "飞天大圣",
     # Standalone ranked address
-    "大爷", "二爷", "三爷", "四爷", "大哥", "二哥", "三哥",
+    "二爷", "三爷", "四爷", "大哥", "二哥", "三哥",
     # Water Margin generics
     "童子", "道童", "仙童", "仙女", "渔人",
     "囚徒", "罪犯", "犯人", "配军",
     "长汉", "黑汉", "黑汉子", "黑厮", "黑杀才",
     "后生", "後生", "少年人", "年轻人", "小后生",
     "节级", "都头", "提辖", "制使", "管营", "知寨",
-    "掌柜", "店家", "店主",
-    "煞星", "神医",
-    "小子", "毛头小子", "黄毛小子", "小兄弟",
+    "掌柜", "煞星", "神医",
+    "毛头小子", "黄毛小子", "小兄弟",
     "乡巴佬", "土包子", "土小子",
     "傀儡", "巨猿", "骷髅", "鬼头",
     # v0.70 review — 西游记
-    "外公", "贤弟", "陛下", "万岁",
-    "长老", "贫僧", "老和尚", "老师", "老师父",
+    "外公", "贤弟", "陛下", "长老", "贫僧", "老和尚", "老师", "老师父",
     "尊师", "我弟子", "那长老",
     "劣货", "呆子", "泼孽障", "泼猢狲", "小畜生",
     "夯货", "囊糟食的夯货",
     "十王", "十代阎王",
+    # canonical 污染防线(2026-09):匿名/外貌指代不是具体人名,
+    # 不可作为别名归并(level 0)。精确匹配,不误伤真实角色名(如"白衣")。
+    "神秘人", "神秘人物", "黑衣人", "蒙面人", "白衣人",
+    "白衣女子", "灰衣人", "陌生人", "面具人",
 })
 
 TITLE_PREFIXES = frozenset({
@@ -170,7 +178,7 @@ TITLE_SUFFIXES_2 = frozenset({
     "大人", "老爷", "长老", "掌门", "帮主", "教主", "堂主",
     "将军", "统领", "元帅", "大哥", "老弟", "兄弟", "先生",
     "菩萨", "佛祖", "真君", "星君", "天王", "天尊", "娘娘",
-    "天尊", "老祖", "大长老", "世兄", "世侄", "贤弟", "贤侄",
+    "老祖", "大长老", "世兄", "世侄", "贤弟", "贤侄",
     "施主", "领队",
 })
 
@@ -276,9 +284,353 @@ NICKNAME_SUFFIXES = frozenset({
 NICKNAME_PREFIXES = frozenset({
     "豹子", "黑旋", "没羽", "花和", "没遮", "急先", "玉麒", "小李",
     "九纹", "双鞭", "双枪", "青面", "插翅", "混江", "活阎",
-    "小旋", "铁笛", "黑旋", "浪子", "拼命", "神行",
+    "小旋", "铁笛", "浪子", "拼命", "神行",
 })
 
+
+# ── Person generic-reference lists ────────────────────────────────────
+# v0.72 Phase 1 (Story 1.1): moved verbatim from fact_validator.py.
+# fact_validator._is_generic_person() now delegates to is_generic_person().
+
+# Generic person references that should never be extracted as character names
+GENERIC_PERSON_WORDS = frozenset({
+    "众人", "其他人", "旁人", "来人", "对方", "大家", "所有人",
+    "那人", "此人", "其人", "何人", "某人", "外人", "路人",
+    "他们", "她们", "我们", "诸位", "各位", "在场众人",
+    # Classical Chinese generics — refer to different people per chapter
+    "妇人", "女子", "汉子", "大汉", "壮汉", "好汉",
+    "老儿", "老者", "老翁", "少女", "丫头",
+    "军士", "军汉", "兵丁", "喽啰", "小喽啰",
+    "差人", "差役", "官差", "公差", "衙役",
+    "和尚", "僧人", "道士", "先生", "秀才",
+    "店家", "店主", "小二", "店小二", "酒保",
+    "庄客", "农夫", "猎户", "渔夫", "樵夫",
+    "使者", "信使", "探子", "细作",
+    "客人", "客官", "过客", "行人",
+    # Mythological/xianxia generic creatures — different individuals per chapter
+    "小妖", "小鬼", "众妖", "老妖", "妖精", "妖怪",
+    "妖兵", "山贼", "小卒", "士兵",
+    "巡山小妖", "把门小妖", "巡山的小妖", "把门的小妖",
+    "众猴", "众仙", "众神", "众鬼",
+    "众僧", "老僧", "小僧", "众道", "众将", "众官",
+    # Age-based generics
+    "后生", "後生", "后生小辈", "小辈", "晚辈",
+    # Mythological generic roles — celestial/court titles
+    "玉女", "天将", "仙卿", "天妃", "仙童", "仙女",
+    "天兵", "天卒", "天丁", "神将", "神兵",
+
+    # auto-improve 2026-03-28
+    "义兄弟",
+    "二将",
+    "五百灵官",
+    "八菩萨",
+    "力士",
+    "十万天兵",
+    "四天王",
+    "四金刚",
+    "大众",
+    "架火",
+    "校尉",
+    "洪福寺僧人",
+    "美女",
+    "美姬",
+    "针工",
+    "铁匠人等",
+
+    # auto-improve 2026-03-28
+    "三藏旧徒",
+    "二十八宿",
+    "五方揭谛",
+    "五龙",
+    "六丁六甲",
+    "四将",
+    "寿星",
+    "屠子",
+    "广晋龙王之子",
+    "护教伽蓝",
+    "蛇将",
+    "龟将",
+
+    # auto-improve 2026-03-28
+    "两大元婴长老",
+    "千寰山使者",
+    "华天宗使者",
+    "卫云城使者",
+    "垢土化身",
+    "年轻人",
+    "蒙面修士",
+    "金色小人",
+    "陇家新任大长老",
+    "青年",
+    "黑凤族合体长老",
+
+    # auto-improve 2026-03-28
+    "丑陋大汉",
+    "二爷",
+
+    # auto-improve 2026-03-28
+    "中年男子",
+    "艳女",
+
+    # auto-improve 2026-03-28
+    "仙姬",
+
+    # auto-improve 2026-03-28
+    "三小姐",
+    "二小姐",
+    "同昌公主",
+    "唐伯虎",
+    "四小姐",
+    "大小姐",
+    "女婿",
+    "女学生",
+    "奶娘",
+    "孩子们",
+    "安禄山",
+    "寿昌公主",
+    "小丫头",
+    "小丫鬟",
+    "政老爹",
+    "杨太真",
+    "歌姬",
+    "武则天",
+    "珍爷",
+    "琏爷",
+    "秦太虚",
+    "穆莳",
+    "红娘",
+    "老年人",
+    "舞女",
+    "西施",
+    "赦老爹",
+    "赵飞燕",
+    "龙钟老僧",
+
+    # auto-improve 2026-03-28
+    "婆子",
+
+    # auto-improve 2026-03-28
+    "小乡绅之子",
+
+    # auto-improve 2026-03-28
+    "三体战士",
+    "主任",
+    "值班技术员",
+    "医生",
+    "取信人",
+    "司机",
+    "年轻工程师",
+    "护士",
+    "纳米研究中心主任",
+    "美军空军上校",
+    "美国中央情报局官员",
+    "英军上校",
+    "那位警官",
+    "那名工程师",
+    "那名战士",
+    "那名男警察",
+
+    # auto-improve 2026-03-28
+    "哨兵",
+    "少校军官",
+    "年轻警官",
+    "爆炸物专家",
+    "英国陆军上校",
+    "警卫排排长",
+    "镇中学老师",
+    "齐家屯老两口",
+
+    # auto-improve 2026-03-28
+    "七八人",
+    "丐帮帮众",
+    "丐帮群豪",
+    "两个采燕客",
+    "两名大汉",
+    "两名家将",
+    "两名岛主",
+    "中原群豪",
+    "中年僧人",
+    "中年汉子",
+    "前辈",
+    "大师",
+    "大理国臣民",
+    "契丹武士",
+    "她老人家",
+    "姥姥",
+    "小和尚",
+    "小师父",
+    "少林寺僧人",
+    "少林群僧",
+    "执法僧",
+    "无名老僧",
+    "星宿派门人",
+    "梁上少女",
+    "梅兰竹菊",
+    "梅兰竹菊四剑",
+    "梦郎",
+    "灵鹫宫部属",
+    "玄天部群女",
+    "玄字班僧侣",
+    "神僧",
+    "神农帮帮众",
+    "童姥",
+    "老婆子",
+    "虚字辈僧侣",
+    "褚姓少年",
+    "辽兵",
+    "辽军",
+    "那大汉",
+
+    # auto-improve 2026-03-28
+    "乔氏夫妇",
+    "好妹子",
+    "妹子",
+    "姑娘",
+    "恶和尚",
+    "钟灵之母",
+    "钟灵之父",
+    "高老者",
+
+    # auto-improve 2026-03-28
+    "中年妇人",
+    "京官",
+    "京官小姐",
+    "她师妹",
+    "师姊",
+    "老汉",
+    "蒙面大汉",
+    "贱人",
+    "这贱人",
+    "那妇人",
+    "那少女",
+    "那少年",
+    "那年轻女子",
+    "那年轻男子",
+    "那贱人",
+
+    # auto-improve 2026-03-28
+    "二流子",
+    "公社负责人",
+    "县社干部",
+    "双水村村民",
+    "司机朋友们",
+    "女售货员",
+    "妹妹",
+    "姐夫",
+    "姐姐",
+    "孙玉厚家",
+    "少安他奶",
+    "新娘",
+    "村民",
+    "润生妈",
+    "父亲",
+    "班主任",
+    "秀莲她爸",
+    "老人家",
+    "老祖母",
+    "跛女子",
+
+    # auto-improve 2026-03-28
+    "售票员",
+
+    # auto-improve 2026-03-28
+    "死女子",
+    "老将",
+
+    # v0.70 review 2026-04-08 — 西游记人工审核发现
+    "黄门官", "当驾官", "光禄寺官", "阁门大使",
+    "文武多官", "四值功曹", "八大金刚", "四大天师",
+    "龙子龙孙", "山神土地", "诸天", "多官", "四健将",
+    "巡海夜叉", "比丘僧", "雷公",
+    "金甲诸天", "七十二洞妖王", "庞刘苟毕四大元帅",
+    "嫔妃", "后妃", "东宫", "西宫",
+    "两个女怪", "公主娘娘", "护国天王",
+
+    # v0.71.1 cross-novel audit 2026-04-11
+    # — 红楼梦称谓(场景性,多人共用)
+    "太太", "大太太", "二太太", "三太太", "老太太",
+    "奶奶", "大奶奶", "二奶奶", "三奶奶", "四奶奶",
+    "夫人", "大夫人", "二夫人", "三夫人",
+    "大姑娘", "二姑娘", "三姑娘", "四姑娘", "五姑娘",
+    "嬷嬷", "老嬷嬷", "奶妈", "老奶妈",
+    "太爷", "老太爷", "大太爷", "二太爷",
+    "老祖宗", "老寿星",  # 指代贾母的泛称
+    # — 西游记戏称/代称(那X 结构 + 取经路人称号)
+    "那呆子", "那猴子", "那怪物", "那泼猴", "那老儿",
+    "这呆子", "这猴子", "这泼猴",
+    "取经人", "取经僧",
+    "毛脸雷公嘴", "雷公爷爷", "孙外公",
+    # — 集合名/泛称(xiyouji audit)
+    "群猴", "五百阿罗", "土地神祗", "夜叉", "太监", "樵子",
+})
+
+# Pure title words — when used alone (no surname prefix), not a valid character name
+PURE_TITLE_WORDS = frozenset({
+    "堂主", "长老", "弟子", "护法", "掌门", "帮主", "教主",
+    "师父", "师兄", "师弟", "师姐", "师妹", "师傅",
+    "大哥", "二哥", "三哥", "大姐", "二姐",
+    "侍卫", "仆人", "丫鬟", "小厮",
+    # Official ranks used as address
+    "太尉", "知府", "知县", "提辖", "都监", "教头", "都头",
+    "将军", "元帅", "丞相", "太师",
+    "头领", "寨主", "大王", "员外",
+    "恩相", "大人", "老爷", "相公",
+
+    # auto-improve 2026-03-28
+    "长史",
+
+    # auto-improve 2026-03-28
+    "师伯",
+    "师叔",
+
+    # auto-improve 2026-03-28
+    "贾化",
+
+    # auto-improve 2026-03-28
+    "紫薇舍人",
+
+    # auto-improve 2026-03-28
+    "国师",
+    "御营都指挥使",
+    "管带",
+
+    # auto-improve 2026-03-28
+    "张将军",
+
+    # auto-improve 2026-03-28
+    "三把手",
+    "副总指挥",
+
+    # auto-improve 2026-03-28
+    "书记",
+    "二队长",
+    "副书记",
+})
+
+# Fantasy/xianxia: these are valid character names (具体角色, not 泛称)
+FANTASY_PERSON_WHITELIST = frozenset({
+    "仙人", "仙子", "仙翁", "道人", "散修", "真人",
+    "魔尊", "魔君", "魔头", "妖王", "妖帝",
+    "灵兽", "仙童", "精怪", "妖仙",
+})
+
+# Realistic/urban: these are almost always titles, not names (无姓氏时过滤)
+REALISTIC_TITLE_ADDITIONS = frozenset({
+    "队长", "书记", "主任", "科长", "处长", "局长", "厂长",
+    "村长", "社长", "组长", "班长",
+})
+
+
+# v0.72 Phase 1 (Story 1.3/1.4): the canonical blocklist must cover EVERY
+# list-based generic person term — anything is_generic_person() flags via
+# exact list membership must never become a canonical name.
+CANONICAL_BLOCKLIST = (
+    CANONICAL_BLOCKLIST
+    | GENERIC_PERSON_ALIASES
+    | KINSHIP_TERMS
+    | GENERIC_PERSON_WORDS
+    | PURE_TITLE_WORDS
+)
 
 # ═══════════════════════════════════════════════════════════════
 # SECTION 2: PUBLIC FUNCTIONS
@@ -355,9 +707,8 @@ def alias_safety_level(alias: str) -> int:
 
     # Level 0: narrative fragment
     _NARRATIVE_MARKERS = ("曾", "道", "说", "啊", "呀", "了", "吧", "呢", "吗", "过")
-    if n >= 3 and any(m in alias for m in _NARRATIVE_MARKERS):
-        if n >= 5:
-            return 0
+    if n >= 3 and any(m in alias for m in _NARRATIVE_MARKERS) and n >= 5:
+        return 0
 
     # Level 1: suspicious
     _NUM_CHARS = "一二三四五六七八九十两百千万几数"
@@ -398,6 +749,147 @@ def is_blocked_name(name: str) -> bool:
     return alias_safety_level(name) == 0
 
 
+def is_generic_person(name: str, genre: str | None = None) -> str | None:
+    """Check if a person name is generic/invalid.
+
+    SINGLE source of truth for generic-person filtering. Merges:
+    - GENERIC_PERSON_WORDS / PURE_TITLE_WORDS (ex-fact_validator lists)
+    - KINSHIP_TERMS / GENERIC_PERSON_ALIASES / CANONICAL_BLOCKLIST
+    - pattern rules (众/群+, quantified groups, bare surnames, ...)
+
+    Genre-aware: fantasy allows 仙人/妖兽 etc.; realistic adds title filtering.
+    Returns a reason string if filtered, or None if kept.
+    """
+    # Fantasy whitelist: skip generic check for xianxia character types
+    if genre in ("fantasy", "wuxia") and name in FANTASY_PERSON_WHITELIST:
+        return None
+
+    if name in GENERIC_PERSON_WORDS:
+        return "generic person reference"
+
+    # Pure title without surname: "堂主", "长老" alone (not "岳堂主", "张长老")
+    if name in PURE_TITLE_WORDS:
+        return "pure title without surname"
+
+    # Realistic/urban: additional title filtering (无姓氏时)
+    if genre in ("realistic", "urban") and name in REALISTIC_TITLE_ADDITIONS:
+        return "realistic title without surname"
+
+    # Descriptive person references: "墨大夫女儿", "韩家二弟", "村长的妻子"
+    # These describe a relationship to another character, not a standalone name.
+    _DESCRIPTIVE_SUFFIXES = ("女儿", "儿子", "妻子", "丈夫", "夫人",
+                             "老婆", "媳妇", "母亲", "父亲", "弟子")
+    if len(name) >= 4 and any(name.endswith(s) for s in _DESCRIPTIVE_SUFFIXES):
+        return f"descriptive person reference (ends with {name[-2:]})"
+
+    # ── Pattern-based rules (cover open-ended variations) ──
+
+    # P1: "众X" / "群X" prefix — group references (众灵官, 群妖, 群魔, 群怪, etc.)
+    if name.startswith(("众", "群")) and len(name) >= 2:
+        return "group reference (众/群+)"
+
+    # P1b: vague large-quantity collective prefix — "百十群妖", "数十小妖",
+    # "无数妖兵", "一群小妖", "成群结队的..." (no measure word, just a crowd)
+    if name.startswith((
+        "百十", "数十", "数百", "数千", "无数", "许多", "成群",
+        "一群", "一伙", "一干", "一众", "几十", "几百", "众多",
+    )) and len(name) >= 3:
+        return "vague collective reference"
+
+    # P2: Numeric quantifier + group — "三十六员雷将", "十万天兵", "五百灵官"
+    if re.match(r"^[一二三四五六七八九十百千万几数]+.{0,3}[员个名位只匹头条]", name):
+        return "quantified group reference"
+    # Also: pure numeric prefix + group suffix
+    _GROUP_SUFFIXES = ("天兵", "灵官", "雷将", "雷神", "金刚", "菩萨",
+                       "天王", "天将", "小妖", "妖精", "鬼卒", "阴兵")
+    if any(name.endswith(s) for s in _GROUP_SUFFIXES) and len(name) > len(name.rstrip("天灵雷金菩王将小妖精鬼卒阴兵")):
+        pass  # Already handled by exact match or prefix rule above
+
+    # P3: "X部众神" / "X部众X" — department/division group
+    if "部众" in name:
+        return "department group reference"
+
+    # P4: Single Chinese surname alone — "张", "刘", "庞" (1 char, common surname)
+    _COMMON_SURNAMES = frozenset(
+        "赵钱孙李周吴郑王冯陈褚卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜"
+        "戚谢邹喻柏水窦章云苏潘葛奚范彭郎鲁韦昌马苗凤花方俞任袁柳酆鲍史唐"
+        "费廉岑薛雷贺倪汤滕殷罗毕郝邬安常乐于时傅皮卞齐康伍余元卜顾孟平黄"
+        "和穆萧尹姚邵湛汪祁毛禹狄米贝明臧计伏成戴谈宋茅庞熊纪舒屈项祝董梁"
+        "杜阮蓝闵席季麻强贾路娄危江童颜郭梅盛林刁钟徐邱骆高夏蔡田樊胡凌霍"
+        "虞万支柯昝管卢莫经房裘缪干解应宗丁宣贲邓郁单杭洪包诸左石崔吉钮龚"
+    )
+    if len(name) == 1 and name in _COMMON_SURNAMES:
+        return "bare surname (not a character name)"
+
+    # P5: "X的Y" pattern — descriptive, not a proper name
+    if "的" in name and len(name) >= 4:
+        return "descriptive reference (contains 的)"
+
+    # P6: Pure official title ending in 官/使/监/尉 without personal name prefix
+    # Catches: 黄门官, 当驾官, 阁门大使, 监丞, 监副, 典簿
+    _OFFICIAL_SUFFIXES = ("官", "使", "监", "尉", "丞", "副", "簿")
+    if len(name) >= 2 and name[-1] in _OFFICIAL_SUFFIXES:
+        # Allow if has a known surname prefix (e.g., 魏征, 张天师)
+        if not (name[0] in _COMMON_SURNAMES and len(name) <= 4):
+            # Check if it's a pure title (no personal identifier)
+            if all(c not in name for c in _COMMON_SURNAMES) or len(name) >= 4:
+                pass  # Don't over-filter — many are valid (太白金星, etc.)
+
+    # P7: Group number pattern — "四大X", "五X", "八X", "十X" where X is role
+    _GROUP_ROLES = ("天王", "金刚", "天师", "菩萨", "元帅", "功曹",
+                    "揭谛", "健将", "天丁", "星君", "罗汉")
+    if re.match(r"^[二三四五六七八九十]+[大]?", name):
+        for role in _GROUP_ROLES:
+            if name.endswith(role):
+                return f"numbered group reference ({role})"
+
+    # P8 (v0.71.1): 姓+氏 pattern — 红楼梦多人共用的称谓 (李氏/王氏/甄氏)
+    if is_surname_plus_shi(name):
+        return "surname+氏 (generic title for married women)"
+
+    # P9 (v0.71.1): Descriptive long names (n >= 10) — 通常是 LLM 把描述当角色名
+    # 例:"飞东洋游普世感恩行孝黄毛红嘴白鹦哥" (15字)
+    # 豁免(2026-09-24,翻译文学):含间隔号"·"的长名是音译全名
+    # (斯捷潘·阿尔卡季奇·奥布隆斯基 15字、安娜·阿尔卡季耶夫娜 10字),
+    # 不是中文描述性短语——否则译本全名被系统性误杀,人物关系整章归零。
+    if len(name) >= 10 and "·" not in name:
+        return f"descriptive long name ({len(name)} chars)"
+
+    # ── Merged authoritative sets (v0.72 Phase 1, Story 1.1) ──
+    # Checked AFTER the ex-fact_validator rules so historical reason strings
+    # are preserved for names those rules already caught.
+    if name in KINSHIP_TERMS:
+        return "kinship term"
+    if name in GENERIC_PERSON_ALIASES:
+        return "generic person alias"
+    if name in CANONICAL_BLOCKLIST:
+        return "canonical blocklist entry"
+
+    return None
+
+
+def similar_name_conflict(a: str, b: str) -> bool:
+    """Detect structurally similar but distinct names (e.g., 阮小二 vs 阮小七).
+
+    Returns True if the names share a prefix but differ in the last character,
+    suggesting they are different characters with parallel naming patterns.
+    Also detects prefix-suffix relationships (阮小 vs 阮小二).
+
+    Single source of truth for the anti-bridging constraint — used by both
+    the Union-Find auto pipeline (alias_resolver._safe_union Layer 0) and the
+    LLM entity-resolution path (entity_resolver, FR-2.3).
+    """
+    la, lb = len(a), len(b)
+    # Same length, same prefix, different last char
+    # (阮小二 vs 阮小七, 解珍 vs 解宝)
+    if la == lb and la >= 2 and a[:-1] == b[:-1] and a[-1] != b[-1]:
+        return True
+    # Prefix relationship: shorter is strict prefix of longer
+    # (阮小 vs 阮小二 — "阮小" is a truncated form)
+    short, long = (a, b) if la < lb else (b, a)
+    return bool(len(short) >= 2 and long.startswith(short) and len(long) - len(short) == 1)
+
+
 def is_nickname_or_title(name: str) -> bool:
     """Check if a name looks like a nickname, courtesy name, or title form.
 
@@ -428,9 +920,7 @@ def is_nickname_or_title(name: str) -> bool:
     if is_surname_plus_shi(name):
         return True
     # v0.71.1: 取X / X僧 / X人 叙事代称(取经人, 取经僧)
-    if name.startswith("取经") and n <= 4:
-        return True
-    return False
+    return bool(name.startswith("取经") and n <= 4)
 
 
 def pick_canonical(members: list[str], freq: dict[str, int],

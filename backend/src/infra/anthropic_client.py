@@ -14,14 +14,19 @@ factory in llm_client.py can swap it in transparently.
 
 from __future__ import annotations
 
-import asyncio
 import json
 import logging
 from collections.abc import AsyncIterator
 
 import httpx
 
-from src.infra.llm_client import LLMError, LLMTimeoutError, LlmUsage, _extract_json
+from src.infra.llm_client import (
+    LLMError,
+    LLMTimeoutError,
+    LlmUsage,
+    ToolCall,
+    _extract_json,
+)
 from src.infra.openai_client import _repair_truncated_json
 
 logger = logging.getLogger(__name__)
@@ -56,7 +61,7 @@ class AnthropicClient:
         self,
         system: str,
         prompt: str,
-        format: dict | None = None,  # noqa: A002
+        format: dict | None = None,
         temperature: float = 0.1,
         max_tokens: int = 4096,
         timeout: int = 120,
@@ -127,6 +132,7 @@ class AnthropicClient:
                     "attempting to repair JSON (%d chars)", len(content),
                 )
                 content = _repair_truncated_json(content)
+                usage.truncated = True
 
             try:
                 return json.loads(content), usage
@@ -134,6 +140,89 @@ class AnthropicClient:
                 return _extract_json(content), usage
 
         return content, usage
+
+    async def generate_with_tools(
+        self,
+        messages: list[dict],
+        tools: list[dict],
+        timeout: int = 120,
+    ) -> tuple[str | None, list[ToolCall]]:
+        """Non-streaming tool-use call for the agent QA loop.
+
+        `tools` is a list of {"name", "description", "parameters"} dicts
+        (provider-neutral); they are converted to Anthropic input_schema
+        format here. `messages` must be Anthropic-style (system prompt is NOT
+        a message — pass it separately via the first message's content or
+        prepend as a user turn). Returns (assistant text or None, ToolCalls).
+        """
+        # Extract system prompt from messages (Anthropic takes it top-level)
+        system = ""
+        chat_messages: list[dict] = []
+        for m in messages:
+            if m.get("role") == "system":
+                system = m.get("content", "")
+            else:
+                chat_messages.append({"role": m["role"], "content": m.get("content", "")})
+
+        payload: dict = {
+            "model": self.model,
+            "max_tokens": 4096,
+            "messages": chat_messages,
+            "tools": [
+                {
+                    "name": t["name"],
+                    "description": t.get("description", ""),
+                    "input_schema": t.get("parameters", {"type": "object", "properties": {}}),
+                }
+                for t in tools
+            ],
+        }
+        if system:
+            payload["system"] = system
+
+        sem = _get_cloud_semaphore()
+        async with sem:
+            try:
+                async with self._make_client(
+                    httpx.Timeout(timeout, connect=10.0)
+                ) as client:
+                    resp = await client.post(
+                        f"{self.base_url}/v1/messages",
+                        json=payload,
+                        headers=self._headers(),
+                    )
+                    resp.raise_for_status()
+            except httpx.TimeoutException as exc:
+                raise LLMTimeoutError(
+                    f"Anthropic API request timed out after {timeout}s"
+                ) from exc
+            except httpx.HTTPStatusError as exc:
+                raise LLMError(
+                    f"Anthropic API HTTP error {exc.response.status_code}: "
+                    f"{exc.response.text[:300]}"
+                ) from exc
+
+        data = resp.json()
+        content_blocks = data.get("content", [])
+
+        # Walk ALL blocks: text may sit in any block (not just content[0]),
+        # and multiple tool_use blocks are legal in one response.
+        text_parts: list[str] = []
+        tool_calls: list[ToolCall] = []
+        for block in content_blocks:
+            btype = block.get("type", "")
+            if btype == "text":
+                text_parts.append(block.get("text", ""))
+            elif btype == "tool_use":
+                name = block.get("name", "")
+                args = block.get("input") or {}
+                if name:
+                    tool_calls.append(
+                        ToolCall(name=name, arguments=args if isinstance(args, dict) else {})
+                    )
+
+        text = "".join(text_parts) or None
+        return text, tool_calls
 
     async def generate_stream(
         self,
@@ -163,37 +252,36 @@ class AnthropicClient:
         logger.debug("Anthropic generate_stream() sending request (no semaphore)")
         async with self._make_client(
             httpx.Timeout(timeout, connect=10.0)
-        ) as client:
-            async with client.stream(
-                "POST",
-                f"{self.base_url}/v1/messages",
-                json=payload,
-                headers=self._headers(),
-            ) as resp:
-                resp.raise_for_status()
-                async for line in resp.aiter_lines():
-                    if not line:
+        ) as client, client.stream(
+            "POST",
+            f"{self.base_url}/v1/messages",
+            json=payload,
+            headers=self._headers(),
+        ) as resp:
+            resp.raise_for_status()
+            async for line in resp.aiter_lines():
+                if not line:
+                    continue
+                # SSE lines: "event: ..." or "data: ..."
+                if line.startswith("data: "):
+                    raw = line[6:].strip()
+                    if not raw:
                         continue
-                    # SSE lines: "event: ..." or "data: ..."
-                    if line.startswith("data: "):
-                        raw = line[6:].strip()
-                        if not raw:
-                            continue
-                        try:
-                            chunk = json.loads(raw)
-                        except json.JSONDecodeError:
-                            continue
+                    try:
+                        chunk = json.loads(raw)
+                    except json.JSONDecodeError:
+                        continue
 
-                        chunk_type = chunk.get("type", "")
-                        if chunk_type == "content_block_delta":
-                            delta = chunk.get("delta", {})
-                            if delta.get("type") == "text_delta":
-                                token = delta.get("text", "")
-                                if token:
-                                    yield token
-                        elif chunk_type == "message_stop":
+                    chunk_type = chunk.get("type", "")
+                    if chunk_type == "content_block_delta":
+                        delta = chunk.get("delta", {})
+                        if delta.get("type") == "text_delta":
+                            token = delta.get("text", "")
+                            if token:
+                                yield token
+                    elif chunk_type == "message_stop":
+                        break
+                    elif chunk_type == "message_delta":
+                        # Check if finished
+                        if chunk.get("delta", {}).get("stop_reason"):
                             break
-                        elif chunk_type == "message_delta":
-                            # Check if finished
-                            if chunk.get("delta", {}).get("stop_reason"):
-                                break

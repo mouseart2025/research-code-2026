@@ -1,0 +1,281 @@
+{
+  "characters": [
+    {
+      "name": "王夫人",
+      "description": "宝钗的长辈，身子十病九痛"
+    },
+    {
+      "name": "宝钗",
+      "description": "宝玉的妻子，心地明白，有把持"
+    },
+    {
+      "name": "宝玉",
+      "description": "主人公，因三妹妹出嫁哭得了不得，病后不出屋门"
+    },
+    {
+      "name": "探春",
+      "description": "宝玉的三妹妹，即将出嫁"
+    },
+    {
+      "name": "平儿",
+      "description": "王熙凤的丫头"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房里的丫头"
+    },
+    {
+      "name": "贾妃",
+      "description": "已故，元春娘娘"
+    },
+    {
+      "name": "林黛玉",
+      "description": "已故，据说死后成了花神"
+    },
+    {
+      "name": "史湘云",
+      "description": "已回家"
+    },
+    {
+      "name": "宝琴",
+      "description": "在家住着"
+    },
+    {
+      "name": "李纨",
+      "description": "寡居，与姊妹们住在园中"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府小姐"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍的妻子，从园中走过后得病"
+    },
+    {
+      "name": "贾珍",
+      "description": "贾蓉的父亲，宁府当家人"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍的儿子"
+    },
+    {
+      "name": "毛半仙",
+      "description": "南方人，占卦算命的"
+    },
+    {
+      "name": "晴雯",
+      "description": "已故丫头，传说成了芙蓉花神"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉家的小厮"
+    },
+    {
+      "name": "吴贵",
+      "description": "晴雯的表兄，住在园门口"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾琏的父亲，不太相信鬼怪之说"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾赦的儿子"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，在外任职被参"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "西府",
+      "type": "府邸",
+      "parent": "贾府"
+    },
+    {
+      "name": "省亲正殿",
+      "type": "殿堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "山子",
+      "type": "假山",
+      "parent": "大观园"
+    },
+    {
+      "name": "芙蓉花园",
+      "type": "花园",
+      "parent": "大观园"
+    },
+    {
+      "name": "书房",
+      "type": "房屋",
+      "parent": "宁府"
+    },
+    {
+      "name": "园门",
+      "type": "门户",
+      "parent": "大观园"
+    },
+    {
+      "name": "崇楼高阁",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "琼馆瑶台",
+      "type": "建筑",
+      "parent": "大观园"
+    },
+    {
+      "name": "吏部",
+      "type": "官署",
+      "parent": "京城"
+    },
+    {
+      "name": "江西",
+      "type": "省份",
+      "parent": ""
+    },
+    {
+      "name": "海疆",
+      "type": "边疆",
+      "parent": ""
+    },
+    {
+      "name": "真人府",
+      "type": "道观",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "王夫人",
+      "person_b": "宝钗",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "宝玉",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "宝玉",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "吴贵",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "贾琏",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "宝玉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾政",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "王夫人",
+      "relation_type": "母女"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "宁府",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "贾府",
+      "target": "西府",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "省亲正殿",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "山子",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "芙蓉花园",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "崇楼高阁",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "大观园",
+      "target": "琼馆瑶台",
+      "relation_type": "contains",
+      "value": ""
+    },
+    {
+      "source": "宁府",
+      "target": "大观园",
+      "relation_type": "adjacent",
+      "value": "有便门相通"
+    },
+    {
+      "source": "吴贵住所",
+      "target": "园门",
+      "relation_type": "adjacent",
+      "value": "住在园门口"
+    }
+  ],
+  "_chapter": 103,
+  "_input_tokens": 6176,
+  "_output_tokens": 1708
+}

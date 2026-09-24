@@ -1,0 +1,203 @@
+{
+  "characters": [
+    {
+      "name": "八戒",
+      "description": "被绑在树上的师弟，好色贪吃，食肠大口又大"
+    },
+    {
+      "name": "行者",
+      "description": "孙悟空，会隐身法和七十二变，善于爬树偷果子"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙和尚，原卷帘大将，心地善良，曾见过人参果但未吃过"
+    },
+    {
+      "name": "三藏",
+      "description": "唐僧，东土大唐取经僧人，金蝉子转生，不识人参果"
+    },
+    {
+      "name": "镇元子",
+      "description": "五庄观道士，号称与世同君，受元始天尊邀请听讲"
+    },
+    {
+      "name": "清风",
+      "description": "镇元子徒弟，一千三百二十岁的道童"
+    },
+    {
+      "name": "明月",
+      "description": "镇元子徒弟，一千二百岁的道童"
+    },
+    {
+      "name": "元始天尊",
+      "description": "邀请镇元子到弥罗宫听讲的仙人"
+    },
+    {
+      "name": "花园土地",
+      "description": "守护五庄观花园的土地神"
+    }
+  ],
+  "locations": [
+    {
+      "name": "万寿山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "五庄观",
+      "type": "道观",
+      "parent": "万寿山"
+    },
+    {
+      "name": "弥罗宫",
+      "type": "仙宫",
+      "parent": "上清天"
+    },
+    {
+      "name": "人参园",
+      "type": "果园",
+      "parent": "五庄观"
+    },
+    {
+      "name": "花园",
+      "type": "园林",
+      "parent": "五庄观"
+    },
+    {
+      "name": "菜园",
+      "type": "菜地",
+      "parent": "五庄观"
+    },
+    {
+      "name": "厨房",
+      "type": "房间",
+      "parent": "五庄观"
+    },
+    {
+      "name": "道房",
+      "type": "房间",
+      "parent": "五庄观"
+    },
+    {
+      "name": "正殿",
+      "type": "殿堂",
+      "parent": "五庄观"
+    },
+    {
+      "name": "上清天",
+      "type": "天界",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "行者",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "八戒",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "镇元子",
+      "person_b": "清风",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "镇元子",
+      "person_b": "明月",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "清风",
+      "person_b": "明月",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "镇元子",
+      "person_b": "三藏",
+      "relation_type": "故人"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "万寿山",
+      "target": "五庄观",
+      "relation_type": "contains",
+      "value": "山中有观"
+    },
+    {
+      "source": "五庄观",
+      "target": "正殿",
+      "relation_type": "contains",
+      "value": "观内主要建筑"
+    },
+    {
+      "source": "五庄观",
+      "target": "人参园",
+      "relation_type": "contains",
+      "value": "观内后院"
+    },
+    {
+      "source": "五庄观",
+      "target": "花园",
+      "relation_type": "contains",
+      "value": "观内园林"
+    },
+    {
+      "source": "五庄观",
+      "target": "菜园",
+      "relation_type": "contains",
+      "value": "观内菜地"
+    },
+    {
+      "source": "花园",
+      "target": "菜园",
+      "relation_type": "adjacent",
+      "value": "花园后面是菜园"
+    },
+    {
+      "source": "菜园",
+      "target": "人参园",
+      "relation_type": "adjacent",
+      "value": "菜园后面是人参园"
+    },
+    {
+      "source": "厨房",
+      "target": "道房",
+      "relation_type": "adjacent",
+      "value": "紧紧的间壁"
+    },
+    {
+      "source": "上清天",
+      "target": "弥罗宫",
+      "relation_type": "contains",
+      "value": "天界宫殿"
+    }
+  ],
+  "_chapter": 24,
+  "_input_tokens": 8648,
+  "_output_tokens": 1320
+}

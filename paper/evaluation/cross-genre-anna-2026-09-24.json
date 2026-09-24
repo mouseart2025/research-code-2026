@@ -1,0 +1,65 @@
+{
+  "novel": "安娜·卡列尼娜 (Anna Karenina, 傅石球译本, TXT小说天堂版)",
+  "novel_id": "2adfeb80-ebdc-41bd-a30e-14b78ca12a60",
+  "date": "2026-09-24",
+  "edition_note": "该版本 86 章+前言,合计 87 章;ch27(第一部27)/ch51(第三部8) 为源站空章(仅\">txt\"广告标记),已排除",
+  "chapters_analyzed": 85,
+  "extractor": "Kimi agent direct extraction (zero API cost; Anthropic key 403 不可用后的授权降级路径)",
+  "pipeline": "v0.78 full chain tier→votes→prior→edmonds→auditor→suffix→purify + apply (含单根兜底修复与音译名豁免 ca836c4c6)",
+  "merge": "既有 novel(2adfeb80) upsert:validate(genre=realistic) 后替换 fact_json,原 MiniMax-M2.5 facts 84 章保留于 fact_json_original",
+  "metrics": {
+    "unique_locations": 486,
+    "total_parents": 485,
+    "avg_depth": 4.21,
+    "max_depth": 9,
+    "max_children": 52,
+    "max_children_node": "主世界(虚拟图层根;最大真实节点 莫斯科 33/彼得堡 30)",
+    "roots": 1,
+    "cycles": 0,
+    "determinism_edge_diff": 0,
+    "depth_distribution": {
+      "1": 1,
+      "2": 52,
+      "3": 219,
+      "4": 29,
+      "5": 30,
+      "6": 76,
+      "7": 68,
+      "8": 7,
+      "9": 3
+    },
+    "root_two_hop_share": "53/485 = 10.9%",
+    "within_three_hops_share": "272/485 = 56.1%",
+    "zero_location_chapters": "6/85 = 7.1%",
+    "zero_location_chapters_raw_extraction": "8/85 = 9.4%(论文采用)",
+    "zero_location_chapters_post_validation": "6/85 = 7.1%(validator 自动补 parent 引用地点所致)"
+  },
+  "location_density": {
+    "anna_unique_per_10k_chars": 7.46,
+    "anna_raw_mentions_per_10k_chars": 4.98,
+    "text_chars": 651077,
+    "comparisons": {
+      "西游记": 15.05,
+      "红楼梦": 9.95,
+      "魔戒": 7.58,
+      "射雕": 5.89,
+      "凡人修仙传": 5.75
+    },
+    "note": "unique 口径下安娜(7.46)低于金标古典(西游15.05/红楼9.95),与魔戒(7.58)相当,高于网文(凡修5.75/射雕5.89);真正的心理边界信号是零地点章占比(9.4%)与 raw mention 密度"
+  },
+  "provenance_extractors": [
+    {
+      "claim": "论文 v071 冻结抽取 = Claude Sonnet 4(仅见 cross-llm README 参照列,原始 Claude 抽取数据不可考)"
+    },
+    {
+      "current_db": "5 本金标书+6 本跨体裁 facts llm_model 全为 MiniMax-M2.5/2.7(7 月后重抽覆盖,与声称存在口径矛盾,投稿前须统一)"
+    },
+    {
+      "anna": "Kimi 代理直抽(85 章,llm_model=kimi-agent)"
+    }
+  ],
+  "cost": {
+    "api_usd": 0.0,
+    "note": "Kimi 路径零 API 费用"
+  }
+}

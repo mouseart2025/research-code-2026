@@ -1,0 +1,227 @@
+{
+  "characters": [
+    {
+      "name": "行者",
+      "description": "孙悟空，大圣，曾闹天宫，金睛火眼，铜头铁臂，使金箍棒"
+    },
+    {
+      "name": "猪刚鬣",
+      "description": "原天蓬元帅，因犯罪被贬下界投胎为猪，使九齿钉钯，后成为猪悟能、猪八戒"
+    },
+    {
+      "name": "三藏",
+      "description": "唐朝法师，东土大唐御弟，往西天取经的僧人"
+    },
+    {
+      "name": "老高",
+      "description": "高老儿，高家庄的主人，猪八戒的岳父"
+    },
+    {
+      "name": "观世音菩萨",
+      "description": "劝善的菩萨，给猪八戒受戒，让其等待取经人"
+    },
+    {
+      "name": "乌巢禅师",
+      "description": "在浮屠山修行的禅师，传授《多心经》给三藏"
+    },
+    {
+      "name": "玉皇",
+      "description": "玉皇大帝，天庭之主"
+    },
+    {
+      "name": "嫦娥",
+      "description": "广寒宫仙子"
+    },
+    {
+      "name": "太白李金星",
+      "description": "天庭神仙，曾为天蓬元帅求情"
+    },
+    {
+      "name": "高才",
+      "description": "高家的人，曾引导行者"
+    }
+  ],
+  "locations": [
+    {
+      "name": "高山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "云栈洞",
+      "type": "洞穴",
+      "parent": "高山"
+    },
+    {
+      "name": "高老庄",
+      "type": "村庄",
+      "parent": null
+    },
+    {
+      "name": "福陵山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "花果山水帘洞",
+      "type": "洞穴",
+      "parent": "花果山"
+    },
+    {
+      "name": "花果山",
+      "type": "山峰",
+      "parent": "东胜神洲傲来国"
+    },
+    {
+      "name": "东胜神洲傲来国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "天庭",
+      "type": "仙界",
+      "parent": null
+    },
+    {
+      "name": "广寒宫",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "瑶池",
+      "type": "仙池",
+      "parent": "天庭"
+    },
+    {
+      "name": "灵霄",
+      "type": "殿堂",
+      "parent": "天庭"
+    },
+    {
+      "name": "浮屠山",
+      "type": "山峰",
+      "parent": null
+    },
+    {
+      "name": "乌斯藏界",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "西天",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "大雷音寺",
+      "type": "寺庙",
+      "parent": "西天"
+    },
+    {
+      "name": "摩耳岩",
+      "type": "岩石",
+      "parent": null
+    },
+    {
+      "name": "黑松林",
+      "type": "森林",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "三藏",
+      "person_b": "行者",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "三藏",
+      "person_b": "猪刚鬣",
+      "relation_type": "师父"
+    },
+    {
+      "person_a": "行者",
+      "person_b": "猪刚鬣",
+      "relation_type": "师兄"
+    },
+    {
+      "person_a": "老高",
+      "person_b": "猪刚鬣",
+      "relation_type": "岳父"
+    },
+    {
+      "person_a": "观世音菩萨",
+      "person_b": "猪刚鬣",
+      "relation_type": "授戒师"
+    },
+    {
+      "person_a": "玉皇",
+      "person_b": "猪刚鬣",
+      "relation_type": "君臣"
+    },
+    {
+      "person_a": "太白李金星",
+      "person_b": "猪刚鬣",
+      "relation_type": "同朝为官"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "高山",
+      "target": "云栈洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "花果山",
+      "target": "水帘洞",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "东胜神洲傲来国",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "国中有山"
+    },
+    {
+      "source": "天庭",
+      "target": "广寒宫",
+      "relation_type": "contains",
+      "value": "天庭中的宫殿"
+    },
+    {
+      "source": "天庭",
+      "target": "瑶池",
+      "relation_type": "contains",
+      "value": "天庭中的仙池"
+    },
+    {
+      "source": "天庭",
+      "target": "灵霄",
+      "relation_type": "contains",
+      "value": "天庭中的殿堂"
+    },
+    {
+      "source": "西天",
+      "target": "大雷音寺",
+      "relation_type": "contains",
+      "value": "西天中的寺庙"
+    },
+    {
+      "source": "高老庄",
+      "target": "浮屠山",
+      "relation_type": "direction",
+      "value": "西行可达"
+    },
+    {
+      "source": "浮屠山",
+      "target": "乌斯藏界",
+      "relation_type": "direction",
+      "value": "行过乌斯藏界后到达"
+    }
+  ],
+  "_chapter": 19,
+  "_input_tokens": 8142,
+  "_output_tokens": 1519
+}

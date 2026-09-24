@@ -1,0 +1,192 @@
+{
+  "characters": [
+    {
+      "name": "唐三藏",
+      "description": "又称三藏、师父、长老，金蝉长老转世，西天取经的师父，在镇海禅林寺生病后被妖精摄走"
+    },
+    {
+      "name": "孙悟空",
+      "description": "又称行者、大圣，有火眼金睛，神通广大，曾大闹天宫，负责保护师父"
+    },
+    {
+      "name": "猪八戒",
+      "description": "又称呆子、老猪，食量很大，性格憨厚"
+    },
+    {
+      "name": "沙僧",
+      "description": "又称沙和尚，灵山大将出身，性格稳重明理"
+    },
+    {
+      "name": "女妖精",
+      "description": "鼠精成妖，美貌佳人形象，托塔天王恩爱女、哪吒太子认同胞，摄走唐僧"
+    },
+    {
+      "name": "院主",
+      "description": "镇海禅林寺的喇嘛僧，负责接待唐僧师徒"
+    },
+    {
+      "name": "太宗皇帝",
+      "description": "长安的皇帝，唐僧欲写信给他"
+    },
+    {
+      "name": "山神",
+      "description": "当地山神，被行者打出来询问妖精去向"
+    },
+    {
+      "name": "土地",
+      "description": "当地土地神，与山神一同告知妖精所在"
+    }
+  ],
+  "locations": [
+    {
+      "name": "镇海禅林寺",
+      "type": "寺庙",
+      "parent": ""
+    },
+    {
+      "name": "方丈",
+      "type": "房间",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "天王殿",
+      "type": "大殿",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "香积厨",
+      "type": "厨房",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "佛殿",
+      "type": "大殿",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "后园",
+      "type": "园林",
+      "parent": "镇海禅林寺"
+    },
+    {
+      "name": "黑松林",
+      "type": "森林",
+      "parent": ""
+    },
+    {
+      "name": "陷空山",
+      "type": "山峰",
+      "parent": ""
+    },
+    {
+      "name": "无底洞",
+      "type": "洞穴",
+      "parent": "陷空山"
+    },
+    {
+      "name": "长安",
+      "type": "城市",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐三藏",
+      "person_b": "孙悟空",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "猪八戒",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "沙僧",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "女妖精",
+      "person_b": "唐三藏",
+      "relation_type": "敌对关系"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "女妖精",
+      "relation_type": "敌对关系"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "太宗皇帝",
+      "relation_type": "君臣关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "镇海禅林寺",
+      "target": "方丈",
+      "relation_type": "contains",
+      "value": "寺内主要房间"
+    },
+    {
+      "source": "镇海禅林寺",
+      "target": "天王殿",
+      "relation_type": "contains",
+      "value": "寺内大殿"
+    },
+    {
+      "source": "镇海禅林寺",
+      "target": "香积厨",
+      "relation_type": "contains",
+      "value": "位于寺后面"
+    },
+    {
+      "source": "镇海禅林寺",
+      "target": "佛殿",
+      "relation_type": "contains",
+      "value": "寺内大殿"
+    },
+    {
+      "source": "镇海禅林寺",
+      "target": "后园",
+      "relation_type": "contains",
+      "value": "位于后边"
+    },
+    {
+      "source": "陷空山",
+      "target": "无底洞",
+      "relation_type": "contains",
+      "value": "山中洞穴"
+    },
+    {
+      "source": "陷空山",
+      "target": "黑松林",
+      "relation_type": "direction",
+      "value": "正南下千里之遥"
+    },
+    {
+      "source": "镇海禅林寺",
+      "target": "长安",
+      "relation_type": "direction",
+      "value": "西去路途"
+    }
+  ],
+  "_chapter": 81,
+  "_input_tokens": 8495,
+  "_output_tokens": 1400
+}

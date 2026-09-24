@@ -363,6 +363,7 @@ interface TreeNode {
   isExpanded: boolean
   isOverridden: boolean
   matchesSearch: boolean
+  isVirtual: boolean
 }
 
 function LocationTreeTab({
@@ -447,6 +448,7 @@ function LocationTreeTab({
         defaultExpanded.add(child)
       }
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- 数据就绪后一次性初始化默认展开节点（initialized 守卫），属初始化同步的 intentional 模式
     setExpandedNodes(defaultExpanded)
     setInitialized(true)
   }, [roots, childrenMap, initialized])
@@ -477,6 +479,7 @@ function LocationTreeTab({
   // Flatten visible tree nodes
   const treeNodes = useMemo(() => {
     const tiers = ws.location_tiers ?? {}
+    const virtualSet = new Set(ws.virtual_locations ?? [])
     const result: TreeNode[] = []
     const visited = new Set<string>()
     const isSearching = searchMatchedNodes !== null
@@ -509,6 +512,7 @@ function LocationTreeTab({
         isExpanded,
         isOverridden,
         matchesSearch: isSearching ? searchMatchedNodes!.matched.has(name) : false,
+        isVirtual: virtualSet.has(name),
       })
 
       if (isExpanded) {
@@ -530,7 +534,7 @@ function LocationTreeTab({
     }
 
     return result
-  }, [roots, childrenMap, allNames, safeParents, expandedNodes, ws.location_tiers, overriddenKeys, searchMatchedNodes])
+  }, [roots, childrenMap, allNames, safeParents, expandedNodes, ws.location_tiers, ws.virtual_locations, overriddenKeys, searchMatchedNodes])
 
   const toggleExpand = useCallback((name: string) => {
     setExpandedNodes((prev) => {
@@ -574,7 +578,12 @@ function LocationTreeTab({
             {node.isOverridden && (
               <span className="size-1.5 rounded-full bg-amber-500 flex-shrink-0" />
             )}
-            <span className={cn("truncate flex-1", node.tier === "invalid" && "line-through text-muted-foreground/50")}>{node.name}</span>
+            <span className={cn("truncate flex-1", node.tier === "invalid" && "line-through text-muted-foreground/50", node.isVirtual && "text-muted-foreground/60 italic")}>{node.name}</span>
+            {node.isVirtual && (
+              <span className="text-[10px] text-muted-foreground/70 border border-dashed border-muted-foreground/40 px-1 rounded flex-shrink-0">
+                虚拟
+              </span>
+            )}
             {node.childCount > 0 && (
               <span className="text-[10px] text-muted-foreground flex-shrink-0">
                 {node.childCount}
@@ -689,6 +698,7 @@ function DetailPanel({
   useEffect(() => {
     if (!expanded || !locationName || !novelId) return
     let cancelled = false
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- 展开卡片时同步清空旧详情再拉取新数据，数据获取的 intentional 模式
     setLocationProfile(null)
     fetchEntityProfile(novelId, locationName, "location").then((data) => {
       if (!cancelled && data) setLocationProfile(data as unknown as LocationProfile)

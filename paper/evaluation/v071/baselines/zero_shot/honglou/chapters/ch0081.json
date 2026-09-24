@@ -1,0 +1,245 @@
+{
+  "characters": [
+    {
+      "name": "金桂",
+      "description": "薛蟠之妻，性格泼辣善妒，喜欢挑拨离间"
+    },
+    {
+      "name": "香菱",
+      "description": "薛蟠的妾室，性格怯弱温顺，后改名秋菱，患有血分病症"
+    },
+    {
+      "name": "宝蟾",
+      "description": "金桂的丫鬟，有三分姿色，举止轻浮，被薛蟠看上"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛家公子，性格软弱，得陇望蜀，被金桂挟制"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛蟠的母亲，薛宝钗的母亲"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "薛蟠的妹妹，性格明理温和"
+    },
+    {
+      "name": "小舍儿",
+      "description": "金桂从小使唤的丫头，专作粗笨生活"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，天生性怯，不敢近狰狞神鬼之像"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲"
+    },
+    {
+      "name": "迎春",
+      "description": "贾家姑娘，嫁给孙绍祖后受虐待"
+    },
+    {
+      "name": "孙绍祖",
+      "description": "迎春的丈夫，好色好赌酗酒，对迎春不好"
+    },
+    {
+      "name": "王一贴",
+      "description": "天齐庙的老道士，专卖膏药，本名老王道士"
+    },
+    {
+      "name": "李贵",
+      "description": "宝玉的随从"
+    },
+    {
+      "name": "茗烟",
+      "description": "宝玉的贴身小厮"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老太太"
+    },
+    {
+      "name": "邢夫人",
+      "description": "迎春的嫂子"
+    }
+  ],
+  "locations": [
+    {
+      "name": "薛家",
+      "type": "宅院",
+      "parent": null
+    },
+    {
+      "name": "金桂房间",
+      "type": "卧室",
+      "parent": "薛家"
+    },
+    {
+      "name": "香菱房间",
+      "type": "卧室",
+      "parent": "薛家"
+    },
+    {
+      "name": "天齐庙",
+      "type": "庙宇",
+      "parent": "西城门外"
+    },
+    {
+      "name": "西城门外",
+      "type": "城外区域",
+      "parent": null
+    },
+    {
+      "name": "道院",
+      "type": "建筑",
+      "parent": "天齐庙"
+    },
+    {
+      "name": "静室",
+      "type": "房间",
+      "parent": "天齐庙"
+    },
+    {
+      "name": "王夫人房间",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "紫菱洲",
+      "type": "住所",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "宅院",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "金桂",
+      "person_b": "薛蟠",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "香菱",
+      "person_b": "薛蟠",
+      "relation_type": "妾室"
+    },
+    {
+      "person_a": "宝蟾",
+      "person_b": "金桂",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "小舍儿",
+      "person_b": "金桂",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛蟠",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "薛蟠",
+      "person_b": "薛宝钗",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "宝玉",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "迎春",
+      "person_b": "孙绍祖",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "李贵",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "茗烟",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "金桂",
+      "person_b": "薛姨妈",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "迎春",
+      "person_b": "邢夫人",
+      "relation_type": "妯娌"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "薛家",
+      "target": "金桂房间",
+      "relation_type": "contains",
+      "value": "金桂居住的房间在薛家内"
+    },
+    {
+      "source": "薛家",
+      "target": "香菱房间",
+      "relation_type": "contains",
+      "value": "香菱房间在薛家内"
+    },
+    {
+      "source": "天齐庙",
+      "target": "道院",
+      "relation_type": "contains",
+      "value": "道院在天齐庙内"
+    },
+    {
+      "source": "天齐庙",
+      "target": "静室",
+      "relation_type": "contains",
+      "value": "静室在天齐庙内"
+    },
+    {
+      "source": "西城门外",
+      "target": "天齐庙",
+      "relation_type": "contains",
+      "value": "天齐庙位于西城门外"
+    },
+    {
+      "source": "贾府",
+      "target": "王夫人房间",
+      "relation_type": "contains",
+      "value": "王夫人房间在贾府内"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "大观园在贾府内"
+    },
+    {
+      "source": "大观园",
+      "target": "紫菱洲",
+      "relation_type": "contains",
+      "value": "紫菱洲在大观园内"
+    }
+  ],
+  "_chapter": 81,
+  "_input_tokens": 8788,
+  "_output_tokens": 1718
+}

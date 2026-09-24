@@ -1,0 +1,197 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣",
+      "description": "齐天大圣孙悟空，保护唐僧西天取经，会七十二变和筋斗云"
+    },
+    {
+      "name": "三藏",
+      "description": "唐僧，西天取经的师父，被妖怪擒获"
+    },
+    {
+      "name": "八戒",
+      "description": "猪八戒，唐僧的徒弟之一，使用钉钯"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙和尚，唐僧的徒弟之一"
+    },
+    {
+      "name": "荡魔天尊",
+      "description": "武当山太和宫混元教主，又称真武祖师"
+    },
+    {
+      "name": "黄眉大王",
+      "description": "小雷音寺的妖怪，原是弥勒佛面前司磬的黄眉童儿"
+    },
+    {
+      "name": "国师王菩萨",
+      "description": "泗州大圣，居住在盱眙山蠙城，神通广大"
+    },
+    {
+      "name": "小张太子",
+      "description": "国师王菩萨的徒弟，原为沙国王之子，使用楮白枪"
+    },
+    {
+      "name": "弥勒佛",
+      "description": "东来佛祖，笑和尚，黄眉童儿的主人"
+    },
+    {
+      "name": "日值功曹",
+      "description": "护佑唐僧的神将之一"
+    }
+  ],
+  "locations": [
+    {
+      "name": "南赡部洲",
+      "type": "大陆",
+      "parent": null
+    },
+    {
+      "name": "武当山",
+      "type": "山",
+      "parent": "南赡部洲"
+    },
+    {
+      "name": "太和宫",
+      "type": "宫殿",
+      "parent": "武当山"
+    },
+    {
+      "name": "西牛贺洲",
+      "type": "大陆",
+      "parent": null
+    },
+    {
+      "name": "小西天",
+      "type": "地区",
+      "parent": "西牛贺洲"
+    },
+    {
+      "name": "小雷音寺",
+      "type": "寺庙",
+      "parent": "小西天"
+    },
+    {
+      "name": "盱眙山",
+      "type": "山",
+      "parent": "南赡部洲"
+    },
+    {
+      "name": "蠙城",
+      "type": "城市",
+      "parent": "盱眙山"
+    },
+    {
+      "name": "大圣禅寺",
+      "type": "寺庙",
+      "parent": "蠙城"
+    },
+    {
+      "name": "淮河",
+      "type": "河流",
+      "parent": "南赡部洲"
+    },
+    {
+      "name": "地窖",
+      "type": "地下空间",
+      "parent": "小雷音寺"
+    },
+    {
+      "name": "宝殿",
+      "type": "殿堂",
+      "parent": "小雷音寺"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙大圣",
+      "person_b": "三藏",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "八戒",
+      "person_b": "三藏",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "三藏",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "小张太子",
+      "person_b": "国师王菩萨",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "黄眉大王",
+      "person_b": "弥勒佛",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "荡魔天尊",
+      "relation_type": "求助者"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "武当山",
+      "target": "南赡部洲",
+      "relation_type": "contains",
+      "value": "位于南赡部洲"
+    },
+    {
+      "source": "太和宫",
+      "target": "武当山",
+      "relation_type": "contains",
+      "value": "在武当山上"
+    },
+    {
+      "source": "小雷音寺",
+      "target": "小西天",
+      "relation_type": "contains",
+      "value": "位于小西天"
+    },
+    {
+      "source": "小西天",
+      "target": "西牛贺洲",
+      "relation_type": "contains",
+      "value": "属于西牛贺洲"
+    },
+    {
+      "source": "蠙城",
+      "target": "盱眙山",
+      "relation_type": "contains",
+      "value": "在盱眙山中"
+    },
+    {
+      "source": "大圣禅寺",
+      "target": "蠙城",
+      "relation_type": "contains",
+      "value": "位于蠙城内"
+    },
+    {
+      "source": "淮河",
+      "target": "蠙城",
+      "relation_type": "adjacent",
+      "value": "流经蠙城附近"
+    },
+    {
+      "source": "地窖",
+      "target": "小雷音寺",
+      "relation_type": "contains",
+      "value": "在小雷音寺地下"
+    },
+    {
+      "source": "宝殿",
+      "target": "小雷音寺",
+      "relation_type": "contains",
+      "value": "小雷音寺的主要建筑"
+    }
+  ],
+  "_chapter": 66,
+  "_input_tokens": 8034,
+  "_output_tokens": 1388
+}

@@ -1,0 +1,288 @@
+{
+  "characters": [
+    {
+      "name": "赖大",
+      "description": "贾府管事，负责处理女尼女道事务"
+    },
+    {
+      "name": "贾芹",
+      "description": "贾府子弟，与女尼女道有关联被查办"
+    },
+    {
+      "name": "贾政",
+      "description": "贾府老爷，因公务繁忙委托贾琏处理家务"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾府二爷，奉命处理芹儿和女尼女道事务"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾府二太太，决定如何处置女尼女道"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的贴身丫鬟，关心主人情感"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的贴身丫鬟"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太，来园中赏海棠花"
+    },
+    {
+      "name": "林黛玉",
+      "description": "贾府姑娘，病刚好，心思敏感"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，通灵宝玉丢失的主人"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，负责照顾宝玉起居"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三小姐，性格理智冷静"
+    },
+    {
+      "name": "李纨",
+      "description": "贾府大嫂子，寡妇"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四小姐"
+    },
+    {
+      "name": "邢岫烟",
+      "description": "贾府亲戚，提议找妙玉扶乩"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾府二奶奶，因病未参加赏花"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的贴身丫鬟"
+    },
+    {
+      "name": "贾环",
+      "description": "宝玉庶弟，被怀疑偷玉"
+    },
+    {
+      "name": "贾兰",
+      "description": "贾府晚辈，李纨之子"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾环的母亲，为儿子辩护"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉房中丫鬟"
+    },
+    {
+      "name": "焙茗",
+      "description": "宝玉的小厮"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾府大太太"
+    },
+    {
+      "name": "妙玉",
+      "description": "栊翠庵中尼姑，据说能扶乩"
+    },
+    {
+      "name": "林之孝家的",
+      "description": "贾府管事媳妇"
+    },
+    {
+      "name": "刘铁嘴",
+      "description": "街上测字先生"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾府",
+      "type": "宅第",
+      "parent": null
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "水月庵",
+      "type": "庵堂",
+      "parent": null
+    },
+    {
+      "name": "南安王府",
+      "type": "王府",
+      "parent": null
+    },
+    {
+      "name": "贾母房间",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "当铺",
+      "type": "商铺",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "贾政",
+      "person_b": "贾琏",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾琏",
+      "relation_type": "婶侄"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "林黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "麝月",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾环",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "赵姨娘",
+      "person_b": "贾环",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "贾兰",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "雪雁",
+      "person_b": "林黛玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "焙茗",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "王夫人",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "宝玉",
+      "relation_type": "表兄妹"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "园林在宅第内"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "院落在园中"
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "院落在园中"
+    },
+    {
+      "source": "大观园",
+      "target": "栊翠庵",
+      "relation_type": "contains",
+      "value": "庵堂在园中"
+    },
+    {
+      "source": "怡红院",
+      "target": "潇湘馆",
+      "relation_type": "adjacent",
+      "value": "相邻院落"
+    },
+    {
+      "source": "怡红院",
+      "target": "海棠树",
+      "relation_type": "contains",
+      "value": "树在院中"
+    },
+    {
+      "source": "贾府",
+      "target": "贾母房间",
+      "relation_type": "contains",
+      "value": "居室在宅第内"
+    },
+    {
+      "source": "大观园",
+      "target": "园门",
+      "relation_type": "contains",
+      "value": "出入口"
+    }
+  ],
+  "_chapter": 95,
+  "_input_tokens": 10095,
+  "_output_tokens": 1937
+}

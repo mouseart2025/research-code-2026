@@ -1,0 +1,308 @@
+{
+  "characters": [
+    {
+      "name": "凤姐",
+      "description": "贾家的管家夫人，处理家中事务"
+    },
+    {
+      "name": "小丫头",
+      "description": "报告消息的丫环"
+    },
+    {
+      "name": "贾珍",
+      "description": "珍大爷，负责处理工部事务"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾家夫人"
+    },
+    {
+      "name": "贾政",
+      "description": "贾家老爷，在工部任职"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，学生，与黛玉有情愫"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫环，关心宝玉起居"
+    },
+    {
+      "name": "焙茗",
+      "description": "宝玉的跟班小厮"
+    },
+    {
+      "name": "代儒",
+      "description": "宝玉的老师，年纪较大"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老太太，溺爱宝玉"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫环"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中的丫环"
+    },
+    {
+      "name": "晴雯",
+      "description": "已故的宝玉房中丫环，曾补过雀金裘"
+    },
+    {
+      "name": "黛玉",
+      "description": "林妹妹，宝玉的表妹，体弱多病，会写字弹琴"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的贴身丫环"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉房中的丫环"
+    },
+    {
+      "name": "侍书",
+      "description": "三姑娘房中的丫环"
+    },
+    {
+      "name": "小红",
+      "description": "丫环，传递消息"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "薛家长辈，来看望黛玉"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家女儿，黛玉的表姐妹"
+    }
+  ],
+  "locations": [
+    {
+      "name": "二门",
+      "type": "建筑部位",
+      "parent": "贾府"
+    },
+    {
+      "name": "衙门",
+      "type": "官府建筑",
+      "parent": null
+    },
+    {
+      "name": "学房",
+      "type": "教学场所",
+      "parent": "贾府"
+    },
+    {
+      "name": "园中",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "怡红院",
+      "type": "居住院落",
+      "parent": "园中"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "居住院落",
+      "parent": "园中"
+    },
+    {
+      "name": "蓼风轩",
+      "type": "建筑",
+      "parent": "园中"
+    },
+    {
+      "name": "晴雯住的房间",
+      "type": "房间",
+      "parent": "怡红院"
+    },
+    {
+      "name": "里间",
+      "type": "内室",
+      "parent": "潇湘馆"
+    },
+    {
+      "name": "屋里",
+      "type": "房间",
+      "parent": "潇湘馆"
+    },
+    {
+      "name": "门外平台",
+      "type": "建筑部位",
+      "parent": "潇湘馆"
+    },
+    {
+      "name": "三姑娘那里",
+      "type": "居住场所",
+      "parent": "园中"
+    },
+    {
+      "name": "河南",
+      "type": "地区",
+      "parent": null
+    },
+    {
+      "name": "河口",
+      "type": "地理位置",
+      "parent": "河南"
+    },
+    {
+      "name": "工部",
+      "type": "政府部门",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹/恋人"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "麝月",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "焙茗",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "代儒",
+      "relation_type": "师生"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "雪雁",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "王夫人",
+      "relation_type": "姨甥"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "王夫人",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾政",
+      "person_b": "贾珍",
+      "relation_type": "族兄弟"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "晴雯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝钗",
+      "relation_type": "母女"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "园中",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园林位于府内"
+    },
+    {
+      "source": "怡红院",
+      "target": "园中",
+      "relation_type": "contains",
+      "value": "院落在园内"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "园中",
+      "relation_type": "contains",
+      "value": "院落在园内"
+    },
+    {
+      "source": "晴雯住的房间",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "房间在院内"
+    },
+    {
+      "source": "里间",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "内室在馆内"
+    },
+    {
+      "source": "门外平台",
+      "target": "潇湘馆",
+      "relation_type": "adjacent",
+      "value": "平台在馆门外"
+    },
+    {
+      "source": "蓼风轩",
+      "target": "潇湘馆",
+      "relation_type": "adjacent",
+      "value": "可以听到潇湘馆的声音"
+    },
+    {
+      "source": "学房",
+      "target": "园中",
+      "relation_type": "adjacent",
+      "value": "宝玉从学房回园中"
+    },
+    {
+      "source": "河口",
+      "target": "河南",
+      "relation_type": "contains",
+      "value": "河口位于河南境内"
+    },
+    {
+      "source": "西北",
+      "target": "东南",
+      "relation_type": "direction",
+      "value": "黑云从西北向东南移动"
+    }
+  ],
+  "_chapter": 90,
+  "_input_tokens": 7671,
+  "_output_tokens": 1987
+}

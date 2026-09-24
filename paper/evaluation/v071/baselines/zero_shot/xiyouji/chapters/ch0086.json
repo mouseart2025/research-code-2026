@@ -1,0 +1,250 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣",
+      "description": "孙行者，也称孙悟空，会分身法，使金箍棒，神通广大"
+    },
+    {
+      "name": "孙行者",
+      "description": "孙大圣的另一个称呼，祖居东胜大神洲，官封大圣"
+    },
+    {
+      "name": "猪八戒",
+      "description": "长嘴大耳朵，使钉钯，原跟唐僧做和尚，性格急躁"
+    },
+    {
+      "name": "沙僧",
+      "description": "沙和尚，唐僧的弟子之一"
+    },
+    {
+      "name": "唐僧",
+      "description": "师父，东土大唐取经人，被妖怪抓去"
+    },
+    {
+      "name": "南山大王",
+      "description": "老妖，持铁杵，数百年放荡于此的妖精，本相是艾叶花皮豹子精"
+    },
+    {
+      "name": "先锋",
+      "description": "南山大王手下，本相是铁背苍狼怪，被孙行者打死"
+    },
+    {
+      "name": "樵子",
+      "description": "樵夫，有母亲年老，很孝顺，与唐僧一起被抓"
+    },
+    {
+      "name": "老妪",
+      "description": "樵子的母亲，年老"
+    }
+  ],
+  "locations": [
+    {
+      "name": "隐雾山",
+      "type": "山",
+      "parent": null
+    },
+    {
+      "name": "折岳连环洞",
+      "type": "洞府",
+      "parent": "隐雾山"
+    },
+    {
+      "name": "悬崖",
+      "type": "地形",
+      "parent": "隐雾山"
+    },
+    {
+      "name": "山场平处",
+      "type": "平地",
+      "parent": "隐雾山"
+    },
+    {
+      "name": "山坡",
+      "type": "地形",
+      "parent": "隐雾山"
+    },
+    {
+      "name": "涧",
+      "type": "水流",
+      "parent": "隐雾山"
+    },
+    {
+      "name": "后门",
+      "type": "门",
+      "parent": "折岳连环洞"
+    },
+    {
+      "name": "前门",
+      "type": "门",
+      "parent": "折岳连环洞"
+    },
+    {
+      "name": "中堂",
+      "type": "房间",
+      "parent": "折岳连环洞"
+    },
+    {
+      "name": "后园",
+      "type": "园子",
+      "parent": "折岳连环洞"
+    },
+    {
+      "name": "剥皮亭",
+      "type": "建筑",
+      "parent": "折岳连环洞"
+    },
+    {
+      "name": "石崖",
+      "type": "地形",
+      "parent": "隐雾山"
+    },
+    {
+      "name": "柴扉",
+      "type": "门",
+      "parent": "茅舍"
+    },
+    {
+      "name": "茅舍",
+      "type": "房屋",
+      "parent": null
+    },
+    {
+      "name": "天竺国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "东土大唐",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "西天",
+      "type": "目的地",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙行者",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "先锋",
+      "person_b": "南山大王",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "樵子",
+      "person_b": "老妪",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "南山大王",
+      "person_b": "唐僧",
+      "relation_type": "敌对"
+    },
+    {
+      "person_a": "孙行者",
+      "person_b": "南山大王",
+      "relation_type": "敌对"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "隐雾山",
+      "target": "折岳连环洞",
+      "relation_type": "contains",
+      "value": "洞府位于山中"
+    },
+    {
+      "source": "折岳连环洞",
+      "target": "悬崖",
+      "relation_type": "adjacent",
+      "value": "洞府在悬崖之下"
+    },
+    {
+      "source": "折岳连环洞",
+      "target": "前门",
+      "relation_type": "contains",
+      "value": "洞府的入口"
+    },
+    {
+      "source": "折岳连环洞",
+      "target": "后门",
+      "relation_type": "contains",
+      "value": "洞府的后门"
+    },
+    {
+      "source": "后门",
+      "target": "涧",
+      "relation_type": "adjacent",
+      "value": "后门靠近涧边"
+    },
+    {
+      "source": "折岳连环洞",
+      "target": "中堂",
+      "relation_type": "contains",
+      "value": "洞府内部"
+    },
+    {
+      "source": "折岳连环洞",
+      "target": "后园",
+      "relation_type": "contains",
+      "value": "洞府内的园子"
+    },
+    {
+      "source": "折岳连环洞",
+      "target": "剥皮亭",
+      "relation_type": "contains",
+      "value": "洞府内的建筑"
+    },
+    {
+      "source": "后园",
+      "target": "中堂",
+      "relation_type": "adjacent",
+      "value": "园子在中堂旁边"
+    },
+    {
+      "source": "茅舍",
+      "target": "隐雾山",
+      "relation_type": "direction",
+      "value": "茅舍在山的西南方向"
+    },
+    {
+      "source": "天竺国",
+      "target": "茅舍",
+      "relation_type": "direction",
+      "value": "天竺国在西方不满千里"
+    }
+  ],
+  "_chapter": 86,
+  "_input_tokens": 9241,
+  "_output_tokens": 1681
+}

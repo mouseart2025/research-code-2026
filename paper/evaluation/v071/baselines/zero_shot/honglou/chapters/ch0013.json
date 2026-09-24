@@ -1,0 +1,302 @@
+{
+  "characters": [
+    {
+      "name": "凤姐",
+      "description": "贾琏之妻，精明能干，善于管理事务，被称为脂粉队里的英雄"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的贴身丫鬟"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐的丈夫，送黛玉往扬州去了"
+    },
+    {
+      "name": "林黛玉",
+      "description": "被贾琏送往扬州"
+    },
+    {
+      "name": "秦氏",
+      "description": "贾蓉之妻，宁国府蓉大奶奶，已去世"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，与秦氏关系密切"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老祖宗"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻，患有胃疼旧疾"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁国府当家人，秦氏的公公"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子，秦氏的丈夫"
+    },
+    {
+      "name": "秦业",
+      "description": "秦氏的父亲"
+    },
+    {
+      "name": "秦钟",
+      "description": "秦氏的弟弟"
+    },
+    {
+      "name": "贾敬",
+      "description": "贾珍的父亲，在外修道"
+    },
+    {
+      "name": "薛蟠",
+      "description": "薛家公子，经营木店"
+    },
+    {
+      "name": "贾政",
+      "description": "贾家二老爷"
+    },
+    {
+      "name": "王夫人",
+      "description": "贾政之妻"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾赦之妻"
+    },
+    {
+      "name": "戴权",
+      "description": "大明宫掌宫内相"
+    },
+    {
+      "name": "瑞珠",
+      "description": "秦氏的丫鬟，主人死后触柱而亡"
+    },
+    {
+      "name": "宝珠",
+      "description": "秦氏的小丫鬟，愿为义女，负责摔丧驾灵"
+    }
+  ],
+  "locations": [
+    {
+      "name": "宁国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "扬州",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "停灵之室",
+      "type": "房间",
+      "parent": "宁国府"
+    },
+    {
+      "name": "会芳园",
+      "type": "园林",
+      "parent": "宁国府"
+    },
+    {
+      "name": "登仙阁",
+      "type": "建筑",
+      "parent": "会芳园"
+    },
+    {
+      "name": "大厅",
+      "type": "房间",
+      "parent": "宁国府"
+    },
+    {
+      "name": "天香楼",
+      "type": "建筑",
+      "parent": "宁国府"
+    },
+    {
+      "name": "逗蜂轩",
+      "type": "建筑",
+      "parent": "宁国府"
+    },
+    {
+      "name": "上房",
+      "type": "房间",
+      "parent": "宁国府"
+    },
+    {
+      "name": "书房",
+      "type": "房间",
+      "parent": "宁国府"
+    },
+    {
+      "name": "三间一所抱厦",
+      "type": "房间",
+      "parent": "宁国府"
+    },
+    {
+      "name": "祖茔",
+      "type": "墓地",
+      "parent": null
+    },
+    {
+      "name": "家塾",
+      "type": "学校",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "凤姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "秦氏",
+      "person_b": "贾蓉",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "秦氏",
+      "person_b": "贾珍",
+      "relation_type": "婆媳"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾敬",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "秦氏",
+      "person_b": "秦业",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "秦氏",
+      "person_b": "秦钟",
+      "relation_type": "姐弟"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "贾政",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "瑞珠",
+      "person_b": "秦氏",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝珠",
+      "person_b": "秦氏",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "秦氏",
+      "relation_type": "婶嫂"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "宁国府",
+      "target": "停灵之室",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "宁国府",
+      "target": "会芳园",
+      "relation_type": "contains",
+      "value": "内部园林"
+    },
+    {
+      "source": "会芳园",
+      "target": "登仙阁",
+      "relation_type": "contains",
+      "value": "园内建筑"
+    },
+    {
+      "source": "宁国府",
+      "target": "大厅",
+      "relation_type": "contains",
+      "value": "内部大厅"
+    },
+    {
+      "source": "宁国府",
+      "target": "天香楼",
+      "relation_type": "contains",
+      "value": "内部建筑"
+    },
+    {
+      "source": "宁国府",
+      "target": "逗蜂轩",
+      "relation_type": "contains",
+      "value": "内部建筑"
+    },
+    {
+      "source": "宁国府",
+      "target": "上房",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "宁国府",
+      "target": "书房",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "宁国府",
+      "target": "三间一所抱厦",
+      "relation_type": "contains",
+      "value": "内部房间"
+    },
+    {
+      "source": "会芳园",
+      "target": "临街大门",
+      "relation_type": "contains",
+      "value": "园林出入口"
+    }
+  ],
+  "_chapter": 13,
+  "_input_tokens": 6648,
+  "_output_tokens": 1949
+}

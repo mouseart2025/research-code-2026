@@ -1,0 +1,273 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾家公子，正在读书上学，性格贪玩但聪明"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老太太，宝玉的祖母"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，严格要求宝玉读书"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，宝玉的表妹，体弱多病，聪慧敏感"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉的贴身丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的贴身丫鬟，温柔体贴"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中的丫鬟"
+    },
+    {
+      "name": "代儒",
+      "description": "宝玉的老师"
+    },
+    {
+      "name": "雪雁",
+      "description": "黛玉的丫鬟"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛宝钗，宝玉的表姐"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝钗的母亲"
+    },
+    {
+      "name": "凤姐",
+      "description": "王熙凤，贾府管家奶奶"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾府大太太"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的贴身丫鬟"
+    },
+    {
+      "name": "探春",
+      "description": "贾探春，三姑娘"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，宝玉的表妹"
+    },
+    {
+      "name": "惜春",
+      "description": "贾惜春，四姑娘，善画"
+    },
+    {
+      "name": "翠缕",
+      "description": "湘云的丫鬟"
+    },
+    {
+      "name": "翠墨",
+      "description": "湘云的丫鬟"
+    },
+    {
+      "name": "雨村",
+      "description": "贾雨村，黛玉的老师"
+    },
+    {
+      "name": "晴雯",
+      "description": "已故的宝玉房中丫鬟"
+    },
+    {
+      "name": "司棋",
+      "description": "已故的丫鬟"
+    },
+    {
+      "name": "尤二姐",
+      "description": "已故人物"
+    },
+    {
+      "name": "香菱",
+      "description": "薛家的妾"
+    },
+    {
+      "name": "琴姑娘",
+      "description": "薛家人物"
+    }
+  ],
+  "locations": [
+    {
+      "name": "贾母房间",
+      "type": "居所",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾政房间",
+      "type": "居所",
+      "parent": "贾府"
+    },
+    {
+      "name": "王夫人房间",
+      "type": "居所",
+      "parent": "贾府"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "学堂",
+      "type": "教学场所",
+      "parent": "贾府"
+    },
+    {
+      "name": "薛姨妈处",
+      "type": "居所",
+      "parent": "贾府"
+    },
+    {
+      "name": "惜春房间",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "宅院",
+      "parent": ""
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "黛玉",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "代儒",
+      "relation_type": "师生"
+    },
+    {
+      "person_a": "黛玉",
+      "person_b": "雨村",
+      "relation_type": "师生"
+    },
+    {
+      "person_a": "宝钗",
+      "person_b": "薛姨妈",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "鸳鸯",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "湘云",
+      "person_b": "翠缕",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "湘云",
+      "person_b": "翠墨",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园林位于宅院内"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "黛玉居所在园中"
+    },
+    {
+      "source": "怡红院",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "宝玉居所在园中"
+    },
+    {
+      "source": "惜春房间",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "惜春居所在园中"
+    },
+    {
+      "source": "学堂",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "教学场所在府中"
+    },
+    {
+      "source": "贾母房间",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "老太太居所"
+    },
+    {
+      "source": "薛姨妈处",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "客居处所"
+    }
+  ],
+  "_chapter": 83,
+  "_input_tokens": 10534,
+  "_output_tokens": 1755
+}

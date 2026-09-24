@@ -1,0 +1,254 @@
+{
+  "characters": [
+    {
+      "name": "唐三藏",
+      "description": "东土大唐取经僧人，师父"
+    },
+    {
+      "name": "孙悟空",
+      "description": "大徒弟，又称行者、大圣，会七十二变，使用金箍棒"
+    },
+    {
+      "name": "猪八戒",
+      "description": "二徒弟，又称悟能，使用钉钯"
+    },
+    {
+      "name": "沙和尚",
+      "description": "三徒弟，又称悟净，挑担"
+    },
+    {
+      "name": "强盗头领",
+      "description": "拦路抢劫的贼首，青脸獠牙，后被孙悟空打死"
+    },
+    {
+      "name": "杨老者",
+      "description": "七十四岁老人，庄院主人，有一个不肖儿子"
+    },
+    {
+      "name": "杨婆婆",
+      "description": "杨老者的妻子，贤慧"
+    },
+    {
+      "name": "杨老儿子",
+      "description": "杨老者的儿子，专门打家截道杀人放火的强盗，后被孙悟空杀死"
+    },
+    {
+      "name": "小孩",
+      "description": "杨老者的孙子，五六岁"
+    },
+    {
+      "name": "唐太宗",
+      "description": "东土大唐皇帝，派遣唐三藏西天取经"
+    }
+  ],
+  "locations": [
+    {
+      "name": "西方极乐城",
+      "type": "佛教圣地",
+      "parent": "西方"
+    },
+    {
+      "name": "琵琶洞",
+      "type": "妖怪洞穴",
+      "parent": null
+    },
+    {
+      "name": "高山",
+      "type": "山岭",
+      "parent": null
+    },
+    {
+      "name": "山崖",
+      "type": "山地形",
+      "parent": "高山"
+    },
+    {
+      "name": "山头",
+      "type": "山地形",
+      "parent": "高山"
+    },
+    {
+      "name": "西坡",
+      "type": "山地形",
+      "parent": "高山"
+    },
+    {
+      "name": "平阳之地",
+      "type": "平原",
+      "parent": null
+    },
+    {
+      "name": "森罗殿",
+      "type": "地府场所",
+      "parent": null
+    },
+    {
+      "name": "庄院",
+      "type": "居住建筑",
+      "parent": null
+    },
+    {
+      "name": "草堂",
+      "type": "房屋",
+      "parent": "庄院"
+    },
+    {
+      "name": "后园",
+      "type": "园林",
+      "parent": "庄院"
+    },
+    {
+      "name": "草团瓢",
+      "type": "住宿场所",
+      "parent": "后园"
+    },
+    {
+      "name": "厨房",
+      "type": "房间",
+      "parent": "庄院"
+    },
+    {
+      "name": "后门",
+      "type": "建筑出入口",
+      "parent": "庄院"
+    },
+    {
+      "name": "东土",
+      "type": "地域",
+      "parent": null
+    },
+    {
+      "name": "长安",
+      "type": "城市",
+      "parent": "东土"
+    },
+    {
+      "name": "西天",
+      "type": "佛教圣地",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "唐三藏",
+      "person_b": "孙悟空",
+      "relation_type": "师父-徒弟"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "猪八戒",
+      "relation_type": "师父-徒弟"
+    },
+    {
+      "person_a": "唐三藏",
+      "person_b": "沙和尚",
+      "relation_type": "师父-徒弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙和尚",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "杨老者",
+      "person_b": "杨婆婆",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "杨老者",
+      "person_b": "杨老儿子",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "杨老者",
+      "person_b": "小孩",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "唐太宗",
+      "person_b": "唐三藏",
+      "relation_type": "君臣"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "高山",
+      "target": "山崖",
+      "relation_type": "contains",
+      "value": "山崖在高山上"
+    },
+    {
+      "source": "高山",
+      "target": "山头",
+      "relation_type": "contains",
+      "value": "山头在高山顶部"
+    },
+    {
+      "source": "高山",
+      "target": "西坡",
+      "relation_type": "contains",
+      "value": "西坡在高山西侧"
+    },
+    {
+      "source": "西坡",
+      "target": "平阳之地",
+      "relation_type": "direction",
+      "value": "西坡下面是平阳之地"
+    },
+    {
+      "source": "庄院",
+      "target": "草堂",
+      "relation_type": "contains",
+      "value": "草堂在庄院内"
+    },
+    {
+      "source": "庄院",
+      "target": "后园",
+      "relation_type": "contains",
+      "value": "后园在庄院后面"
+    },
+    {
+      "source": "庄院",
+      "target": "厨房",
+      "relation_type": "contains",
+      "value": "厨房在庄院内"
+    },
+    {
+      "source": "庄院",
+      "target": "后门",
+      "relation_type": "contains",
+      "value": "后门是庄院出入口"
+    },
+    {
+      "source": "后园",
+      "target": "草团瓢",
+      "relation_type": "contains",
+      "value": "草团瓢在后园中"
+    },
+    {
+      "source": "东土",
+      "target": "长安",
+      "relation_type": "contains",
+      "value": "长安在东土境内"
+    },
+    {
+      "source": "平阳之地",
+      "target": "庄院",
+      "relation_type": "direction",
+      "value": "庄院在平阳之地路北"
+    }
+  ],
+  "_chapter": 56,
+  "_input_tokens": 8966,
+  "_output_tokens": 1670
+}

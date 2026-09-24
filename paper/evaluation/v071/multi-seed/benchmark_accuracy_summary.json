@@ -1,0 +1,54 @@
+{
+ "honglou": {
+  "1.0": {
+   "entity_precision": 1.0,
+   "name_accuracy": 1.0,
+   "tier_accuracy": 0.986,
+   "parent_precision": 0.996,
+   "structural_health": 0.999,
+   "overall": 0.982
+  },
+  "0.0": {
+   "entity_precision": 0.999,
+   "name_accuracy": 1.0,
+   "tier_accuracy": 0.982,
+   "parent_precision": 0.996,
+   "structural_health": 1.0,
+   "overall": 0.979
+  },
+  "0.7": {
+   "entity_precision": 0.998,
+   "name_accuracy": 1.0,
+   "tier_accuracy": 0.986,
+   "parent_precision": 0.995,
+   "structural_health": 1.0,
+   "overall": 0.98
+  }
+ },
+ "xiyouji": {
+  "0.0": {
+   "entity_precision": 0.9983402489626556,
+   "name_accuracy": 0.9991701244813278,
+   "tier_accuracy": 0.9933609958506224,
+   "parent_precision": 0.9975103734439834,
+   "structural_health": 0.9966804979253112,
+   "overall": 0.9883817427385893
+  },
+  "0.7": {
+   "entity_precision": 0.9991701244813278,
+   "name_accuracy": 0.9991701244813278,
+   "tier_accuracy": 0.9892116182572614,
+   "parent_precision": 0.9983402489626556,
+   "structural_health": 0.9983402489626556,
+   "overall": 0.9858921161825727
+  },
+  "1.0": {
+   "entity_precision": 1.0,
+   "name_accuracy": 0.9991701244813278,
+   "tier_accuracy": 0.9925311203319502,
+   "parent_precision": 0.9983402489626556,
+   "structural_health": 0.9966804979253112,
+   "overall": 0.9892116182572614
+  }
+ }
+}

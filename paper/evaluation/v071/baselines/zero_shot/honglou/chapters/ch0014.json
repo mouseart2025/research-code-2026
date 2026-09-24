@@ -1,0 +1,402 @@
+{
+  "characters": [
+    {
+      "name": "来升",
+      "description": "宁国府都总管"
+    },
+    {
+      "name": "凤姐",
+      "description": "荣国府琏二奶奶，被请来管理宁国府内事，为人精明严厉"
+    },
+    {
+      "name": "来旺媳妇",
+      "description": "宁国府管事媳妇"
+    },
+    {
+      "name": "彩明",
+      "description": "凤姐身边的丫鬟"
+    },
+    {
+      "name": "来升媳妇",
+      "description": "来升的妻子"
+    },
+    {
+      "name": "丰儿",
+      "description": "凤姐身边的丫鬟"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁国府主人，过于悲哀"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍妻子，犯病卧床"
+    },
+    {
+      "name": "王兴媳妇",
+      "description": "荣国府管事媳妇"
+    },
+    {
+      "name": "张材家的",
+      "description": "宁国府工匠家属"
+    },
+    {
+      "name": "宝玉",
+      "description": "荣国府公子"
+    },
+    {
+      "name": "秦钟",
+      "description": "宝玉的朋友"
+    },
+    {
+      "name": "昭儿",
+      "description": "贾琏身边的小厮"
+    },
+    {
+      "name": "贾琏",
+      "description": "荣国府琏二爷，凤姐丈夫"
+    },
+    {
+      "name": "林姑娘",
+      "description": "林黛玉"
+    },
+    {
+      "name": "林姑老爷",
+      "description": "林黛玉父亲，已故"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐身边的丫鬟"
+    },
+    {
+      "name": "色空",
+      "description": "铁槛寺住持"
+    },
+    {
+      "name": "王夫人",
+      "description": "荣国府夫人"
+    },
+    {
+      "name": "王仁",
+      "description": "王夫人胞兄"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府小姐，染病"
+    },
+    {
+      "name": "宝珠",
+      "description": "秦可卿丫鬟，摔丧驾灵"
+    },
+    {
+      "name": "牛继宗",
+      "description": "镇国公牛清之孙，现袭一等伯"
+    },
+    {
+      "name": "柳芳",
+      "description": "理国公柳彪之孙，现袭一等子"
+    },
+    {
+      "name": "陈瑞文",
+      "description": "齐国公陈翼之孙，世袭三品威镇将军"
+    },
+    {
+      "name": "马尚",
+      "description": "治国公马魁之孙，世袭三品威远将军"
+    },
+    {
+      "name": "侯孝康",
+      "description": "修国公侯晓明之孙，世袭一等子"
+    },
+    {
+      "name": "石光珠",
+      "description": "缮国公之孙，因守孝未来"
+    },
+    {
+      "name": "史鼎",
+      "description": "忠靖侯"
+    },
+    {
+      "name": "蒋子宁",
+      "description": "平原侯之孙，世袭二等男"
+    },
+    {
+      "name": "谢鲸",
+      "description": "定城侯之孙，世袭二等男兼京营游击"
+    },
+    {
+      "name": "戚建辉",
+      "description": "襄阳侯之孙，世袭二等男"
+    },
+    {
+      "name": "裘良",
+      "description": "景田侯之孙，五城兵马司"
+    },
+    {
+      "name": "韩奇",
+      "description": "锦乡伯公子"
+    },
+    {
+      "name": "冯紫英",
+      "description": "神武将军公子"
+    },
+    {
+      "name": "陈也俊",
+      "description": "王孙公子"
+    },
+    {
+      "name": "卫若兰",
+      "description": "王孙公子"
+    },
+    {
+      "name": "水溶",
+      "description": "北静王，年未弱冠，形容秀美，情性谦和"
+    },
+    {
+      "name": "贾赦",
+      "description": "荣国府老爷"
+    },
+    {
+      "name": "贾政",
+      "description": "荣国府老爷，宝玉父亲"
+    }
+  ],
+  "locations": [
+    {
+      "name": "宁国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "荣国府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "仪门",
+      "type": "门",
+      "parent": "宁国府"
+    },
+    {
+      "name": "会芳园",
+      "type": "园林",
+      "parent": "宁国府"
+    },
+    {
+      "name": "登仙阁",
+      "type": "建筑",
+      "parent": "会芳园"
+    },
+    {
+      "name": "抱厦",
+      "type": "建筑",
+      "parent": "宁国府"
+    },
+    {
+      "name": "内茶房",
+      "type": "房间",
+      "parent": "宁国府"
+    },
+    {
+      "name": "灵前",
+      "type": "场所",
+      "parent": "登仙阁"
+    },
+    {
+      "name": "外书房",
+      "type": "房间",
+      "parent": "荣国府"
+    },
+    {
+      "name": "苏州",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "铁槛寺",
+      "type": "寺庙",
+      "parent": null
+    },
+    {
+      "name": "净室",
+      "type": "房间",
+      "parent": "铁槛寺"
+    },
+    {
+      "name": "西安",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "东平王府",
+      "type": "王府",
+      "parent": null
+    },
+    {
+      "name": "南安郡王府",
+      "type": "王府",
+      "parent": null
+    },
+    {
+      "name": "西宁郡王府",
+      "type": "王府",
+      "parent": null
+    },
+    {
+      "name": "北静郡王府",
+      "type": "王府",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "凤姐",
+      "person_b": "贾琏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "来升",
+      "person_b": "来升媳妇",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "来旺",
+      "person_b": "来旺媳妇",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "尤氏",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "彩明",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "丰儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "平儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "秦钟",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "昭儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "王夫人",
+      "person_b": "王仁",
+      "relation_type": "姐弟"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "林姑娘",
+      "person_b": "林姑老爷",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "牛继宗",
+      "person_b": "牛清",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "柳芳",
+      "person_b": "柳彪",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "陈瑞文",
+      "person_b": "陈翼",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "马尚",
+      "person_b": "马魁",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "侯孝康",
+      "person_b": "侯晓明",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "石光珠",
+      "person_b": "缮国公",
+      "relation_type": "祖孙"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "宁国府",
+      "target": "会芳园",
+      "relation_type": "contains",
+      "value": "园林位于府内"
+    },
+    {
+      "source": "会芳园",
+      "target": "登仙阁",
+      "relation_type": "contains",
+      "value": "阁楼位于园中"
+    },
+    {
+      "source": "登仙阁",
+      "target": "灵前",
+      "relation_type": "contains",
+      "value": "灵前设于阁内"
+    },
+    {
+      "source": "宁国府",
+      "target": "抱厦",
+      "relation_type": "contains",
+      "value": "抱厦位于府内"
+    },
+    {
+      "source": "宁国府",
+      "target": "仪门",
+      "relation_type": "contains",
+      "value": "仪门为府内门户"
+    },
+    {
+      "source": "宁国府",
+      "target": "内茶房",
+      "relation_type": "contains",
+      "value": "茶房位于府内"
+    },
+    {
+      "source": "荣国府",
+      "target": "外书房",
+      "relation_type": "contains",
+      "value": "书房位于府内"
+    },
+    {
+      "source": "铁槛寺",
+      "target": "净室",
+      "relation_type": "contains",
+      "value": "净室位于寺内"
+    },
+    {
+      "source": "荣国府",
+      "target": "宁国府",
+      "relation_type": "adjacent",
+      "value": "两府相邻，称为西府和宁府"
+    }
+  ],
+  "_chapter": 14,
+  "_input_tokens": 7125,
+  "_output_tokens": 2615
+}

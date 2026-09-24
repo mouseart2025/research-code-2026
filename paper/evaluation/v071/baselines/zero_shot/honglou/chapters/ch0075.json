@@ -1,0 +1,348 @@
+{
+  "characters": [
+    {
+      "name": "平儿",
+      "description": "凤姐的陪房丫头，处事谨慎"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府二姑娘"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾府公子，住怡红院"
+    },
+    {
+      "name": "柳家媳妇",
+      "description": "管厨房的，因妹子赌博受牵连"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中丫头，生得标致，性格轻狂"
+    },
+    {
+      "name": "金星",
+      "description": "怡红院丫头"
+    },
+    {
+      "name": "玻璃",
+      "description": "怡红院丫头"
+    },
+    {
+      "name": "王住儿媳妇",
+      "description": "偷了累丝金凤的仆妇"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾琏之妻，管家奶奶"
+    },
+    {
+      "name": "贾琏",
+      "description": "凤姐丈夫"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母身边大丫头"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉之母，贾政之妻"
+    },
+    {
+      "name": "傻大姐",
+      "description": "贾母身边丫头"
+    },
+    {
+      "name": "旺儿媳妇",
+      "description": "贾府仆妇"
+    },
+    {
+      "name": "周瑞家的",
+      "description": "王夫人陪房"
+    },
+    {
+      "name": "吴兴家的",
+      "description": "王夫人陪房"
+    },
+    {
+      "name": "郑华家的",
+      "description": "王夫人陪房"
+    },
+    {
+      "name": "来旺家的",
+      "description": "王夫人陪房"
+    },
+    {
+      "name": "来喜家的",
+      "description": "王夫人陪房"
+    },
+    {
+      "name": "王善保家的",
+      "description": "邢夫人陪房，常生事端"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房中首席丫头"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中丫头"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中丫头"
+    },
+    {
+      "name": "宝钗",
+      "description": "薛家姑娘，住蘅芜苑"
+    },
+    {
+      "name": "黛玉",
+      "description": "林家姑娘，住潇湘馆"
+    },
+    {
+      "name": "紫鹃",
+      "description": "黛玉房中丫头"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三姑娘，性格刚烈"
+    },
+    {
+      "name": "待书",
+      "description": "探春房中丫头"
+    },
+    {
+      "name": "李纨",
+      "description": "珠大奶奶，住稻香村"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四姑娘，性格孤僻"
+    },
+    {
+      "name": "入画",
+      "description": "惜春房中丫头"
+    },
+    {
+      "name": "司棋",
+      "description": "迎春房中丫头，王善保家的外孙女"
+    },
+    {
+      "name": "潘又安",
+      "description": "司棋表弟"
+    },
+    {
+      "name": "张妈",
+      "description": "后门上的仆妇"
+    },
+    {
+      "name": "尤氏",
+      "description": "贾珍之妻，宁府当家奶奶"
+    }
+  ],
+  "locations": [
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "怡红院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "潇湘馆",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "暖香坞",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "稻香村",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "蘅芜苑",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "探春院",
+      "type": "院落",
+      "parent": "大观园"
+    },
+    {
+      "name": "惜春房",
+      "type": "房间",
+      "parent": "大观园"
+    },
+    {
+      "name": "迎春房",
+      "type": "房间",
+      "parent": "大观园"
+    },
+    {
+      "name": "凤姐房",
+      "type": "房间",
+      "parent": "贾府"
+    },
+    {
+      "name": "厨房",
+      "type": "功能区",
+      "parent": "贾府"
+    },
+    {
+      "name": "园门",
+      "type": "出入口",
+      "parent": "大观园"
+    },
+    {
+      "name": "角门",
+      "type": "出入口",
+      "parent": "大观园"
+    },
+    {
+      "name": "后门",
+      "type": "出入口",
+      "parent": "贾府"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子关系"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "凤姐",
+      "relation_type": "夫妻关系"
+    },
+    {
+      "person_a": "晴雯",
+      "person_b": "宝玉",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "王善保家的",
+      "person_b": "邢夫人",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "王善保家的",
+      "person_b": "司棋",
+      "relation_type": "祖孙关系"
+    },
+    {
+      "person_a": "司棋",
+      "person_b": "潘又安",
+      "relation_type": "表兄妹关系"
+    },
+    {
+      "person_a": "紫鹃",
+      "person_b": "黛玉",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "待书",
+      "person_b": "探春",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "入画",
+      "person_b": "惜春",
+      "relation_type": "主仆关系"
+    },
+    {
+      "person_a": "尤氏",
+      "person_b": "贾珍",
+      "relation_type": "夫妻关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "园林位于府内"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "院落在园中"
+    },
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "院落在园中"
+    },
+    {
+      "source": "大观园",
+      "target": "暖香坞",
+      "relation_type": "contains",
+      "value": "院落在园中"
+    },
+    {
+      "source": "暖香坞",
+      "target": "探春院",
+      "relation_type": "adjacent",
+      "value": "对过"
+    },
+    {
+      "source": "李纨住处",
+      "target": "惜春房",
+      "relation_type": "adjacent",
+      "value": "紧邻"
+    },
+    {
+      "source": "李纨住处",
+      "target": "探春院",
+      "relation_type": "adjacent",
+      "value": "相近"
+    },
+    {
+      "source": "园门",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "出入口"
+    },
+    {
+      "source": "角门",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "内部门户"
+    },
+    {
+      "source": "后门",
+      "target": "贾府",
+      "relation_type": "contains",
+      "value": "府邸出入口"
+    }
+  ],
+  "_chapter": 75,
+  "_input_tokens": 13221,
+  "_output_tokens": 2195
+}

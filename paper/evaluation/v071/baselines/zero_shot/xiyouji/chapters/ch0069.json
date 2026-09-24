@@ -1,0 +1,253 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣",
+      "description": "会诊脉医病，会制药，有神通法术的猴精"
+    },
+    {
+      "name": "国王",
+      "description": "朱紫国国王，患双鸟失群症三年，因金圣宫被妖怪掳走而忧思成疾"
+    },
+    {
+      "name": "唐僧",
+      "description": "取经僧人，孙大圣的师父，不饮酒戒律严格"
+    },
+    {
+      "name": "猪八戒",
+      "description": "孙大圣的师弟，贪吃好酒，协助制药"
+    },
+    {
+      "name": "沙僧",
+      "description": "孙大圣的师弟，懂药理，协助制药"
+    },
+    {
+      "name": "金圣宫",
+      "description": "国王的正宫娘娘，三年前被妖精赛太岁掳走"
+    },
+    {
+      "name": "玉圣宫",
+      "description": "国王的东宫娘娘，现仍在宫中"
+    },
+    {
+      "name": "银圣宫",
+      "description": "国王的西宫娘娘，现仍在宫中"
+    },
+    {
+      "name": "赛太岁",
+      "description": "妖精，居住在麒麟山獬豸洞，掳走了金圣宫"
+    },
+    {
+      "name": "东海龙王敖广",
+      "description": "龙王，应孙大圣召唤降甘露助其制药"
+    },
+    {
+      "name": "白龙马",
+      "description": "西海龙身，因犯天条被贬为马驮唐僧取经"
+    },
+    {
+      "name": "宦官",
+      "description": "皇宫内侍"
+    },
+    {
+      "name": "太医官",
+      "description": "朱紫国太医院官员"
+    },
+    {
+      "name": "馆使",
+      "description": "会同馆的管理人员"
+    },
+    {
+      "name": "阁老",
+      "description": "朝廷重臣，陪侍国王"
+    }
+  ],
+  "locations": [
+    {
+      "name": "朱紫国",
+      "type": "国家",
+      "parent": null
+    },
+    {
+      "name": "皇宫",
+      "type": "宫殿",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "寝宫",
+      "type": "寝室",
+      "parent": "皇宫"
+    },
+    {
+      "name": "文华殿",
+      "type": "殿堂",
+      "parent": "皇宫"
+    },
+    {
+      "name": "会同馆",
+      "type": "客栈",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "太医院",
+      "type": "医疗机构",
+      "parent": "朱紫国"
+    },
+    {
+      "name": "御花园",
+      "type": "花园",
+      "parent": "皇宫"
+    },
+    {
+      "name": "海榴亭",
+      "type": "亭子",
+      "parent": "御花园"
+    },
+    {
+      "name": "避妖楼",
+      "type": "地下建筑",
+      "parent": "御花园"
+    },
+    {
+      "name": "东阁",
+      "type": "殿堂",
+      "parent": "皇宫"
+    },
+    {
+      "name": "麒麟山",
+      "type": "山脉",
+      "parent": null
+    },
+    {
+      "name": "獬豸洞",
+      "type": "洞穴",
+      "parent": "麒麟山"
+    },
+    {
+      "name": "西海",
+      "type": "海域",
+      "parent": null
+    },
+    {
+      "name": "东海",
+      "type": "海域",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙大圣",
+      "person_b": "唐僧",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "金圣宫",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "玉圣宫",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "国王",
+      "person_b": "银圣宫",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "赛太岁",
+      "person_b": "金圣宫",
+      "relation_type": "掳掠者"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "东海龙王敖广",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "唐僧",
+      "person_b": "白龙马",
+      "relation_type": "师徒"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "皇宫",
+      "target": "朱紫国",
+      "relation_type": "contains",
+      "value": "位于国都中心"
+    },
+    {
+      "source": "寝宫",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "宫殿内院"
+    },
+    {
+      "source": "文华殿",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "重要殿堂"
+    },
+    {
+      "source": "御花园",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "位于皇宫后部"
+    },
+    {
+      "source": "海榴亭",
+      "target": "御花园",
+      "relation_type": "contains",
+      "value": "园中亭台"
+    },
+    {
+      "source": "避妖楼",
+      "target": "御花园",
+      "relation_type": "contains",
+      "value": "地下三丈深处"
+    },
+    {
+      "source": "东阁",
+      "target": "皇宫",
+      "relation_type": "contains",
+      "value": "宴会场所"
+    },
+    {
+      "source": "会同馆",
+      "target": "朱紫国",
+      "relation_type": "contains",
+      "value": "城中客栈"
+    },
+    {
+      "source": "獬豸洞",
+      "target": "麒麟山",
+      "relation_type": "contains",
+      "value": "山中洞穴"
+    },
+    {
+      "source": "太医院",
+      "target": "朱紫国",
+      "relation_type": "contains",
+      "value": "宫廷医疗机构"
+    }
+  ],
+  "_chapter": 69,
+  "_input_tokens": 8599,
+  "_output_tokens": 1734
+}

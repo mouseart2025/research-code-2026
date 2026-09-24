@@ -1,0 +1,251 @@
+{
+  "characters": [
+    {
+      "name": "秦钟",
+      "description": "已死的人物，宝玉的朋友"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾家公子，善于对对联，有文才但不喜读书"
+    },
+    {
+      "name": "李贵",
+      "description": "宝玉的随从"
+    },
+    {
+      "name": "贾母",
+      "description": "贾家老太太，疼爱宝玉"
+    },
+    {
+      "name": "贾珍",
+      "description": "贾家族人，负责园内工程事务"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，严厉，喜欢文学"
+    },
+    {
+      "name": "贵妃",
+      "description": "皇室成员，园子是为其省亲而建"
+    },
+    {
+      "name": "雨村",
+      "description": "文人，可代拟匾额对联"
+    },
+    {
+      "name": "贾琏",
+      "description": "贾家族人，负责园内陈设事务"
+    },
+    {
+      "name": "众清客",
+      "description": "贾政的客人们，陪同游园"
+    }
+  ],
+  "locations": [
+    {
+      "name": "园",
+      "type": "园林",
+      "parent": null
+    },
+    {
+      "name": "园门",
+      "type": "门",
+      "parent": "园"
+    },
+    {
+      "name": "翠嶂",
+      "type": "山",
+      "parent": "园"
+    },
+    {
+      "name": "石洞",
+      "type": "洞穴",
+      "parent": "园"
+    },
+    {
+      "name": "亭子",
+      "type": "建筑",
+      "parent": "园"
+    },
+    {
+      "name": "沁芳亭",
+      "type": "亭子",
+      "parent": "园"
+    },
+    {
+      "name": "竹舍",
+      "type": "房屋",
+      "parent": "园"
+    },
+    {
+      "name": "杏花村",
+      "type": "村庄",
+      "parent": "园"
+    },
+    {
+      "name": "茆堂",
+      "type": "房屋",
+      "parent": "杏花村"
+    },
+    {
+      "name": "蔷薇院",
+      "type": "院落",
+      "parent": "园"
+    },
+    {
+      "name": "芭蕉坞",
+      "type": "院落",
+      "parent": "园"
+    },
+    {
+      "name": "武陵源",
+      "type": "水景",
+      "parent": "园"
+    },
+    {
+      "name": "正殿",
+      "type": "宫殿",
+      "parent": "园"
+    },
+    {
+      "name": "玉石牌坊",
+      "type": "牌坊",
+      "parent": "园"
+    },
+    {
+      "name": "沁芳闸",
+      "type": "水闸",
+      "parent": "园"
+    },
+    {
+      "name": "女儿棠院",
+      "type": "院落",
+      "parent": "园"
+    },
+    {
+      "name": "书房",
+      "type": "房屋",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "秦钟",
+      "relation_type": "朋友"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "李贵",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾政",
+      "relation_type": "族人"
+    },
+    {
+      "person_a": "贾琏",
+      "person_b": "贾政",
+      "relation_type": "族人"
+    },
+    {
+      "person_a": "众清客",
+      "person_b": "贾政",
+      "relation_type": "客人"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "园",
+      "target": "园门",
+      "relation_type": "contains",
+      "value": "园内有正门五间"
+    },
+    {
+      "source": "园",
+      "target": "翠嶂",
+      "relation_type": "contains",
+      "value": "进门迎面一带翠嶂"
+    },
+    {
+      "source": "翠嶂",
+      "target": "石洞",
+      "relation_type": "contains",
+      "value": "山中有羊肠小径通向石洞"
+    },
+    {
+      "source": "石洞",
+      "target": "亭子",
+      "relation_type": "adjacent",
+      "value": "石洞进入数步可见飞楼插空，桥上有亭"
+    },
+    {
+      "source": "园",
+      "target": "竹舍",
+      "relation_type": "contains",
+      "value": "园内有千百竿翠竹遮映的修舍"
+    },
+    {
+      "source": "园",
+      "target": "杏花村",
+      "relation_type": "contains",
+      "value": "园内有黄泥筑就矮墙的村庄"
+    },
+    {
+      "source": "杏花村",
+      "target": "茆堂",
+      "relation_type": "contains",
+      "value": "村内有数楹茅屋"
+    },
+    {
+      "source": "园",
+      "target": "武陵源",
+      "relation_type": "contains",
+      "value": "园内有水声潺湲的石洞水景"
+    },
+    {
+      "source": "园",
+      "target": "正殿",
+      "relation_type": "contains",
+      "value": "园内有崇阁巍峨的正殿"
+    },
+    {
+      "source": "正殿",
+      "target": "玉石牌坊",
+      "relation_type": "contains",
+      "value": "正殿前有玉石牌坊"
+    },
+    {
+      "source": "园",
+      "target": "沁芳闸",
+      "relation_type": "contains",
+      "value": "园内有通外河之闸"
+    },
+    {
+      "source": "沁芳闸",
+      "target": "武陵源",
+      "relation_type": "direction",
+      "value": "沁芳泉从闸引入流向各处"
+    },
+    {
+      "source": "园",
+      "target": "女儿棠院",
+      "relation_type": "contains",
+      "value": "园内有种植海棠芭蕉的院落"
+    }
+  ],
+  "_chapter": 17,
+  "_input_tokens": 9644,
+  "_output_tokens": 1595
+}

@@ -1,0 +1,188 @@
+{
+  "characters": [
+    {
+      "name": "孙大圣/行者/孙行者",
+      "description": "齐天大圣，会变化的神通广大的猴子，唐僧的大徒弟"
+    },
+    {
+      "name": "老魔/魔头",
+      "description": "妖怪三兄弟中的大哥，被孙悟空在肚子里制服"
+    },
+    {
+      "name": "二怪/二魔",
+      "description": "黄牙老象变人形，妖怪三兄弟中的老二，使枪"
+    },
+    {
+      "name": "三怪/三魔",
+      "description": "妖怪三兄弟中的老三，使戟，善于计谋"
+    },
+    {
+      "name": "唐僧/三藏",
+      "description": "取经的和尚，孙悟空等人的师父"
+    },
+    {
+      "name": "猪八戒/悟能/呆子",
+      "description": "唐僧的二徒弟，贪财懒惰，使钉钯"
+    },
+    {
+      "name": "沙僧/悟净",
+      "description": "唐僧的三徒弟，使降妖杖"
+    },
+    {
+      "name": "小妖/群精",
+      "description": "跟随妖怪头目的众多小妖精"
+    }
+  ],
+  "locations": [
+    {
+      "name": "洞",
+      "type": "建筑",
+      "parent": "山"
+    },
+    {
+      "name": "山",
+      "type": "地形",
+      "parent": null
+    },
+    {
+      "name": "池塘",
+      "type": "水体",
+      "parent": "洞"
+    },
+    {
+      "name": "大路",
+      "type": "道路",
+      "parent": "山"
+    },
+    {
+      "name": "城池",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "金銮殿",
+      "type": "建筑",
+      "parent": "城池"
+    },
+    {
+      "name": "山坡",
+      "type": "地形",
+      "parent": "山"
+    },
+    {
+      "name": "山东",
+      "type": "方位",
+      "parent": "山"
+    },
+    {
+      "name": "南天门",
+      "type": "天界建筑",
+      "parent": "天界"
+    },
+    {
+      "name": "灵霄殿",
+      "type": "天界建筑",
+      "parent": "天界"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "孙大圣",
+      "person_b": "唐僧",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "唐僧",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "沙僧",
+      "person_b": "唐僧",
+      "relation_type": "师徒关系"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "猪八戒",
+      "relation_type": "师兄弟关系"
+    },
+    {
+      "person_a": "孙大圣",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟关系"
+    },
+    {
+      "person_a": "猪八戒",
+      "person_b": "沙僧",
+      "relation_type": "师兄弟关系"
+    },
+    {
+      "person_a": "老魔",
+      "person_b": "二怪",
+      "relation_type": "兄弟关系"
+    },
+    {
+      "person_a": "老魔",
+      "person_b": "三怪",
+      "relation_type": "兄弟关系"
+    },
+    {
+      "person_a": "二怪",
+      "person_b": "三怪",
+      "relation_type": "兄弟关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "洞",
+      "target": "山",
+      "relation_type": "contains",
+      "value": "山中有洞"
+    },
+    {
+      "source": "洞",
+      "target": "池塘",
+      "relation_type": "contains",
+      "value": "洞后有池塘"
+    },
+    {
+      "source": "山",
+      "target": "大路",
+      "relation_type": "contains",
+      "value": "山中有大路通过"
+    },
+    {
+      "source": "城池",
+      "target": "金銮殿",
+      "relation_type": "contains",
+      "value": "城中有金銮殿"
+    },
+    {
+      "source": "山",
+      "target": "山坡",
+      "relation_type": "contains",
+      "value": "山上有山坡"
+    },
+    {
+      "source": "山",
+      "target": "城池",
+      "relation_type": "direction",
+      "value": "山西四百余里有城池"
+    },
+    {
+      "source": "山东",
+      "target": "唐僧位置",
+      "relation_type": "contains",
+      "value": "唐僧在山东方向"
+    },
+    {
+      "source": "洞门",
+      "target": "山坡",
+      "relation_type": "adjacent",
+      "value": "洞门外就是山坡"
+    }
+  ],
+  "_chapter": 76,
+  "_input_tokens": 9461,
+  "_output_tokens": 1267
+}

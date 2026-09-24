@@ -1,0 +1,66 @@
+{
+  "novel": "xiyouji",
+  "novel_id": "629fa976-6ce2-418b-b74a-f043b884bb1d",
+  "title": "西游记 (multi-seed t0.0)",
+  "timestamp": "2026-07-21T13:47:09.379864",
+  "gold_based": {
+    "novel": "xiyouji",
+    "total_nodes": 1205,
+    "correct_count": 336,
+    "suspect_count": 63,
+    "error_count": 14,
+    "entity_precision": 0.9983402489626556,
+    "name_accuracy": 0.9991701244813278,
+    "tier_accuracy": 0.9933609958506224,
+    "parent_precision": 0.9975103734439834,
+    "structural_health": 0.9966804979253112,
+    "overall": 0.9883817427385893,
+    "category_errors": {
+      "A": 2,
+      "B": 1,
+      "C": 8,
+      "D": 3,
+      "E": 4
+    },
+    "error_type_counts": {
+      "C-tier错误": 6,
+      "C-tier倒置": 1,
+      "E-投票高冲突": 1,
+      "E-疑似重复": 3,
+      "C-tier可疑": 1,
+      "D-parent错误": 3,
+      "E-幻觉父节点": 1,
+      "B-未合并别名": 1,
+      "A-概念非地名": 2
+    }
+  },
+  "rule_based": {
+    "novel": "xiyouji",
+    "total_nodes": 573,
+    "correct_count": 437,
+    "suspect_count": 0,
+    "error_count": 136,
+    "entity_precision": 0.9965095986038395,
+    "name_accuracy": 1.0,
+    "tier_accuracy": 0.8272251308900523,
+    "parent_precision": 1.0,
+    "structural_health": 0.93717277486911,
+    "overall": 0.7626527050610821,
+    "category_errors": {
+      "A": 2,
+      "B": 0,
+      "C": 99,
+      "D": 0,
+      "E": 36
+    },
+    "error_type_counts": {
+      "E-原文无此名": 25,
+      "C-tier倒置": 29,
+      "C-tier错误": 72,
+      "A-概念非地名": 2,
+      "E-消歧重复": 12,
+      "E-mc零但原文存在": 5,
+      "E-幻觉父节点": 1
+    }
+  }
+}

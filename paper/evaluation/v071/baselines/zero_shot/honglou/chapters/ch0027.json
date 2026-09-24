@@ -1,0 +1,236 @@
+{
+  "characters": [
+    {
+      "name": "林黛玉",
+      "description": "贾府千金，性格敏感多疑，常常悲泣，素习猜忌，好弄小性儿"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "贾府亲戚，性格温和理智，善于处世"
+    },
+    {
+      "name": "贾宝玉",
+      "description": "贾府公子，与林黛玉从小一处长大"
+    },
+    {
+      "name": "袭人",
+      "description": "贾宝玉房中丫鬟"
+    },
+    {
+      "name": "紫鹃",
+      "description": "林黛玉的贴身丫鬟"
+    },
+    {
+      "name": "雪雁",
+      "description": "林黛玉的丫鬟"
+    },
+    {
+      "name": "迎春",
+      "description": "贾府小姐"
+    },
+    {
+      "name": "探春",
+      "description": "贾府三小姐，性格爽朗直率"
+    },
+    {
+      "name": "惜春",
+      "description": "贾府四小姐"
+    },
+    {
+      "name": "李纨",
+      "description": "贾府大嫂"
+    },
+    {
+      "name": "王熙凤",
+      "description": "贾府二奶奶，管家能手，性格泼辣"
+    },
+    {
+      "name": "红玉",
+      "description": "原名红玉，因避讳改叫红儿，林之孝之女，宝玉房中丫鬟，十七岁"
+    },
+    {
+      "name": "坠儿",
+      "description": "贾府丫鬟"
+    },
+    {
+      "name": "晴雯",
+      "description": "贾宝玉房中丫鬟"
+    },
+    {
+      "name": "文官",
+      "description": "贾府女孩子"
+    },
+    {
+      "name": "香菱",
+      "description": "贾府丫鬟"
+    },
+    {
+      "name": "司棋",
+      "description": "贾府丫鬟"
+    },
+    {
+      "name": "林之孝",
+      "description": "贾府管事，红玉的父亲"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾府姨娘，探春的生母"
+    }
+  ],
+  "locations": [
+    {
+      "name": "院门",
+      "type": "建筑",
+      "parent": null
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": null
+    },
+    {
+      "name": "潇湘馆",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "滴翠亭",
+      "type": "亭子",
+      "parent": "大观园"
+    },
+    {
+      "name": "池",
+      "type": "水体",
+      "parent": "大观园"
+    },
+    {
+      "name": "山坡",
+      "type": "地形",
+      "parent": "大观园"
+    },
+    {
+      "name": "山洞",
+      "type": "洞穴",
+      "parent": "大观园"
+    },
+    {
+      "name": "李氏房中",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "怡红院",
+      "type": "居所",
+      "parent": "大观园"
+    },
+    {
+      "name": "花冢",
+      "type": "特殊地点",
+      "parent": "大观园"
+    },
+    {
+      "name": "石榴树",
+      "type": "植物",
+      "parent": "大观园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "林黛玉",
+      "person_b": "贾宝玉",
+      "relation_type": "兄妹情深"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "紫鹃",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "林黛玉",
+      "person_b": "雪雁",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "贾宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "贾宝玉",
+      "relation_type": "兄妹"
+    },
+    {
+      "person_a": "探春",
+      "person_b": "赵姨娘",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "红玉",
+      "person_b": "林之孝",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "红玉",
+      "person_b": "贾宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "红玉",
+      "person_b": "坠儿",
+      "relation_type": "同事"
+    },
+    {
+      "person_a": "王熙凤",
+      "person_b": "红玉",
+      "relation_type": "欣赏关系"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "潇湘馆位于大观园内"
+    },
+    {
+      "source": "大观园",
+      "target": "滴翠亭",
+      "relation_type": "contains",
+      "value": "滴翠亭位于大观园内"
+    },
+    {
+      "source": "池",
+      "target": "滴翠亭",
+      "relation_type": "contains",
+      "value": "滴翠亭建在池中水上"
+    },
+    {
+      "source": "大观园",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "怡红院位于大观园内"
+    },
+    {
+      "source": "大观园",
+      "target": "花冢",
+      "relation_type": "contains",
+      "value": "花冢位于大观园山坡那边"
+    },
+    {
+      "source": "宝钗",
+      "target": "滴翠亭",
+      "relation_type": "direction",
+      "value": "宝钗追蝴蝶到滴翠亭"
+    },
+    {
+      "source": "山坡",
+      "target": "花冢",
+      "relation_type": "adjacent",
+      "value": "花冢在山坡那边"
+    }
+  ],
+  "_chapter": 27,
+  "_input_tokens": 8018,
+  "_output_tokens": 1576
+}

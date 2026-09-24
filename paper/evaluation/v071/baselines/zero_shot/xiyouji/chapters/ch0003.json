@@ -1,0 +1,368 @@
+{
+  "characters": [
+    {
+      "name": "美猴王",
+      "description": "花果山水帘洞天生圣人，又名孙悟空，有七十二般地煞变化之功，筋斗云神通，能使如意金箍棒"
+    },
+    {
+      "name": "孙悟空",
+      "description": "即美猴王，天产石猴，该寿三百四十二岁，修成仙道，有降龙伏虎之能"
+    },
+    {
+      "name": "混世魔王",
+      "description": "被美猴王剿灭的魔王"
+    },
+    {
+      "name": "赤尻马猴",
+      "description": "四个老猴中的两个，后被封为马、流二元帅"
+    },
+    {
+      "name": "通背猿猴",
+      "description": "四个老猴中的两个，后被封为崩、芭二将军"
+    },
+    {
+      "name": "东海龙王敖广",
+      "description": "东海龙王，居于水晶宫，与孙悟空交涉兵器和披挂事宜"
+    },
+    {
+      "name": "南海龙王敖钦",
+      "description": "敖广之弟，有凤翅紫金冠"
+    },
+    {
+      "name": "北海龙王敖顺",
+      "description": "敖广之弟，有藕丝步云履"
+    },
+    {
+      "name": "西海龙王敖闰",
+      "description": "敖广之弟，有锁子黄金甲"
+    },
+    {
+      "name": "龙婆",
+      "description": "龙王宫中的龙婆，建议将神珍铁给孙悟空"
+    },
+    {
+      "name": "龙女",
+      "description": "龙王宫中的龙女"
+    },
+    {
+      "name": "巡海夜叉",
+      "description": "在东海中巡逻的夜叉"
+    },
+    {
+      "name": "牛魔王",
+      "description": "七兄弟之一"
+    },
+    {
+      "name": "蛟魔王",
+      "description": "七兄弟之一"
+    },
+    {
+      "name": "鹏魔王",
+      "description": "七兄弟之一"
+    },
+    {
+      "name": "狮驼王",
+      "description": "七兄弟之一"
+    },
+    {
+      "name": "猕猴王",
+      "description": "七兄弟之一"
+    },
+    {
+      "name": "□狨王",
+      "description": "七兄弟之一"
+    },
+    {
+      "name": "十代冥王",
+      "description": "阴间天子，包括秦广王、初江王、宋帝王、忤官王、阎罗王、平等王、泰山王、都市王、卞城王、转轮王"
+    },
+    {
+      "name": "地藏王菩萨",
+      "description": "幽冥教主"
+    },
+    {
+      "name": "玉皇大帝",
+      "description": "高天上圣大慈仁者，玉皇大天尊玄穹高上帝"
+    },
+    {
+      "name": "太白金星",
+      "description": "西方太白金星，奉玉帝招安圣旨下界"
+    },
+    {
+      "name": "千里眼",
+      "description": "玉帝手下神将"
+    },
+    {
+      "name": "顺风耳",
+      "description": "玉帝手下神将"
+    }
+  ],
+  "locations": [
+    {
+      "name": "花果山",
+      "type": "山",
+      "parent": "东胜神洲"
+    },
+    {
+      "name": "水帘洞",
+      "type": "洞穴",
+      "parent": "花果山"
+    },
+    {
+      "name": "傲来国",
+      "type": "国家",
+      "parent": "东胜神洲"
+    },
+    {
+      "name": "兵器馆",
+      "type": "建筑",
+      "parent": "傲来国"
+    },
+    {
+      "name": "武库",
+      "type": "建筑",
+      "parent": "傲来国"
+    },
+    {
+      "name": "东海",
+      "type": "海域",
+      "parent": null
+    },
+    {
+      "name": "水晶宫",
+      "type": "宫殿",
+      "parent": "东海"
+    },
+    {
+      "name": "海藏",
+      "type": "藏室",
+      "parent": "水晶宫"
+    },
+    {
+      "name": "铁板桥",
+      "type": "桥梁",
+      "parent": "花果山"
+    },
+    {
+      "name": "幽冥界",
+      "type": "阴间",
+      "parent": null
+    },
+    {
+      "name": "森罗殿",
+      "type": "殿堂",
+      "parent": "幽冥界"
+    },
+    {
+      "name": "翠云宫",
+      "type": "宫殿",
+      "parent": "幽冥界"
+    },
+    {
+      "name": "天庭",
+      "type": "天界",
+      "parent": null
+    },
+    {
+      "name": "灵霄宝殿",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "金阙云宫",
+      "type": "宫殿",
+      "parent": "天庭"
+    },
+    {
+      "name": "南天门",
+      "type": "门户",
+      "parent": "天庭"
+    },
+    {
+      "name": "东胜神洲",
+      "type": "大洲",
+      "parent": null
+    },
+    {
+      "name": "西海",
+      "type": "海域",
+      "parent": null
+    },
+    {
+      "name": "南海",
+      "type": "海域",
+      "parent": null
+    },
+    {
+      "name": "北海",
+      "type": "海域",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "美猴王",
+      "person_b": "孙悟空",
+      "relation_type": "同一人"
+    },
+    {
+      "person_a": "东海龙王敖广",
+      "person_b": "南海龙王敖钦",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "东海龙王敖广",
+      "person_b": "北海龙王敖顺",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "东海龙王敖广",
+      "person_b": "西海龙王敖闰",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "牛魔王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "蛟魔王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "鹏魔王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "狮驼王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "猕猴王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "□狨王",
+      "relation_type": "结拜兄弟"
+    },
+    {
+      "person_a": "东海龙王敖广",
+      "person_b": "龙婆",
+      "relation_type": "夫妻"
+    },
+    {
+      "person_a": "东海龙王敖广",
+      "person_b": "龙女",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "赤尻马猴",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "孙悟空",
+      "person_b": "通背猿猴",
+      "relation_type": "主从"
+    },
+    {
+      "person_a": "太白金星",
+      "person_b": "玉皇大帝",
+      "relation_type": "君臣"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "花果山",
+      "target": "东胜神洲",
+      "relation_type": "contains",
+      "value": "位于东胜神洲"
+    },
+    {
+      "source": "水帘洞",
+      "target": "花果山",
+      "relation_type": "contains",
+      "value": "位于花果山中"
+    },
+    {
+      "source": "傲来国",
+      "target": "花果山",
+      "relation_type": "direction",
+      "value": "向东二百里水面"
+    },
+    {
+      "source": "兵器馆",
+      "target": "傲来国",
+      "relation_type": "contains",
+      "value": "位于傲来国中"
+    },
+    {
+      "source": "武库",
+      "target": "傲来国",
+      "relation_type": "contains",
+      "value": "位于傲来国中"
+    },
+    {
+      "source": "水晶宫",
+      "target": "东海",
+      "relation_type": "contains",
+      "value": "位于东海海底"
+    },
+    {
+      "source": "海藏",
+      "target": "水晶宫",
+      "relation_type": "contains",
+      "value": "位于水晶宫中间"
+    },
+    {
+      "source": "铁板桥",
+      "target": "水帘洞",
+      "relation_type": "adjacent",
+      "value": "洞门外"
+    },
+    {
+      "source": "东海",
+      "target": "铁板桥",
+      "relation_type": "direction",
+      "value": "铁板桥下水通东海龙宫"
+    },
+    {
+      "source": "森罗殿",
+      "target": "幽冥界",
+      "relation_type": "contains",
+      "value": "位于幽冥界中"
+    },
+    {
+      "source": "翠云宫",
+      "target": "幽冥界",
+      "relation_type": "contains",
+      "value": "位于幽冥界中"
+    },
+    {
+      "source": "灵霄宝殿",
+      "target": "天庭",
+      "relation_type": "contains",
+      "value": "位于天庭中"
+    },
+    {
+      "source": "金阙云宫",
+      "target": "天庭",
+      "relation_type": "contains",
+      "value": "位于天庭中"
+    },
+    {
+      "source": "南天门",
+      "target": "天庭",
+      "relation_type": "contains",
+      "value": "天庭出入口"
+    }
+  ],
+  "_chapter": 3,
+  "_input_tokens": 8572,
+  "_output_tokens": 2616
+}

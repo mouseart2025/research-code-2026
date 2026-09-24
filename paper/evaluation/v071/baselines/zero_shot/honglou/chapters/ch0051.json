@@ -1,0 +1,269 @@
+{
+  "characters": [
+    {
+      "name": "薛宝钗",
+      "description": "组织联句活动，性格温和理智"
+    },
+    {
+      "name": "李纨",
+      "description": "稻香老农，负责评判诗作，关心众人"
+    },
+    {
+      "name": "凤姐儿",
+      "description": "王熙凤，机智幽默，善于言辞"
+    },
+    {
+      "name": "香菱",
+      "description": "参与联句的女子"
+    },
+    {
+      "name": "探春",
+      "description": "参与联句和猜谜的贾府小姐"
+    },
+    {
+      "name": "李绮",
+      "description": "李纨的妹妹，参与诗词活动"
+    },
+    {
+      "name": "李纹",
+      "description": "李纨的妹妹，参与诗词活动"
+    },
+    {
+      "name": "岫烟",
+      "description": "邢岫烟，参与联句和作诗"
+    },
+    {
+      "name": "湘云",
+      "description": "史湘云，联句敏捷，性格活泼"
+    },
+    {
+      "name": "宝琴",
+      "description": "薛宝琴，年纪最小但才思敏捷，已许配梅翰林之子"
+    },
+    {
+      "name": "黛玉",
+      "description": "林黛玉，参与联句和诗词创作"
+    },
+    {
+      "name": "宝玉",
+      "description": "贾宝玉，被罚去取红梅，联句能力较弱"
+    },
+    {
+      "name": "妙玉",
+      "description": "栊翠庵的僧尼，为人孤僻"
+    },
+    {
+      "name": "贾母",
+      "description": "老太太，坐小竹轿来看众人，喜欢热闹"
+    },
+    {
+      "name": "惜春",
+      "description": "四妹妹，在暖香坞作画"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝琴的姨母，想为宝琴说媒"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉的丫鬟"
+    },
+    {
+      "name": "平儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "鸳鸯",
+      "description": "贾母的丫鬟"
+    },
+    {
+      "name": "琥珀",
+      "description": "贾母的丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "稻香村",
+      "type": "居住区",
+      "parent": "大观园"
+    },
+    {
+      "name": "栊翠庵",
+      "type": "庵堂",
+      "parent": "大观园"
+    },
+    {
+      "name": "藕香榭",
+      "type": "亭榭",
+      "parent": "大观园"
+    },
+    {
+      "name": "暖香坞",
+      "type": "居住区",
+      "parent": "大观园"
+    },
+    {
+      "name": "大观园",
+      "type": "园林",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾母房中",
+      "type": "居住区",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    },
+    {
+      "name": "夹道",
+      "type": "通道",
+      "parent": "大观园"
+    },
+    {
+      "name": "山坡",
+      "type": "地形",
+      "parent": "大观园"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "薛宝钗",
+      "person_b": "宝琴",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "李绮",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "李纨",
+      "person_b": "李纹",
+      "relation_type": "姐妹"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝琴",
+      "relation_type": "姨母外甥女"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "薛宝钗",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "宝玉",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "探春",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "贾母",
+      "person_b": "惜春",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "宝玉",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "平儿",
+      "person_b": "凤姐儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "鸳鸯",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "琥珀",
+      "person_b": "贾母",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝琴",
+      "person_b": "梅翰林之子",
+      "relation_type": "已许配"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "大观园",
+      "target": "稻香村",
+      "relation_type": "contains",
+      "value": "园中居住区"
+    },
+    {
+      "source": "大观园",
+      "target": "栊翠庵",
+      "relation_type": "contains",
+      "value": "园中庵堂"
+    },
+    {
+      "source": "大观园",
+      "target": "藕香榭",
+      "relation_type": "contains",
+      "value": "园中亭榭"
+    },
+    {
+      "source": "大观园",
+      "target": "暖香坞",
+      "relation_type": "contains",
+      "value": "园中居住区"
+    },
+    {
+      "source": "大观园",
+      "target": "夹道",
+      "relation_type": "contains",
+      "value": "园中通道"
+    },
+    {
+      "source": "贾府",
+      "target": "大观园",
+      "relation_type": "contains",
+      "value": "府中园林"
+    },
+    {
+      "source": "贾府",
+      "target": "贾母房中",
+      "relation_type": "contains",
+      "value": "府中居住区"
+    },
+    {
+      "source": "夹道",
+      "target": "暖香坞",
+      "relation_type": "adjacent",
+      "value": "通过夹道到达"
+    },
+    {
+      "source": "稻香村",
+      "target": "藕香榭",
+      "relation_type": "adjacent",
+      "value": "需经过到达夹道"
+    },
+    {
+      "source": "夹道",
+      "target": "穿云",
+      "relation_type": "contains",
+      "value": "西门外匾"
+    },
+    {
+      "source": "夹道",
+      "target": "度月",
+      "relation_type": "contains",
+      "value": "西门内匾"
+    }
+  ],
+  "_chapter": 51,
+  "_input_tokens": 9077,
+  "_output_tokens": 1788
+}

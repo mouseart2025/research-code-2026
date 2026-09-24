@@ -1,0 +1,162 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "主要人物，二爷，需要念书上学，年纪比兰哥儿大，是叔叔辈分"
+    },
+    {
+      "name": "秋纹",
+      "description": "丫鬟，负责传话"
+    },
+    {
+      "name": "袭人",
+      "description": "丫鬟，宝玉的贴身丫鬟，关心宝玉学业，每月多得二两银子"
+    },
+    {
+      "name": "麝月",
+      "description": "丫鬟，性格活泼，喜欢开玩笑"
+    },
+    {
+      "name": "林姑娘",
+      "description": "宝玉的表妹，住在潇湘馆，与宝玉有深厚感情"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝姐姐的母亲"
+    },
+    {
+      "name": "宝姐姐",
+      "description": "薛姨妈的女儿"
+    },
+    {
+      "name": "老太太",
+      "description": "贾府长辈，有权威地位，每年办消寒会"
+    },
+    {
+      "name": "老爷",
+      "description": "宝玉的父亲，严格要求宝玉念书"
+    },
+    {
+      "name": "太太",
+      "description": "贾府女主人"
+    },
+    {
+      "name": "兰哥儿",
+      "description": "学习勤奋的孩子，念书很好，每天学到四更才睡"
+    }
+  ],
+  "locations": [
+    {
+      "name": "潇湘馆",
+      "type": "居住院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "怡红院",
+      "type": "居住院落",
+      "parent": "贾府"
+    },
+    {
+      "name": "学房",
+      "type": "教育场所",
+      "parent": "贾府"
+    },
+    {
+      "name": "老太太那里",
+      "type": "居住场所",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "大宅院",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "林姑娘",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "秋纹",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "麝月",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "老太太",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "老爷",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "兰哥儿",
+      "relation_type": "叔侄"
+    },
+    {
+      "person_a": "薛姨妈",
+      "person_b": "宝姐姐",
+      "relation_type": "母女"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "秋纹",
+      "relation_type": "同事"
+    },
+    {
+      "person_a": "袭人",
+      "person_b": "麝月",
+      "relation_type": "同事"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "潇湘馆",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "怡红院",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "学房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "老太太那里",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "潇湘馆",
+      "target": "怡红院",
+      "relation_type": "adjacent",
+      "value": "相近，可步行往来"
+    }
+  ],
+  "_chapter": 93,
+  "_input_tokens": 1417,
+  "_output_tokens": 1106
+}

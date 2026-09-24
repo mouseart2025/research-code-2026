@@ -1,0 +1,167 @@
+{
+  "xiyouji": {
+    "nodes": {
+      "voting": 605,
+      "full": 1046,
+      "intersection": 586
+    },
+    "naive": {
+      "voting_overall": 0.9825726141078838,
+      "full_overall": 0.9809128630705394
+    },
+    "fair_intersection": {
+      "voting": {
+        "overall": 0.9671772428884027,
+        "entity_precision": 1.0,
+        "name_accuracy": 0.9978118161925602,
+        "tier_accuracy": 0.9715536105032823,
+        "parent_precision": 0.9956236323851203,
+        "structural_health": 0.9956236323851203,
+        "error_count": 15,
+        "total_nodes": 457
+      },
+      "full": {
+        "overall": 0.975929978118162,
+        "entity_precision": 1.0,
+        "name_accuracy": 0.9978118161925602,
+        "tier_accuracy": 0.9824945295404814,
+        "parent_precision": 0.9978118161925602,
+        "structural_health": 0.9956236323851203,
+        "error_count": 11,
+        "total_nodes": 457
+      }
+    }
+  },
+  "honglou": {
+    "nodes": {
+      "voting": 531,
+      "full": 860,
+      "intersection": 519
+    },
+    "naive": {
+      "voting_overall": 0.977,
+      "full_overall": 0.972
+    },
+    "fair_intersection": {
+      "voting": {
+        "overall": 0.9735449735449735,
+        "entity_precision": 1.0,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.9788359788359788,
+        "parent_precision": 0.9894179894179894,
+        "structural_health": 0.9947089947089947,
+        "error_count": 10,
+        "total_nodes": 378
+      },
+      "full": {
+        "overall": 0.9735449735449735,
+        "entity_precision": 1.0,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.9788359788359788,
+        "parent_precision": 0.9894179894179894,
+        "structural_health": 0.9947089947089947,
+        "error_count": 10,
+        "total_nodes": 378
+      }
+    }
+  },
+  "shuihu": {
+    "nodes": {
+      "voting": 1162,
+      "full": 1751,
+      "intersection": 1153
+    },
+    "naive": {
+      "voting_overall": 0.8857556037599421,
+      "full_overall": 0.8900939985538684
+    },
+    "fair_intersection": {
+      "voting": {
+        "overall": 0.8282290279627164,
+        "entity_precision": 1.0,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.829560585885486,
+        "parent_precision": 1.0,
+        "structural_health": 0.9973368841544608,
+        "error_count": 129,
+        "total_nodes": 751
+      },
+      "full": {
+        "overall": 0.8348868175765646,
+        "entity_precision": 1.0,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.8348868175765646,
+        "parent_precision": 1.0,
+        "structural_health": 1.0,
+        "error_count": 124,
+        "total_nodes": 751
+      }
+    }
+  },
+  "sanguo": {
+    "nodes": {
+      "voting": 885,
+      "full": 1322,
+      "intersection": 873
+    },
+    "naive": {
+      "voting_overall": 0.8803571428571428,
+      "full_overall": 0.8767857142857143
+    },
+    "fair_intersection": {
+      "voting": {
+        "overall": 0.8571428571428572,
+        "entity_precision": 0.9985119047619048,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.8601190476190477,
+        "parent_precision": 0.9985119047619048,
+        "structural_health": 0.9985119047619048,
+        "error_count": 96,
+        "total_nodes": 672
+      },
+      "full": {
+        "overall": 0.8571428571428572,
+        "entity_precision": 0.9985119047619048,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.8616071428571428,
+        "parent_precision": 0.9985119047619048,
+        "structural_health": 0.9985119047619048,
+        "error_count": 96,
+        "total_nodes": 672
+      }
+    }
+  },
+  "fengshen": {
+    "nodes": {
+      "voting": 433,
+      "full": 653,
+      "intersection": 424
+    },
+    "naive": {
+      "voting_overall": 0.9399141630901288,
+      "full_overall": 0.9484978540772532
+    },
+    "fair_intersection": {
+      "voting": {
+        "overall": 0.930379746835443,
+        "entity_precision": 0.9936708860759493,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.9430379746835443,
+        "parent_precision": 0.9810126582278481,
+        "structural_health": 1.0,
+        "error_count": 11,
+        "total_nodes": 158
+      },
+      "full": {
+        "overall": 0.9367088607594937,
+        "entity_precision": 0.9936708860759493,
+        "name_accuracy": 1.0,
+        "tier_accuracy": 0.9556962025316456,
+        "parent_precision": 0.9873417721518988,
+        "structural_health": 1.0,
+        "error_count": 10,
+        "total_nodes": 158
+      }
+    }
+  }
+}

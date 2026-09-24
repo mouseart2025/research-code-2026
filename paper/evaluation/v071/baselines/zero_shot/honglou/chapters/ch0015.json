@@ -1,0 +1,341 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾府少爷，戴着束发银冠，穿着白蟒箭袖，面若春花，目如点漆"
+    },
+    {
+      "name": "北静王水溶",
+      "description": "王爷，戴着洁白簪缨银翅王帽，穿着江牙海水五爪坐龙白蟒袍，面如美玉，目似明星"
+    },
+    {
+      "name": "贾政",
+      "description": "宝玉的父亲，贾府家长"
+    },
+    {
+      "name": "贾赦",
+      "description": "贾府长辈"
+    },
+    {
+      "name": "贾珍",
+      "description": "宁府家长，主持丧事"
+    },
+    {
+      "name": "贾蓉",
+      "description": "贾珍之子"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾府管家奶奶，精明能干"
+    },
+    {
+      "name": "秦钟",
+      "description": "秦业之子，与宝玉关系密切，喜欢智能"
+    },
+    {
+      "name": "秦业",
+      "description": "秦钟的父亲，年迈多病"
+    },
+    {
+      "name": "智能",
+      "description": "水月庵小尼姑，约十七八岁，与秦钟有情"
+    },
+    {
+      "name": "净虚",
+      "description": "水月庵老尼，有求于凤姐"
+    },
+    {
+      "name": "智善",
+      "description": "水月庵尼姑，净虚的徒弟"
+    },
+    {
+      "name": "王夫人",
+      "description": "宝玉的母亲"
+    },
+    {
+      "name": "邢夫人",
+      "description": "贾府夫人"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老太太"
+    },
+    {
+      "name": "来旺儿",
+      "description": "贾府家人，办事能干"
+    },
+    {
+      "name": "宝珠",
+      "description": "执意不肯回家的女子"
+    },
+    {
+      "name": "二丫头",
+      "description": "村庄丫头，约十七八岁，会纺线"
+    },
+    {
+      "name": "云光",
+      "description": "长安节度使"
+    },
+    {
+      "name": "金哥",
+      "description": "张家女儿，被李衙内看中"
+    },
+    {
+      "name": "李衙内",
+      "description": "长安府府太爷的小舅子"
+    },
+    {
+      "name": "张家",
+      "description": "大财主，金哥的父亲"
+    }
+  ],
+  "locations": [
+    {
+      "name": "城门前",
+      "type": "城市入口",
+      "parent": "京城"
+    },
+    {
+      "name": "铁槛寺",
+      "type": "寺庙",
+      "parent": "郊外"
+    },
+    {
+      "name": "水月庵",
+      "type": "庵堂",
+      "parent": "郊外"
+    },
+    {
+      "name": "馒头庵",
+      "type": "庵堂",
+      "parent": "郊外"
+    },
+    {
+      "name": "村庄",
+      "type": "农村",
+      "parent": "郊外"
+    },
+    {
+      "name": "茅堂",
+      "type": "房屋",
+      "parent": "村庄"
+    },
+    {
+      "name": "净室",
+      "type": "房间",
+      "parent": "水月庵"
+    },
+    {
+      "name": "殿上",
+      "type": "大殿",
+      "parent": "水月庵"
+    },
+    {
+      "name": "内殿偏室",
+      "type": "房间",
+      "parent": "铁槛寺"
+    },
+    {
+      "name": "里寝室",
+      "type": "房间",
+      "parent": "铁槛寺"
+    },
+    {
+      "name": "长安县",
+      "type": "县城",
+      "parent": null
+    },
+    {
+      "name": "长安府",
+      "type": "府衙",
+      "parent": "长安县"
+    },
+    {
+      "name": "善才庵",
+      "type": "庵堂",
+      "parent": "长安县"
+    },
+    {
+      "name": "京城",
+      "type": "城市",
+      "parent": null
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": "京城"
+    },
+    {
+      "name": "宁府",
+      "type": "府邸",
+      "parent": "京城"
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "贾政",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "王夫人",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾母",
+      "relation_type": "祖孙"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "凤姐",
+      "relation_type": "兄嫂"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "秦钟",
+      "relation_type": "好友"
+    },
+    {
+      "person_a": "秦钟",
+      "person_b": "秦业",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "秦钟",
+      "person_b": "智能",
+      "relation_type": "情人"
+    },
+    {
+      "person_a": "贾珍",
+      "person_b": "贾蓉",
+      "relation_type": "父子"
+    },
+    {
+      "person_a": "贾赦",
+      "person_b": "贾政",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "净虚",
+      "person_b": "智善",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "净虚",
+      "person_b": "智能",
+      "relation_type": "师徒"
+    },
+    {
+      "person_a": "智善",
+      "person_b": "智能",
+      "relation_type": "师姐妹"
+    },
+    {
+      "person_a": "金哥",
+      "person_b": "张家",
+      "relation_type": "父女"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "来旺儿",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "水月庵",
+      "target": "铁槛寺",
+      "relation_type": "adjacent",
+      "value": "不远"
+    },
+    {
+      "source": "郊外",
+      "target": "京城",
+      "relation_type": "direction",
+      "value": "城外"
+    },
+    {
+      "source": "铁槛寺",
+      "target": "郊外",
+      "relation_type": "contains",
+      "value": "位于"
+    },
+    {
+      "source": "水月庵",
+      "target": "郊外",
+      "relation_type": "contains",
+      "value": "位于"
+    },
+    {
+      "source": "村庄",
+      "target": "郊外",
+      "relation_type": "contains",
+      "value": "位于"
+    },
+    {
+      "source": "内殿偏室",
+      "target": "铁槛寺",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "里寝室",
+      "target": "铁槛寺",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "净室",
+      "target": "水月庵",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "殿上",
+      "target": "水月庵",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "茅堂",
+      "target": "村庄",
+      "relation_type": "contains",
+      "value": "内部"
+    },
+    {
+      "source": "长安县",
+      "target": "京城",
+      "relation_type": "direction",
+      "value": "百里路程"
+    },
+    {
+      "source": "善才庵",
+      "target": "长安县",
+      "relation_type": "contains",
+      "value": "县内"
+    },
+    {
+      "source": "长安府",
+      "target": "长安县",
+      "relation_type": "contains",
+      "value": "县内"
+    },
+    {
+      "source": "贾府",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "城内"
+    },
+    {
+      "source": "宁府",
+      "target": "京城",
+      "relation_type": "contains",
+      "value": "城内"
+    }
+  ],
+  "_chapter": 15,
+  "_input_tokens": 6448,
+  "_output_tokens": 2122
+}

@@ -1,3 +1,5 @@
+import contextlib
+
 import aiosqlite
 
 from src.infra.config import DB_PATH, ensure_data_dir
@@ -116,6 +118,25 @@ CREATE TABLE IF NOT EXISTS layer_layouts (
     PRIMARY KEY (novel_id, layer_id, chapter_hash)
 );
 
+CREATE TABLE IF NOT EXISTS map_geo_artifacts (
+    novel_id        TEXT NOT NULL REFERENCES novels(id) ON DELETE CASCADE,
+    layer_id        TEXT NOT NULL,
+    chapter_hash    TEXT NOT NULL,
+    landmasses_json TEXT NOT NULL,
+    shelves_json    TEXT NOT NULL,
+    rivers_json     TEXT NOT NULL,
+    roads_json      TEXT NOT NULL,
+    geo_coords_json TEXT,
+    created_at      TEXT DEFAULT (datetime('now')),
+    PRIMARY KEY (novel_id, layer_id, chapter_hash)
+);
+
+CREATE TABLE IF NOT EXISTS map_layout_meta (
+    novel_id        TEXT PRIMARY KEY REFERENCES novels(id) ON DELETE CASCADE,
+    geo_failed      INTEGER NOT NULL DEFAULT 0,
+    updated_at      TEXT DEFAULT (datetime('now'))
+);
+
 CREATE TABLE IF NOT EXISTS world_structure_overrides (
     id            INTEGER PRIMARY KEY AUTOINCREMENT,
     novel_id      TEXT NOT NULL REFERENCES novels(id) ON DELETE CASCADE,
@@ -183,6 +204,34 @@ CREATE TABLE IF NOT EXISTS benchmark_records (
     created_at      TEXT DEFAULT (datetime('now'))
 );
 
+-- multi-pass 独立二审 (issue #70, Epic 1): 二审影子存储,主表 chapter_facts 零改动
+CREATE TABLE IF NOT EXISTS analysis_passes (
+    id              TEXT PRIMARY KEY,
+    novel_id        TEXT NOT NULL REFERENCES novels(id) ON DELETE CASCADE,
+    kind            TEXT NOT NULL DEFAULT 'source_pass',
+    model_name      TEXT,
+    status          TEXT DEFAULT 'running',
+    chapter_start   INTEGER NOT NULL,
+    chapter_end     INTEGER NOT NULL,
+    current_chapter INTEGER,
+    config_json     TEXT DEFAULT '{}',
+    history_json    TEXT DEFAULT '{}',
+    created_at      TEXT DEFAULT (datetime('now')),
+    updated_at      TEXT DEFAULT (datetime('now')),
+    completed_at    TEXT
+);
+
+CREATE TABLE IF NOT EXISTS pass_chapter_facts (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    pass_id         TEXT NOT NULL REFERENCES analysis_passes(id) ON DELETE CASCADE,
+    chapter_id      INTEGER NOT NULL REFERENCES chapters(id) ON DELETE CASCADE,
+    fact_json       TEXT NOT NULL,
+    status          TEXT DEFAULT 'completed',
+    error           TEXT,
+    created_at      TEXT DEFAULT (datetime('now')),
+    UNIQUE(pass_id, chapter_id)
+);
+
 CREATE INDEX IF NOT EXISTS idx_usage_events_type     ON usage_events(event_type);
 CREATE INDEX IF NOT EXISTS idx_usage_events_time     ON usage_events(created_at);
 CREATE INDEX IF NOT EXISTS idx_entity_dict_novel    ON entity_dictionary(novel_id, entity_type);
@@ -191,6 +240,8 @@ CREATE INDEX IF NOT EXISTS idx_chapter_facts_novel   ON chapter_facts(novel_id);
 CREATE INDEX IF NOT EXISTS idx_messages_conv         ON messages(conversation_id, created_at);
 CREATE INDEX IF NOT EXISTS idx_analysis_novel        ON analysis_tasks(novel_id, status);
 CREATE INDEX IF NOT EXISTS idx_layer_layouts_novel   ON layer_layouts(novel_id);
+CREATE INDEX IF NOT EXISTS idx_analysis_passes_novel ON analysis_passes(novel_id, status);
+CREATE INDEX IF NOT EXISTS idx_pass_facts_pass       ON pass_chapter_facts(pass_id);
 """
 
 
@@ -279,18 +330,19 @@ async def init_db() -> None:
         except Exception:
             pass  # Column already exists
         # Migration: add quality columns to chapter_facts
-        try:
+        with contextlib.suppress(Exception):
             await conn.execute(
                 "ALTER TABLE chapter_facts ADD COLUMN is_truncated INTEGER DEFAULT 0"
             )
-        except Exception:
-            pass
-        try:
+        with contextlib.suppress(Exception):
             await conn.execute(
                 "ALTER TABLE chapter_facts ADD COLUMN segment_count INTEGER DEFAULT 1"
             )
-        except Exception:
-            pass
+        # Migration (q1-2): LLM 输出截断可见性 —— 与 is_truncated(输入超长)区分
+        with contextlib.suppress(Exception):
+            await conn.execute(
+                "ALTER TABLE chapter_facts ADD COLUMN output_truncated INTEGER DEFAULT 0"
+            )
         # Migration: add error tracking columns to chapters for failure diagnosis
         for col, col_type in [("analysis_error", "TEXT"), ("error_type", "TEXT")]:
             try:
@@ -331,6 +383,13 @@ async def init_db() -> None:
         try:
             await conn.execute(
                 "ALTER TABLE map_layouts ADD COLUMN satisfaction_json TEXT"
+            )
+        except Exception:
+            pass  # Column already exists
+        # Migration: add geo_coords_json to map_geo_artifacts for cached geo coords
+        try:
+            await conn.execute(
+                "ALTER TABLE map_geo_artifacts ADD COLUMN geo_coords_json TEXT"
             )
         except Exception:
             pass  # Column already exists

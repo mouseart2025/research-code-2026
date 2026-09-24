@@ -1,0 +1,211 @@
+{
+  "characters": [
+    {
+      "name": "宝玉",
+      "description": "贾府公子，与林黛玉、薛宝钗关系密切"
+    },
+    {
+      "name": "林黛玉",
+      "description": "贾府小姐，宝玉的姑舅姊妹，性格敏感易怒"
+    },
+    {
+      "name": "薛宝钗",
+      "description": "薛姨妈的女儿，宝玉的两姨姊妹，性格温和"
+    },
+    {
+      "name": "袭人",
+      "description": "宝玉房中的大丫鬟，生病卧床"
+    },
+    {
+      "name": "李嬷嬷",
+      "description": "宝玉的奶妈，年老多事"
+    },
+    {
+      "name": "凤姐",
+      "description": "贾府当家奶奶，善于处理家务纠纷"
+    },
+    {
+      "name": "晴雯",
+      "description": "宝玉房中丫鬟，性格直爽"
+    },
+    {
+      "name": "麝月",
+      "description": "宝玉房中丫鬟，性格温顺体贴"
+    },
+    {
+      "name": "贾环",
+      "description": "宝玉的庶出弟弟，性格急躁"
+    },
+    {
+      "name": "史湘云",
+      "description": "史家姑娘，宝玉表妹，说话咬舌"
+    },
+    {
+      "name": "赵姨娘",
+      "description": "贾环的母亲，身份是姨娘"
+    },
+    {
+      "name": "莺儿",
+      "description": "宝钗的丫鬟"
+    },
+    {
+      "name": "香菱",
+      "description": "薛家丫鬟"
+    },
+    {
+      "name": "贾母",
+      "description": "贾府老祖宗"
+    },
+    {
+      "name": "薛姨妈",
+      "description": "宝钗的母亲"
+    },
+    {
+      "name": "丰儿",
+      "description": "凤姐的丫鬟"
+    },
+    {
+      "name": "绮霰",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "秋纹",
+      "description": "宝玉房中丫鬟"
+    },
+    {
+      "name": "碧痕",
+      "description": "宝玉房中丫鬟"
+    }
+  ],
+  "locations": [
+    {
+      "name": "林黛玉房",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "宝玉房",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "薛姨妈处",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "上房",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾母处",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "赵姨娘房",
+      "type": "居室",
+      "parent": "贾府"
+    },
+    {
+      "name": "贾府",
+      "type": "府邸",
+      "parent": null
+    }
+  ],
+  "relationships": [
+    {
+      "person_a": "宝玉",
+      "person_b": "林黛玉",
+      "relation_type": "姑舅姊妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "薛宝钗",
+      "relation_type": "两姨姊妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "贾环",
+      "relation_type": "兄弟"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "史湘云",
+      "relation_type": "表兄妹"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "袭人",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "宝玉",
+      "person_b": "李嬷嬷",
+      "relation_type": "主仆（奶妈）"
+    },
+    {
+      "person_a": "贾环",
+      "person_b": "赵姨娘",
+      "relation_type": "母子"
+    },
+    {
+      "person_a": "薛宝钗",
+      "person_b": "莺儿",
+      "relation_type": "主仆"
+    },
+    {
+      "person_a": "凤姐",
+      "person_b": "丰儿",
+      "relation_type": "主仆"
+    }
+  ],
+  "spatial_relationships": [
+    {
+      "source": "贾府",
+      "target": "林黛玉房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "宝玉房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "薛姨妈处",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "上房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "贾母处",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "贾府",
+      "target": "赵姨娘房",
+      "relation_type": "contains",
+      "value": "包含"
+    },
+    {
+      "source": "薛姨妈处",
+      "target": "贾母处",
+      "relation_type": "adjacent",
+      "value": "相邻"
+    }
+  ],
+  "_chapter": 20,
+  "_input_tokens": 6764,
+  "_output_tokens": 1425
+}
